@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skill-lint"
+version = "0.1.0"
+description = "A dependency-light linter for Agent Skills (SKILL.md)."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Brandon M. Crenshaw" }]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+skill-lint = "skill_lint.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["skill_lint*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
