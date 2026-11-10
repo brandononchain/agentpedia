@@ -195,6 +195,13 @@ summary:focus-visible {
 
 html {
   scrollbar-color: var(--muted-ink) var(--paper);
+  overflow-x: clip;
+}
+
+body,
+main {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .skip-link {
@@ -225,8 +232,10 @@ html {
 .portal,
 .wiki-frame,
 .page-wrap {
-  width: min(76rem, calc(100% - 2rem));
+  width: min(76rem, calc(100% - 2rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
   margin-inline: auto;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .site-head-inner {
@@ -250,9 +259,19 @@ html {
 .site-nav {
   display: flex;
   gap: 0.9rem;
-  overflow-x: auto;
-  font-size: 0.95rem;
+  min-width: 0;
   max-width: 100%;
+  font-size: 0.95rem;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.head-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .site-nav a {
@@ -273,17 +292,19 @@ html {
   align-items: stretch;
   margin-left: auto;
   min-width: min(16rem, 100%);
+  max-width: 100%;
   border-bottom: 1px solid var(--ink);
 }
 
 .head-search input {
   width: 9rem;
   flex: 1;
+  min-width: 0;
   border: 0;
   background: transparent;
   color: var(--ink);
   font: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem;
   padding: 0.25rem 0.4rem 0.25rem 0;
 }
 
@@ -358,13 +379,14 @@ html {
 
 .site-foot-inner {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
   padding: 1.6rem 0 2rem;
 }
 
 @media (min-width: 720px) {
   .site-foot-inner {
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
   }
 }
 
@@ -453,7 +475,7 @@ html {
 
 .shelf-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   margin-top: 2.4rem;
   border-top: 1px solid var(--rule);
   border-left: 1px solid var(--rule);
@@ -461,7 +483,7 @@ html {
 
 @media (min-width: 800px) {
   .shelf-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -496,22 +518,48 @@ html {
   .site-head-inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "mark tools"
+      "search search"
+      "menu menu";
     column-gap: 0.75rem;
-    row-gap: 0.45rem;
+    row-gap: 0.55rem;
+    align-items: center;
   }
-  .wordmark { grid-area: 1 / 1; }
-  .theme-toggle { grid-area: 1 / 2; }
-  .site-nav {
-    grid-area: 2 / 1 / 3 / -1;
-    flex-wrap: wrap;
-    overflow: visible;
-    row-gap: 0.2rem;
-    padding-bottom: 0.15rem;
+  .wordmark {
+    grid-area: mark;
+    min-width: 0;
   }
+  .head-tools { grid-area: tools; }
   .head-search {
-    grid-area: 3 / 1 / 4 / -1;
+    grid-area: search;
     margin-left: 0;
     min-width: 0;
+    width: 100%;
+  }
+  .head-search input,
+  .head-search button,
+  .nav-toggle,
+  .theme-toggle {
+    min-height: 44px;
+  }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+  .site-nav {
+    display: none;
+    grid-area: menu;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .site-nav.is-open { display: flex; }
+  .site-nav a {
+    min-height: 44px;
+    padding: 0.65rem 0;
+    border-top: 1px solid var(--rule);
+    white-space: normal;
   }
 }
 
@@ -529,13 +577,14 @@ html {
 
 .modules {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2.2rem;
   margin-top: 2.8rem;
 }
 
 @media (min-width: 960px) {
   .modules {
-    grid-template-columns: 1.25fr 1fr 1fr;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr);
     gap: 2rem;
   }
 }
@@ -587,6 +636,7 @@ html {
 
 .wiki-frame {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
   padding: 1.4rem 0 2rem;
 }
@@ -601,16 +651,22 @@ html {
 
 .wiki-rail {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.85rem 1.1rem;
-  overflow-x: auto;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
   padding-bottom: 0.35rem;
   border-bottom: 1px solid var(--rule);
 }
 
 .rail-group {
   display: flex;
-  gap: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
   align-items: baseline;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .rail-label {
@@ -621,7 +677,6 @@ html {
 .rail-link,
 .wiki-rail a {
   color: var(--accent-ink);
-  white-space: nowrap;
 }
 
 .wiki-rail a[aria-current="page"] {
@@ -683,9 +738,25 @@ html {
 
 .wiki-split {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.6rem;
   margin-top: 1.2rem;
 }
+
+.wiki-reading,
+.plate,
+.wiki-prose,
+.contents,
+.lede,
+.see-also,
+.refs,
+.pager {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.wiki-reading { order: 1; }
+.plate { order: 2; }
 
 @media (min-width: 1100px) {
   .wiki-split {
@@ -694,12 +765,6 @@ html {
   }
   .wiki-split:not(:has(.plate)) {
     grid-template-columns: minmax(0, 70ch);
-  }
-  .wiki-reading {
-    order: 1;
-  }
-  .plate {
-    order: 2;
   }
 }
 
@@ -723,10 +788,27 @@ html {
 
 .plate dl {
   display: grid;
-  grid-template-columns: 6.2rem minmax(0, 1fr);
-  gap: 0.35rem 0.6rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.15rem 0;
   margin-top: 0.7rem;
   font-size: 0.95rem;
+}
+
+.plate dt {
+  margin-top: 0.55rem;
+}
+
+.plate dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 720px) {
+  .plate dl {
+    grid-template-columns: 6.2rem minmax(0, 1fr);
+    gap: 0.35rem 0.6rem;
+  }
+  .plate dt { margin-top: 0; }
 }
 
 .plate dd a,
@@ -754,7 +836,7 @@ html {
 }
 
 .contents {
-  max-width: 24rem;
+  max-width: min(24rem, 100%);
   margin: 0 0 1.4rem;
   border: 1px solid var(--rule);
   padding: 0.75rem 0.95rem 0.85rem;
@@ -833,25 +915,52 @@ html {
 
 .wiki-prose code {
   font-size: 0.86em;
+  overflow-wrap: break-word;
+}
+
+.wiki-prose :not(pre) > code {
+  white-space: pre-wrap;
 }
 
 .wiki-prose pre,
-.snippet {
+.snippet,
+.table-scroll {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
   margin: 1rem 0;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   border: 1px solid var(--rule);
   background: var(--code-bg);
   padding: 0.85rem 1rem;
   font-size: 0.78rem;
   line-height: 1.55;
+  -webkit-overflow-scrolling: touch;
 }
 
-.wiki-prose pre code {
+.table-scroll {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.wiki-prose pre code,
+.snippet code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  overflow-wrap: normal;
+  white-space: pre;
   background: transparent;
 }
 
-.wiki-prose table {
-  width: 100%;
+.wiki-prose table,
+.table-scroll table,
+.data-table {
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
   font-family: var(--font-sans);
   font-size: 0.92rem;
@@ -888,6 +997,27 @@ html {
 .letter-list,
 .change-list {
   margin-top: 0.55rem;
+}
+
+.entry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.entry-row .shelf-name,
+.letter-list,
+.change-list,
+.crumbs,
+.site-foot a,
+.site-foot li,
+.lede,
+.wiki-prose p,
+.wiki-prose li {
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .see-also li,
@@ -1000,8 +1130,10 @@ html {
 
 .search-layout {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.6rem;
   margin-top: 1.4rem;
+  min-width: 0;
 }
 
 @media (min-width: 960px) {
@@ -1013,8 +1145,10 @@ html {
 
 .filters {
   display: flex;
-  gap: 0.35rem;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
+  min-width: 0;
+  max-width: 100%;
   padding-bottom: 0.3rem;
 }
 
@@ -1027,7 +1161,7 @@ html {
   color: var(--muted-ink);
   font: inherit;
   text-align: left;
-  white-space: nowrap;
+  white-space: normal;
   padding: 0.25rem 0;
   cursor: pointer;
 }
@@ -1092,6 +1226,36 @@ html {
   }
   .filter-button {
     white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .portal {
+    padding: 1.8rem 0 2rem;
+  }
+  .portal-name {
+    font-size: clamp(2.5rem, 14vw, 3.4rem);
+  }
+  .portal-tagline,
+  .lede {
+    font-size: 1.05rem;
+  }
+  .entry-title {
+    font-size: clamp(1.85rem, 8vw, 2.4rem);
+  }
+  .shelf-name {
+    font-size: 1.15rem;
+  }
+  .shelf-grid a {
+    min-height: 4.6rem;
+    padding: 0.75rem 0.7rem 0.7rem;
+  }
+  .wiki-prose,
+  .glossary dd {
+    font-size: 1.05rem;
+  }
+  .wordmark {
+    font-size: 1.3rem;
   }
 }
 

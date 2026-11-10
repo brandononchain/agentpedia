@@ -29,6 +29,11 @@ export function MarkdownBody({ source, selfHref }: { source: string; selfHref?: 
     },
     h2: ({ children }) => <h2 id={headingId(plainText(children), seen)}>{children}</h2>,
     h3: ({ children }) => <h3 id={headingId(plainText(children), seen)}>{children}</h3>,
+    table: ({ children }) => (
+      <div className="table-scroll">
+        <table>{children}</table>
+      </div>
+    ),
   };
 
   return (
