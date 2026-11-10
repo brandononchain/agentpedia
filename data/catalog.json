@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T05:53:01.168993+00:00",
+  "generatedAt": "2026-11-10T16:07:28.611175+00:00",
   "repoUrl": "https://github.com/brandononchain/skilldex",
   "owner": {
     "name": "Brandon",
@@ -10,13 +10,13 @@
   "aaifUrl": "https://aaif.io/projects/agent-skills",
   "studyUrl": "https://arxiv.org/abs/2607.01456",
   "stats": {
-    "skills": 36,
+    "skills": 39,
     "agents": 8,
     "categories": 9,
     "errors": 0,
     "warnings": 0,
     "info": 0,
-    "clean": 36
+    "clean": 39
   },
   "scoring": {
     "start": 100,
@@ -240,7 +240,7 @@
       "id": "marketing",
       "label": "Marketing & X",
       "blurb": "Threads, launch posts, calendars, and pricing-page copy.",
-      "count": 4
+      "count": 5
     },
     {
       "id": "productivity",
@@ -258,13 +258,13 @@
       "id": "skill-authoring",
       "label": "Skill authoring",
       "blurb": "Write a skill, review one, and bundle skills into an agent.",
-      "count": 3
+      "count": 4
     },
     {
       "id": "trading",
       "label": "Trading & markets",
       "blurb": "Trade journals, position size, session briefs, and plans.",
-      "count": 4
+      "count": 5
     },
     {
       "id": "web-research",
@@ -330,6 +330,68 @@
       "rawUrl": "/raw/skills/skill-authoring/agent-bundler/SKILL.md",
       "zipUrl": "/raw/zips/agent-bundler.zip",
       "sourcePath": "skills/skill-authoring/agent-bundler"
+    },
+    {
+      "name": "docs-to-skill",
+      "title": "Docs to skill",
+      "description": "Turns a README, an API docs page, or CLI help text into a draft SKILL.md with a when-to-use description, steps, and long material moved into references/. Use when the user wants to package an existing tool or library as an agent skill from docs they already have.",
+      "category": "skill-authoring",
+      "categoryLabel": "Skill authoring",
+      "categoryBlurb": "Write a skill, review one, and bundle skills into an agent.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "added": "2026-11-10",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 3540,
+          "url": "/raw/skills/skill-authoring/docs-to-skill/SKILL.md"
+        },
+        {
+          "path": "references/source-split.md",
+          "bytes": 676,
+          "url": "/raw/skills/skill-authoring/docs-to-skill/references/source-split.md"
+        }
+      ],
+      "body": "# Docs to skill\n\nPackage a tool or library the user already has docs for. The source is a README, one API docs page, or CLI help text. The result is a draft skill an agent can run, not a second copy of the docs.\n\nThis is not skill-author. That skill writes from a task the user describes. This one starts from source text and may not invent behavior the source does not state.\n\n## Inputs\n\n- The source itself: a file path in the repo, pasted help text, or one docs page. If more than one source is offered, use only the ones the user names.\n- The job the skill should cover, if the source describes several. Ask when it is ambiguous.\n- Any limit the user states (no network, no writes, no publishing).\n\n## Outputs\n\n- A `SKILL.md` draft: third-person description that says when to use it, numbered steps, one example, and a validation check.\n- A `references/` file when the source has a long flag table, endpoint list, or sample payload. The body links to it and stays the short entrypoint.\n- A short note of what the source did not say, so the gap is visible.\n\n## Steps\n\n1. Read only the source the user supplied. If it is missing, ask for it. Do not fetch a different version and mix it in without saying so.\n2. Extract the job, how to invoke it, the required inputs, and the failures the source actually names. Use [the split](/raw/skills/skill-authoring/docs-to-skill/references/source-split.md) to decide what stays in the body and what moves to `references/`.\n3. Write the description in third person. Include a \"Use when\" clause and the words a host would match: the tool name and the verb (profile, deploy, query).\n4. Write numbered steps an agent can follow on every run. Point long tables at a references file instead of pasting them.\n5. Add one example taken from the source. If the source has no example, write a short one and label it \"constructed from the documented inputs,\" not as a real session.\n6. Validate the draft against the source. Every command, flag, and endpoint in the draft must appear in the source. Every relative link must exist. Secrets from sample docs must be removed. If skill-lint is available, run it and show the report. Do not call the draft done without that check when the linter is present.\n\n## Example\n\nUser: Package this help text. The tool profiles a CSV and prints the row count, empty cells, and a few sample values. It does not upload the file and it does not compute averages.\n\nAgent: The draft description says the skill profiles a CSV and to use it when the user asks what is in an export before analysis. The steps say to run the documented profiler and to report only the counts it prints. No references file is added, because the help text is shorter than a flag table. The note says averages are outside the tool. The draft is shown with the lint report when skill-lint is available, and without a claim of a clean lint when it is not.\n\n## Guardrails\n\nDo not copy a third-party skill in verbatim. Do not promote sample credentials from the docs into the skill. Do not describe a flag, endpoint, or guarantee the source does not mention. Do not pipe an installer into a shell as a setup step.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. .claude/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/docs-to-skill\ncp -R skilldex/skills/skill-authoring/docs-to-skill/. .claude/skills/docs-to-skill\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. .codex/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/docs-to-skill\ncp -R skilldex/skills/skill-authoring/docs-to-skill/. .codex/skills/docs-to-skill\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. .cursor/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/docs-to-skill\ncp -R skilldex/skills/skill-authoring/docs-to-skill/. .cursor/skills/docs-to-skill\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. bot/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/docs-to-skill\ncp -R skilldex/skills/skill-authoring/docs-to-skill/. bot/skills/docs-to-skill\n"
+        }
+      },
+      "rawUrl": "/raw/skills/skill-authoring/docs-to-skill/SKILL.md",
+      "zipUrl": "/raw/zips/docs-to-skill.zip",
+      "sourcePath": "skills/skill-authoring/docs-to-skill"
     },
     {
       "name": "market-data-briefing",
@@ -518,6 +580,63 @@
       "sourcePath": "skills/trading/position-risk-sizer"
     },
     {
+      "name": "prop-firm-rule-check",
+      "title": "Prop firm rule check",
+      "description": "Checks a proposed trade or day plan against prop-firm rules and account numbers the user supplies, then reports pass or fail with remaining headroom. Use when the user asks whether a trade still fits a daily loss limit, trailing drawdown, contract cap, news blackout, or consistency rule.",
+      "category": "trading",
+      "categoryLabel": "Trading & markets",
+      "categoryBlurb": "Trade journals, position size, session briefs, and plans.",
+      "tags": [
+        "risk",
+        "prop"
+      ],
+      "added": "2026-11-10",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 4186,
+          "url": "/raw/skills/trading/prop-firm-rule-check/SKILL.md"
+        }
+      ],
+      "body": "# Prop firm rule check\n\nCheck a proposed trade or a day plan against the rule card and the account numbers the user provides. Report pass or fail for each rule, the headroom left, and an overall result. This is a record of their rules. It is not an order and it is not a guess at a firm's current terms.\n\n## Inputs\n\nThe user supplies three groups. A missing field stays missing.\n\n- Rule card: daily loss limit, max trailing drawdown, max contracts, news blackout, and the consistency rule as they wrote it. A rule they do not provide is \"not provided\" and cannot pass.\n- Account now: equity or balance if they gave it, loss used today, trailing drawdown already used, contracts already open, and whether the entry time sits inside a news blackout. Use their definition of drawdown. Do not pick high-water versus start-of-day for them.\n- Proposal: instrument, direction, contracts or lots, and planned loss at the stop in account currency. Session time if a blackout is in the card.\n\n## Outputs\n\nOne line per rule on the card:\n\n- Status: pass, fail, or not checked.\n- The limit, the amount already used, the amount this proposal adds, and the headroom left.\n- Headroom is the limit minus what is already used minus what this proposal would add. Negative headroom is a fail.\n\nThe overall result is pass only when every rule on the card is pass. Any fail or any not-checked rule makes the overall result fail. Do not call a partial check a pass.\n\n## Steps\n\n1. Copy the rule card, the account numbers, and the proposal into the note. Mark every absent field as not provided. Do not fill it from memory or from a firm's public page the user did not paste.\n2. Daily loss. Headroom is the daily loss limit, minus loss used today, minus planned loss at the stop. Fail if the planned loss or the limit is missing, or if headroom is below zero.\n3. Trailing drawdown. Headroom is the max trailing drawdown, minus drawdown already used, minus planned loss at the stop. Fail if the stop loss, the limit, or the amount already used is missing. Do not assume which balance the firm trails from.\n4. Max contracts. Headroom is the contract cap, minus contracts already open, minus the proposed size. Fail if the cap or the open size is missing, or if the sum exceeds the cap.\n5. News blackout. Pass only when the user says the entry is outside the blackout. Fail when they say it is inside. Not checked when they did not say, and the overall result then fails.\n6. Consistency. Apply only the formula the user wrote, with the numbers they gave. If they named the rule but not the formula or the figures, mark it not checked. Do not invent a percentage.\n7. Validate the note against the inputs. Every limit and every account number must trace to the user. Delete a figure that does not. State the overall pass or fail in one line. Do not place, modify, or close an order.\n\n## Example\n\nUser: Daily loss limit 500, loss used today 200. Max contracts 3, none open. Proposal is 2 NQ contracts with 250 of planned loss at the stop. They did not give drawdown, a news status, or a consistency formula. Do not send an order.\n\nAgent: Daily loss passes. Headroom is 50, from 500 minus 200 minus 250. Contracts pass. Headroom is 1, from 3 minus 0 minus 2. Trailing drawdown, news blackout, and consistency are not checked, because those inputs were not provided. Overall result: fail. The two passing rules are not an overall pass. No order is sent.\n\n## Guardrails\n\nDo not invent a firm's rule, a price, a fill, or an account balance. Do not tell the user to take the trade. Do not raise a limit to make the check pass. Do not send an order to a terminal. This check is not investment advice and it is not a promise the firm will agree with the arithmetic.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. .claude/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/prop-firm-rule-check\ncp -R skilldex/skills/trading/prop-firm-rule-check/. .claude/skills/prop-firm-rule-check\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. .codex/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/prop-firm-rule-check\ncp -R skilldex/skills/trading/prop-firm-rule-check/. .codex/skills/prop-firm-rule-check\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. .cursor/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/prop-firm-rule-check\ncp -R skilldex/skills/trading/prop-firm-rule-check/. .cursor/skills/prop-firm-rule-check\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. bot/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/prop-firm-rule-check\ncp -R skilldex/skills/trading/prop-firm-rule-check/. bot/skills/prop-firm-rule-check\n"
+        }
+      },
+      "rawUrl": "/raw/skills/trading/prop-firm-rule-check/SKILL.md",
+      "zipUrl": "/raw/zips/prop-firm-rule-check.zip",
+      "sourcePath": "skills/trading/prop-firm-rule-check"
+    },
+    {
       "name": "skill-author",
       "title": "Skill author",
       "description": "Writes a new Agent Skill folder and checks it with skill-lint before calling it done. Use when the user asks to create, draft, or scaffold a SKILL.md file.",
@@ -641,6 +760,63 @@
       "rawUrl": "/raw/skills/skill-authoring/skill-reviewer/SKILL.md",
       "zipUrl": "/raw/zips/skill-reviewer.zip",
       "sourcePath": "skills/skill-authoring/skill-reviewer"
+    },
+    {
+      "name": "x-reply-scout",
+      "title": "X reply scout",
+      "description": "Ranks recent posts worth replying to for a niche and drafts short, specific replies for a person to review. Use when the user gives target accounts or keywords and wants a reply list rather than a post published for them.",
+      "category": "marketing",
+      "categoryLabel": "Marketing & X",
+      "categoryBlurb": "Threads, launch posts, calendars, and pricing-page copy.",
+      "tags": [
+        "x",
+        "replies"
+      ],
+      "added": "2026-11-10",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 3468,
+          "url": "/raw/skills/marketing/x-reply-scout/SKILL.md"
+        }
+      ],
+      "body": "# X reply scout\n\nBuild a review list of recent posts worth a reply, and a draft reply for each one. The user decides what gets posted. This skill stops at the list.\n\n## Inputs\n\n- The niche, in one sentence.\n- Target accounts, keywords, or both, as the user named them.\n- The posts in hand: author, text, time, and any public counts the user or a connector actually returned. A link is optional.\n- Voice notes, if the user gave them. If they did not, write plain and specific.\n\n## Outputs\n\nA ranked review list, nothing published.\n\n- Kept rows: rank, author, why this post is worth a reply, the draft reply, the character count, and the fact the reply depends on.\n- Skipped rows: the post and the reason (off niche, no new angle, or it would require a claim the user did not verify).\n- Missing data called out as \"not supplied,\" including likes, replies, and follower counts that were not in the input.\n\n## Steps\n\n1. Restate the niche and the accounts or keywords. If no posts were supplied and no connector returned any, stop and ask. Do not invent posts, timestamps, or counts.\n2. Keep a post only when it is on the niche and the user could add a specific detail from the post itself. Prefer posts the user marked as fresh or rising. If they did not supply a count or a time, do not guess that the post is rising.\n3. Skip posts that are off niche, that only invite a generic compliment, or that would require a personal fact, a metric, or a relationship the user did not verify.\n4. Draft one reply per kept post. Keep it at or under 280 characters. Tie it to a concrete line in that post. No \"great post,\" no follow-bait, and no tag the user did not name.\n5. Validate the list before showing it. Every cited post was in the input. Every draft is 280 characters or fewer, and the count is written next to it. No reply was published. Show the kept rows and the skipped rows, then wait.\n\n## Example\n\nUser: Niche is linted agent skills. Keywords are SKILL.md and skill smell. Posts supplied: one from a maintainer asking how people review skills before sharing them, posted this morning, no like count; one from a meme account with no text about skills. Do not post.\n\nAgent: Keeps the maintainer post because it asks the review question the niche can answer. Draft, 148 characters: \"We run a linter before a skill is listed. The usual failures are a description that never says when to use it, and no example. Happy to show the rule list.\" Then it deletes that draft, because \"we\" claims a practice the user did not state in this request, and rewrites to: \"The check I would want first: the description says when to use the skill, and there is one real example. What do you reject on sight?\" That second draft is the one on the list, with its character count. The meme post is skipped as off niche. Likes are marked not supplied. Nothing is posted.\n\n## Guardrails\n\nDo not post, like, repost, follow, or send a message. Do not invent a follower count, a view count, or a quote. Do not pretend the user read a thread that was not supplied. A draft the user has not accepted stays a draft.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. .claude/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/x-reply-scout\ncp -R skilldex/skills/marketing/x-reply-scout/. .claude/skills/x-reply-scout\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. .codex/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/x-reply-scout\ncp -R skilldex/skills/marketing/x-reply-scout/. .codex/skills/x-reply-scout\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. .cursor/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/x-reply-scout\ncp -R skilldex/skills/marketing/x-reply-scout/. .cursor/skills/x-reply-scout\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. bot/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/x-reply-scout\ncp -R skilldex/skills/marketing/x-reply-scout/. bot/skills/x-reply-scout\n"
+        }
+      },
+      "rawUrl": "/raw/skills/marketing/x-reply-scout/SKILL.md",
+      "zipUrl": "/raw/zips/x-reply-scout.zip",
+      "sourcePath": "skills/marketing/x-reply-scout"
     },
     {
       "name": "content-calendar",
@@ -2371,13 +2547,14 @@
   "agents": [
     {
       "name": "trade-desk",
-      "description": "Journals MT5 trades, sizes positions from a stop, writes a session plan, and briefs the market from supplied quotes. Use when the user wants a trading workflow rather than a single calculation.",
+      "description": "Journals MT5 trades, sizes positions from a stop, checks a plan against prop-firm rules the user supplies, writes a session plan, and briefs the market from supplied quotes. Use when the user wants a trading workflow rather than a single calculation.",
       "added": "2026-11-10",
       "skills": [
         "mt5-trade-journal",
         "position-risk-sizer",
         "market-data-briefing",
-        "session-plan"
+        "session-plan",
+        "prop-firm-rule-check"
       ],
       "connectors": [
         "MetaTrader 5 (optional, read-only)",
@@ -2386,27 +2563,30 @@
       "prompts": [
         "Journal the closed ticket I pasted and flag whether I followed the stop.",
         "Size a position for 0.5% risk. Equity and stop are in the next lines. Do not send an order.",
-        "Write the pre-London briefing from these quotes only. Do not invent a price."
+        "Write the pre-London briefing from these quotes only. Do not invent a price.",
+        "Check this 2-contract plan against the daily loss and max contracts I pasted. Do not send an order."
       ],
-      "body": "# Trade desk\n\nKeeps a written record and the arithmetic around risk. Connectors are optional and read-only: if they are not available, the user pastes the numbers. Missing numbers stay missing.\n\n## Which skill\n\n1. Use session-plan before the session, and refuse to continue without a max loss.\n2. Use position-risk-sizer when a size is requested and the inputs are positive numbers.\n3. Use market-data-briefing only from quotes and headlines on hand.\n4. Use mt5-trade-journal after a trade is closed.\n\n## Example\n\nUser: I want a 2 lot EURUSD buy because I feel confident. Equity is 10,000 and I did not pick a stop.\n\nAgent: Refuses the size. It asks for a stop and a risk percent, runs the sizer only after those exist, and does not send an order. Confidence is not an input.\n\n## Boundaries\n\nDoes not place, modify, or close orders. Does not predict a profit. Does not raise a max loss the user already set. This is not investment advice; it is a record and a calculator.\n",
+      "body": "# Trade desk\n\nKeeps a written record and the arithmetic around risk. Connectors are optional and read-only: if they are not available, the user pastes the numbers. Missing numbers stay missing.\n\n## Which skill\n\n1. Use session-plan before the session, and refuse to continue without a max loss.\n2. Use prop-firm-rule-check when the user supplies a firm's rules and the account numbers. A missing rule is not a pass.\n3. Use position-risk-sizer when a size is requested and the inputs are positive numbers.\n4. Use market-data-briefing only from quotes and headlines on hand.\n5. Use mt5-trade-journal after a trade is closed.\n\n## Example\n\nUser: I want a 2 lot EURUSD buy because I feel confident. Equity is 10,000 and I did not pick a stop.\n\nAgent: Refuses the size. It asks for a stop and a risk percent, runs the sizer only after those exist, and does not send an order. Confidence is not an input.\n\n## Boundaries\n\nDoes not place, modify, or close orders. Does not predict a profit. Does not raise a max loss or a firm limit the user already set, and does not invent a rule they did not paste. This is not investment advice; it is a record and a calculator.\n",
       "sourcePath": "agents/trade-desk"
     },
     {
       "name": "skill-smith",
-      "description": "Writes a new skill, reviews an existing one, and bundles skills into an agent manifest. Use when the user wants to author or audit Agent Skills rather than use a single domain skill.",
+      "description": "Writes a skill from a task or from existing docs, reviews a skill, and bundles skills into an agent manifest. Use when the user wants to author or audit Agent Skills rather than use a single domain skill.",
       "added": "2026-11-10",
       "skills": [
         "skill-author",
         "skill-reviewer",
-        "agent-bundler"
+        "agent-bundler",
+        "docs-to-skill"
       ],
       "connectors": [],
       "prompts": [
         "Write a skill for journaling closed MT5 trades and lint it before you show me.",
         "Review this SKILL.md and tell me whether it should ship.",
-        "Bundle the research skills into an agent and name the sample prompts."
+        "Bundle the research skills into an agent and name the sample prompts.",
+        "Turn this CLI help into a skill. Keep the long flag table in references. Do not invent flags."
       ],
-      "body": "# Skill smith\n\nThe catalog's own authoring agent. A skill is not done until skill-lint reports zero errors and zero warnings. An agent is not done until every bundled skill exists.\n\n## Which skill\n\n1. Use skill-author to create a folder. Run the linter before showing the result as finished.\n2. Use skill-reviewer when a file already exists. Lead with the ship / do-not-ship line.\n3. Use agent-bundler only after the skills it names are real. Safety limits in those skills carry into the agent.\n\n## Example\n\nUser: Add a skill and an agent for our support macros. Here is the macro doc.\n\nAgent: Writes one skill with steps, an example, and a validation check, lints it, then writes an agent that bundles that skill only. It does not attach unrelated sales skills. If lint fails, the user sees the findings instead of a claim that the skill is ready.\n\n## Boundaries\n\nDo not vendor someone else's skill text. Do not weaken a safety check to get a clean review. Do not add credentials to examples.\n",
+      "body": "# Skill smith\n\nThe catalog's own authoring agent. A skill is not done until skill-lint reports zero errors and zero warnings. An agent is not done until every bundled skill exists.\n\n## Which skill\n\n1. Use skill-author to create a folder from a task the user describes. Run the linter before showing the result as finished.\n2. Use docs-to-skill when the user already has a README, an API page, or CLI help. Do not invent behavior the source does not state.\n3. Use skill-reviewer when a file already exists. Lead with the ship / do-not-ship line.\n4. Use agent-bundler only after the skills it names are real. Safety limits in those skills carry into the agent.\n\n## Example\n\nUser: Add a skill and an agent for our support macros. Here is the macro doc.\n\nAgent: Writes one skill with steps, an example, and a validation check, lints it, then writes an agent that bundles that skill only. It does not attach unrelated sales skills. If lint fails, the user sees the findings instead of a claim that the skill is ready.\n\n## Boundaries\n\nDo not vendor someone else's skill text. Do not weaken a safety check to get a clean review. Do not add credentials to examples.\n",
       "sourcePath": "agents/skill-smith"
     },
     {
@@ -2436,13 +2616,14 @@
     },
     {
       "name": "growth-desk",
-      "description": "Drafts X threads, launch posts, a two-week calendar, and pricing-page copy from facts the user supplies. Use when the user wants marketing writing that stays tied to the real product.",
+      "description": "Drafts X threads, launch posts, reply lists, a two-week calendar, and pricing-page copy from facts the user supplies. Use when the user wants marketing writing that stays tied to the real product and is not published unless they ask.",
       "added": "2026-11-09",
       "skills": [
         "x-thread-drafter",
         "launch-post-set",
         "content-calendar",
-        "pricing-page-copy"
+        "pricing-page-copy",
+        "x-reply-scout"
       ],
       "connectors": [
         "X (optional, and only to publish when the user explicitly asks)"
@@ -2450,9 +2631,10 @@
       "prompts": [
         "Draft a four-post thread about the lint badge. Do not post it.",
         "Write the three launch posts from this fact list.",
-        "Plan two weeks of posts about how a skill gets reviewed."
+        "Plan two weeks of posts about how a skill gets reviewed.",
+        "Here are the posts and the niche. Rank which are worth a reply and draft the replies. Do not post."
       ],
-      "body": "# Growth desk\n\nWrites public copy from a fact list. Publishing to X is a separate, explicit ask. The default stop is a draft.\n\n## Which skill\n\n1. Use x-thread-drafter for a sequence of posts and launch-post-set for a small announcement.\n2. Use content-calendar when the user needs slots and reasons, not finished posts for every day.\n3. Use pricing-page-copy only from a real offer. Missing prices stay as gaps.\n\n## Example\n\nUser: We launch tomorrow. Write the posts. Here are the only facts you can use. Do not publish.\n\nAgent: Uses launch-post-set, counts characters, and returns drafts. It does not call X. It cuts any line about user counts because that fact was not provided.\n\n## Boundaries\n\nDo not buy engagement, invent social proof, or schedule posts the user has not approved.\n",
+      "body": "# Growth desk\n\nWrites public copy from a fact list. Publishing to X is a separate, explicit ask. The default stop is a draft.\n\n## Which skill\n\n1. Use x-thread-drafter for a sequence of posts and launch-post-set for a small announcement.\n2. Use x-reply-scout when the user wants replies to posts already in hand. Return a review list. Do not post it.\n3. Use content-calendar when the user needs slots and reasons, not finished posts for every day.\n4. Use pricing-page-copy only from a real offer. Missing prices stay as gaps.\n\n## Example\n\nUser: We launch tomorrow. Write the posts. Here are the only facts you can use. Do not publish.\n\nAgent: Uses launch-post-set, counts characters, and returns drafts. It does not call X. It cuts any line about user counts because that fact was not provided.\n\n## Boundaries\n\nDo not buy engagement, invent social proof, or schedule posts the user has not approved. A reply draft is not a post. x-reply-scout never publishes.\n",
       "sourcePath": "agents/growth-desk"
     },
     {
@@ -2539,12 +2721,15 @@
     {
       "date": "2026-11-10",
       "skills": [
+        "x-reply-scout",
         "agent-bundler",
+        "docs-to-skill",
         "skill-author",
         "skill-reviewer",
         "market-data-briefing",
         "mt5-trade-journal",
-        "position-risk-sizer"
+        "position-risk-sizer",
+        "prop-firm-rule-check"
       ],
       "agents": [
         "skill-smith",
