@@ -1,49 +1,50 @@
 import type { Metadata } from "next";
-import { Fraunces, Geist_Mono, Outfit } from "next/font/google";
+import { Atkinson_Hyperlegible, Geist_Mono, Literata } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 import "./globals.css";
 
-const outfit = Outfit({
+const sans = Atkinson_Hyperlegible({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  weight: ["400", "700"],
+  variable: "--font-atkinson",
+  display: "swap",
 });
 
-const fraunces = Fraunces({
+const serif = Literata({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-literata",
+  display: "swap",
 });
 
 const mono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
+  display: "swap",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://127.0.0.1:43123";
 
+const themeScript = `(function(){try{var t=localStorage.getItem("encyclopedia-theme");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){}})();`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Skilldex",
-    template: "%s · Skilldex",
+    default: SITE_NAME,
+    template: `%s · ${SITE_NAME}`,
   },
-  description:
-    "A curated directory of Agent Skills and agents. Every entry is linted and safety-checked before it ships.",
+  description: `${SITE_TAGLINE} Every entry is linted before it is listed.`,
   authors: [{ name: "Brandon", url: "https://brandononchain.com" }],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`dark ${outfit.variable} ${fraunces.variable} ${mono.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="min-h-screen antialiased">
-        <a
-          href="#content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-background focus:px-3 focus:py-2"
-        >
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <a href="#content" className="skip-link">
           Skip to content
         </a>
         <SiteHeader />

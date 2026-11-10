@@ -1,42 +1,53 @@
 "use client";
 
+import { useState } from "react";
 import { CopyButton } from "@/components/copy-button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { InstallTarget } from "@/lib/catalog";
 
 const ORDER = ["claude", "codex", "cursor", "grok"] as const;
 
-export function InstallPanel({
-  install,
-}: {
-  install: Record<(typeof ORDER)[number], InstallTarget>;
-}) {
+export function InstallPanel({ install }: { install: Record<(typeof ORDER)[number], InstallTarget> }) {
+  const [current, setCurrent] = useState<(typeof ORDER)[number]>("claude");
+  const target = install[current];
+
   return (
-    <Tabs defaultValue="claude">
-      <TabsList variant="line" className="h-auto w-full flex-wrap justify-start gap-1 bg-transparent p-0">
+    <div>
+      <div className="install-tabs" role="tablist" aria-label="Install target">
         {ORDER.map((key) => (
-          <TabsTrigger key={key} value={key} className="flex-none px-2 py-1">
+          <button
+            key={key}
+            type="button"
+            role="tab"
+            id={`install-tab-${key}`}
+            aria-selected={current === key}
+            aria-controls={`install-panel-${key}`}
+            tabIndex={current === key ? 0 : -1}
+            onClick={() => setCurrent(key)}
+            onKeyDown={(event) => {
+              const index = ORDER.indexOf(key);
+              if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+                event.preventDefault();
+                const next = ORDER[(index + (event.key === "ArrowRight" ? 1 : ORDER.length - 1)) % ORDER.length];
+                setCurrent(next);
+                document.getElementById(`install-tab-${next}`)?.focus();
+              }
+            }}
+          >
             {install[key].label}
-          </TabsTrigger>
+          </button>
         ))}
-      </TabsList>
-      {ORDER.map((key) => {
-        const target = install[key];
-        return (
-          <TabsContent key={key} value={key} className="mt-4">
-            <p className="text-sm text-muted-foreground">{target.hint}</p>
-            <div className="mt-3 flex items-center justify-between gap-3">
-              <p className="font-mono text-xs tracking-wide text-muted-foreground uppercase">
-                Install
-              </p>
-              <CopyButton text={target.snippet} />
-            </div>
-            <pre className="mt-2 overflow-x-auto border border-border bg-background p-3 font-mono text-xs leading-relaxed text-foreground">
-              <code>{target.snippet}</code>
-            </pre>
-          </TabsContent>
-        );
-      })}
-    </Tabs>
+      </div>
+      <div role="tabpanel" id={`install-panel-${current}`} aria-labelledby={`install-tab-${current}`}>
+        <p className="quiet" style={{ marginTop: "0.55rem" }}>
+          {target.hint}
+        </p>
+        <p style={{ marginTop: "0.45rem" }}>
+          <CopyButton text={target.snippet} label="Copy install" />
+        </p>
+        <pre className="snippet">
+          <code>{target.snippet}</code>
+        </pre>
+      </div>
+    </div>
   );
 }

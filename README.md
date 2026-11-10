@@ -1,15 +1,15 @@
 # Skilldex
 
-[![skills](https://img.shields.io/badge/skills-36_linted-d6f25c?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/skilldex)
+[![skills](https://img.shields.io/badge/skills-39_linted-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/skilldex)
 [![agents](https://img.shields.io/badge/agents-8-efe6d2?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/skilldex)
 [![lint errors](https://img.shields.io/badge/lint_errors-0-ff5a36?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/skilldex/actions)
 [![license](https://img.shields.io/badge/license-Apache--2.0-c9c0ae?style=flat-square&labelColor=10110e)](LICENSE)
 
-Skilldex is an open directory of [Agent Skills](https://agentskills.io/specification) and the agents that bundle them. The format is now a project of the [Agentic AI Foundation](https://aaif.io/projects/agent-skills) at the Linux Foundation.
+Skilldex is the reference encyclopedia of [Agent Skills](https://agentskills.io/specification) and the agents that bundle them. The name is a placeholder: change `SITE_NAME` in `src/lib/site.ts` and the site renames in one place. The format is now a project of the [Agentic AI Foundation](https://aaif.io/projects/agent-skills) at the Linux Foundation.
 
 Most published skills do not meet their own authoring rules. In [From Anatomy to Smells](https://arxiv.org/abs/2607.01456), Hong, Imani, and Ahmed at UC Irvine studied 238 real `SKILL.md` files. 237 of them — over 99 percent — had at least one skill smell, and those smells rarely got fixed later.
 
-Skilldex is the other way around. **Every entry is linted and safety-checked before it ships.** The site shows the score. The build fails if a skill has an error or a warning.
+The encyclopedia is the other way around. **Every entry is linted and safety-checked before it ships.** The site shows the score. The build fails if a skill has an error or a warning.
 
 Maintained by [Brandon](https://brandononchain.com) ([github.com/brandononchain](https://github.com/brandononchain)).
 

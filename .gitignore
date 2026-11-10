@@ -48,3 +48,6 @@ public/raw/
 
 # local uploads
 /uploads/
+
+# design review captures
+.impeccable/review/

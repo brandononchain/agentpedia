@@ -2,53 +2,45 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { SITE_NAME } from "@/lib/site";
 
 const LINKS = [
-  { href: "/browse", label: "Browse" },
+  { href: "/az", label: "Index" },
+  { href: "/#shelves", label: "Shelves" },
   { href: "/agents", label: "Agents" },
+  { href: "/changelog", label: "Recent changes" },
   { href: "/lint", label: "How we lint" },
-  { href: "/changelog", label: "Drops" },
 ];
 
 export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4">
-        <Link href="/" className="flex items-center gap-2.5 text-foreground">
-          <Mark className="size-4 text-stamp" />
-          <span className="font-serif text-xl tracking-tight">Skilldex</span>
+    <header className="site-head">
+      <div className="site-head-inner">
+        <Link href="/" className="wordmark">
+          {SITE_NAME}
         </Link>
-        <nav aria-label="Primary" className="flex gap-4 overflow-x-auto text-sm">
+        <nav className="site-nav" aria-label="Primary">
           {LINKS.map((link) => {
-            const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
+            const active = link.href !== "/#shelves" && (pathname === link.href || pathname.startsWith(`${link.href}/`));
             return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "whitespace-nowrap text-muted-foreground hover:text-foreground",
-                  active && "text-foreground",
-                )}
-              >
+              <Link key={link.href} href={link.href} aria-current={active ? "page" : undefined}>
                 {link.label}
               </Link>
             );
           })}
         </nav>
+        <form className="head-search" action="/browse" role="search">
+          <label htmlFor="head-q" className="sr-only">
+            Search the encyclopedia
+          </label>
+          <input id="head-q" name="q" placeholder="Search" />
+          <button type="submit">Search</button>
+        </form>
+        <ThemeToggle />
       </div>
     </header>
-  );
-}
-
-export function Mark({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 16 16" className={className} aria-hidden="true">
-      <rect x="1.25" y="1.25" width="13.5" height="13.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="5" y="5" width="6" height="6" fill="currentColor" />
-    </svg>
   );
 }

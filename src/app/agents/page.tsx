@@ -1,44 +1,55 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArticleFrame } from "@/components/article-frame";
 import { catalog } from "@/lib/catalog";
-import { formatDropDate } from "@/lib/format";
+import { SITE_NAME } from "@/lib/site";
+import { alphabet, firstSentence, groupByLetter } from "@/lib/wiki";
 
 export const metadata: Metadata = {
   title: "Agents",
-  description: "Agents that bundle linted Skilldex skills, with the connectors they need.",
+  description: `Agents in ${SITE_NAME}, each a bundle of linted skills.`,
 };
 
 export default function AgentsPage() {
+  const groups = groupByLetter(catalog.agents, (agent) => agent.name);
+  const present = new Set(groups.map(([letter]) => letter));
+
   return (
-    <div className="mx-auto max-w-6xl px-5 py-12">
-      <h1 className="font-serif text-5xl font-light tracking-tight">Agents</h1>
-      <p className="mt-3 max-w-2xl text-muted-foreground">
-        An agent is a bundle: a job, the skills that do it, and the connectors it may use.
-        Every bundled skill has already passed the linter.
-      </p>
-      <ul className="mt-10 border-t border-border">
-        {catalog.agents.map((agent) => (
-          <li key={agent.name} className="border-b border-border py-7">
-            <div className="flex flex-wrap items-baseline justify-between gap-3">
-              <Link href={`/agents/${agent.name}`} className="font-serif text-3xl font-light tracking-tight">
-                {agent.name}
-              </Link>
-              <span className="font-mono text-xs text-muted-foreground">{formatDropDate(agent.added)}</span>
-            </div>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">{agent.description}</p>
-            <p className="mt-3 text-sm">
-              {agent.skills.map((name, index) => (
-                <span key={name}>
-                  {index > 0 ? " · " : ""}
-                  <Link href={`/skills/${name}`} className="underline decoration-border underline-offset-4">
-                    {name}
-                  </Link>
+    <ArticleFrame
+      title="Agents"
+      lede="An agent is a bundle: a job, the skills that do it, and the connectors it may use. Every bundled skill has already passed the linter. Each skill is listed under one agent."
+      crumbs={[
+        { href: "/", label: "Home" },
+        { label: "Agents" },
+      ]}
+    >
+      <nav className="letter-jump" aria-label="Letters">
+        {alphabet().map((letter) =>
+          present.has(letter) ? (
+            <a key={letter} href={`#letter-${letter}`}>
+              {letter}
+            </a>
+          ) : (
+            <span key={letter}>{letter}</span>
+          ),
+        )}
+      </nav>
+      {groups.map(([letter, agents]) => (
+        <section key={letter} className="letter-block" id={`letter-${letter}`}>
+          <h2>{letter}</h2>
+          <ul className="letter-list">
+            {agents.map((agent) => (
+              <li key={agent.name}>
+                <Link href={`/agents/${agent.name}`}>{agent.name}</Link>
+                <span className="quiet">
+                  {" "}
+                  — {agent.skills.length} skills. {firstSentence(agent.description)}
                 </span>
-              ))}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </ArticleFrame>
   );
 }

@@ -1,74 +1,78 @@
 import type { Metadata } from "next";
+import { ArticleFrame } from "@/components/article-frame";
+import { Contents } from "@/components/contents";
 import { catalog } from "@/lib/catalog";
+import { SITE_NAME } from "@/lib/site";
+import { slugify, type TocItem } from "@/lib/wiki";
 
 export const metadata: Metadata = {
   title: "How we lint",
-  description: "The skill-lint rules Skilldex runs before an entry can ship, and how the score is calculated.",
+  description: `The skill-lint rules ${SITE_NAME} runs before an entry can be listed, and how the score is calculated.`,
 };
 
 export default function LintPage() {
   const { scoring, stats } = catalog;
-  return (
-    <div className="mx-auto max-w-6xl px-5 py-12">
-      <h1 className="max-w-[16ch] font-serif text-5xl font-light tracking-tight">
-        How we lint
-      </h1>
-      <div className="mt-6 max-w-[68ch] space-y-4 text-base leading-relaxed text-muted-foreground">
-        <p>
-          Agent Skills are folders with a <span className="font-mono text-sm text-foreground">SKILL.md</span> file.
-          The format is an open specification, now a project of the Agentic AI Foundation under the Linux Foundation.
-          The body of a skill is free Markdown. That freedom is why quality varies so widely.
-        </p>
-        <p>
-          In{" "}
-          <a className="text-stamp underline decoration-stamp/40 underline-offset-4" href={catalog.studyUrl}>
-            From Anatomy to Smells
-          </a>
-          , Hong, Imani, and Ahmed at UC Irvine studied 238 real skills sampled from a public marketplace.
-          Over 99 percent — 237 of the 238 — contained at least one skill smell. Smells introduced early rarely disappeared
-          in later commits. Popularity did not clean them up.
-        </p>
-        <p>
-          Skilldex vendors{" "}
-          <span className="font-mono text-sm text-foreground">tools/skill-lint</span>, a dependency-free Python
-          checker for the spec, for progressive-disclosure smells, for broken relative links, and for a small set of
-          safety patterns. The catalog build runs it on every skill. An error or a warning fails the build.
-          Info findings are recorded and lower the score, and the current shelf has {stats.info} of them.
-        </p>
-      </div>
+  const toc: TocItem[] = [
+    { id: "the-score", text: "The score", depth: 2 },
+    ...catalog.rules.map((group) => ({ id: slugify(group.group), text: group.group, depth: 2 as const })),
+    { id: "references", text: "References", depth: 2 },
+  ];
 
-      <section className="mt-12 max-w-3xl border border-border p-5">
-        <h2 className="font-serif text-3xl font-light">The score</h2>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+  return (
+    <ArticleFrame
+      title="How we lint"
+      lede={`${SITE_NAME} lists a skill only after skill-lint reports no errors and no warnings. The score on an article is that check, not a rating of the advice inside.`}
+      crumbs={[
+        { href: "/", label: "Home" },
+        { label: "How we lint" },
+      ]}
+    >
+      <Contents items={toc} />
+      <div className="wiki-prose">
+        <p>
+          Agent Skills are folders with a <code>SKILL.md</code> file. The format is an open specification, now a project
+          of the Agentic AI Foundation under the Linux Foundation. The body is free Markdown, which is why quality
+          varies so widely.
+        </p>
+        <p>
+          In <a href={catalog.studyUrl}>From Anatomy to Smells</a>, Hong, Imani, and Ahmed at UC Irvine studied 238 real
+          skills sampled from a public marketplace. Over 99 percent — 237 of the 238 — contained at least one skill
+          smell. Smells introduced early rarely disappeared in later commits. Popularity did not clean them up.
+        </p>
+        <p>
+          {SITE_NAME} vendors <code>tools/skill-lint</code>, a dependency-free Python checker for the spec, for
+          progressive-disclosure smells, for broken relative links, and for a small set of safety patterns. The catalog
+          build runs it on every skill. An error or a warning fails the build. Info findings are recorded and lower the
+          score. This shelf has {stats.info} of them.
+        </p>
+        <h2 id="the-score">The score</h2>
+        <p>
           A skill starts at {scoring.start}. Each error subtracts {scoring.errorPenalty}, each warning subtracts{" "}
           {scoring.warningPenalty}, and each info finding subtracts {scoring.infoPenalty}. The floor is {scoring.floor}.
-          The badge reads clean when errors and warnings are both zero, noted when there are warnings but no errors,
-          and blocked when any error remains. Blocked and noted entries do not ship in this catalog.
+          The badge reads clean when errors and warnings are both zero, noted when there are warnings but no errors, and
+          blocked when any error remains. Blocked and noted entries do not ship in this catalog.
         </p>
-      </section>
-
-      <div className="mt-14 space-y-12">
         {catalog.rules.map((group) => (
           <section key={group.group}>
-            <h2 className="font-serif text-3xl font-light">{group.group}</h2>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
+            <h2 id={slugify(group.group)}>{group.group}</h2>
+            <div style={{ overflowX: "auto" }}>
+              <table className="data-table">
                 <caption className="sr-only">{group.group} rules</caption>
                 <thead>
-                  <tr className="border-b border-border text-muted-foreground">
-                    <th scope="col" className="py-2 pr-4 font-medium">Rule</th>
-                    <th scope="col" className="py-2 pr-4 font-medium">Severity</th>
-                    <th scope="col" className="py-2 font-medium">What it checks</th>
+                  <tr>
+                    <th scope="col">Rule</th>
+                    <th scope="col">Severity</th>
+                    <th scope="col">What it checks</th>
                   </tr>
                 </thead>
                 <tbody>
                   {group.rules.map((rule) => (
-                    <tr key={rule.id} className="border-b border-border align-top">
-                      <th scope="row" className="py-3 pr-4 font-mono text-xs font-normal text-foreground">
+                    <tr key={rule.id}>
+                      <th scope="row" style={{ fontFamily: "var(--font-mono)", fontWeight: 400, fontSize: "0.82rem" }}>
                         {rule.id}
                       </th>
-                      <td className="py-3 pr-4 font-mono text-xs text-muted-foreground">{rule.severity}</td>
-                      <td className="py-3 text-muted-foreground">{rule.summary}</td>
+                      <td>{rule.severity}</td>
+                      <td>{rule.summary}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -77,6 +81,20 @@ export default function LintPage() {
           </section>
         ))}
       </div>
-    </div>
+      <section className="refs" id="references">
+        <h2 className="section-title">References</h2>
+        <ul>
+          <li>
+            <a href={catalog.studyUrl}>Hong, Imani, and Ahmed, From Anatomy to Smells</a>
+          </li>
+          <li>
+            <a href={catalog.specUrl}>Agent Skills specification</a>
+          </li>
+          <li>
+            <a href={catalog.aaifUrl}>Agentic AI Foundation</a>
+          </li>
+        </ul>
+      </section>
+    </ArticleFrame>
   );
 }

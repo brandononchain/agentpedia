@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArticleFrame } from "@/components/article-frame";
+import { Contents } from "@/components/contents";
 import { InstallPanel } from "@/components/install-panel";
 import { MarkdownBody } from "@/components/markdown-body";
 import { ScoreMark } from "@/components/score-mark";
 import { catalog, getSkill } from "@/lib/catalog";
 import { formatBytes, formatDropDate, stripTitle } from "@/lib/format";
+import { agentForSkill, extractToc, relatedSkills, shelfNeighbors, type TocItem } from "@/lib/wiki";
 
 type Params = { name: string };
 
@@ -15,14 +18,10 @@ export function generateStaticParams() {
   return catalog.skills.map((skill) => ({ name: skill.name }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<Params>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { name } = await params;
   const skill = getSkill(name);
-  if (!skill) return { title: "Skill" };
+  if (!skill) return { title: "Entry" };
   return { title: skill.title, description: skill.description };
 }
 
@@ -31,105 +30,166 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
   const skill = getSkill(name);
   if (!skill) notFound();
 
-  return (
-    <article className="mx-auto max-w-6xl px-5 py-12">
-      <p className="text-sm text-muted-foreground">
-        <Link href="/browse" className="underline decoration-border underline-offset-4">
-          Browse
-        </Link>
-        <span aria-hidden="true"> / </span>
-        <Link
-          href={`/browse?category=${skill.category}`}
-          className="underline decoration-border underline-offset-4"
-        >
-          {skill.categoryLabel}
-        </Link>
-      </p>
-      <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
-        <h1 className="font-serif text-5xl font-light tracking-tight">{skill.title}</h1>
-        <ScoreMark score={skill.lint.score} badge={skill.lint.badge} />
-      </div>
-      <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground">{skill.description}</p>
-      <p className="mt-4 font-mono text-xs text-muted-foreground">
-        {skill.sourcePath} · added {formatDropDate(skill.added)} · {skill.license}
-      </p>
-      <ul className="mt-3 flex flex-wrap gap-2">
-        {skill.tags.map((tag) => (
-          <li key={tag}>
-            <Link
-              href={`/browse?tag=${encodeURIComponent(tag)}`}
-              className="inline-block border border-border px-2 py-1 font-mono text-xs text-muted-foreground hover:text-foreground"
-            >
-              {tag}
-            </Link>
-          </li>
-        ))}
-      </ul>
+  const agent = agentForSkill(skill.name);
+  const related = relatedSkills(skill);
+  const { prev, next } = shelfNeighbors(skill);
+  const body = stripTitle(skill.body);
+  const toc: TocItem[] = [
+    ...extractToc(body),
+    { id: "lint-report", text: "Lint report", depth: 2 },
+    ...(related.length ? [{ id: "see-also", text: "See also", depth: 2 as const }] : []),
+    { id: "references", text: "References", depth: 2 },
+  ];
 
-      <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        <div className="order-2 lg:order-1">
-          <MarkdownBody source={stripTitle(skill.body)} />
-        </div>
-        <aside className="order-1 space-y-10 lg:order-2">
-          <section>
-            <h2 className="font-serif text-2xl font-light">Install</h2>
-            <div className="mt-4">
-              <InstallPanel install={skill.install} />
-            </div>
-          </section>
-          <section>
-            <h2 className="font-serif text-2xl font-light">Lint report</h2>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Score {skill.lint.score}. {skill.lint.errors} errors, {skill.lint.warnings} warnings, {skill.lint.info} notes.
-            </p>
-            {skill.lint.findings.length === 0 ? (
-              <p className="mt-3 text-sm">
-                Nothing to fix. skill-lint reported no errors, warnings, or notes.
-              </p>
-            ) : (
-              <ul className="mt-4 space-y-4">
-                {skill.lint.findings.map((finding) => (
-                  <li key={`${finding.ruleId}-${finding.line}`} className="border-t border-border pt-3">
-                    <p className="font-mono text-xs text-stamp">
-                      {finding.severity} · {finding.ruleId}
-                      {finding.line ? `:${finding.line}` : ""}
-                    </p>
-                    <p className="mt-1 text-sm">{finding.message}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{finding.hint}</p>
+  return (
+    <ArticleFrame
+      current={`/category/${skill.category}`}
+      title={skill.title}
+      lede={skill.description}
+      crumbs={[
+        { href: "/", label: "Home" },
+        { href: "/#shelves", label: "Shelves" },
+        { href: `/category/${skill.category}`, label: skill.categoryLabel },
+        { label: skill.title },
+      ]}
+      plate={
+        <aside className="plate" aria-label="Entry facts">
+          <p className="plate-name">{skill.name}</p>
+          <dl>
+            <dt>Category</dt>
+            <dd>
+              <Link href={`/category/${skill.category}`}>{skill.categoryLabel}</Link>
+            </dd>
+            <dt>Agent</dt>
+            <dd>
+              {agent ? <Link href={`/agents/${agent.name}`}>{agent.name}</Link> : "Not bundled"}
+            </dd>
+            <dt>Lint</dt>
+            <dd>
+              <ScoreMark score={skill.lint.score} badge={skill.lint.badge} />
+            </dd>
+            <dt>Version</dt>
+            <dd>Not recorded</dd>
+            <dt>Added</dt>
+            <dd>
+              <time dateTime={skill.added}>{formatDropDate(skill.added)}</time>
+            </dd>
+            <dt>License</dt>
+            <dd>{skill.license || "Not recorded"}</dd>
+            {skill.compatibility ? (
+              <>
+                <dt>Compatibility</dt>
+                <dd>{skill.compatibility}</dd>
+              </>
+            ) : null}
+            <dt>Tags</dt>
+            <dd>
+              <ul className="tag-list">
+                {skill.tags.map((tag) => (
+                  <li key={tag}>
+                    <Link href={`/browse?tag=${encodeURIComponent(tag)}`}>{tag}</Link>
                   </li>
                 ))}
               </ul>
-            )}
-          </section>
-          <section>
-            <h2 className="font-serif text-2xl font-light">Files</h2>
-            <ul className="mt-3">
-              {skill.files.map((file) => (
-                <li key={file.path} className="flex items-baseline justify-between gap-3 border-t border-border py-2 font-mono text-xs">
-                  <a href={file.url} className="truncate underline decoration-border underline-offset-4">
-                    {file.path}
-                  </a>
-                  <span className="shrink-0 text-muted-foreground tabular-nums">{formatBytes(file.bytes)}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 flex flex-wrap gap-4 text-sm">
-              <a href={skill.rawUrl} className="text-stamp underline decoration-stamp/40 underline-offset-4">
-                Raw SKILL.md
-              </a>
-              <a href={skill.zipUrl} className="text-stamp underline decoration-stamp/40 underline-offset-4">
-                Download zip
-              </a>
-            </p>
-          </section>
-          {skill.compatibility ? (
-            <section>
-              <h2 className="font-serif text-2xl font-light">Compatibility</h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{skill.compatibility}</p>
-            </section>
-          ) : null}
+            </dd>
+          </dl>
+          <h2>Install</h2>
+          <InstallPanel install={skill.install} />
         </aside>
-      </div>
-    </article>
+      }
+    >
+      <Contents items={toc} />
+      <MarkdownBody source={body} selfHref={`/skills/${skill.name}`} />
+
+      <section className="see-also" id="lint-report">
+        <h2 className="section-title">Lint report</h2>
+        <p className="quiet" style={{ marginTop: "0.45rem" }}>
+          Score {skill.lint.score}. {skill.lint.errors} errors, {skill.lint.warnings} warnings, {skill.lint.info} notes.
+        </p>
+        {skill.lint.findings.length === 0 ? (
+          <p style={{ marginTop: "0.45rem" }}>skill-lint reported no errors, warnings, or notes.</p>
+        ) : (
+          <ul className="entry-list">
+            {skill.lint.findings.map((finding) => (
+              <li key={`${finding.ruleId}-${finding.line}`}>
+                <span className="quiet">
+                  {finding.severity} · {finding.ruleId}
+                  {finding.line ? `:${finding.line}` : ""}
+                </span>
+                <span> {finding.message}</span>
+                <span className="quiet"> {finding.hint}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      {related.length > 0 ? (
+        <section className="see-also" id="see-also">
+          <h2 className="section-title">See also</h2>
+          <ul>
+            {agent ? (
+              <li>
+                <Link href={`/agents/${agent.name}`}>{agent.name}</Link>
+                <span className="quiet">, the agent that bundles this skill</span>
+              </li>
+            ) : null}
+            {related.map((item) => (
+              <li key={item.name}>
+                <Link href={`/skills/${item.name}`}>{item.title}</Link>
+                <span className="quiet"> {item.categoryLabel}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      <section className="refs" id="references">
+        <h2 className="section-title">References</h2>
+        <ul>
+          <li>
+            Source path <span className="snippet" style={{ display: "inline", border: 0, background: "transparent", padding: 0 }}>{skill.sourcePath}</span>
+          </li>
+          {skill.files.map((file) => (
+            <li key={file.path}>
+              <a href={file.url}>{file.path}</a>
+              <span className="quiet"> {formatBytes(file.bytes)}</span>
+            </li>
+          ))}
+          <li>
+            <a href={skill.rawUrl}>Raw SKILL.md</a>
+          </li>
+          <li>
+            <a href={skill.zipUrl}>Download the skill folder</a>
+          </li>
+          <li>
+            <a href={catalog.specUrl}>Agent Skills specification</a>
+          </li>
+        </ul>
+      </section>
+
+      <nav className="pager" aria-label="Nearby entries">
+        <div>
+          {prev ? (
+            <Link href={`/skills/${prev.name}`} rel="prev">
+              <span className="quiet">Previous</span>
+              <span style={{ display: "block" }}>{prev.title}</span>
+            </Link>
+          ) : (
+            <span className="quiet">Start of this shelf</span>
+          )}
+        </div>
+        <div className="pager-next">
+          {next ? (
+            <Link href={`/skills/${next.name}`} rel="next">
+              <span className="quiet">Next</span>
+              <span style={{ display: "block" }}>{next.title}</span>
+            </Link>
+          ) : (
+            <span className="quiet">End of this shelf</span>
+          )}
+        </div>
+      </nav>
+    </ArticleFrame>
   );
 }
