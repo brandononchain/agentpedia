@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:4503ee9d206279b43f3c27c8b4aec7db380d6fe96be4cd089a2b5bcd1b8f67b9",
+  "id": "skill-migration-checklist",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "migration-checklist"
+  },
+  "tier": "listed"
+}

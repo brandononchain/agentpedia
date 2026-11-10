@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:89107e2ade3e1f895b40f1cb2b57b657bf790d7f0b9b6cc8b69664ad738696aa",
+  "id": "skill-diff-risk-scan",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "diff-risk-scan"
+  },
+  "tier": "listed"
+}

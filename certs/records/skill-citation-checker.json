@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:eccd13f39b94b329d56c4a683c6f1eb31526b5fab0c8ea736dc2d08f85fdbebd",
+  "id": "skill-citation-checker",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "citation-checker"
+  },
+  "tier": "listed"
+}

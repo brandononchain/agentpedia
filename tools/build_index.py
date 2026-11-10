@@ -466,7 +466,57 @@ def build(allow_findings: bool) -> dict:
             print(f"error: {problem}", file=sys.stderr)
         if not allow_findings:
             raise SystemExit(1)
+    sys.path.insert(0, str(ROOT / "tools"))
+    from certlib import publish_certificates
+
+    publish_certificates(certification_entries(skills, agents))
     return catalog
+
+
+def certification_entries(skills: list[dict], agents: list[dict]) -> list[dict]:
+    scores = {item["name"]: item["lint"]["score"] for item in skills}
+    entries = []
+    for skill in skills:
+        entries.append(
+            {
+                "kind": "skill",
+                "name": skill["name"],
+                "title": skill["title"],
+                "source_path": skill["sourcePath"],
+                "lint": {
+                    "score": skill["lint"]["score"],
+                    "errors": skill["lint"]["errors"],
+                    "warnings": skill["lint"]["warnings"],
+                    "info": skill["lint"]["info"],
+                    "gate": "skill-lint",
+                    "summary": "skill-lint score. Listed requires 100.",
+                },
+            }
+        )
+    for agent in agents:
+        missing = [name for name in agent["skills"] if scores.get(name) != 100]
+        ok = not missing
+        entries.append(
+            {
+                "kind": "agent",
+                "name": agent["name"],
+                "title": agent["name"],
+                "source_path": agent["sourcePath"],
+                "lint": {
+                    "score": 100 if ok else 0,
+                    "errors": 0 if ok else len(missing) or 1,
+                    "warnings": 0,
+                    "info": 0,
+                    "gate": "agent-manifest",
+                    "summary": (
+                        "Manifest accepted and every bundled skill scores 100."
+                        if ok
+                        else "Bundled skills below 100: " + ", ".join(missing)
+                    ),
+                },
+            }
+        )
+    return entries
 
 
 def main() -> None:

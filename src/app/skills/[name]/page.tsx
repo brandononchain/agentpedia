@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
+import { CertFact } from "@/components/cert-fact";
 import { Contents } from "@/components/contents";
 import { InstallPanel } from "@/components/install-panel";
 import { MarkdownBody } from "@/components/markdown-body";
@@ -68,6 +69,7 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
             <dd>
               <ScoreMark score={skill.lint.score} badge={skill.lint.badge} />
             </dd>
+            <CertFact kind="skill" name={skill.name} />
             <dt>Version</dt>
             <dd>Not recorded</dd>
             <dt>Added</dt>

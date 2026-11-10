@@ -31,5 +31,8 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Certificate tests
+        run: npm run test:certs
+
       - name: Build the catalog and the site
         run: npm run build

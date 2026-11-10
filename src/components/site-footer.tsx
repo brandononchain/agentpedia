@@ -21,6 +21,8 @@ export function SiteFooter() {
             <li><Link href="/agents">Agents</Link></li>
             <li><Link href="/changelog">Recent changes</Link></li>
             <li><Link href="/lint">How we lint</Link></li>
+            <li><Link href="/certification">Certification</Link></li>
+            <li><Link href="/certify">Submit a skill</Link></li>
           </ul>
         </div>
         <div>

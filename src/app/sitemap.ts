@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
+import { certificates } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const origin = process.env.NEXT_PUBLIC_SITE_URL ?? "http://127.0.0.1:43123";
   const now = new Date(catalog.generatedAt);
-  const staticRoutes = ["", "/browse", "/agents", "/lint", "/changelog", "/az", "/glossary"].map((path) => ({
+  const staticRoutes = ["", "/browse", "/agents", "/lint", "/changelog", "/az", "/glossary", "/certification", "/certify"].map((path) => ({
     url: `${origin}${path || "/"}`,
     lastModified: now,
   }));
@@ -20,5 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${origin}/agents/${agent.name}`,
     lastModified: new Date(`${agent.added}T00:00:00Z`),
   }));
-  return [...staticRoutes, ...categories, ...skills, ...agents];
+  const certs = certificates.certificates.map((document) => ({
+    url: `${origin}/cert/${document.payload.id}`,
+    lastModified: new Date(`${document.payload.issuedAt}T00:00:00Z`),
+  }));
+  return [...staticRoutes, ...categories, ...skills, ...agents, ...certs];
 }

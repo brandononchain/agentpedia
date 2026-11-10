@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:1b2ea60b0866aadac3814df9f43a483dd716b68667babe43b86fa2129e64b733",
+  "id": "skill-content-calendar",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "411d40c0740700e38c1ea49c71007479e7f91ce2",
+  "subject": {
+    "kind": "skill",
+    "name": "content-calendar"
+  },
+  "tier": "listed"
+}

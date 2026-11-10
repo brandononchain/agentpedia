@@ -10,7 +10,13 @@ import { cn } from "@/lib/utils";
 
 type Category = { id: string; label: string; count: number };
 
-export function BrowseExplorer({ skills, categories }: { skills: SkillSummary[]; categories: Category[] }) {
+export function BrowseExplorer({
+  skills,
+  categories,
+}: {
+  skills: Array<SkillSummary & { tier?: string }>;
+  categories: Category[];
+}) {
   const params = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -166,7 +172,8 @@ export function BrowseExplorer({ skills, categories }: { skills: SkillSummary[];
                     </span>
                     <span className="quiet">{skill.description}</span>
                     <span className="quiet">
-                      {skill.categoryLabel} · {formatDropDate(skill.added)}
+                      {skill.categoryLabel}
+                      {skill.tier ? ` · ${skill.tier}` : ""} · {formatDropDate(skill.added)}
                     </span>
                   </Link>
                 </li>

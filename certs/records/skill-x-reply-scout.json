@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:43521faf99770d6e684f7a50d891e13c8e0c059e3297229b07a88fb13900460d",
+  "id": "skill-x-reply-scout",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "cce4f851414810253c8ec3b6a35aa5f1d1e97db5",
+  "subject": {
+    "kind": "skill",
+    "name": "x-reply-scout"
+  },
+  "tier": "listed"
+}

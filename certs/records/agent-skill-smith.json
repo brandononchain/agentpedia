@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:eaa9ca79f7ee4d24e671d339aaa1ea7c13041d7af84fa8d7a3ea565b867a3bdd",
+  "id": "agent-skill-smith",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "cce4f851414810253c8ec3b6a35aa5f1d1e97db5",
+  "subject": {
+    "kind": "agent",
+    "name": "skill-smith"
+  },
+  "tier": "listed"
+}

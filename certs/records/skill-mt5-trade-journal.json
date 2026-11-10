@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:4e9043c030e88ad238045915ef15701ef6c9e4aaf192c1ff8cfcbd5bc426943b",
+  "id": "skill-mt5-trade-journal",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "mt5-trade-journal"
+  },
+  "tier": "listed"
+}
