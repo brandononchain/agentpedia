@@ -1,0 +1,545 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T20:45:00.000Z",
+  "title": "Design System: Skilldex",
+  "extensions": {
+    "colorMeta": {
+      "verdigris": {
+        "role": "primary",
+        "displayName": "Verdigris",
+        "canonical": "#0e4f57",
+        "tonalRamp": [
+          "oklch(15% 0.062 207.5)",
+          "oklch(26% 0.062 207.5)",
+          "oklch(38% 0.062 207.5)",
+          "oklch(50% 0.062 207.5)",
+          "oklch(62% 0.062 207.5)",
+          "oklch(74% 0.062 207.5)",
+          "oklch(86% 0.062 207.5)",
+          "oklch(95% 0.062 207.5)"
+        ]
+      },
+      "verdigris-dark": {
+        "role": "primary",
+        "displayName": "Pale verdigris",
+        "canonical": "#9fd4ce",
+        "tonalRamp": [
+          "oklch(15% 0.055 187.5)",
+          "oklch(26% 0.055 187.5)",
+          "oklch(38% 0.055 187.5)",
+          "oklch(50% 0.055 187.5)",
+          "oklch(62% 0.055 187.5)",
+          "oklch(74% 0.055 187.5)",
+          "oklch(86% 0.055 187.5)",
+          "oklch(95% 0.055 187.5)"
+        ]
+      },
+      "selection": {
+        "role": "primary",
+        "displayName": "Selection wash",
+        "canonical": "#c5ddd8",
+        "tonalRamp": [
+          "oklch(15% 0.026 181.8)",
+          "oklch(26% 0.026 181.8)",
+          "oklch(38% 0.026 181.8)",
+          "oklch(50% 0.026 181.8)",
+          "oklch(62% 0.026 181.8)",
+          "oklch(74% 0.026 181.8)",
+          "oklch(86% 0.026 181.8)",
+          "oklch(95% 0.026 181.8)"
+        ]
+      },
+      "selection-ink": {
+        "role": "primary",
+        "displayName": "Selection ink",
+        "canonical": "#102326",
+        "tonalRamp": [
+          "oklch(15% 0.025 208.6)",
+          "oklch(26% 0.025 208.6)",
+          "oklch(38% 0.025 208.6)",
+          "oklch(50% 0.025 208.6)",
+          "oklch(62% 0.025 208.6)",
+          "oklch(74% 0.025 208.6)",
+          "oklch(86% 0.025 208.6)",
+          "oklch(95% 0.025 208.6)"
+        ]
+      },
+      "selection-dark": {
+        "role": "primary",
+        "displayName": "Selection on dark paper",
+        "canonical": "#1d4a47",
+        "tonalRamp": [
+          "oklch(15% 0.05 189.4)",
+          "oklch(26% 0.05 189.4)",
+          "oklch(38% 0.05 189.4)",
+          "oklch(50% 0.05 189.4)",
+          "oklch(62% 0.05 189.4)",
+          "oklch(74% 0.05 189.4)",
+          "oklch(86% 0.05 189.4)",
+          "oklch(95% 0.05 189.4)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm paper",
+        "canonical": "#f4efe4",
+        "tonalRamp": [
+          "oklch(15% 0.016 86.4)",
+          "oklch(26% 0.016 86.4)",
+          "oklch(38% 0.016 86.4)",
+          "oklch(50% 0.016 86.4)",
+          "oklch(62% 0.016 86.4)",
+          "oklch(74% 0.016 86.4)",
+          "oklch(86% 0.016 86.4)",
+          "oklch(95% 0.016 86.4)"
+        ]
+      },
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "Dark paper",
+        "canonical": "#16130f",
+        "tonalRamp": [
+          "oklch(15% 0.009 75.1)",
+          "oklch(26% 0.009 75.1)",
+          "oklch(38% 0.009 75.1)",
+          "oklch(50% 0.009 75.1)",
+          "oklch(62% 0.009 75.1)",
+          "oklch(74% 0.009 75.1)",
+          "oklch(86% 0.009 75.1)",
+          "oklch(95% 0.009 75.1)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Near-black ink",
+        "canonical": "#1c1915",
+        "tonalRamp": [
+          "oklch(15% 0.009 75.1)",
+          "oklch(26% 0.009 75.1)",
+          "oklch(38% 0.009 75.1)",
+          "oklch(50% 0.009 75.1)",
+          "oklch(62% 0.009 75.1)",
+          "oklch(74% 0.009 75.1)",
+          "oklch(86% 0.009 75.1)",
+          "oklch(95% 0.009 75.1)"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Dark ink",
+        "canonical": "#f3eee4",
+        "tonalRamp": [
+          "oklch(15% 0.014 84.6)",
+          "oklch(26% 0.014 84.6)",
+          "oklch(38% 0.014 84.6)",
+          "oklch(50% 0.014 84.6)",
+          "oklch(62% 0.014 84.6)",
+          "oklch(74% 0.014 84.6)",
+          "oklch(86% 0.014 84.6)",
+          "oklch(95% 0.014 84.6)"
+        ]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Muted ink",
+        "canonical": "#534e45",
+        "tonalRamp": [
+          "oklch(15% 0.016 82.4)",
+          "oklch(26% 0.016 82.4)",
+          "oklch(38% 0.016 82.4)",
+          "oklch(50% 0.016 82.4)",
+          "oklch(62% 0.016 82.4)",
+          "oklch(74% 0.016 82.4)",
+          "oklch(86% 0.016 82.4)",
+          "oklch(95% 0.016 82.4)"
+        ]
+      },
+      "muted-ink-dark": {
+        "role": "neutral",
+        "displayName": "Muted ink on dark paper",
+        "canonical": "#d4cbbd",
+        "tonalRamp": [
+          "oklch(15% 0.022 79.1)",
+          "oklch(26% 0.022 79.1)",
+          "oklch(38% 0.022 79.1)",
+          "oklch(50% 0.022 79.1)",
+          "oklch(62% 0.022 79.1)",
+          "oklch(74% 0.022 79.1)",
+          "oklch(86% 0.022 79.1)",
+          "oklch(95% 0.022 79.1)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(28, 25, 21, 0.22)",
+        "tonalRamp": [
+          "oklch(15% 0.009 75.1)",
+          "oklch(26% 0.009 75.1)",
+          "oklch(38% 0.009 75.1)",
+          "oklch(50% 0.009 75.1)",
+          "oklch(62% 0.009 75.1)",
+          "oklch(74% 0.009 75.1)",
+          "oklch(86% 0.009 75.1)",
+          "oklch(95% 0.009 75.1)"
+        ]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Hairline on dark paper",
+        "canonical": "rgba(243, 238, 228, 0.22)",
+        "tonalRamp": [
+          "oklch(15% 0.014 84.6)",
+          "oklch(26% 0.014 84.6)",
+          "oklch(38% 0.014 84.6)",
+          "oklch(50% 0.014 84.6)",
+          "oklch(62% 0.014 84.6)",
+          "oklch(74% 0.014 84.6)",
+          "oklch(86% 0.014 84.6)",
+          "oklch(95% 0.014 84.6)"
+        ]
+      },
+      "code-paper": {
+        "role": "neutral",
+        "displayName": "Code paper",
+        "canonical": "#e9e2d4",
+        "tonalRamp": [
+          "oklch(15% 0.02 84.6)",
+          "oklch(26% 0.02 84.6)",
+          "oklch(38% 0.02 84.6)",
+          "oklch(50% 0.02 84.6)",
+          "oklch(62% 0.02 84.6)",
+          "oklch(74% 0.02 84.6)",
+          "oklch(86% 0.02 84.6)",
+          "oklch(95% 0.02 84.6)"
+        ]
+      },
+      "code-paper-dark": {
+        "role": "neutral",
+        "displayName": "Code paper on dark",
+        "canonical": "#241f1a",
+        "tonalRamp": [
+          "oklch(15% 0.012 67.2)",
+          "oklch(26% 0.012 67.2)",
+          "oklch(38% 0.012 67.2)",
+          "oklch(50% 0.012 67.2)",
+          "oklch(62% 0.012 67.2)",
+          "oklch(74% 0.012 67.2)",
+          "oklch(86% 0.012 67.2)",
+          "oklch(95% 0.012 67.2)"
+        ]
+      },
+      "clean": {
+        "role": "status",
+        "displayName": "Clean",
+        "canonical": "#1d5c38",
+        "tonalRamp": [
+          "oklch(15% 0.088 154.7)",
+          "oklch(26% 0.088 154.7)",
+          "oklch(38% 0.088 154.7)",
+          "oklch(50% 0.088 154.7)",
+          "oklch(62% 0.088 154.7)",
+          "oklch(74% 0.088 154.7)",
+          "oklch(86% 0.088 154.7)",
+          "oklch(95% 0.088 154.7)"
+        ]
+      },
+      "clean-dark": {
+        "role": "status",
+        "displayName": "Clean on dark",
+        "canonical": "#b7e0c6",
+        "tonalRamp": [
+          "oklch(15% 0.056 157.2)",
+          "oklch(26% 0.056 157.2)",
+          "oklch(38% 0.056 157.2)",
+          "oklch(50% 0.056 157.2)",
+          "oklch(62% 0.056 157.2)",
+          "oklch(74% 0.056 157.2)",
+          "oklch(86% 0.056 157.2)",
+          "oklch(95% 0.056 157.2)"
+        ]
+      },
+      "noted": {
+        "role": "status",
+        "displayName": "Noted",
+        "canonical": "#6b4a12",
+        "tonalRamp": [
+          "oklch(15% 0.082 75.8)",
+          "oklch(26% 0.082 75.8)",
+          "oklch(38% 0.082 75.8)",
+          "oklch(50% 0.082 75.8)",
+          "oklch(62% 0.082 75.8)",
+          "oklch(74% 0.082 75.8)",
+          "oklch(86% 0.082 75.8)",
+          "oklch(95% 0.082 75.8)"
+        ]
+      },
+      "noted-dark": {
+        "role": "status",
+        "displayName": "Noted on dark",
+        "canonical": "#e6c48a",
+        "tonalRamp": [
+          "oklch(15% 0.084 80.5)",
+          "oklch(26% 0.084 80.5)",
+          "oklch(38% 0.084 80.5)",
+          "oklch(50% 0.084 80.5)",
+          "oklch(62% 0.084 80.5)",
+          "oklch(74% 0.084 80.5)",
+          "oklch(86% 0.084 80.5)",
+          "oklch(95% 0.084 80.5)"
+        ]
+      },
+      "blocked": {
+        "role": "status",
+        "displayName": "Blocked",
+        "canonical": "#8d1d1d",
+        "tonalRamp": [
+          "oklch(15% 0.148 26.3)",
+          "oklch(26% 0.148 26.3)",
+          "oklch(38% 0.148 26.3)",
+          "oklch(50% 0.148 26.3)",
+          "oklch(62% 0.148 26.3)",
+          "oklch(74% 0.148 26.3)",
+          "oklch(86% 0.148 26.3)",
+          "oklch(95% 0.148 26.3)"
+        ]
+      },
+      "blocked-dark": {
+        "role": "status",
+        "displayName": "Blocked on dark",
+        "canonical": "#f0b4b0",
+        "tonalRamp": [
+          "oklch(15% 0.071 23.1)",
+          "oklch(26% 0.071 23.1)",
+          "oklch(38% 0.071 23.1)",
+          "oklch(50% 0.071 23.1)",
+          "oklch(62% 0.071 23.1)",
+          "oklch(74% 0.071 23.1)",
+          "oklch(86% 0.071 23.1)",
+          "oklch(95% 0.071 23.1)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The centered portal name."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The entry title, with a double ink rule under it."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Module headings. Section titles share the weight, leading, and tracking at 1.45rem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "The reading column, set in Literata and held to 70ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation, footer, and other chrome in Atkinson Hyperlegible."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code blocks, snippets, and measured counts in Geist Mono."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "rule-draw",
+        "value": "900ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The portal rule draws once from the left. Reduced motion shows it already drawn."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "search-stack",
+        "value": "560px"
+      },
+      {
+        "name": "footer",
+        "value": "720px"
+      },
+      {
+        "name": "shelves",
+        "value": "800px"
+      },
+      {
+        "name": "header",
+        "value": "860px"
+      },
+      {
+        "name": "modules",
+        "value": "960px"
+      },
+      {
+        "name": "article",
+        "value": "1100px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Ink rectangle for Search and retry. The portal submit is the wider sibling.",
+      "html": "<button class=\"ds-btn-solid\" type=\"button\">Search</button> <button class=\"ds-btn-portal\" type=\"button\">Search</button>",
+      "css": ".ds-btn-solid, .ds-btn-portal { border: 0; border-radius: 0; background: var(--ink); color: var(--paper); font-family: var(--font-sans), \"Atkinson Hyperlegible\", \"Segoe UI\", sans-serif; cursor: pointer; } .ds-btn-solid { font-size: 1rem; padding: 0.3rem 0.7rem; } .ds-btn-portal { font-size: 1.05rem; padding: 0 1.25rem; } .ds-btn-solid:hover, .ds-btn-portal:hover { background: var(--accent-ink); color: var(--paper); } :host-context(.dark) .ds-btn-solid:hover, :host-context(.dark) .ds-btn-portal:hover { color: #102326; } .ds-btn-solid:focus-visible, .ds-btn-portal:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Verdigris underline for copy, theme, rail, and install targets. Current state is an ink rule.",
+      "html": "<button class=\"ds-text-button\" type=\"button\">Copy install</button> <button class=\"ds-text-button\" type=\"button\" aria-pressed=\"true\">Copied</button>",
+      "css": ".ds-text-button { border: 0; border-radius: 0; background: transparent; color: var(--accent-ink); font-family: var(--font-sans), \"Atkinson Hyperlegible\", \"Segoe UI\", sans-serif; font-size: 1rem; text-decoration: underline; text-underline-offset: 0.18em; padding: 0; cursor: pointer; } .ds-text-button:hover { color: var(--accent-ink); } .ds-text-button[aria-pressed=\"true\"] { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); } .ds-text-button:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Underline field",
+      "kind": "input",
+      "refersTo": "field-portal",
+      "description": "Portal search field on a 2px ink underline. Browse fields use a 1px underline.",
+      "html": "<input class=\"ds-field\" type=\"search\" placeholder=\"Search skills, agents, and shelves\" aria-label=\"Search entries\" />",
+      "css": ".ds-field { width: 100%; border: 0; border-bottom: 2px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); caret-color: var(--accent-ink); font-family: var(--font-sans), \"Atkinson Hyperlegible\", \"Segoe UI\", sans-serif; font-size: 1.25rem; padding: 0.65rem 0.6rem 0.65rem 0; } .ds-field::placeholder { color: var(--muted-ink); } .ds-field:hover { border-bottom-color: var(--ink); } .ds-field:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Primary nav",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header links. Hover and the current page turn verdigris and underline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#\">Index</a><a href=\"#\" aria-current=\"page\">Agents</a><a href=\"#\">Recent changes</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 0.9rem; font-family: var(--font-sans), \"Atkinson Hyperlegible\", \"Segoe UI\", sans-serif; font-size: 0.95rem; } .ds-nav a { color: var(--ink); text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current=\"page\"] { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 0.18em; } .ds-nav a:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Infobox plate",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "Ruled fact plate beside the reading column. A missing version stays unlabeled as a number.",
+      "html": "<aside class=\"ds-plate\" aria-label=\"Entry facts\"><p class=\"ds-plate-name\">entry-name</p><dl><dt>Category</dt><dd><a href=\"#\">Shelf</a></dd><dt>Lint</dt><dd>100 clean</dd><dt>Version</dt><dd>Not recorded</dd></dl></aside>",
+      "css": ".ds-plate { border-top: 3px double var(--ink); border-bottom: 1px solid var(--rule); border-radius: 0; padding: 0.75rem 0 1rem; color: var(--ink); background: var(--paper); font-family: var(--font-sans), \"Atkinson Hyperlegible\", \"Segoe UI\", sans-serif; font-size: 0.95rem; } .ds-plate-name { font-family: var(--font-serif), Literata, Georgia, \"Iowan Old Style\", serif; font-size: 1.25rem; letter-spacing: -0.02em; margin: 0; } .ds-plate dl { display: grid; grid-template-columns: 6.2rem minmax(0, 1fr); gap: 0.35rem 0.6rem; margin: 0.7rem 0 0; } .ds-plate dt { color: var(--muted-ink); font-size: 0.92rem; } .ds-plate dd { margin: 0; } .ds-plate a { color: var(--accent-ink); } .ds-plate a:hover { text-decoration: underline; text-underline-offset: 0.18em; } .ds-plate a:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Shelf cell",
+      "kind": "card",
+      "refersTo": "shelf-cell",
+      "description": "A shelf name and a tabular count inside the hairline grid.",
+      "html": "<a class=\"ds-shelf\" href=\"#\"><span class=\"ds-shelf-name\">Shelf</span><span class=\"ds-shelf-count\">0</span></a>",
+      "css": ".ds-shelf { display: flex; align-items: flex-end; justify-content: space-between; gap: 0.8rem; min-height: 5.6rem; padding: 0.9rem 1rem 0.85rem; border: 1px solid var(--rule); border-radius: 0; color: var(--ink); text-decoration: none; background: transparent; } .ds-shelf-name { font-family: var(--font-serif), Literata, Georgia, \"Iowan Old Style\", serif; font-size: 1.35rem; letter-spacing: -0.02em; line-height: 1.15; } .ds-shelf-count { font-family: var(--font-mono), \"Geist Mono\", ui-monospace, monospace; font-variant-numeric: tabular-nums; color: var(--muted-ink); } .ds-shelf:hover { background: color-mix(in srgb, var(--accent-ink) 8%, transparent); } .ds-shelf:hover .ds-shelf-name { color: var(--accent-ink); } .ds-shelf:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Code snippet",
+      "kind": "custom",
+      "refersTo": "snippet",
+      "description": "Install and source blocks on code paper, in Geist Mono.",
+      "html": "<pre class=\"ds-snippet\"><code>SKILL.md</code></pre>",
+      "css": ".ds-snippet { margin: 0; overflow-x: auto; border: 1px solid var(--rule); border-radius: 0; background: var(--code-bg); color: var(--ink); padding: 0.85rem 1rem; font-family: var(--font-mono), \"Geist Mono\", ui-monospace, monospace; font-size: 0.78rem; line-height: 1.55; }"
+    },
+    {
+      "name": "Score mark",
+      "kind": "custom",
+      "refersTo": "score-clean",
+      "description": "Lint score and its word, in the plate and in results.",
+      "html": "<span class=\"ds-score ds-score-clean\"><span class=\"ds-score-num\">100</span> clean</span>",
+      "css": ".ds-score { display: inline-flex; align-items: baseline; gap: 0.35rem; font-family: var(--font-sans), \"Atkinson Hyperlegible\", \"Segoe UI\", sans-serif; font-size: 0.92rem; } .ds-score-num { font-family: var(--font-mono), \"Geist Mono\", ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 1rem; } .ds-score-clean { color: var(--clean); } .ds-score-noted { color: var(--noted); } .ds-score-blocked { color: var(--blocked); }"
+    },
+    {
+      "name": "Entry title",
+      "kind": "custom",
+      "refersTo": "entry-title",
+      "description": "Article title opened by a double ink rule drawn under the words.",
+      "html": "<h1 class=\"ds-entry-title\">Entry title</h1>",
+      "css": ".ds-entry-title { margin: 0; font-family: var(--font-serif), Literata, Georgia, \"Iowan Old Style\", serif; font-weight: 600; font-size: clamp(2.15rem, 4vw, 3.15rem); letter-spacing: -0.03em; line-height: 1.08; color: var(--ink); border-bottom: 3px double var(--ink); padding-bottom: 0.35rem; }"
+    },
+    {
+      "name": "Portal rule",
+      "kind": "custom",
+      "refersTo": "portal-rule",
+      "description": "The single verdigris rule under the portal tagline. It draws once.",
+      "html": "<div class=\"ds-portal-rule\" aria-hidden=\"true\"></div>",
+      "css": ".ds-portal-rule { width: min(14rem, 40%); height: 1px; background: var(--accent-ink); transform-origin: left center; animation: ds-rule-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) both; } @keyframes ds-rule-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } } @media (prefers-reduced-motion: reduce) { .ds-portal-rule { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Reference Desk",
+    "overview": "Skilldex is a reference desk on warm paper. The portal answers what the encyclopedia holds: a serif name, a tagline, one verdigris rule, a search, a counts line, and shelves of names. An entry is an article, with a title, a lede, a reading column, and a ruled plate of facts. The tone is scholarly and plain.\n\nLiterata carries titles and the reading column. Atkinson Hyperlegible carries chrome. Geist Mono carries code and counts. Corners are square. Depth comes from a hairline, a double ink rule, or a code-paper block, never from a shadow. A CSS turbulence overlay grains the paper. Dark mode keeps the same roles on dark paper.\n\nThe desk does not borrow another reference work’s logo, wordmark, or skin. Streetwear, daylight, data-strobe, cutting-bench, orienteering, and monochrome marketing are declined: they drop the pinned paper and ink, or they stop the page reading as an article.",
+    "keyCharacteristics": [
+      "Warm paper, near-black ink, and one verdigris accent",
+      "Literata for reading and titles; Atkinson Hyperlegible for chrome; Geist Mono for code and counts",
+      "Square corners, with rules instead of shadows",
+      "A double ink rule on titles and plates, and one verdigris rule under the portal tagline",
+      "Paper grain as a CSS turbulence overlay, with no shipping rasters",
+      "Dark paper repeats the same relationship"
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Verdigris is the only accent. It marks links, focus, the portal rule, and the solid-button hover. Clean, noted, and blocked are lint ink, not a second brand color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Same Relationship Rule",
+        "body": "Dark mode reassigns paper, ink, accent, rule, code paper, and the three lint inks. It does not introduce a new brand.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Jobs Rule",
+        "body": "Literata carries the portal name, entry titles, section headings, shelf names, plate names, the lede, and the reading column. Atkinson Hyperlegible carries navigation, search, buttons, labels, tables, and the footer. Geist Mono carries code and measured counts.",
+        "section": "typography"
+      },
+      {
+        "name": "The Article Measure Rule",
+        "body": "The lede, the reading column, see-also, references, glossary definitions, and empty notes stay within 70ch.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Column Rule",
+        "body": "Every page frame is min(76rem, calc(100% - 2rem)), centered. At 1100px an article places a 13.25rem rail beside a reading column no wider than 70ch, with the plate in a 16–19.5rem track.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Paper Rule",
+        "body": "Surfaces are flat. Depth is a hairline, a double rule, a code-paper block, or an 8% verdigris wash on a shelf. There is no drop shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Grain Rule",
+        "body": "Texture is the fixed turbulence overlay on the body: opacity 0.045 and multiply on light paper, opacity 0.07 and overlay on dark paper. It is not an image asset.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Rule",
+        "body": "Radius is 0 on every corner, including controls, plates, and code blocks.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Double Rule",
+        "body": "A 3px double ink rule opens an entry title (drawn under the title), a module, an empty note, the footer, and an infobox plate. The single verdigris rule is only the portal rule under the tagline.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Underline Control Rule",
+        "body": "Search and fields are transparent, with an ink underline (1px in the header and on browse fields, 2px on the portal search). A solid action is an ink rectangle that turns verdigris on hover. A text action is a verdigris underline with no fill; the current or pressed text action switches to ink with a 1px ink rule.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do keep light paper, ink, and verdigris on #f4efe4, #1c1915, and #0e4f57, and dark paper, ink, and verdigris on #16130f, #f3eee4, and #9fd4ce.",
+      "Do focus with a 2px verdigris outline offset 3px, and keep the skip link in ink on paper.",
+      "Do draw the portal rule over 900ms with cubic-bezier(0.16, 1, 0.3, 1), and leave it fully drawn when the reader asks for reduced motion.",
+      "Do set shelf counts and lint scores in Geist Mono with tabular figures.",
+      "Do take the display name from SITE_NAME."
+    ],
+    "donts": [
+      "Don't add a second accent, a gradient, or a drop shadow.",
+      "Don't round corners.",
+      "Don't ship a raster texture, logo, or wordmark. Grain stays the CSS turbulence overlay.",
+      "Don't set the reading column in Atkinson Hyperlegible.",
+      "Don't set navigation, buttons, or meta labels in Literata.",
+      "Don't print a version, a price, or a customer mark. An unrecorded version stays “Not recorded”."
+    ]
+  }
+}
