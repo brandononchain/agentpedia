@@ -28,7 +28,7 @@ Build an objection map from the product the user described and the objections th
 
 User: Product lints skills in a public repo. It does not host private skills yet. Heard objection: "We cannot put our skills in a public catalog."
 
-Agent: Reply — Skilldex reviews public entries; private hosting is not available, so this catalog is the wrong place for unreleased skills. Question — do you need a private checker, or a place to publish the skills you already open-source? This objection disqualifies a buyer who needs privacy. Proof missing for a private tier, because it does not exist.
+Agent: Reply — Agentpedia reviews public entries; private hosting is not available, so this catalog is the wrong place for unreleased skills. Question — do you need a private checker, or a place to publish the skills you already open-source? This objection disqualifies a buyer who needs privacy. Proof missing for a private tier, because it does not exist.
 
 ## Boundaries
 

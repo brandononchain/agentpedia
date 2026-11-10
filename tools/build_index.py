@@ -27,7 +27,8 @@ SKILLS_DIR = ROOT / "skills"
 AGENTS_DIR = ROOT / "agents"
 DATA_PATH = ROOT / "data" / "catalog.json"
 RAW_DIR = ROOT / "public" / "raw"
-REPO_URL = "https://github.com/brandononchain/skilldex"
+REPO_URL = "https://github.com/brandononchain/agentpedia"
+REPO_DIR = REPO_URL.rstrip("/").rsplit("/", 1)[-1]
 LINK_RE = re.compile(r"(!?)\[([^\]]*)\]\(([^)]+)\)")
 ISO_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -192,7 +193,7 @@ def install_snippet(category: str, name: str, dest: str) -> str:
         f"# Or clone, then copy\n"
         f"git clone --depth 1 {REPO_URL}.git\n"
         f"mkdir -p {dest}\n"
-        f"cp -R skilldex/skills/{category}/{name}/. {dest}\n"
+        f"cp -R {REPO_DIR}/skills/{category}/{name}/. {dest}\n"
     )
 
 
@@ -469,7 +470,7 @@ def build(allow_findings: bool) -> dict:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build the Skilldex catalog JSON.")
+    parser = argparse.ArgumentParser(description="Build the Agentpedia catalog JSON.")
     parser.add_argument(
         "--allow-findings",
         action="store_true",

@@ -26,7 +26,7 @@ Plan two weeks from one theme. Every slot needs a reason tied to the theme. Empt
 
 ## Example
 
-User: Theme is "how Skilldex lints skills." Start Monday 16 Nov 2026. X only. Four posts.
+User: Theme is "how Agentpedia lints skills." Start Monday 16 Nov 2026. X only. Four posts.
 
 Agent: Mon 16 — what a lint error blocks. Wed 18 — a walk through one clean skill's badge. Fri 20 — the rules that catch secrets and piped installs. Tue 24 — how to add a skill. Other weekdays stay empty. Each slot lists the rule page or the skill it will show.
 

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-11-10T20:45:00.000Z",
-  "title": "Design System: Skilldex",
+  "title": "Design System: Agentpedia",
   "extensions": {
     "colorMeta": {
       "verdigris": {
@@ -465,7 +465,7 @@
   ],
   "narrative": {
     "northStar": "The Reference Desk",
-    "overview": "Skilldex is a reference desk on warm paper. The portal answers what the encyclopedia holds: a serif name, a tagline, one verdigris rule, a search, a counts line, and shelves of names. An entry is an article, with a title, a lede, a reading column, and a ruled plate of facts. The tone is scholarly and plain.\n\nLiterata carries titles and the reading column. Atkinson Hyperlegible carries chrome. Geist Mono carries code and counts. Corners are square. Depth comes from a hairline, a double ink rule, or a code-paper block, never from a shadow. A CSS turbulence overlay grains the paper. Dark mode keeps the same roles on dark paper.\n\nThe desk does not borrow another reference work’s logo, wordmark, or skin. Streetwear, daylight, data-strobe, cutting-bench, orienteering, and monochrome marketing are declined: they drop the pinned paper and ink, or they stop the page reading as an article.",
+    "overview": "Agentpedia is a reference desk on warm paper. The portal answers what the encyclopedia holds: a serif name, a tagline, one verdigris rule, a search, a counts line, and shelves of names. An entry is an article, with a title, a lede, a reading column, and a ruled plate of facts. The tone is scholarly and plain.\n\nLiterata carries titles and the reading column. Atkinson Hyperlegible carries chrome. Geist Mono carries code and counts. Corners are square. Depth comes from a hairline, a double ink rule, or a code-paper block, never from a shadow. A CSS turbulence overlay grains the paper. Dark mode keeps the same roles on dark paper.\n\nThe desk does not borrow another reference work’s logo, wordmark, or skin. Streetwear, daylight, data-strobe, cutting-bench, orienteering, and monochrome marketing are declined: they drop the pinned paper and ink, or they stop the page reading as an article.",
     "keyCharacteristics": [
       "Warm paper, near-black ink, and one verdigris accent",
       "Literata for reading and titles; Atkinson Hyperlegible for chrome; Geist Mono for code and counts",

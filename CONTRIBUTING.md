@@ -1,6 +1,6 @@
-# Contributing to Skilldex
+# Contributing to Agentpedia
 
-Skilldex publishes skills that an agent can follow and that a reviewer can check. A pull request that adds an entry should leave the linter at zero errors and zero warnings. Info findings are allowed, but the seed catalog has none, and a new entry should aim for the same.
+Agentpedia publishes skills that an agent can follow and that a reviewer can check. A pull request that adds an entry should leave the linter at zero errors and zero warnings. Info findings are allowed, but the seed catalog has none, and a new entry should aim for the same.
 
 ## Add a skill
 

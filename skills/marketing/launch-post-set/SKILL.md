@@ -25,9 +25,9 @@ Write three launch posts from the product facts the user provides: one short, on
 
 ## Example
 
-User: Skilldex is an open directory. Every skill is linted before it is listed. It is for agent builders, not for people looking for a prompt dump.
+User: Agentpedia is an open directory. Every skill is linted before it is listed. It is for agent builders, not for people looking for a prompt dump.
 
-Agent: The short post says Skilldex lists agent skills that have passed a linter. The detail post says a failing lint blocks the entry. The audience post says it is for people shipping skills, and not a prompt dump. None of the posts call it the only directory.
+Agent: The short post says Agentpedia lists agent skills that have passed a linter. The detail post says a failing lint blocks the entry. The audience post says it is for people shipping skills, and not a prompt dump. None of the posts call it the only directory.
 
 ## Boundaries
 

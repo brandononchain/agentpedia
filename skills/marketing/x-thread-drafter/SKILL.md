@@ -26,9 +26,9 @@ Draft a thread the user can post. Each post must stand on a concrete fact from t
 
 ## Example
 
-User: Thread about Skilldex. Facts: every entry is linted, the UC Irvine study found smells in 237 of 238 skills, the repo is open source. No URL yet.
+User: Thread about Agentpedia. Facts: every entry is linted, the UC Irvine study found smells in 237 of 238 skills, the repo is open source. No URL yet.
 
-Agent: Post 1 (under 280) states that a public study found skill smells in 237 of 238 files, and Skilldex does not ship an entry that fails lint. Later posts explain the badge and the open repo. No closing link, because no URL was supplied. The draft is not posted.
+Agent: Post 1 (under 280) states that a public study found skill smells in 237 of 238 files, and Agentpedia does not ship an entry that fails lint. Later posts explain the badge and the open repo. No closing link, because no URL was supplied. The draft is not posted.
 
 ## Boundaries
 

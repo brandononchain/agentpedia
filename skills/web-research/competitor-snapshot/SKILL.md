@@ -26,9 +26,9 @@ Compare a small set of products on the same rubric. Use public information the u
 
 ## Example
 
-User: Snapshot Skilldex against a generic unreviewed skill marketplace, using only this brief: Skilldex lints every entry before it ships; the other listing does not claim a review.
+User: Snapshot Agentpedia against a generic unreviewed skill marketplace, using only this brief: Agentpedia lints every entry before it ships; the other listing does not claim a review.
 
-Agent: Skilldex is for people who want a skill that has passed a published linter. The other listing is for browsing a large unreviewed catalog. Pricing is not shown for either. Difference — one refuses an entry with lint errors, and the other does not say it checks. No winner is declared.
+Agent: Agentpedia is for people who want a skill that has passed a published linter. The other listing is for browsing a large unreviewed catalog. Pricing is not shown for either. Difference — one refuses an entry with lint errors, and the other does not say it checks. No winner is declared.
 
 ## Boundaries
 

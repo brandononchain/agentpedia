@@ -215,7 +215,7 @@ def add_agent(args: argparse.Namespace) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Add a Skilldex entry dated today.")
+    parser = argparse.ArgumentParser(description="Add an Agentpedia entry dated today.")
     sub = parser.add_subparsers(dest="kind", required=True)
 
     skill_parser = sub.add_parser("skill", help="Scaffold a skill and lint it")

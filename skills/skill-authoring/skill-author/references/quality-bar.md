@@ -1,4 +1,4 @@
-# Skilldex quality bar
+# Agentpedia quality bar
 
 A skill ships when skill-lint reports zero errors and zero warnings.
 
@@ -20,7 +20,7 @@ A skill ships when skill-lint reports zero errors and zero warnings.
 
 ## Check
 
-From a Skilldex checkout:
+From a Agentpedia checkout:
 
 ```
 PYTHONPATH=tools/skill-lint python3 -m skill_lint skills/<category>/<name>

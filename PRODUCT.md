@@ -30,12 +30,12 @@ The catalog is generated from `skills/` and `agents/` by `tools/build_index.py`.
 - Keep the lint gate, `tools/build_index.py`, CI, and install snippets working. Every entry still scores 100.
 - Search may run in the browser over `catalog.json`.
 - Do not invent prices, versions, rules, or social proof. Skills do not record a version; the infobox says so.
-- The display name is a placeholder, `Skilldex`, stored in one config constant so a later rename is one line.
+- The display name is Agentpedia, stored in `src/lib/site.ts` as `SITE_NAME`.
 - Trading and marketing skills still only record and draft. The site does not place orders or post.
 
 ## Brand Commitments
 
-The display name is the placeholder Skilldex until it is renamed in `src/lib/site.ts`. The site is positioned as the reference encyclopedia of agent skills and agents. Brandon asked for structural cues from a general encyclopedia portal and a scholarly text library, and forbade copying their logos, wordmarks, exact layouts, or assets. Visual constraints he set: warm off-white paper, near-black ink, one restrained accent, a serif for reading, a sans for chrome, dark mode, and WCAG AA.
+The display name is Agentpedia, set in `src/lib/site.ts`. The site is the reference encyclopedia of agent skills and agents. Brandon asked for structural cues from a general encyclopedia portal and a scholarly text library, and forbade copying their logos, wordmarks, exact layouts, or assets. Visual constraints he set: warm off-white paper, near-black ink, one restrained accent, a serif for reading, a sans for chrome, dark mode, and WCAG AA.
 
 ## Evidence on Hand
 

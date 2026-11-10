@@ -1,5 +1,5 @@
 ---
-name: Skilldex
+name: Agentpedia
 description: The reference encyclopedia of agent skills and agents.
 colors:
   verdigris: "#0e4f57"
@@ -147,13 +147,13 @@ components:
     textColor: "{colors.blocked}"
 ---
 
-# Design System: Skilldex
+# Design System: Agentpedia
 
 ## Overview
 
 **Creative North Star: "The Reference Desk"**
 
-Skilldex is a reference desk on warm paper. The portal answers what the encyclopedia holds: a serif name, a tagline, one verdigris rule, a search, a counts line, and shelves of names. An entry is an article, with a title, a lede, a reading column, and a ruled plate of facts. The tone is scholarly and plain.
+Agentpedia is a reference desk on warm paper. The portal answers what the encyclopedia holds: a serif name, a tagline, one verdigris rule, a search, a counts line, and shelves of names. An entry is an article, with a title, a lede, a reading column, and a ruled plate of facts. The tone is scholarly and plain.
 
 Literata carries titles and the reading column. Atkinson Hyperlegible carries chrome. Geist Mono carries code and counts. Corners are square. Depth comes from a hairline, a double ink rule, or a code-paper block, never from a shadow. A CSS turbulence overlay grains the paper. Dark mode keeps the same roles on dark paper.
 

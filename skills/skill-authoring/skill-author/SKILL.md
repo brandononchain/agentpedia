@@ -5,7 +5,7 @@ description: >-
   it done. Use when the user asks to create, draft, or scaffold a SKILL.md file.
 license: Apache-2.0
 compatibility: >-
-  skill-lint on Python 3.10 or newer when the Skilldex checkout is present. The
+  skill-lint on Python 3.10 or newer when the Agentpedia checkout is present. The
   scaffold script uses only the standard library.
 metadata:
   category: skill-authoring
@@ -16,7 +16,7 @@ metadata:
 
 # Skill author
 
-Create one skill that passes skill-lint with no errors and no warnings. Follow [references/quality-bar.md](references/quality-bar.md). Use [scripts/scaffold_skill.py](scripts/scaffold_skill.py) when a Skilldex checkout is available; otherwise write the same files by hand.
+Create one skill that passes skill-lint with no errors and no warnings. Follow [references/quality-bar.md](references/quality-bar.md). Use [scripts/scaffold_skill.py](scripts/scaffold_skill.py) when a Agentpedia checkout is available; otherwise write the same files by hand.
 
 ## Steps
 
@@ -24,7 +24,7 @@ Create one skill that passes skill-lint with no errors and no warnings. Follow [
 2. Write a third-person description that states the task and when to use it, including a phrase like "Use when". Keep it under 1024 characters and free of markup.
 3. Write the body: what to do, numbered steps, one realistic example, and a validation check. Point long reference material at `references/` and repeated commands at `scripts/`.
 4. Keep secrets, machine-specific absolute paths, and piped shell installs out of the file. Use relative paths that exist.
-5. Run skill-lint on the folder (`PYTHONPATH=tools/skill-lint python3 -m skill_lint <folder>` from a Skilldex checkout, or the project's linter). Validate that the report has zero errors and zero warnings. Fix the file and run it again before showing the skill as done.
+5. Run skill-lint on the folder (`PYTHONPATH=tools/skill-lint python3 -m skill_lint <folder>` from a Agentpedia checkout, or the project's linter). Validate that the report has zero errors and zero warnings. Fix the file and run it again before showing the skill as done.
 
 ## Example
 

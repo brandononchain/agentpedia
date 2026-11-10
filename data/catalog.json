@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-10T20:27:32.434314+00:00",
-  "repoUrl": "https://github.com/brandononchain/skilldex",
+  "generatedAt": "2026-11-10T21:11:24.327755+00:00",
+  "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
     "github": "https://github.com/brandononchain",
@@ -309,22 +309,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/agent-bundler\ncp -R skills/skill-authoring/agent-bundler/. .claude/skills/agent-bundler\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/agent-bundler\ncp -R skilldex/skills/skill-authoring/agent-bundler/. .claude/skills/agent-bundler\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/agent-bundler\ncp -R skills/skill-authoring/agent-bundler/. .claude/skills/agent-bundler\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/agent-bundler\ncp -R agentpedia/skills/skill-authoring/agent-bundler/. .claude/skills/agent-bundler\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/agent-bundler\ncp -R skills/skill-authoring/agent-bundler/. .codex/skills/agent-bundler\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/agent-bundler\ncp -R skilldex/skills/skill-authoring/agent-bundler/. .codex/skills/agent-bundler\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/agent-bundler\ncp -R skills/skill-authoring/agent-bundler/. .codex/skills/agent-bundler\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/agent-bundler\ncp -R agentpedia/skills/skill-authoring/agent-bundler/. .codex/skills/agent-bundler\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/agent-bundler\ncp -R skills/skill-authoring/agent-bundler/. .cursor/skills/agent-bundler\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/agent-bundler\ncp -R skilldex/skills/skill-authoring/agent-bundler/. .cursor/skills/agent-bundler\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/agent-bundler\ncp -R skills/skill-authoring/agent-bundler/. .cursor/skills/agent-bundler\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/agent-bundler\ncp -R agentpedia/skills/skill-authoring/agent-bundler/. .cursor/skills/agent-bundler\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/agent-bundler\ncp -R skills/skill-authoring/agent-bundler/. bot/skills/agent-bundler\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/agent-bundler\ncp -R skilldex/skills/skill-authoring/agent-bundler/. bot/skills/agent-bundler\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/agent-bundler\ncp -R skills/skill-authoring/agent-bundler/. bot/skills/agent-bundler\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/agent-bundler\ncp -R agentpedia/skills/skill-authoring/agent-bundler/. bot/skills/agent-bundler\n"
         }
       },
       "rawUrl": "/raw/skills/skill-authoring/agent-bundler/SKILL.md",
@@ -371,22 +371,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. .claude/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/docs-to-skill\ncp -R skilldex/skills/skill-authoring/docs-to-skill/. .claude/skills/docs-to-skill\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. .claude/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/docs-to-skill\ncp -R agentpedia/skills/skill-authoring/docs-to-skill/. .claude/skills/docs-to-skill\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. .codex/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/docs-to-skill\ncp -R skilldex/skills/skill-authoring/docs-to-skill/. .codex/skills/docs-to-skill\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. .codex/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/docs-to-skill\ncp -R agentpedia/skills/skill-authoring/docs-to-skill/. .codex/skills/docs-to-skill\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. .cursor/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/docs-to-skill\ncp -R skilldex/skills/skill-authoring/docs-to-skill/. .cursor/skills/docs-to-skill\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. .cursor/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/docs-to-skill\ncp -R agentpedia/skills/skill-authoring/docs-to-skill/. .cursor/skills/docs-to-skill\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. bot/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/docs-to-skill\ncp -R skilldex/skills/skill-authoring/docs-to-skill/. bot/skills/docs-to-skill\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/docs-to-skill\ncp -R skills/skill-authoring/docs-to-skill/. bot/skills/docs-to-skill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/docs-to-skill\ncp -R agentpedia/skills/skill-authoring/docs-to-skill/. bot/skills/docs-to-skill\n"
         }
       },
       "rawUrl": "/raw/skills/skill-authoring/docs-to-skill/SKILL.md",
@@ -433,22 +433,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/market-data-briefing\ncp -R skills/trading/market-data-briefing/. .claude/skills/market-data-briefing\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/market-data-briefing\ncp -R skilldex/skills/trading/market-data-briefing/. .claude/skills/market-data-briefing\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/market-data-briefing\ncp -R skills/trading/market-data-briefing/. .claude/skills/market-data-briefing\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/market-data-briefing\ncp -R agentpedia/skills/trading/market-data-briefing/. .claude/skills/market-data-briefing\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/market-data-briefing\ncp -R skills/trading/market-data-briefing/. .codex/skills/market-data-briefing\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/market-data-briefing\ncp -R skilldex/skills/trading/market-data-briefing/. .codex/skills/market-data-briefing\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/market-data-briefing\ncp -R skills/trading/market-data-briefing/. .codex/skills/market-data-briefing\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/market-data-briefing\ncp -R agentpedia/skills/trading/market-data-briefing/. .codex/skills/market-data-briefing\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/market-data-briefing\ncp -R skills/trading/market-data-briefing/. .cursor/skills/market-data-briefing\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/market-data-briefing\ncp -R skilldex/skills/trading/market-data-briefing/. .cursor/skills/market-data-briefing\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/market-data-briefing\ncp -R skills/trading/market-data-briefing/. .cursor/skills/market-data-briefing\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/market-data-briefing\ncp -R agentpedia/skills/trading/market-data-briefing/. .cursor/skills/market-data-briefing\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/market-data-briefing\ncp -R skills/trading/market-data-briefing/. bot/skills/market-data-briefing\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/market-data-briefing\ncp -R skilldex/skills/trading/market-data-briefing/. bot/skills/market-data-briefing\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/market-data-briefing\ncp -R skills/trading/market-data-briefing/. bot/skills/market-data-briefing\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/market-data-briefing\ncp -R agentpedia/skills/trading/market-data-briefing/. bot/skills/market-data-briefing\n"
         }
       },
       "rawUrl": "/raw/skills/trading/market-data-briefing/SKILL.md",
@@ -495,22 +495,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/mt5-trade-journal\ncp -R skills/trading/mt5-trade-journal/. .claude/skills/mt5-trade-journal\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/mt5-trade-journal\ncp -R skilldex/skills/trading/mt5-trade-journal/. .claude/skills/mt5-trade-journal\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/mt5-trade-journal\ncp -R skills/trading/mt5-trade-journal/. .claude/skills/mt5-trade-journal\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/mt5-trade-journal\ncp -R agentpedia/skills/trading/mt5-trade-journal/. .claude/skills/mt5-trade-journal\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/mt5-trade-journal\ncp -R skills/trading/mt5-trade-journal/. .codex/skills/mt5-trade-journal\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/mt5-trade-journal\ncp -R skilldex/skills/trading/mt5-trade-journal/. .codex/skills/mt5-trade-journal\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/mt5-trade-journal\ncp -R skills/trading/mt5-trade-journal/. .codex/skills/mt5-trade-journal\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/mt5-trade-journal\ncp -R agentpedia/skills/trading/mt5-trade-journal/. .codex/skills/mt5-trade-journal\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/mt5-trade-journal\ncp -R skills/trading/mt5-trade-journal/. .cursor/skills/mt5-trade-journal\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/mt5-trade-journal\ncp -R skilldex/skills/trading/mt5-trade-journal/. .cursor/skills/mt5-trade-journal\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/mt5-trade-journal\ncp -R skills/trading/mt5-trade-journal/. .cursor/skills/mt5-trade-journal\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/mt5-trade-journal\ncp -R agentpedia/skills/trading/mt5-trade-journal/. .cursor/skills/mt5-trade-journal\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/mt5-trade-journal\ncp -R skills/trading/mt5-trade-journal/. bot/skills/mt5-trade-journal\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/mt5-trade-journal\ncp -R skilldex/skills/trading/mt5-trade-journal/. bot/skills/mt5-trade-journal\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/mt5-trade-journal\ncp -R skills/trading/mt5-trade-journal/. bot/skills/mt5-trade-journal\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/mt5-trade-journal\ncp -R agentpedia/skills/trading/mt5-trade-journal/. bot/skills/mt5-trade-journal\n"
         }
       },
       "rawUrl": "/raw/skills/trading/mt5-trade-journal/SKILL.md",
@@ -557,22 +557,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/position-risk-sizer\ncp -R skills/trading/position-risk-sizer/. .claude/skills/position-risk-sizer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/position-risk-sizer\ncp -R skilldex/skills/trading/position-risk-sizer/. .claude/skills/position-risk-sizer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/position-risk-sizer\ncp -R skills/trading/position-risk-sizer/. .claude/skills/position-risk-sizer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/position-risk-sizer\ncp -R agentpedia/skills/trading/position-risk-sizer/. .claude/skills/position-risk-sizer\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/position-risk-sizer\ncp -R skills/trading/position-risk-sizer/. .codex/skills/position-risk-sizer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/position-risk-sizer\ncp -R skilldex/skills/trading/position-risk-sizer/. .codex/skills/position-risk-sizer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/position-risk-sizer\ncp -R skills/trading/position-risk-sizer/. .codex/skills/position-risk-sizer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/position-risk-sizer\ncp -R agentpedia/skills/trading/position-risk-sizer/. .codex/skills/position-risk-sizer\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/position-risk-sizer\ncp -R skills/trading/position-risk-sizer/. .cursor/skills/position-risk-sizer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/position-risk-sizer\ncp -R skilldex/skills/trading/position-risk-sizer/. .cursor/skills/position-risk-sizer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/position-risk-sizer\ncp -R skills/trading/position-risk-sizer/. .cursor/skills/position-risk-sizer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/position-risk-sizer\ncp -R agentpedia/skills/trading/position-risk-sizer/. .cursor/skills/position-risk-sizer\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/position-risk-sizer\ncp -R skills/trading/position-risk-sizer/. bot/skills/position-risk-sizer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/position-risk-sizer\ncp -R skilldex/skills/trading/position-risk-sizer/. bot/skills/position-risk-sizer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/position-risk-sizer\ncp -R skills/trading/position-risk-sizer/. bot/skills/position-risk-sizer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/position-risk-sizer\ncp -R agentpedia/skills/trading/position-risk-sizer/. bot/skills/position-risk-sizer\n"
         }
       },
       "rawUrl": "/raw/skills/trading/position-risk-sizer/SKILL.md",
@@ -614,22 +614,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. .claude/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/prop-firm-rule-check\ncp -R skilldex/skills/trading/prop-firm-rule-check/. .claude/skills/prop-firm-rule-check\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. .claude/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/prop-firm-rule-check\ncp -R agentpedia/skills/trading/prop-firm-rule-check/. .claude/skills/prop-firm-rule-check\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. .codex/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/prop-firm-rule-check\ncp -R skilldex/skills/trading/prop-firm-rule-check/. .codex/skills/prop-firm-rule-check\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. .codex/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/prop-firm-rule-check\ncp -R agentpedia/skills/trading/prop-firm-rule-check/. .codex/skills/prop-firm-rule-check\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. .cursor/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/prop-firm-rule-check\ncp -R skilldex/skills/trading/prop-firm-rule-check/. .cursor/skills/prop-firm-rule-check\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. .cursor/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/prop-firm-rule-check\ncp -R agentpedia/skills/trading/prop-firm-rule-check/. .cursor/skills/prop-firm-rule-check\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. bot/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/prop-firm-rule-check\ncp -R skilldex/skills/trading/prop-firm-rule-check/. bot/skills/prop-firm-rule-check\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/prop-firm-rule-check\ncp -R skills/trading/prop-firm-rule-check/. bot/skills/prop-firm-rule-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/prop-firm-rule-check\ncp -R agentpedia/skills/trading/prop-firm-rule-check/. bot/skills/prop-firm-rule-check\n"
         }
       },
       "rawUrl": "/raw/skills/trading/prop-firm-rule-check/SKILL.md",
@@ -650,7 +650,7 @@
       "added": "2026-11-10",
       "featured": true,
       "license": "Apache-2.0",
-      "compatibility": "skill-lint on Python 3.10 or newer when the Skilldex checkout is present. The scaffold script uses only the standard library.",
+      "compatibility": "skill-lint on Python 3.10 or newer when the Agentpedia checkout is present. The scaffold script uses only the standard library.",
       "lint": {
         "score": 100,
         "errors": 0,
@@ -662,41 +662,41 @@
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 2180,
+          "bytes": 2186,
           "url": "/raw/skills/skill-authoring/skill-author/SKILL.md"
         },
         {
           "path": "references/quality-bar.md",
-          "bytes": 890,
+          "bytes": 894,
           "url": "/raw/skills/skill-authoring/skill-author/references/quality-bar.md"
         },
         {
           "path": "scripts/scaffold_skill.py",
-          "bytes": 1785,
+          "bytes": 1787,
           "url": "/raw/skills/skill-authoring/skill-author/scripts/scaffold_skill.py"
         }
       ],
-      "body": "# Skill author\n\nCreate one skill that passes skill-lint with no errors and no warnings. Follow [references/quality-bar.md](/raw/skills/skill-authoring/skill-author/references/quality-bar.md). Use [scripts/scaffold_skill.py](/raw/skills/skill-authoring/skill-author/scripts/scaffold_skill.py) when a Skilldex checkout is available; otherwise write the same files by hand.\n\n## Steps\n\n1. Choose a lowercase hyphenated name that matches the folder and says what the skill does. Reject generic names such as helper, misc, or skill.\n2. Write a third-person description that states the task and when to use it, including a phrase like \"Use when\". Keep it under 1024 characters and free of markup.\n3. Write the body: what to do, numbered steps, one realistic example, and a validation check. Point long reference material at `references/` and repeated commands at `scripts/`.\n4. Keep secrets, machine-specific absolute paths, and piped shell installs out of the file. Use relative paths that exist.\n5. Run skill-lint on the folder (`PYTHONPATH=tools/skill-lint python3 -m skill_lint <folder>` from a Skilldex checkout, or the project's linter). Validate that the report has zero errors and zero warnings. Fix the file and run it again before showing the skill as done.\n\n## Example\n\nUser: Add a skill that turns commit subjects into a changelog.\n\nAgent: Creates `skills/dev-tools/changelog-from-commits/SKILL.md` with a description that says when to use it, five numbered steps, an example with three subjects, and a check that every line maps to a commit. The lint report shows zero errors and zero warnings. The skill is shown only after that report.\n\n## Boundaries\n\nDo not ship a skill that still has lint errors. Do not copy a third-party skill in verbatim. Do not add credentials to the example.\n",
+      "body": "# Skill author\n\nCreate one skill that passes skill-lint with no errors and no warnings. Follow [references/quality-bar.md](/raw/skills/skill-authoring/skill-author/references/quality-bar.md). Use [scripts/scaffold_skill.py](/raw/skills/skill-authoring/skill-author/scripts/scaffold_skill.py) when a Agentpedia checkout is available; otherwise write the same files by hand.\n\n## Steps\n\n1. Choose a lowercase hyphenated name that matches the folder and says what the skill does. Reject generic names such as helper, misc, or skill.\n2. Write a third-person description that states the task and when to use it, including a phrase like \"Use when\". Keep it under 1024 characters and free of markup.\n3. Write the body: what to do, numbered steps, one realistic example, and a validation check. Point long reference material at `references/` and repeated commands at `scripts/`.\n4. Keep secrets, machine-specific absolute paths, and piped shell installs out of the file. Use relative paths that exist.\n5. Run skill-lint on the folder (`PYTHONPATH=tools/skill-lint python3 -m skill_lint <folder>` from a Agentpedia checkout, or the project's linter). Validate that the report has zero errors and zero warnings. Fix the file and run it again before showing the skill as done.\n\n## Example\n\nUser: Add a skill that turns commit subjects into a changelog.\n\nAgent: Creates `skills/dev-tools/changelog-from-commits/SKILL.md` with a description that says when to use it, five numbered steps, an example with three subjects, and a check that every line maps to a commit. The lint report shows zero errors and zero warnings. The skill is shown only after that report.\n\n## Boundaries\n\nDo not ship a skill that still has lint errors. Do not copy a third-party skill in verbatim. Do not add credentials to the example.\n",
       "install": {
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/skill-author\ncp -R skills/skill-authoring/skill-author/. .claude/skills/skill-author\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/skill-author\ncp -R skilldex/skills/skill-authoring/skill-author/. .claude/skills/skill-author\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/skill-author\ncp -R skills/skill-authoring/skill-author/. .claude/skills/skill-author\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/skill-author\ncp -R agentpedia/skills/skill-authoring/skill-author/. .claude/skills/skill-author\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/skill-author\ncp -R skills/skill-authoring/skill-author/. .codex/skills/skill-author\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/skill-author\ncp -R skilldex/skills/skill-authoring/skill-author/. .codex/skills/skill-author\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/skill-author\ncp -R skills/skill-authoring/skill-author/. .codex/skills/skill-author\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/skill-author\ncp -R agentpedia/skills/skill-authoring/skill-author/. .codex/skills/skill-author\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/skill-author\ncp -R skills/skill-authoring/skill-author/. .cursor/skills/skill-author\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/skill-author\ncp -R skilldex/skills/skill-authoring/skill-author/. .cursor/skills/skill-author\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/skill-author\ncp -R skills/skill-authoring/skill-author/. .cursor/skills/skill-author\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/skill-author\ncp -R agentpedia/skills/skill-authoring/skill-author/. .cursor/skills/skill-author\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/skill-author\ncp -R skills/skill-authoring/skill-author/. bot/skills/skill-author\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/skill-author\ncp -R skilldex/skills/skill-authoring/skill-author/. bot/skills/skill-author\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/skill-author\ncp -R skills/skill-authoring/skill-author/. bot/skills/skill-author\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/skill-author\ncp -R agentpedia/skills/skill-authoring/skill-author/. bot/skills/skill-author\n"
         }
       },
       "rawUrl": "/raw/skills/skill-authoring/skill-author/SKILL.md",
@@ -739,22 +739,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/skill-reviewer\ncp -R skills/skill-authoring/skill-reviewer/. .claude/skills/skill-reviewer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/skill-reviewer\ncp -R skilldex/skills/skill-authoring/skill-reviewer/. .claude/skills/skill-reviewer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/skill-reviewer\ncp -R skills/skill-authoring/skill-reviewer/. .claude/skills/skill-reviewer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/skill-reviewer\ncp -R agentpedia/skills/skill-authoring/skill-reviewer/. .claude/skills/skill-reviewer\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/skill-reviewer\ncp -R skills/skill-authoring/skill-reviewer/. .codex/skills/skill-reviewer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/skill-reviewer\ncp -R skilldex/skills/skill-authoring/skill-reviewer/. .codex/skills/skill-reviewer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/skill-reviewer\ncp -R skills/skill-authoring/skill-reviewer/. .codex/skills/skill-reviewer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/skill-reviewer\ncp -R agentpedia/skills/skill-authoring/skill-reviewer/. .codex/skills/skill-reviewer\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/skill-reviewer\ncp -R skills/skill-authoring/skill-reviewer/. .cursor/skills/skill-reviewer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/skill-reviewer\ncp -R skilldex/skills/skill-authoring/skill-reviewer/. .cursor/skills/skill-reviewer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/skill-reviewer\ncp -R skills/skill-authoring/skill-reviewer/. .cursor/skills/skill-reviewer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/skill-reviewer\ncp -R agentpedia/skills/skill-authoring/skill-reviewer/. .cursor/skills/skill-reviewer\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/skill-reviewer\ncp -R skills/skill-authoring/skill-reviewer/. bot/skills/skill-reviewer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/skill-reviewer\ncp -R skilldex/skills/skill-authoring/skill-reviewer/. bot/skills/skill-reviewer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/skill-reviewer\ncp -R skills/skill-authoring/skill-reviewer/. bot/skills/skill-reviewer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/skill-reviewer\ncp -R agentpedia/skills/skill-authoring/skill-reviewer/. bot/skills/skill-reviewer\n"
         }
       },
       "rawUrl": "/raw/skills/skill-authoring/skill-reviewer/SKILL.md",
@@ -796,22 +796,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. .claude/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/x-reply-scout\ncp -R skilldex/skills/marketing/x-reply-scout/. .claude/skills/x-reply-scout\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. .claude/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/x-reply-scout\ncp -R agentpedia/skills/marketing/x-reply-scout/. .claude/skills/x-reply-scout\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. .codex/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/x-reply-scout\ncp -R skilldex/skills/marketing/x-reply-scout/. .codex/skills/x-reply-scout\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. .codex/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/x-reply-scout\ncp -R agentpedia/skills/marketing/x-reply-scout/. .codex/skills/x-reply-scout\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. .cursor/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/x-reply-scout\ncp -R skilldex/skills/marketing/x-reply-scout/. .cursor/skills/x-reply-scout\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. .cursor/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/x-reply-scout\ncp -R agentpedia/skills/marketing/x-reply-scout/. .cursor/skills/x-reply-scout\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. bot/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/x-reply-scout\ncp -R skilldex/skills/marketing/x-reply-scout/. bot/skills/x-reply-scout\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/x-reply-scout\ncp -R skills/marketing/x-reply-scout/. bot/skills/x-reply-scout\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/x-reply-scout\ncp -R agentpedia/skills/marketing/x-reply-scout/. bot/skills/x-reply-scout\n"
         }
       },
       "rawUrl": "/raw/skills/marketing/x-reply-scout/SKILL.md",
@@ -844,31 +844,31 @@
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 1670,
+          "bytes": 1672,
           "url": "/raw/skills/marketing/content-calendar/SKILL.md"
         }
       ],
-      "body": "# Content calendar\n\nPlan two weeks from one theme. Every slot needs a reason tied to the theme. Empty days are allowed. A calendar full of posts with nothing to say is a failed calendar.\n\n## Steps\n\n1. Confirm the theme, the channels, the start date, and how many posts the user is willing to publish. Default to X only and four posts across ten weekdays if they do not specify.\n2. Propose slots. Each slot has a date, a channel, a one-line topic, and the job of that post (teach, show a specimen, or point at the repo).\n3. Leave days blank rather than repeating the same claim.\n4. Note what source material each slot needs, so the user can see which posts are blocked on a fact.\n5. Validate the calendar: it covers the agreed length, it stays on the theme, and it does not exceed the volume the user accepted. Present it as a draft.\n\n## Example\n\nUser: Theme is \"how Skilldex lints skills.\" Start Monday 16 Nov 2026. X only. Four posts.\n\nAgent: Mon 16 \u2014 what a lint error blocks. Wed 18 \u2014 a walk through one clean skill's badge. Fri 20 \u2014 the rules that catch secrets and piped installs. Tue 24 \u2014 how to add a skill. Other weekdays stay empty. Each slot lists the rule page or the skill it will show.\n\n## Boundaries\n\nDo not schedule posts that require invented customer stories. Do not fill a weekend unless the user posts then.\n",
+      "body": "# Content calendar\n\nPlan two weeks from one theme. Every slot needs a reason tied to the theme. Empty days are allowed. A calendar full of posts with nothing to say is a failed calendar.\n\n## Steps\n\n1. Confirm the theme, the channels, the start date, and how many posts the user is willing to publish. Default to X only and four posts across ten weekdays if they do not specify.\n2. Propose slots. Each slot has a date, a channel, a one-line topic, and the job of that post (teach, show a specimen, or point at the repo).\n3. Leave days blank rather than repeating the same claim.\n4. Note what source material each slot needs, so the user can see which posts are blocked on a fact.\n5. Validate the calendar: it covers the agreed length, it stays on the theme, and it does not exceed the volume the user accepted. Present it as a draft.\n\n## Example\n\nUser: Theme is \"how Agentpedia lints skills.\" Start Monday 16 Nov 2026. X only. Four posts.\n\nAgent: Mon 16 \u2014 what a lint error blocks. Wed 18 \u2014 a walk through one clean skill's badge. Fri 20 \u2014 the rules that catch secrets and piped installs. Tue 24 \u2014 how to add a skill. Other weekdays stay empty. Each slot lists the rule page or the skill it will show.\n\n## Boundaries\n\nDo not schedule posts that require invented customer stories. Do not fill a weekend unless the user posts then.\n",
       "install": {
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/content-calendar\ncp -R skills/marketing/content-calendar/. .claude/skills/content-calendar\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/content-calendar\ncp -R skilldex/skills/marketing/content-calendar/. .claude/skills/content-calendar\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/content-calendar\ncp -R skills/marketing/content-calendar/. .claude/skills/content-calendar\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/content-calendar\ncp -R agentpedia/skills/marketing/content-calendar/. .claude/skills/content-calendar\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/content-calendar\ncp -R skills/marketing/content-calendar/. .codex/skills/content-calendar\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/content-calendar\ncp -R skilldex/skills/marketing/content-calendar/. .codex/skills/content-calendar\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/content-calendar\ncp -R skills/marketing/content-calendar/. .codex/skills/content-calendar\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/content-calendar\ncp -R agentpedia/skills/marketing/content-calendar/. .codex/skills/content-calendar\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/content-calendar\ncp -R skills/marketing/content-calendar/. .cursor/skills/content-calendar\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/content-calendar\ncp -R skilldex/skills/marketing/content-calendar/. .cursor/skills/content-calendar\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/content-calendar\ncp -R skills/marketing/content-calendar/. .cursor/skills/content-calendar\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/content-calendar\ncp -R agentpedia/skills/marketing/content-calendar/. .cursor/skills/content-calendar\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/content-calendar\ncp -R skills/marketing/content-calendar/. bot/skills/content-calendar\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/content-calendar\ncp -R skilldex/skills/marketing/content-calendar/. bot/skills/content-calendar\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/content-calendar\ncp -R skills/marketing/content-calendar/. bot/skills/content-calendar\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/content-calendar\ncp -R agentpedia/skills/marketing/content-calendar/. bot/skills/content-calendar\n"
         }
       },
       "rawUrl": "/raw/skills/marketing/content-calendar/SKILL.md",
@@ -910,22 +910,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/git-commit-writer\ncp -R skills/dev-tools/git-commit-writer/. .claude/skills/git-commit-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/git-commit-writer\ncp -R skilldex/skills/dev-tools/git-commit-writer/. .claude/skills/git-commit-writer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/git-commit-writer\ncp -R skills/dev-tools/git-commit-writer/. .claude/skills/git-commit-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/git-commit-writer\ncp -R agentpedia/skills/dev-tools/git-commit-writer/. .claude/skills/git-commit-writer\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/git-commit-writer\ncp -R skills/dev-tools/git-commit-writer/. .codex/skills/git-commit-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/git-commit-writer\ncp -R skilldex/skills/dev-tools/git-commit-writer/. .codex/skills/git-commit-writer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/git-commit-writer\ncp -R skills/dev-tools/git-commit-writer/. .codex/skills/git-commit-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/git-commit-writer\ncp -R agentpedia/skills/dev-tools/git-commit-writer/. .codex/skills/git-commit-writer\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/git-commit-writer\ncp -R skills/dev-tools/git-commit-writer/. .cursor/skills/git-commit-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/git-commit-writer\ncp -R skilldex/skills/dev-tools/git-commit-writer/. .cursor/skills/git-commit-writer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/git-commit-writer\ncp -R skills/dev-tools/git-commit-writer/. .cursor/skills/git-commit-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/git-commit-writer\ncp -R agentpedia/skills/dev-tools/git-commit-writer/. .cursor/skills/git-commit-writer\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/git-commit-writer\ncp -R skills/dev-tools/git-commit-writer/. bot/skills/git-commit-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/git-commit-writer\ncp -R skilldex/skills/dev-tools/git-commit-writer/. bot/skills/git-commit-writer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/git-commit-writer\ncp -R skills/dev-tools/git-commit-writer/. bot/skills/git-commit-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/git-commit-writer\ncp -R agentpedia/skills/dev-tools/git-commit-writer/. bot/skills/git-commit-writer\n"
         }
       },
       "rawUrl": "/raw/skills/dev-tools/git-commit-writer/SKILL.md",
@@ -958,31 +958,31 @@
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 1678,
+          "bytes": 1682,
           "url": "/raw/skills/marketing/launch-post-set/SKILL.md"
         }
       ],
-      "body": "# Launch post set\n\nWrite three launch posts from the product facts the user provides: one short, one with a specific detail, and one that says who it is for. The product in the posts must match the product that exists.\n\n## Steps\n\n1. List the facts that are safe to say: what it does, who it is for, what is available today, and the link if one exists.\n2. Draft the short post (one or two sentences), the detail post (one concrete mechanism), and the audience post (who should use it, and who should not).\n3. Count characters for any post meant for X and keep it within 280.\n4. Remove adjectives that are not backed by a fact (\"blazing\", \"the only\", \"revolutionary\").\n5. Validate each post against the fact list. If a post needs a fact the user did not provide, cut the sentence. Do not publish unless asked.\n\n## Example\n\nUser: Skilldex is an open directory. Every skill is linted before it is listed. It is for agent builders, not for people looking for a prompt dump.\n\nAgent: The short post says Skilldex lists agent skills that have passed a linter. The detail post says a failing lint blocks the entry. The audience post says it is for people shipping skills, and not a prompt dump. None of the posts call it the only directory.\n\n## Boundaries\n\nDo not announce a feature that is \"coming soon\" unless the user asked to say that, and label it as not available today.\n",
+      "body": "# Launch post set\n\nWrite three launch posts from the product facts the user provides: one short, one with a specific detail, and one that says who it is for. The product in the posts must match the product that exists.\n\n## Steps\n\n1. List the facts that are safe to say: what it does, who it is for, what is available today, and the link if one exists.\n2. Draft the short post (one or two sentences), the detail post (one concrete mechanism), and the audience post (who should use it, and who should not).\n3. Count characters for any post meant for X and keep it within 280.\n4. Remove adjectives that are not backed by a fact (\"blazing\", \"the only\", \"revolutionary\").\n5. Validate each post against the fact list. If a post needs a fact the user did not provide, cut the sentence. Do not publish unless asked.\n\n## Example\n\nUser: Agentpedia is an open directory. Every skill is linted before it is listed. It is for agent builders, not for people looking for a prompt dump.\n\nAgent: The short post says Agentpedia lists agent skills that have passed a linter. The detail post says a failing lint blocks the entry. The audience post says it is for people shipping skills, and not a prompt dump. None of the posts call it the only directory.\n\n## Boundaries\n\nDo not announce a feature that is \"coming soon\" unless the user asked to say that, and label it as not available today.\n",
       "install": {
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/launch-post-set\ncp -R skills/marketing/launch-post-set/. .claude/skills/launch-post-set\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/launch-post-set\ncp -R skilldex/skills/marketing/launch-post-set/. .claude/skills/launch-post-set\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/launch-post-set\ncp -R skills/marketing/launch-post-set/. .claude/skills/launch-post-set\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/launch-post-set\ncp -R agentpedia/skills/marketing/launch-post-set/. .claude/skills/launch-post-set\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/launch-post-set\ncp -R skills/marketing/launch-post-set/. .codex/skills/launch-post-set\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/launch-post-set\ncp -R skilldex/skills/marketing/launch-post-set/. .codex/skills/launch-post-set\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/launch-post-set\ncp -R skills/marketing/launch-post-set/. .codex/skills/launch-post-set\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/launch-post-set\ncp -R agentpedia/skills/marketing/launch-post-set/. .codex/skills/launch-post-set\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/launch-post-set\ncp -R skills/marketing/launch-post-set/. .cursor/skills/launch-post-set\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/launch-post-set\ncp -R skilldex/skills/marketing/launch-post-set/. .cursor/skills/launch-post-set\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/launch-post-set\ncp -R skills/marketing/launch-post-set/. .cursor/skills/launch-post-set\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/launch-post-set\ncp -R agentpedia/skills/marketing/launch-post-set/. .cursor/skills/launch-post-set\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/launch-post-set\ncp -R skills/marketing/launch-post-set/. bot/skills/launch-post-set\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/launch-post-set\ncp -R skilldex/skills/marketing/launch-post-set/. bot/skills/launch-post-set\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/launch-post-set\ncp -R skills/marketing/launch-post-set/. bot/skills/launch-post-set\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/launch-post-set\ncp -R agentpedia/skills/marketing/launch-post-set/. bot/skills/launch-post-set\n"
         }
       },
       "rawUrl": "/raw/skills/marketing/launch-post-set/SKILL.md",
@@ -1024,22 +1024,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/pricing-page-copy\ncp -R skills/marketing/pricing-page-copy/. .claude/skills/pricing-page-copy\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/pricing-page-copy\ncp -R skilldex/skills/marketing/pricing-page-copy/. .claude/skills/pricing-page-copy\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/pricing-page-copy\ncp -R skills/marketing/pricing-page-copy/. .claude/skills/pricing-page-copy\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/pricing-page-copy\ncp -R agentpedia/skills/marketing/pricing-page-copy/. .claude/skills/pricing-page-copy\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/pricing-page-copy\ncp -R skills/marketing/pricing-page-copy/. .codex/skills/pricing-page-copy\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/pricing-page-copy\ncp -R skilldex/skills/marketing/pricing-page-copy/. .codex/skills/pricing-page-copy\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/pricing-page-copy\ncp -R skills/marketing/pricing-page-copy/. .codex/skills/pricing-page-copy\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/pricing-page-copy\ncp -R agentpedia/skills/marketing/pricing-page-copy/. .codex/skills/pricing-page-copy\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/pricing-page-copy\ncp -R skills/marketing/pricing-page-copy/. .cursor/skills/pricing-page-copy\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/pricing-page-copy\ncp -R skilldex/skills/marketing/pricing-page-copy/. .cursor/skills/pricing-page-copy\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/pricing-page-copy\ncp -R skills/marketing/pricing-page-copy/. .cursor/skills/pricing-page-copy\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/pricing-page-copy\ncp -R agentpedia/skills/marketing/pricing-page-copy/. .cursor/skills/pricing-page-copy\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/pricing-page-copy\ncp -R skills/marketing/pricing-page-copy/. bot/skills/pricing-page-copy\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/pricing-page-copy\ncp -R skilldex/skills/marketing/pricing-page-copy/. bot/skills/pricing-page-copy\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/pricing-page-copy\ncp -R skills/marketing/pricing-page-copy/. bot/skills/pricing-page-copy\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/pricing-page-copy\ncp -R agentpedia/skills/marketing/pricing-page-copy/. bot/skills/pricing-page-copy\n"
         }
       },
       "rawUrl": "/raw/skills/marketing/pricing-page-copy/SKILL.md",
@@ -1081,22 +1081,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/session-plan\ncp -R skills/trading/session-plan/. .claude/skills/session-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/session-plan\ncp -R skilldex/skills/trading/session-plan/. .claude/skills/session-plan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/session-plan\ncp -R skills/trading/session-plan/. .claude/skills/session-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/session-plan\ncp -R agentpedia/skills/trading/session-plan/. .claude/skills/session-plan\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/session-plan\ncp -R skills/trading/session-plan/. .codex/skills/session-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/session-plan\ncp -R skilldex/skills/trading/session-plan/. .codex/skills/session-plan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/session-plan\ncp -R skills/trading/session-plan/. .codex/skills/session-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/session-plan\ncp -R agentpedia/skills/trading/session-plan/. .codex/skills/session-plan\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/session-plan\ncp -R skills/trading/session-plan/. .cursor/skills/session-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/session-plan\ncp -R skilldex/skills/trading/session-plan/. .cursor/skills/session-plan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/session-plan\ncp -R skills/trading/session-plan/. .cursor/skills/session-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/session-plan\ncp -R agentpedia/skills/trading/session-plan/. .cursor/skills/session-plan\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/session-plan\ncp -R skills/trading/session-plan/. bot/skills/session-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/session-plan\ncp -R skilldex/skills/trading/session-plan/. bot/skills/session-plan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/session-plan\ncp -R skills/trading/session-plan/. bot/skills/session-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/session-plan\ncp -R agentpedia/skills/trading/session-plan/. bot/skills/session-plan\n"
         }
       },
       "rawUrl": "/raw/skills/trading/session-plan/SKILL.md",
@@ -1129,31 +1129,31 @@
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 1794,
+          "bytes": 1798,
           "url": "/raw/skills/marketing/x-thread-drafter/SKILL.md"
         }
       ],
-      "body": "# X thread drafter\n\nDraft a thread the user can post. Each post must stand on a concrete fact from the material they supplied. Do not promise virality, and do not add fake scarcity.\n\n## Steps\n\n1. Read the point of the thread and the facts that are allowed. Ask which account voice to use if the user has more than one.\n2. Write a first post that states the point. Then write the following posts, one idea each, in an order a cold reader can follow.\n3. Keep each post within 280 characters. Count the characters and write the count next to the post.\n4. End with a post that says what the reader can do next, only if the user supplied a real next step (a URL, a repo, a signup).\n5. Validate every factual sentence against the supplied material. Cut jokes that depend on a fabricated metric. Show the draft and wait. Do not post unless the user explicitly asks to publish.\n\n## Example\n\nUser: Thread about Skilldex. Facts: every entry is linted, the UC Irvine study found smells in 237 of 238 skills, the repo is open source. No URL yet.\n\nAgent: Post 1 (under 280) states that a public study found skill smells in 237 of 238 files, and Skilldex does not ship an entry that fails lint. Later posts explain the badge and the open repo. No closing link, because no URL was supplied. The draft is not posted.\n\n## Boundaries\n\nDo not invent a quote, a user count, or a \"most people\" claim. Do not use engagement bait (\"retweet if\"). Do not tag people the user did not name.\n",
+      "body": "# X thread drafter\n\nDraft a thread the user can post. Each post must stand on a concrete fact from the material they supplied. Do not promise virality, and do not add fake scarcity.\n\n## Steps\n\n1. Read the point of the thread and the facts that are allowed. Ask which account voice to use if the user has more than one.\n2. Write a first post that states the point. Then write the following posts, one idea each, in an order a cold reader can follow.\n3. Keep each post within 280 characters. Count the characters and write the count next to the post.\n4. End with a post that says what the reader can do next, only if the user supplied a real next step (a URL, a repo, a signup).\n5. Validate every factual sentence against the supplied material. Cut jokes that depend on a fabricated metric. Show the draft and wait. Do not post unless the user explicitly asks to publish.\n\n## Example\n\nUser: Thread about Agentpedia. Facts: every entry is linted, the UC Irvine study found smells in 237 of 238 skills, the repo is open source. No URL yet.\n\nAgent: Post 1 (under 280) states that a public study found skill smells in 237 of 238 files, and Agentpedia does not ship an entry that fails lint. Later posts explain the badge and the open repo. No closing link, because no URL was supplied. The draft is not posted.\n\n## Boundaries\n\nDo not invent a quote, a user count, or a \"most people\" claim. Do not use engagement bait (\"retweet if\"). Do not tag people the user did not name.\n",
       "install": {
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/x-thread-drafter\ncp -R skills/marketing/x-thread-drafter/. .claude/skills/x-thread-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/x-thread-drafter\ncp -R skilldex/skills/marketing/x-thread-drafter/. .claude/skills/x-thread-drafter\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/x-thread-drafter\ncp -R skills/marketing/x-thread-drafter/. .claude/skills/x-thread-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/x-thread-drafter\ncp -R agentpedia/skills/marketing/x-thread-drafter/. .claude/skills/x-thread-drafter\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/x-thread-drafter\ncp -R skills/marketing/x-thread-drafter/. .codex/skills/x-thread-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/x-thread-drafter\ncp -R skilldex/skills/marketing/x-thread-drafter/. .codex/skills/x-thread-drafter\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/x-thread-drafter\ncp -R skills/marketing/x-thread-drafter/. .codex/skills/x-thread-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/x-thread-drafter\ncp -R agentpedia/skills/marketing/x-thread-drafter/. .codex/skills/x-thread-drafter\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/x-thread-drafter\ncp -R skills/marketing/x-thread-drafter/. .cursor/skills/x-thread-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/x-thread-drafter\ncp -R skilldex/skills/marketing/x-thread-drafter/. .cursor/skills/x-thread-drafter\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/x-thread-drafter\ncp -R skills/marketing/x-thread-drafter/. .cursor/skills/x-thread-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/x-thread-drafter\ncp -R agentpedia/skills/marketing/x-thread-drafter/. .cursor/skills/x-thread-drafter\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/x-thread-drafter\ncp -R skills/marketing/x-thread-drafter/. bot/skills/x-thread-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/x-thread-drafter\ncp -R skilldex/skills/marketing/x-thread-drafter/. bot/skills/x-thread-drafter\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/x-thread-drafter\ncp -R skills/marketing/x-thread-drafter/. bot/skills/x-thread-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/x-thread-drafter\ncp -R agentpedia/skills/marketing/x-thread-drafter/. bot/skills/x-thread-drafter\n"
         }
       },
       "rawUrl": "/raw/skills/marketing/x-thread-drafter/SKILL.md",
@@ -1195,22 +1195,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/changelog-from-commits\ncp -R skills/dev-tools/changelog-from-commits/. .claude/skills/changelog-from-commits\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/changelog-from-commits\ncp -R skilldex/skills/dev-tools/changelog-from-commits/. .claude/skills/changelog-from-commits\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/changelog-from-commits\ncp -R skills/dev-tools/changelog-from-commits/. .claude/skills/changelog-from-commits\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/changelog-from-commits\ncp -R agentpedia/skills/dev-tools/changelog-from-commits/. .claude/skills/changelog-from-commits\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/changelog-from-commits\ncp -R skills/dev-tools/changelog-from-commits/. .codex/skills/changelog-from-commits\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/changelog-from-commits\ncp -R skilldex/skills/dev-tools/changelog-from-commits/. .codex/skills/changelog-from-commits\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/changelog-from-commits\ncp -R skills/dev-tools/changelog-from-commits/. .codex/skills/changelog-from-commits\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/changelog-from-commits\ncp -R agentpedia/skills/dev-tools/changelog-from-commits/. .codex/skills/changelog-from-commits\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/changelog-from-commits\ncp -R skills/dev-tools/changelog-from-commits/. .cursor/skills/changelog-from-commits\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/changelog-from-commits\ncp -R skilldex/skills/dev-tools/changelog-from-commits/. .cursor/skills/changelog-from-commits\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/changelog-from-commits\ncp -R skills/dev-tools/changelog-from-commits/. .cursor/skills/changelog-from-commits\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/changelog-from-commits\ncp -R agentpedia/skills/dev-tools/changelog-from-commits/. .cursor/skills/changelog-from-commits\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/changelog-from-commits\ncp -R skills/dev-tools/changelog-from-commits/. bot/skills/changelog-from-commits\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/changelog-from-commits\ncp -R skilldex/skills/dev-tools/changelog-from-commits/. bot/skills/changelog-from-commits\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/changelog-from-commits\ncp -R skills/dev-tools/changelog-from-commits/. bot/skills/changelog-from-commits\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/changelog-from-commits\ncp -R agentpedia/skills/dev-tools/changelog-from-commits/. bot/skills/changelog-from-commits\n"
         }
       },
       "rawUrl": "/raw/skills/dev-tools/changelog-from-commits/SKILL.md",
@@ -1252,22 +1252,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/dependency-audit-notes\ncp -R skills/dev-tools/dependency-audit-notes/. .claude/skills/dependency-audit-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/dependency-audit-notes\ncp -R skilldex/skills/dev-tools/dependency-audit-notes/. .claude/skills/dependency-audit-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/dependency-audit-notes\ncp -R skills/dev-tools/dependency-audit-notes/. .claude/skills/dependency-audit-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/dependency-audit-notes\ncp -R agentpedia/skills/dev-tools/dependency-audit-notes/. .claude/skills/dependency-audit-notes\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/dependency-audit-notes\ncp -R skills/dev-tools/dependency-audit-notes/. .codex/skills/dependency-audit-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/dependency-audit-notes\ncp -R skilldex/skills/dev-tools/dependency-audit-notes/. .codex/skills/dependency-audit-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/dependency-audit-notes\ncp -R skills/dev-tools/dependency-audit-notes/. .codex/skills/dependency-audit-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/dependency-audit-notes\ncp -R agentpedia/skills/dev-tools/dependency-audit-notes/. .codex/skills/dependency-audit-notes\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/dependency-audit-notes\ncp -R skills/dev-tools/dependency-audit-notes/. .cursor/skills/dependency-audit-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/dependency-audit-notes\ncp -R skilldex/skills/dev-tools/dependency-audit-notes/. .cursor/skills/dependency-audit-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/dependency-audit-notes\ncp -R skills/dev-tools/dependency-audit-notes/. .cursor/skills/dependency-audit-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/dependency-audit-notes\ncp -R agentpedia/skills/dev-tools/dependency-audit-notes/. .cursor/skills/dependency-audit-notes\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/dependency-audit-notes\ncp -R skills/dev-tools/dependency-audit-notes/. bot/skills/dependency-audit-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/dependency-audit-notes\ncp -R skilldex/skills/dev-tools/dependency-audit-notes/. bot/skills/dependency-audit-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/dependency-audit-notes\ncp -R skills/dev-tools/dependency-audit-notes/. bot/skills/dependency-audit-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/dependency-audit-notes\ncp -R agentpedia/skills/dev-tools/dependency-audit-notes/. bot/skills/dependency-audit-notes\n"
         }
       },
       "rawUrl": "/raw/skills/dev-tools/dependency-audit-notes/SKILL.md",
@@ -1309,22 +1309,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/diff-risk-scan\ncp -R skills/dev-tools/diff-risk-scan/. .claude/skills/diff-risk-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/diff-risk-scan\ncp -R skilldex/skills/dev-tools/diff-risk-scan/. .claude/skills/diff-risk-scan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/diff-risk-scan\ncp -R skills/dev-tools/diff-risk-scan/. .claude/skills/diff-risk-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/diff-risk-scan\ncp -R agentpedia/skills/dev-tools/diff-risk-scan/. .claude/skills/diff-risk-scan\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/diff-risk-scan\ncp -R skills/dev-tools/diff-risk-scan/. .codex/skills/diff-risk-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/diff-risk-scan\ncp -R skilldex/skills/dev-tools/diff-risk-scan/. .codex/skills/diff-risk-scan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/diff-risk-scan\ncp -R skills/dev-tools/diff-risk-scan/. .codex/skills/diff-risk-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/diff-risk-scan\ncp -R agentpedia/skills/dev-tools/diff-risk-scan/. .codex/skills/diff-risk-scan\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/diff-risk-scan\ncp -R skills/dev-tools/diff-risk-scan/. .cursor/skills/diff-risk-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/diff-risk-scan\ncp -R skilldex/skills/dev-tools/diff-risk-scan/. .cursor/skills/diff-risk-scan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/diff-risk-scan\ncp -R skills/dev-tools/diff-risk-scan/. .cursor/skills/diff-risk-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/diff-risk-scan\ncp -R agentpedia/skills/dev-tools/diff-risk-scan/. .cursor/skills/diff-risk-scan\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/diff-risk-scan\ncp -R skills/dev-tools/diff-risk-scan/. bot/skills/diff-risk-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/diff-risk-scan\ncp -R skilldex/skills/dev-tools/diff-risk-scan/. bot/skills/diff-risk-scan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/diff-risk-scan\ncp -R skills/dev-tools/diff-risk-scan/. bot/skills/diff-risk-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/diff-risk-scan\ncp -R agentpedia/skills/dev-tools/diff-risk-scan/. bot/skills/diff-risk-scan\n"
         }
       },
       "rawUrl": "/raw/skills/dev-tools/diff-risk-scan/SKILL.md",
@@ -1365,22 +1365,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/incident-timeline\ncp -R skills/dev-tools/incident-timeline/. .claude/skills/incident-timeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/incident-timeline\ncp -R skilldex/skills/dev-tools/incident-timeline/. .claude/skills/incident-timeline\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/incident-timeline\ncp -R skills/dev-tools/incident-timeline/. .claude/skills/incident-timeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/incident-timeline\ncp -R agentpedia/skills/dev-tools/incident-timeline/. .claude/skills/incident-timeline\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/incident-timeline\ncp -R skills/dev-tools/incident-timeline/. .codex/skills/incident-timeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/incident-timeline\ncp -R skilldex/skills/dev-tools/incident-timeline/. .codex/skills/incident-timeline\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/incident-timeline\ncp -R skills/dev-tools/incident-timeline/. .codex/skills/incident-timeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/incident-timeline\ncp -R agentpedia/skills/dev-tools/incident-timeline/. .codex/skills/incident-timeline\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/incident-timeline\ncp -R skills/dev-tools/incident-timeline/. .cursor/skills/incident-timeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/incident-timeline\ncp -R skilldex/skills/dev-tools/incident-timeline/. .cursor/skills/incident-timeline\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/incident-timeline\ncp -R skills/dev-tools/incident-timeline/. .cursor/skills/incident-timeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/incident-timeline\ncp -R agentpedia/skills/dev-tools/incident-timeline/. .cursor/skills/incident-timeline\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/incident-timeline\ncp -R skills/dev-tools/incident-timeline/. bot/skills/incident-timeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/incident-timeline\ncp -R skilldex/skills/dev-tools/incident-timeline/. bot/skills/incident-timeline\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/incident-timeline\ncp -R skills/dev-tools/incident-timeline/. bot/skills/incident-timeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/incident-timeline\ncp -R agentpedia/skills/dev-tools/incident-timeline/. bot/skills/incident-timeline\n"
         }
       },
       "rawUrl": "/raw/skills/dev-tools/incident-timeline/SKILL.md",
@@ -1427,22 +1427,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/pr-review-notes\ncp -R skills/dev-tools/pr-review-notes/. .claude/skills/pr-review-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/pr-review-notes\ncp -R skilldex/skills/dev-tools/pr-review-notes/. .claude/skills/pr-review-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/pr-review-notes\ncp -R skills/dev-tools/pr-review-notes/. .claude/skills/pr-review-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/pr-review-notes\ncp -R agentpedia/skills/dev-tools/pr-review-notes/. .claude/skills/pr-review-notes\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/pr-review-notes\ncp -R skills/dev-tools/pr-review-notes/. .codex/skills/pr-review-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/pr-review-notes\ncp -R skilldex/skills/dev-tools/pr-review-notes/. .codex/skills/pr-review-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/pr-review-notes\ncp -R skills/dev-tools/pr-review-notes/. .codex/skills/pr-review-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/pr-review-notes\ncp -R agentpedia/skills/dev-tools/pr-review-notes/. .codex/skills/pr-review-notes\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/pr-review-notes\ncp -R skills/dev-tools/pr-review-notes/. .cursor/skills/pr-review-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/pr-review-notes\ncp -R skilldex/skills/dev-tools/pr-review-notes/. .cursor/skills/pr-review-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/pr-review-notes\ncp -R skills/dev-tools/pr-review-notes/. .cursor/skills/pr-review-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/pr-review-notes\ncp -R agentpedia/skills/dev-tools/pr-review-notes/. .cursor/skills/pr-review-notes\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/pr-review-notes\ncp -R skills/dev-tools/pr-review-notes/. bot/skills/pr-review-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/pr-review-notes\ncp -R skilldex/skills/dev-tools/pr-review-notes/. bot/skills/pr-review-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/pr-review-notes\ncp -R skills/dev-tools/pr-review-notes/. bot/skills/pr-review-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/pr-review-notes\ncp -R agentpedia/skills/dev-tools/pr-review-notes/. bot/skills/pr-review-notes\n"
         }
       },
       "rawUrl": "/raw/skills/dev-tools/pr-review-notes/SKILL.md",
@@ -1484,22 +1484,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/test-gap-finder\ncp -R skills/dev-tools/test-gap-finder/. .claude/skills/test-gap-finder\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/test-gap-finder\ncp -R skilldex/skills/dev-tools/test-gap-finder/. .claude/skills/test-gap-finder\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/test-gap-finder\ncp -R skills/dev-tools/test-gap-finder/. .claude/skills/test-gap-finder\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/test-gap-finder\ncp -R agentpedia/skills/dev-tools/test-gap-finder/. .claude/skills/test-gap-finder\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/test-gap-finder\ncp -R skills/dev-tools/test-gap-finder/. .codex/skills/test-gap-finder\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/test-gap-finder\ncp -R skilldex/skills/dev-tools/test-gap-finder/. .codex/skills/test-gap-finder\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/test-gap-finder\ncp -R skills/dev-tools/test-gap-finder/. .codex/skills/test-gap-finder\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/test-gap-finder\ncp -R agentpedia/skills/dev-tools/test-gap-finder/. .codex/skills/test-gap-finder\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/test-gap-finder\ncp -R skills/dev-tools/test-gap-finder/. .cursor/skills/test-gap-finder\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/test-gap-finder\ncp -R skilldex/skills/dev-tools/test-gap-finder/. .cursor/skills/test-gap-finder\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/test-gap-finder\ncp -R skills/dev-tools/test-gap-finder/. .cursor/skills/test-gap-finder\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/test-gap-finder\ncp -R agentpedia/skills/dev-tools/test-gap-finder/. .cursor/skills/test-gap-finder\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/test-gap-finder\ncp -R skills/dev-tools/test-gap-finder/. bot/skills/test-gap-finder\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/test-gap-finder\ncp -R skilldex/skills/dev-tools/test-gap-finder/. bot/skills/test-gap-finder\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/test-gap-finder\ncp -R skills/dev-tools/test-gap-finder/. bot/skills/test-gap-finder\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/test-gap-finder\ncp -R agentpedia/skills/dev-tools/test-gap-finder/. bot/skills/test-gap-finder\n"
         }
       },
       "rawUrl": "/raw/skills/dev-tools/test-gap-finder/SKILL.md",
@@ -1546,22 +1546,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/adr-writer\ncp -R skills/docs-writing/adr-writer/. .claude/skills/adr-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/adr-writer\ncp -R skilldex/skills/docs-writing/adr-writer/. .claude/skills/adr-writer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/adr-writer\ncp -R skills/docs-writing/adr-writer/. .claude/skills/adr-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/adr-writer\ncp -R agentpedia/skills/docs-writing/adr-writer/. .claude/skills/adr-writer\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/adr-writer\ncp -R skills/docs-writing/adr-writer/. .codex/skills/adr-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/adr-writer\ncp -R skilldex/skills/docs-writing/adr-writer/. .codex/skills/adr-writer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/adr-writer\ncp -R skills/docs-writing/adr-writer/. .codex/skills/adr-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/adr-writer\ncp -R agentpedia/skills/docs-writing/adr-writer/. .codex/skills/adr-writer\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/adr-writer\ncp -R skills/docs-writing/adr-writer/. .cursor/skills/adr-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/adr-writer\ncp -R skilldex/skills/docs-writing/adr-writer/. .cursor/skills/adr-writer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/adr-writer\ncp -R skills/docs-writing/adr-writer/. .cursor/skills/adr-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/adr-writer\ncp -R agentpedia/skills/docs-writing/adr-writer/. .cursor/skills/adr-writer\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/adr-writer\ncp -R skills/docs-writing/adr-writer/. bot/skills/adr-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/adr-writer\ncp -R skilldex/skills/docs-writing/adr-writer/. bot/skills/adr-writer\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/adr-writer\ncp -R skills/docs-writing/adr-writer/. bot/skills/adr-writer\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/adr-writer\ncp -R agentpedia/skills/docs-writing/adr-writer/. bot/skills/adr-writer\n"
         }
       },
       "rawUrl": "/raw/skills/docs-writing/adr-writer/SKILL.md",
@@ -1603,22 +1603,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/api-doc-stub\ncp -R skills/docs-writing/api-doc-stub/. .claude/skills/api-doc-stub\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/api-doc-stub\ncp -R skilldex/skills/docs-writing/api-doc-stub/. .claude/skills/api-doc-stub\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/api-doc-stub\ncp -R skills/docs-writing/api-doc-stub/. .claude/skills/api-doc-stub\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/api-doc-stub\ncp -R agentpedia/skills/docs-writing/api-doc-stub/. .claude/skills/api-doc-stub\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/api-doc-stub\ncp -R skills/docs-writing/api-doc-stub/. .codex/skills/api-doc-stub\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/api-doc-stub\ncp -R skilldex/skills/docs-writing/api-doc-stub/. .codex/skills/api-doc-stub\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/api-doc-stub\ncp -R skills/docs-writing/api-doc-stub/. .codex/skills/api-doc-stub\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/api-doc-stub\ncp -R agentpedia/skills/docs-writing/api-doc-stub/. .codex/skills/api-doc-stub\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/api-doc-stub\ncp -R skills/docs-writing/api-doc-stub/. .cursor/skills/api-doc-stub\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/api-doc-stub\ncp -R skilldex/skills/docs-writing/api-doc-stub/. .cursor/skills/api-doc-stub\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/api-doc-stub\ncp -R skills/docs-writing/api-doc-stub/. .cursor/skills/api-doc-stub\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/api-doc-stub\ncp -R agentpedia/skills/docs-writing/api-doc-stub/. .cursor/skills/api-doc-stub\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/api-doc-stub\ncp -R skills/docs-writing/api-doc-stub/. bot/skills/api-doc-stub\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/api-doc-stub\ncp -R skilldex/skills/docs-writing/api-doc-stub/. bot/skills/api-doc-stub\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/api-doc-stub\ncp -R skills/docs-writing/api-doc-stub/. bot/skills/api-doc-stub\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/api-doc-stub\ncp -R agentpedia/skills/docs-writing/api-doc-stub/. bot/skills/api-doc-stub\n"
         }
       },
       "rawUrl": "/raw/skills/docs-writing/api-doc-stub/SKILL.md",
@@ -1670,22 +1670,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/csv-profile\ncp -R skills/data-analysis/csv-profile/. .claude/skills/csv-profile\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/csv-profile\ncp -R skilldex/skills/data-analysis/csv-profile/. .claude/skills/csv-profile\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/csv-profile\ncp -R skills/data-analysis/csv-profile/. .claude/skills/csv-profile\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/csv-profile\ncp -R agentpedia/skills/data-analysis/csv-profile/. .claude/skills/csv-profile\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/csv-profile\ncp -R skills/data-analysis/csv-profile/. .codex/skills/csv-profile\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/csv-profile\ncp -R skilldex/skills/data-analysis/csv-profile/. .codex/skills/csv-profile\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/csv-profile\ncp -R skills/data-analysis/csv-profile/. .codex/skills/csv-profile\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/csv-profile\ncp -R agentpedia/skills/data-analysis/csv-profile/. .codex/skills/csv-profile\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/csv-profile\ncp -R skills/data-analysis/csv-profile/. .cursor/skills/csv-profile\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/csv-profile\ncp -R skilldex/skills/data-analysis/csv-profile/. .cursor/skills/csv-profile\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/csv-profile\ncp -R skills/data-analysis/csv-profile/. .cursor/skills/csv-profile\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/csv-profile\ncp -R agentpedia/skills/data-analysis/csv-profile/. .cursor/skills/csv-profile\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/csv-profile\ncp -R skills/data-analysis/csv-profile/. bot/skills/csv-profile\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/csv-profile\ncp -R skilldex/skills/data-analysis/csv-profile/. bot/skills/csv-profile\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/csv-profile\ncp -R skills/data-analysis/csv-profile/. bot/skills/csv-profile\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/csv-profile\ncp -R agentpedia/skills/data-analysis/csv-profile/. bot/skills/csv-profile\n"
         }
       },
       "rawUrl": "/raw/skills/data-analysis/csv-profile/SKILL.md",
@@ -1726,22 +1726,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/migration-checklist\ncp -R skills/dev-tools/migration-checklist/. .claude/skills/migration-checklist\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/migration-checklist\ncp -R skilldex/skills/dev-tools/migration-checklist/. .claude/skills/migration-checklist\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/migration-checklist\ncp -R skills/dev-tools/migration-checklist/. .claude/skills/migration-checklist\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/migration-checklist\ncp -R agentpedia/skills/dev-tools/migration-checklist/. .claude/skills/migration-checklist\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/migration-checklist\ncp -R skills/dev-tools/migration-checklist/. .codex/skills/migration-checklist\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/migration-checklist\ncp -R skilldex/skills/dev-tools/migration-checklist/. .codex/skills/migration-checklist\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/migration-checklist\ncp -R skills/dev-tools/migration-checklist/. .codex/skills/migration-checklist\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/migration-checklist\ncp -R agentpedia/skills/dev-tools/migration-checklist/. .codex/skills/migration-checklist\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/migration-checklist\ncp -R skills/dev-tools/migration-checklist/. .cursor/skills/migration-checklist\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/migration-checklist\ncp -R skilldex/skills/dev-tools/migration-checklist/. .cursor/skills/migration-checklist\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/migration-checklist\ncp -R skills/dev-tools/migration-checklist/. .cursor/skills/migration-checklist\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/migration-checklist\ncp -R agentpedia/skills/dev-tools/migration-checklist/. .cursor/skills/migration-checklist\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/migration-checklist\ncp -R skills/dev-tools/migration-checklist/. bot/skills/migration-checklist\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/migration-checklist\ncp -R skilldex/skills/dev-tools/migration-checklist/. bot/skills/migration-checklist\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/migration-checklist\ncp -R skills/dev-tools/migration-checklist/. bot/skills/migration-checklist\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/migration-checklist\ncp -R agentpedia/skills/dev-tools/migration-checklist/. bot/skills/migration-checklist\n"
         }
       },
       "rawUrl": "/raw/skills/dev-tools/migration-checklist/SKILL.md",
@@ -1783,22 +1783,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/readme-drafter\ncp -R skills/docs-writing/readme-drafter/. .claude/skills/readme-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/readme-drafter\ncp -R skilldex/skills/docs-writing/readme-drafter/. .claude/skills/readme-drafter\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/readme-drafter\ncp -R skills/docs-writing/readme-drafter/. .claude/skills/readme-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/readme-drafter\ncp -R agentpedia/skills/docs-writing/readme-drafter/. .claude/skills/readme-drafter\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/readme-drafter\ncp -R skills/docs-writing/readme-drafter/. .codex/skills/readme-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/readme-drafter\ncp -R skilldex/skills/docs-writing/readme-drafter/. .codex/skills/readme-drafter\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/readme-drafter\ncp -R skills/docs-writing/readme-drafter/. .codex/skills/readme-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/readme-drafter\ncp -R agentpedia/skills/docs-writing/readme-drafter/. .codex/skills/readme-drafter\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/readme-drafter\ncp -R skills/docs-writing/readme-drafter/. .cursor/skills/readme-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/readme-drafter\ncp -R skilldex/skills/docs-writing/readme-drafter/. .cursor/skills/readme-drafter\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/readme-drafter\ncp -R skills/docs-writing/readme-drafter/. .cursor/skills/readme-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/readme-drafter\ncp -R agentpedia/skills/docs-writing/readme-drafter/. .cursor/skills/readme-drafter\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/readme-drafter\ncp -R skills/docs-writing/readme-drafter/. bot/skills/readme-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/readme-drafter\ncp -R skilldex/skills/docs-writing/readme-drafter/. bot/skills/readme-drafter\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/readme-drafter\ncp -R skills/docs-writing/readme-drafter/. bot/skills/readme-drafter\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/readme-drafter\ncp -R agentpedia/skills/docs-writing/readme-drafter/. bot/skills/readme-drafter\n"
         }
       },
       "rawUrl": "/raw/skills/docs-writing/readme-drafter/SKILL.md",
@@ -1840,22 +1840,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/release-notes-editor\ncp -R skills/docs-writing/release-notes-editor/. .claude/skills/release-notes-editor\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/release-notes-editor\ncp -R skilldex/skills/docs-writing/release-notes-editor/. .claude/skills/release-notes-editor\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/release-notes-editor\ncp -R skills/docs-writing/release-notes-editor/. .claude/skills/release-notes-editor\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/release-notes-editor\ncp -R agentpedia/skills/docs-writing/release-notes-editor/. .claude/skills/release-notes-editor\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/release-notes-editor\ncp -R skills/docs-writing/release-notes-editor/. .codex/skills/release-notes-editor\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/release-notes-editor\ncp -R skilldex/skills/docs-writing/release-notes-editor/. .codex/skills/release-notes-editor\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/release-notes-editor\ncp -R skills/docs-writing/release-notes-editor/. .codex/skills/release-notes-editor\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/release-notes-editor\ncp -R agentpedia/skills/docs-writing/release-notes-editor/. .codex/skills/release-notes-editor\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/release-notes-editor\ncp -R skills/docs-writing/release-notes-editor/. .cursor/skills/release-notes-editor\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/release-notes-editor\ncp -R skilldex/skills/docs-writing/release-notes-editor/. .cursor/skills/release-notes-editor\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/release-notes-editor\ncp -R skills/docs-writing/release-notes-editor/. .cursor/skills/release-notes-editor\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/release-notes-editor\ncp -R agentpedia/skills/docs-writing/release-notes-editor/. .cursor/skills/release-notes-editor\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/release-notes-editor\ncp -R skills/docs-writing/release-notes-editor/. bot/skills/release-notes-editor\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/release-notes-editor\ncp -R skilldex/skills/docs-writing/release-notes-editor/. bot/skills/release-notes-editor\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/release-notes-editor\ncp -R skills/docs-writing/release-notes-editor/. bot/skills/release-notes-editor\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/release-notes-editor\ncp -R agentpedia/skills/docs-writing/release-notes-editor/. bot/skills/release-notes-editor\n"
         }
       },
       "rawUrl": "/raw/skills/docs-writing/release-notes-editor/SKILL.md",
@@ -1897,22 +1897,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/citation-checker\ncp -R skills/web-research/citation-checker/. .claude/skills/citation-checker\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/citation-checker\ncp -R skilldex/skills/web-research/citation-checker/. .claude/skills/citation-checker\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/citation-checker\ncp -R skills/web-research/citation-checker/. .claude/skills/citation-checker\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/citation-checker\ncp -R agentpedia/skills/web-research/citation-checker/. .claude/skills/citation-checker\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/citation-checker\ncp -R skills/web-research/citation-checker/. .codex/skills/citation-checker\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/citation-checker\ncp -R skilldex/skills/web-research/citation-checker/. .codex/skills/citation-checker\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/citation-checker\ncp -R skills/web-research/citation-checker/. .codex/skills/citation-checker\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/citation-checker\ncp -R agentpedia/skills/web-research/citation-checker/. .codex/skills/citation-checker\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/citation-checker\ncp -R skills/web-research/citation-checker/. .cursor/skills/citation-checker\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/citation-checker\ncp -R skilldex/skills/web-research/citation-checker/. .cursor/skills/citation-checker\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/citation-checker\ncp -R skills/web-research/citation-checker/. .cursor/skills/citation-checker\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/citation-checker\ncp -R agentpedia/skills/web-research/citation-checker/. .cursor/skills/citation-checker\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/citation-checker\ncp -R skills/web-research/citation-checker/. bot/skills/citation-checker\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/citation-checker\ncp -R skilldex/skills/web-research/citation-checker/. bot/skills/citation-checker\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/citation-checker\ncp -R skills/web-research/citation-checker/. bot/skills/citation-checker\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/citation-checker\ncp -R agentpedia/skills/web-research/citation-checker/. bot/skills/citation-checker\n"
         }
       },
       "rawUrl": "/raw/skills/web-research/citation-checker/SKILL.md",
@@ -1945,31 +1945,31 @@
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 1714,
+          "bytes": 1720,
           "url": "/raw/skills/web-research/competitor-snapshot/SKILL.md"
         }
       ],
-      "body": "# Competitor snapshot\n\nCompare a small set of products on the same rubric. Use public information the user supplied or that a search just returned. Missing cells stay missing.\n\n## Steps\n\n1. List the products and the date of the snapshot. Keep the set to the products the user named, up to five.\n2. For each product, fill the same fields: who it is for, the job it claims to do, pricing if a public price was found, and the source for each field.\n3. Add one row for \"not shown\" so gaps are visible.\n4. Write three sentences on real differences. Do not rank a \"winner\" unless the user asked for a recommendation and gave the criteria.\n5. Validate that every filled cell has a source from this session. Clear any cell you cannot source.\n\n## Example\n\nUser: Snapshot Skilldex against a generic unreviewed skill marketplace, using only this brief: Skilldex lints every entry before it ships; the other listing does not claim a review.\n\nAgent: Skilldex is for people who want a skill that has passed a published linter. The other listing is for browsing a large unreviewed catalog. Pricing is not shown for either. Difference \u2014 one refuses an entry with lint errors, and the other does not say it checks. No winner is declared.\n\n## Boundaries\n\nDo not invent prices, traffic, or customer quotes. Do not disparage a product beyond the sourced difference.\n",
+      "body": "# Competitor snapshot\n\nCompare a small set of products on the same rubric. Use public information the user supplied or that a search just returned. Missing cells stay missing.\n\n## Steps\n\n1. List the products and the date of the snapshot. Keep the set to the products the user named, up to five.\n2. For each product, fill the same fields: who it is for, the job it claims to do, pricing if a public price was found, and the source for each field.\n3. Add one row for \"not shown\" so gaps are visible.\n4. Write three sentences on real differences. Do not rank a \"winner\" unless the user asked for a recommendation and gave the criteria.\n5. Validate that every filled cell has a source from this session. Clear any cell you cannot source.\n\n## Example\n\nUser: Snapshot Agentpedia against a generic unreviewed skill marketplace, using only this brief: Agentpedia lints every entry before it ships; the other listing does not claim a review.\n\nAgent: Agentpedia is for people who want a skill that has passed a published linter. The other listing is for browsing a large unreviewed catalog. Pricing is not shown for either. Difference \u2014 one refuses an entry with lint errors, and the other does not say it checks. No winner is declared.\n\n## Boundaries\n\nDo not invent prices, traffic, or customer quotes. Do not disparage a product beyond the sourced difference.\n",
       "install": {
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/competitor-snapshot\ncp -R skills/web-research/competitor-snapshot/. .claude/skills/competitor-snapshot\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/competitor-snapshot\ncp -R skilldex/skills/web-research/competitor-snapshot/. .claude/skills/competitor-snapshot\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/competitor-snapshot\ncp -R skills/web-research/competitor-snapshot/. .claude/skills/competitor-snapshot\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/competitor-snapshot\ncp -R agentpedia/skills/web-research/competitor-snapshot/. .claude/skills/competitor-snapshot\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/competitor-snapshot\ncp -R skills/web-research/competitor-snapshot/. .codex/skills/competitor-snapshot\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/competitor-snapshot\ncp -R skilldex/skills/web-research/competitor-snapshot/. .codex/skills/competitor-snapshot\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/competitor-snapshot\ncp -R skills/web-research/competitor-snapshot/. .codex/skills/competitor-snapshot\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/competitor-snapshot\ncp -R agentpedia/skills/web-research/competitor-snapshot/. .codex/skills/competitor-snapshot\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/competitor-snapshot\ncp -R skills/web-research/competitor-snapshot/. .cursor/skills/competitor-snapshot\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/competitor-snapshot\ncp -R skilldex/skills/web-research/competitor-snapshot/. .cursor/skills/competitor-snapshot\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/competitor-snapshot\ncp -R skills/web-research/competitor-snapshot/. .cursor/skills/competitor-snapshot\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/competitor-snapshot\ncp -R agentpedia/skills/web-research/competitor-snapshot/. .cursor/skills/competitor-snapshot\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/competitor-snapshot\ncp -R skills/web-research/competitor-snapshot/. bot/skills/competitor-snapshot\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/competitor-snapshot\ncp -R skilldex/skills/web-research/competitor-snapshot/. bot/skills/competitor-snapshot\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/competitor-snapshot\ncp -R skills/web-research/competitor-snapshot/. bot/skills/competitor-snapshot\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/competitor-snapshot\ncp -R agentpedia/skills/web-research/competitor-snapshot/. bot/skills/competitor-snapshot\n"
         }
       },
       "rawUrl": "/raw/skills/web-research/competitor-snapshot/SKILL.md",
@@ -2011,22 +2011,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/experiment-log\ncp -R skills/data-analysis/experiment-log/. .claude/skills/experiment-log\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/experiment-log\ncp -R skilldex/skills/data-analysis/experiment-log/. .claude/skills/experiment-log\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/experiment-log\ncp -R skills/data-analysis/experiment-log/. .claude/skills/experiment-log\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/experiment-log\ncp -R agentpedia/skills/data-analysis/experiment-log/. .claude/skills/experiment-log\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/experiment-log\ncp -R skills/data-analysis/experiment-log/. .codex/skills/experiment-log\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/experiment-log\ncp -R skilldex/skills/data-analysis/experiment-log/. .codex/skills/experiment-log\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/experiment-log\ncp -R skills/data-analysis/experiment-log/. .codex/skills/experiment-log\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/experiment-log\ncp -R agentpedia/skills/data-analysis/experiment-log/. .codex/skills/experiment-log\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/experiment-log\ncp -R skills/data-analysis/experiment-log/. .cursor/skills/experiment-log\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/experiment-log\ncp -R skilldex/skills/data-analysis/experiment-log/. .cursor/skills/experiment-log\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/experiment-log\ncp -R skills/data-analysis/experiment-log/. .cursor/skills/experiment-log\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/experiment-log\ncp -R agentpedia/skills/data-analysis/experiment-log/. .cursor/skills/experiment-log\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/experiment-log\ncp -R skills/data-analysis/experiment-log/. bot/skills/experiment-log\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/experiment-log\ncp -R skilldex/skills/data-analysis/experiment-log/. bot/skills/experiment-log\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/experiment-log\ncp -R skills/data-analysis/experiment-log/. bot/skills/experiment-log\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/experiment-log\ncp -R agentpedia/skills/data-analysis/experiment-log/. bot/skills/experiment-log\n"
         }
       },
       "rawUrl": "/raw/skills/data-analysis/experiment-log/SKILL.md",
@@ -2068,22 +2068,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/metric-definition\ncp -R skills/data-analysis/metric-definition/. .claude/skills/metric-definition\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/metric-definition\ncp -R skilldex/skills/data-analysis/metric-definition/. .claude/skills/metric-definition\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/metric-definition\ncp -R skills/data-analysis/metric-definition/. .claude/skills/metric-definition\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/metric-definition\ncp -R agentpedia/skills/data-analysis/metric-definition/. .claude/skills/metric-definition\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/metric-definition\ncp -R skills/data-analysis/metric-definition/. .codex/skills/metric-definition\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/metric-definition\ncp -R skilldex/skills/data-analysis/metric-definition/. .codex/skills/metric-definition\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/metric-definition\ncp -R skills/data-analysis/metric-definition/. .codex/skills/metric-definition\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/metric-definition\ncp -R agentpedia/skills/data-analysis/metric-definition/. .codex/skills/metric-definition\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/metric-definition\ncp -R skills/data-analysis/metric-definition/. .cursor/skills/metric-definition\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/metric-definition\ncp -R skilldex/skills/data-analysis/metric-definition/. .cursor/skills/metric-definition\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/metric-definition\ncp -R skills/data-analysis/metric-definition/. .cursor/skills/metric-definition\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/metric-definition\ncp -R agentpedia/skills/data-analysis/metric-definition/. .cursor/skills/metric-definition\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/metric-definition\ncp -R skills/data-analysis/metric-definition/. bot/skills/metric-definition\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/metric-definition\ncp -R skilldex/skills/data-analysis/metric-definition/. bot/skills/metric-definition\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/metric-definition\ncp -R skills/data-analysis/metric-definition/. bot/skills/metric-definition\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/metric-definition\ncp -R agentpedia/skills/data-analysis/metric-definition/. bot/skills/metric-definition\n"
         }
       },
       "rawUrl": "/raw/skills/data-analysis/metric-definition/SKILL.md",
@@ -2116,31 +2116,31 @@
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 1646,
+          "bytes": 1648,
           "url": "/raw/skills/web-research/source-brief/SKILL.md"
         }
       ],
-      "body": "# Source brief\n\nWrite a short brief from sources. A claim without a source does not go in the brief. If the sources disagree, show the disagreement.\n\n## Steps\n\n1. Restate the question in one sentence and list the sources you actually have (title, who published it, date, and URL or document name).\n2. Pull only the claims that answer the question. Attach a source to each one.\n3. Note contradictions and gaps. A gap is a part of the question none of the sources answer.\n4. Close with what would change the brief: the one missing source that matters most.\n5. Validate the draft by checking that every factual sentence has a source from step 1. Move unsourced background into a labeled \"not sourced\" note or delete it.\n\n## Example\n\nUser: Brief me on whether the Agent Skills spec is under a foundation. Source: Linux Foundation press note, 22 Oct 2026, stating AAIF announced Agent Skills as a hosted project.\n\nAgent: Claim \u2014 as of that note, Agent Skills is a project of the Agentic AI Foundation. Source \u2014 Linux Foundation, 22 Oct 2026. Gap \u2014 the note does not describe Skilldex or any directory. Not sourced \u2014 nothing else was added.\n\n## Boundaries\n\nDo not browse for extra facts and then hide them without a source line. Do not present a model's prior knowledge as a citation.\n",
+      "body": "# Source brief\n\nWrite a short brief from sources. A claim without a source does not go in the brief. If the sources disagree, show the disagreement.\n\n## Steps\n\n1. Restate the question in one sentence and list the sources you actually have (title, who published it, date, and URL or document name).\n2. Pull only the claims that answer the question. Attach a source to each one.\n3. Note contradictions and gaps. A gap is a part of the question none of the sources answer.\n4. Close with what would change the brief: the one missing source that matters most.\n5. Validate the draft by checking that every factual sentence has a source from step 1. Move unsourced background into a labeled \"not sourced\" note or delete it.\n\n## Example\n\nUser: Brief me on whether the Agent Skills spec is under a foundation. Source: Linux Foundation press note, 22 Oct 2026, stating AAIF announced Agent Skills as a hosted project.\n\nAgent: Claim \u2014 as of that note, Agent Skills is a project of the Agentic AI Foundation. Source \u2014 Linux Foundation, 22 Oct 2026. Gap \u2014 the note does not describe Agentpedia or any directory. Not sourced \u2014 nothing else was added.\n\n## Boundaries\n\nDo not browse for extra facts and then hide them without a source line. Do not present a model's prior knowledge as a citation.\n",
       "install": {
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/source-brief\ncp -R skills/web-research/source-brief/. .claude/skills/source-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/source-brief\ncp -R skilldex/skills/web-research/source-brief/. .claude/skills/source-brief\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/source-brief\ncp -R skills/web-research/source-brief/. .claude/skills/source-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/source-brief\ncp -R agentpedia/skills/web-research/source-brief/. .claude/skills/source-brief\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/source-brief\ncp -R skills/web-research/source-brief/. .codex/skills/source-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/source-brief\ncp -R skilldex/skills/web-research/source-brief/. .codex/skills/source-brief\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/source-brief\ncp -R skills/web-research/source-brief/. .codex/skills/source-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/source-brief\ncp -R agentpedia/skills/web-research/source-brief/. .codex/skills/source-brief\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/source-brief\ncp -R skills/web-research/source-brief/. .cursor/skills/source-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/source-brief\ncp -R skilldex/skills/web-research/source-brief/. .cursor/skills/source-brief\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/source-brief\ncp -R skills/web-research/source-brief/. .cursor/skills/source-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/source-brief\ncp -R agentpedia/skills/web-research/source-brief/. .cursor/skills/source-brief\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/source-brief\ncp -R skills/web-research/source-brief/. bot/skills/source-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/source-brief\ncp -R skilldex/skills/web-research/source-brief/. bot/skills/source-brief\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/source-brief\ncp -R skills/web-research/source-brief/. bot/skills/source-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/source-brief\ncp -R agentpedia/skills/web-research/source-brief/. bot/skills/source-brief\n"
         }
       },
       "rawUrl": "/raw/skills/web-research/source-brief/SKILL.md",
@@ -2182,22 +2182,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/sql-explain-plain\ncp -R skills/data-analysis/sql-explain-plain/. .claude/skills/sql-explain-plain\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/sql-explain-plain\ncp -R skilldex/skills/data-analysis/sql-explain-plain/. .claude/skills/sql-explain-plain\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/sql-explain-plain\ncp -R skills/data-analysis/sql-explain-plain/. .claude/skills/sql-explain-plain\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/sql-explain-plain\ncp -R agentpedia/skills/data-analysis/sql-explain-plain/. .claude/skills/sql-explain-plain\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/sql-explain-plain\ncp -R skills/data-analysis/sql-explain-plain/. .codex/skills/sql-explain-plain\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/sql-explain-plain\ncp -R skilldex/skills/data-analysis/sql-explain-plain/. .codex/skills/sql-explain-plain\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/sql-explain-plain\ncp -R skills/data-analysis/sql-explain-plain/. .codex/skills/sql-explain-plain\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/sql-explain-plain\ncp -R agentpedia/skills/data-analysis/sql-explain-plain/. .codex/skills/sql-explain-plain\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/sql-explain-plain\ncp -R skills/data-analysis/sql-explain-plain/. .cursor/skills/sql-explain-plain\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/sql-explain-plain\ncp -R skilldex/skills/data-analysis/sql-explain-plain/. .cursor/skills/sql-explain-plain\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/sql-explain-plain\ncp -R skills/data-analysis/sql-explain-plain/. .cursor/skills/sql-explain-plain\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/sql-explain-plain\ncp -R agentpedia/skills/data-analysis/sql-explain-plain/. .cursor/skills/sql-explain-plain\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/sql-explain-plain\ncp -R skills/data-analysis/sql-explain-plain/. bot/skills/sql-explain-plain\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/sql-explain-plain\ncp -R skilldex/skills/data-analysis/sql-explain-plain/. bot/skills/sql-explain-plain\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/sql-explain-plain\ncp -R skills/data-analysis/sql-explain-plain/. bot/skills/sql-explain-plain\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/sql-explain-plain\ncp -R agentpedia/skills/data-analysis/sql-explain-plain/. bot/skills/sql-explain-plain\n"
         }
       },
       "rawUrl": "/raw/skills/data-analysis/sql-explain-plain/SKILL.md",
@@ -2229,31 +2229,31 @@
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 1699,
+          "bytes": 1701,
           "url": "/raw/skills/productivity/daily-plan/SKILL.md"
         }
       ],
-      "body": "# Daily plan\n\nReduce a task dump to three outcomes that can finish today, plus an explicit not-today list. Do not sneak the whole list back in as \"small tasks.\"\n\n## Steps\n\n1. Read the tasks and any fixed commitments (meetings, deadlines today). Ask for the stop time if it matters and was not given.\n2. Choose three outcomes. An outcome is a finished thing, not a topic (\"send the review notes\", not \"look at PRs\").\n3. Put everything else on not-today, including tasks that feel urgent but do not fit.\n4. Note which outcome is first, based on a real deadline or a dependency the user named. If none, pick the one the user said matters most, or ask.\n5. Validate the plan: three outcomes, each completable in the day they described, and no fourth hiding in a bullet. Show the plan.\n\n## Example\n\nUser: Tasks are write the Skilldex README, review a 40-file PR, book travel, and answer 30 emails. They have two hours.\n\nAgent: Outcomes \u2014 finish the README draft, and send a review limited to blockers on the PR. Not today \u2014 travel booking and the inbox, with a note that two hours cannot hold all four. First is the README, because the user listed it first and no deadline was attached to the others. The inbox is not added back as a third outcome.\n\n## Boundaries\n\nDo not schedule the user's personal life in detail they did not ask to plan. Do not turn the plan into a minute-by-minute script.\n",
+      "body": "# Daily plan\n\nReduce a task dump to three outcomes that can finish today, plus an explicit not-today list. Do not sneak the whole list back in as \"small tasks.\"\n\n## Steps\n\n1. Read the tasks and any fixed commitments (meetings, deadlines today). Ask for the stop time if it matters and was not given.\n2. Choose three outcomes. An outcome is a finished thing, not a topic (\"send the review notes\", not \"look at PRs\").\n3. Put everything else on not-today, including tasks that feel urgent but do not fit.\n4. Note which outcome is first, based on a real deadline or a dependency the user named. If none, pick the one the user said matters most, or ask.\n5. Validate the plan: three outcomes, each completable in the day they described, and no fourth hiding in a bullet. Show the plan.\n\n## Example\n\nUser: Tasks are write the Agentpedia README, review a 40-file PR, book travel, and answer 30 emails. They have two hours.\n\nAgent: Outcomes \u2014 finish the README draft, and send a review limited to blockers on the PR. Not today \u2014 travel booking and the inbox, with a note that two hours cannot hold all four. First is the README, because the user listed it first and no deadline was attached to the others. The inbox is not added back as a third outcome.\n\n## Boundaries\n\nDo not schedule the user's personal life in detail they did not ask to plan. Do not turn the plan into a minute-by-minute script.\n",
       "install": {
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/daily-plan\ncp -R skills/productivity/daily-plan/. .claude/skills/daily-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/daily-plan\ncp -R skilldex/skills/productivity/daily-plan/. .claude/skills/daily-plan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/daily-plan\ncp -R skills/productivity/daily-plan/. .claude/skills/daily-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/daily-plan\ncp -R agentpedia/skills/productivity/daily-plan/. .claude/skills/daily-plan\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/daily-plan\ncp -R skills/productivity/daily-plan/. .codex/skills/daily-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/daily-plan\ncp -R skilldex/skills/productivity/daily-plan/. .codex/skills/daily-plan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/daily-plan\ncp -R skills/productivity/daily-plan/. .codex/skills/daily-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/daily-plan\ncp -R agentpedia/skills/productivity/daily-plan/. .codex/skills/daily-plan\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/daily-plan\ncp -R skills/productivity/daily-plan/. .cursor/skills/daily-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/daily-plan\ncp -R skilldex/skills/productivity/daily-plan/. .cursor/skills/daily-plan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/daily-plan\ncp -R skills/productivity/daily-plan/. .cursor/skills/daily-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/daily-plan\ncp -R agentpedia/skills/productivity/daily-plan/. .cursor/skills/daily-plan\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/daily-plan\ncp -R skills/productivity/daily-plan/. bot/skills/daily-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/daily-plan\ncp -R skilldex/skills/productivity/daily-plan/. bot/skills/daily-plan\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/daily-plan\ncp -R skills/productivity/daily-plan/. bot/skills/daily-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/daily-plan\ncp -R agentpedia/skills/productivity/daily-plan/. bot/skills/daily-plan\n"
         }
       },
       "rawUrl": "/raw/skills/productivity/daily-plan/SKILL.md",
@@ -2295,22 +2295,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/discovery-call-notes\ncp -R skills/sales-gtm/discovery-call-notes/. .claude/skills/discovery-call-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/discovery-call-notes\ncp -R skilldex/skills/sales-gtm/discovery-call-notes/. .claude/skills/discovery-call-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/discovery-call-notes\ncp -R skills/sales-gtm/discovery-call-notes/. .claude/skills/discovery-call-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/discovery-call-notes\ncp -R agentpedia/skills/sales-gtm/discovery-call-notes/. .claude/skills/discovery-call-notes\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/discovery-call-notes\ncp -R skills/sales-gtm/discovery-call-notes/. .codex/skills/discovery-call-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/discovery-call-notes\ncp -R skilldex/skills/sales-gtm/discovery-call-notes/. .codex/skills/discovery-call-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/discovery-call-notes\ncp -R skills/sales-gtm/discovery-call-notes/. .codex/skills/discovery-call-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/discovery-call-notes\ncp -R agentpedia/skills/sales-gtm/discovery-call-notes/. .codex/skills/discovery-call-notes\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/discovery-call-notes\ncp -R skills/sales-gtm/discovery-call-notes/. .cursor/skills/discovery-call-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/discovery-call-notes\ncp -R skilldex/skills/sales-gtm/discovery-call-notes/. .cursor/skills/discovery-call-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/discovery-call-notes\ncp -R skills/sales-gtm/discovery-call-notes/. .cursor/skills/discovery-call-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/discovery-call-notes\ncp -R agentpedia/skills/sales-gtm/discovery-call-notes/. .cursor/skills/discovery-call-notes\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/discovery-call-notes\ncp -R skills/sales-gtm/discovery-call-notes/. bot/skills/discovery-call-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/discovery-call-notes\ncp -R skilldex/skills/sales-gtm/discovery-call-notes/. bot/skills/discovery-call-notes\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/discovery-call-notes\ncp -R skills/sales-gtm/discovery-call-notes/. bot/skills/discovery-call-notes\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/discovery-call-notes\ncp -R agentpedia/skills/sales-gtm/discovery-call-notes/. bot/skills/discovery-call-notes\n"
         }
       },
       "rawUrl": "/raw/skills/sales-gtm/discovery-call-notes/SKILL.md",
@@ -2351,22 +2351,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/inbox-triage\ncp -R skills/productivity/inbox-triage/. .claude/skills/inbox-triage\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/inbox-triage\ncp -R skilldex/skills/productivity/inbox-triage/. .claude/skills/inbox-triage\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/inbox-triage\ncp -R skills/productivity/inbox-triage/. .claude/skills/inbox-triage\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/inbox-triage\ncp -R agentpedia/skills/productivity/inbox-triage/. .claude/skills/inbox-triage\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/inbox-triage\ncp -R skills/productivity/inbox-triage/. .codex/skills/inbox-triage\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/inbox-triage\ncp -R skilldex/skills/productivity/inbox-triage/. .codex/skills/inbox-triage\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/inbox-triage\ncp -R skills/productivity/inbox-triage/. .codex/skills/inbox-triage\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/inbox-triage\ncp -R agentpedia/skills/productivity/inbox-triage/. .codex/skills/inbox-triage\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/inbox-triage\ncp -R skills/productivity/inbox-triage/. .cursor/skills/inbox-triage\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/inbox-triage\ncp -R skilldex/skills/productivity/inbox-triage/. .cursor/skills/inbox-triage\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/inbox-triage\ncp -R skills/productivity/inbox-triage/. .cursor/skills/inbox-triage\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/inbox-triage\ncp -R agentpedia/skills/productivity/inbox-triage/. .cursor/skills/inbox-triage\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/inbox-triage\ncp -R skills/productivity/inbox-triage/. bot/skills/inbox-triage\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/inbox-triage\ncp -R skilldex/skills/productivity/inbox-triage/. bot/skills/inbox-triage\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/inbox-triage\ncp -R skills/productivity/inbox-triage/. bot/skills/inbox-triage\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/inbox-triage\ncp -R agentpedia/skills/productivity/inbox-triage/. bot/skills/inbox-triage\n"
         }
       },
       "rawUrl": "/raw/skills/productivity/inbox-triage/SKILL.md",
@@ -2407,22 +2407,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/meeting-decisions\ncp -R skills/productivity/meeting-decisions/. .claude/skills/meeting-decisions\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/meeting-decisions\ncp -R skilldex/skills/productivity/meeting-decisions/. .claude/skills/meeting-decisions\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/meeting-decisions\ncp -R skills/productivity/meeting-decisions/. .claude/skills/meeting-decisions\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/meeting-decisions\ncp -R agentpedia/skills/productivity/meeting-decisions/. .claude/skills/meeting-decisions\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/meeting-decisions\ncp -R skills/productivity/meeting-decisions/. .codex/skills/meeting-decisions\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/meeting-decisions\ncp -R skilldex/skills/productivity/meeting-decisions/. .codex/skills/meeting-decisions\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/meeting-decisions\ncp -R skills/productivity/meeting-decisions/. .codex/skills/meeting-decisions\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/meeting-decisions\ncp -R agentpedia/skills/productivity/meeting-decisions/. .codex/skills/meeting-decisions\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/meeting-decisions\ncp -R skills/productivity/meeting-decisions/. .cursor/skills/meeting-decisions\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/meeting-decisions\ncp -R skilldex/skills/productivity/meeting-decisions/. .cursor/skills/meeting-decisions\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/meeting-decisions\ncp -R skills/productivity/meeting-decisions/. .cursor/skills/meeting-decisions\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/meeting-decisions\ncp -R agentpedia/skills/productivity/meeting-decisions/. .cursor/skills/meeting-decisions\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/meeting-decisions\ncp -R skills/productivity/meeting-decisions/. bot/skills/meeting-decisions\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/meeting-decisions\ncp -R skilldex/skills/productivity/meeting-decisions/. bot/skills/meeting-decisions\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/meeting-decisions\ncp -R skills/productivity/meeting-decisions/. bot/skills/meeting-decisions\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/meeting-decisions\ncp -R agentpedia/skills/productivity/meeting-decisions/. bot/skills/meeting-decisions\n"
         }
       },
       "rawUrl": "/raw/skills/productivity/meeting-decisions/SKILL.md",
@@ -2455,31 +2455,31 @@
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 1874,
+          "bytes": 1876,
           "url": "/raw/skills/sales-gtm/objection-map/SKILL.md"
         }
       ],
-      "body": "# Objection map\n\nBuild an objection map from the product the user described and the objections they have actually heard. A response that the product cannot support is not a response. Some objections should end the conversation.\n\n## Steps\n\n1. List the objections the user supplied. If they supplied none, draft likely objections and label them \"unheard \u2014 confirm before using.\"\n2. For each objection, write a reply that uses only product facts the user provided, plus one question that checks whether the objection is the real one.\n3. Mark objections that should disqualify the deal when the product truly does not fit.\n4. Add the proof that would make the reply believable (a doc, a sample, a lint report). If the proof does not exist, say \"proof missing.\"\n5. Validate the map: no reply promises a feature that was not in the brief, and every disqualification is tied to a real limit.\n\n## Example\n\nUser: Product lints skills in a public repo. It does not host private skills yet. Heard objection: \"We cannot put our skills in a public catalog.\"\n\nAgent: Reply \u2014 Skilldex reviews public entries; private hosting is not available, so this catalog is the wrong place for unreleased skills. Question \u2014 do you need a private checker, or a place to publish the skills you already open-source? This objection disqualifies a buyer who needs privacy. Proof missing for a private tier, because it does not exist.\n\n## Boundaries\n\nDo not tell the user to pressure past a disqualifying objection. Do not invent a customer logo.\n",
+      "body": "# Objection map\n\nBuild an objection map from the product the user described and the objections they have actually heard. A response that the product cannot support is not a response. Some objections should end the conversation.\n\n## Steps\n\n1. List the objections the user supplied. If they supplied none, draft likely objections and label them \"unheard \u2014 confirm before using.\"\n2. For each objection, write a reply that uses only product facts the user provided, plus one question that checks whether the objection is the real one.\n3. Mark objections that should disqualify the deal when the product truly does not fit.\n4. Add the proof that would make the reply believable (a doc, a sample, a lint report). If the proof does not exist, say \"proof missing.\"\n5. Validate the map: no reply promises a feature that was not in the brief, and every disqualification is tied to a real limit.\n\n## Example\n\nUser: Product lints skills in a public repo. It does not host private skills yet. Heard objection: \"We cannot put our skills in a public catalog.\"\n\nAgent: Reply \u2014 Agentpedia reviews public entries; private hosting is not available, so this catalog is the wrong place for unreleased skills. Question \u2014 do you need a private checker, or a place to publish the skills you already open-source? This objection disqualifies a buyer who needs privacy. Proof missing for a private tier, because it does not exist.\n\n## Boundaries\n\nDo not tell the user to pressure past a disqualifying objection. Do not invent a customer logo.\n",
       "install": {
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/objection-map\ncp -R skills/sales-gtm/objection-map/. .claude/skills/objection-map\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/objection-map\ncp -R skilldex/skills/sales-gtm/objection-map/. .claude/skills/objection-map\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/objection-map\ncp -R skills/sales-gtm/objection-map/. .claude/skills/objection-map\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/objection-map\ncp -R agentpedia/skills/sales-gtm/objection-map/. .claude/skills/objection-map\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/objection-map\ncp -R skills/sales-gtm/objection-map/. .codex/skills/objection-map\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/objection-map\ncp -R skilldex/skills/sales-gtm/objection-map/. .codex/skills/objection-map\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/objection-map\ncp -R skills/sales-gtm/objection-map/. .codex/skills/objection-map\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/objection-map\ncp -R agentpedia/skills/sales-gtm/objection-map/. .codex/skills/objection-map\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/objection-map\ncp -R skills/sales-gtm/objection-map/. .cursor/skills/objection-map\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/objection-map\ncp -R skilldex/skills/sales-gtm/objection-map/. .cursor/skills/objection-map\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/objection-map\ncp -R skills/sales-gtm/objection-map/. .cursor/skills/objection-map\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/objection-map\ncp -R agentpedia/skills/sales-gtm/objection-map/. .cursor/skills/objection-map\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/objection-map\ncp -R skills/sales-gtm/objection-map/. bot/skills/objection-map\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/objection-map\ncp -R skilldex/skills/sales-gtm/objection-map/. bot/skills/objection-map\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/objection-map\ncp -R skills/sales-gtm/objection-map/. bot/skills/objection-map\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/objection-map\ncp -R agentpedia/skills/sales-gtm/objection-map/. bot/skills/objection-map\n"
         }
       },
       "rawUrl": "/raw/skills/sales-gtm/objection-map/SKILL.md",
@@ -2521,22 +2521,22 @@
         "claude": {
           "label": "Claude Code",
           "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/outbound-sequence\ncp -R skills/sales-gtm/outbound-sequence/. .claude/skills/outbound-sequence\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .claude/skills/outbound-sequence\ncp -R skilldex/skills/sales-gtm/outbound-sequence/. .claude/skills/outbound-sequence\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/outbound-sequence\ncp -R skills/sales-gtm/outbound-sequence/. .claude/skills/outbound-sequence\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/outbound-sequence\ncp -R agentpedia/skills/sales-gtm/outbound-sequence/. .claude/skills/outbound-sequence\n"
         },
         "codex": {
           "label": "Codex",
           "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/outbound-sequence\ncp -R skills/sales-gtm/outbound-sequence/. .codex/skills/outbound-sequence\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .codex/skills/outbound-sequence\ncp -R skilldex/skills/sales-gtm/outbound-sequence/. .codex/skills/outbound-sequence\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/outbound-sequence\ncp -R skills/sales-gtm/outbound-sequence/. .codex/skills/outbound-sequence\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/outbound-sequence\ncp -R agentpedia/skills/sales-gtm/outbound-sequence/. .codex/skills/outbound-sequence\n"
         },
         "cursor": {
           "label": "Cursor",
           "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
-          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/outbound-sequence\ncp -R skills/sales-gtm/outbound-sequence/. .cursor/skills/outbound-sequence\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p .cursor/skills/outbound-sequence\ncp -R skilldex/skills/sales-gtm/outbound-sequence/. .cursor/skills/outbound-sequence\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/outbound-sequence\ncp -R skills/sales-gtm/outbound-sequence/. .cursor/skills/outbound-sequence\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/outbound-sequence\ncp -R agentpedia/skills/sales-gtm/outbound-sequence/. .cursor/skills/outbound-sequence\n"
         },
         "grok": {
           "label": "Grok Bot",
           "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
-          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/outbound-sequence\ncp -R skills/sales-gtm/outbound-sequence/. bot/skills/outbound-sequence\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/skilldex.git\nmkdir -p bot/skills/outbound-sequence\ncp -R skilldex/skills/sales-gtm/outbound-sequence/. bot/skills/outbound-sequence\n"
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/outbound-sequence\ncp -R skills/sales-gtm/outbound-sequence/. bot/skills/outbound-sequence\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/outbound-sequence\ncp -R agentpedia/skills/sales-gtm/outbound-sequence/. bot/skills/outbound-sequence\n"
         }
       },
       "rawUrl": "/raw/skills/sales-gtm/outbound-sequence/SKILL.md",

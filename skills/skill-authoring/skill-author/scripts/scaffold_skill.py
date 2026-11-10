@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a skill folder with frontmatter that matches the Skilldex bar."""
+"""Create a skill folder with frontmatter that matches the Agentpedia bar."""
 
 from __future__ import annotations
 

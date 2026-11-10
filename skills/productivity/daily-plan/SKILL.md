@@ -25,7 +25,7 @@ Reduce a task dump to three outcomes that can finish today, plus an explicit not
 
 ## Example
 
-User: Tasks are write the Skilldex README, review a 40-file PR, book travel, and answer 30 emails. They have two hours.
+User: Tasks are write the Agentpedia README, review a 40-file PR, book travel, and answer 30 emails. They have two hours.
 
 Agent: Outcomes — finish the README draft, and send a review limited to blockers on the PR. Not today — travel booking and the inbox, with a note that two hours cannot hold all four. First is the README, because the user listed it first and no deadline was attached to the others. The inbox is not added back as a third outcome.
 

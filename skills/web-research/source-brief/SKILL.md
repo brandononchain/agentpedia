@@ -28,7 +28,7 @@ Write a short brief from sources. A claim without a source does not go in the br
 
 User: Brief me on whether the Agent Skills spec is under a foundation. Source: Linux Foundation press note, 22 Oct 2026, stating AAIF announced Agent Skills as a hosted project.
 
-Agent: Claim — as of that note, Agent Skills is a project of the Agentic AI Foundation. Source — Linux Foundation, 22 Oct 2026. Gap — the note does not describe Skilldex or any directory. Not sourced — nothing else was added.
+Agent: Claim — as of that note, Agent Skills is a project of the Agentic AI Foundation. Source — Linux Foundation, 22 Oct 2026. Gap — the note does not describe Agentpedia or any directory. Not sourced — nothing else was added.
 
 ## Boundaries
 
