@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
+import { TierMark } from "@/components/tier-mark";
+import { certificateFor } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
 import { siteMeta } from "@/lib/site";
 import { alphabet, firstSentence, groupByLetter } from "@/lib/wiki";
@@ -63,6 +65,15 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
             {items.map((skill) => (
               <li key={skill.name}>
                 <Link href={`/skills/${skill.name}`}>{skill.title}</Link>
+                {certificateFor("skill", skill.name) ? (
+                  <>
+                    <span className="quiet"> · </span>
+                    <TierMark
+                      id={certificateFor("skill", skill.name)!.payload.id}
+                      tier={certificateFor("skill", skill.name)!.payload.displayTier}
+                    />
+                  </>
+                ) : null}
                 <span className="quiet"> — {firstSentence(skill.description)}</span>
               </li>
             ))}

@@ -79,6 +79,11 @@ The linter is vendored at `tools/skill-lint` and has no runtime dependencies.
 ```bash
 python3 -m pip install pytest
 PYTHONPATH=tools/skill-lint python3 -m pytest tools/skill-lint/tests -q
+npm run test:certs
 ```
+
+## Certification
+
+A new skill that scores 100 receives a Listed record the next time `tools/build_index.py` runs. Commit that record with the skill. Verified is a separate step: add `certs/checks/<id>.json`, run `python3 tools/verify_checks.py <id> --write`, and commit the result and the updated record. Do not mark a certificate Verified or Certified by hand. The publisher rejects a claim that has no matching passing run, and Certified also needs a `review` object a person wrote. See [certs/README.md](certs/README.md).
 
 Change the linter only when you mean to change the rules, and keep those tests passing. The rule list on the "How we lint" page is generated from `tools/build_index.py`, so update that table in the same change.

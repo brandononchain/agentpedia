@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:519ffb36d680d7226138e735c5f2727d656154782697eb7f0b32a478ffe4a571",
+  "id": "skill-skill-author",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "411d40c0740700e38c1ea49c71007479e7f91ce2",
+  "subject": {
+    "kind": "skill",
+    "name": "skill-author"
+  },
+  "tier": "listed"
+}

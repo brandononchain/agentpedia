@@ -24,6 +24,8 @@ export function WikiRail({
         <Link href="/glossary">Glossary</Link>
         <Link href="/changelog">Recent changes</Link>
         <Link href="/lint">How we lint</Link>
+        <Link href="/certification">Certification</Link>
+        <Link href="/certify">Submit</Link>
         <button
           type="button"
           className="rail-button"

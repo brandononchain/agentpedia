@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:f383064477934609e8abf9243011d4ae75d4b108eca80deeb5535e754c23d9e1",
+  "id": "skill-launch-post-set",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "411d40c0740700e38c1ea49c71007479e7f91ce2",
+  "subject": {
+    "kind": "skill",
+    "name": "launch-post-set"
+  },
+  "tier": "listed"
+}

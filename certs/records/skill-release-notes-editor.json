@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:85b46a869d915970ed29e7e94141fb498740e83e58b758b8f971480e3f6197fa",
+  "id": "skill-release-notes-editor",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "release-notes-editor"
+  },
+  "tier": "listed"
+}

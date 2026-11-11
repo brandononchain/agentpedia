@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:b2542d0b3617510aa0f9615882385df720ec9d171807e85251dc3e8fb71f92bd",
+  "id": "skill-inbox-triage",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "inbox-triage"
+  },
+  "tier": "listed"
+}

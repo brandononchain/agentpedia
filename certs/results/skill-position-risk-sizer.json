@@ -1,0 +1,55 @@
+{
+  "checks": [
+    {
+      "argv": [
+        "agentpedia-install-probe",
+        "copy-tree",
+        "SKILL.md"
+      ],
+      "cwd": "skills/trading/position-risk-sizer",
+      "durationMs": 0,
+      "exitCode": 0,
+      "expectExit": 0,
+      "id": "install-copy",
+      "kind": "install",
+      "ok": true,
+      "stderr": "",
+      "stdout": "files=2\nSKILL.md=present\nbytes=1936\n",
+      "truncated": false
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/size_position.py",
+        "--equity",
+        "10000",
+        "--risk-pct",
+        "1",
+        "--stop",
+        "0.5",
+        "--value-per-unit",
+        "1"
+      ],
+      "cwd": "skills/trading/position-risk-sizer",
+      "durationMs": 17,
+      "exitCode": 0,
+      "expectExit": 0,
+      "id": "size-one-percent",
+      "kind": "eval",
+      "ok": true,
+      "stderr": "",
+      "stdout": "risk_cash=100.00\nunits=200.0000\n",
+      "truncated": false
+    }
+  ],
+  "contentDigest": "sha256:25d8a4b1401aa4992f28a0ae4a8dd9a73d1e385661ed8010d9775ff661ca537e",
+  "harnessDigest": "sha256:310eac3e4b365a31e0b857011bc851121d9bfee27a67ca78d81b0b46e3c394c5",
+  "harnessVersion": "1",
+  "id": "skill-position-risk-sizer",
+  "manifestDigest": "sha256:81c17f10dac5f99409925d261d486e881b5669ae1acdabb50898543b6edeb369",
+  "ok": true,
+  "producer": "agentpedia-verify-checks",
+  "ranAt": "2026-11-10T21:49:00.866669+00:00",
+  "schema": "agentpedia.check-result.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e"
+}

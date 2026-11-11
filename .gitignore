@@ -45,6 +45,9 @@ __pycache__/
 .pytest_cache/
 *.pyc
 public/raw/
+public/badge/
+public/cert/
+public/.well-known/
 
 # local uploads
 /uploads/

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:3467b68c6dec414a5fc81c6a0e956463ef3207025afd73358aeb3c93dd942e98",
+  "id": "agent-day-operator",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "agent",
+    "name": "day-operator"
+  },
+  "tier": "listed"
+}

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
+import { TierMark } from "@/components/tier-mark";
+import { certificateFor } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
 import { SITE_NAME, siteMeta } from "@/lib/site";
 import { alphabet, firstSentence, groupByLetter } from "@/lib/wiki";
@@ -42,6 +44,15 @@ export default function AgentsPage() {
             {agents.map((agent) => (
               <li key={agent.name}>
                 <Link href={`/agents/${agent.name}`}>{agent.name}</Link>
+                {certificateFor("agent", agent.name) ? (
+                  <>
+                    <span className="quiet"> · </span>
+                    <TierMark
+                      id={certificateFor("agent", agent.name)!.payload.id}
+                      tier={certificateFor("agent", agent.name)!.payload.displayTier}
+                    />
+                  </>
+                ) : null}
                 <span className="quiet">
                   {" "}
                   — {agent.skills.length} skills. {firstSentence(agent.description)}

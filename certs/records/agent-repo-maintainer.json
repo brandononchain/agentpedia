@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:a857e3165e29e62a53543eb1fd1dc7e068a147592966d268b33e5f830a0dce81",
+  "id": "agent-repo-maintainer",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "agent",
+    "name": "repo-maintainer"
+  },
+  "tier": "listed"
+}

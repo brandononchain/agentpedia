@@ -6,13 +6,16 @@ export const SITE_NAME = "Agentpedia";
 
 export const SITE_TAGLINE = "The reference encyclopedia of agent skills and agents.";
 
+export const REPO_URL = "https://github.com/brandononchain/agentpedia";
+
 function trimOrigin(value: string) {
   return value.trim().replace(/\/$/, "");
 }
 
 /**
- * Public origin for canonical URLs, the sitemap, Open Graph, and embeds.
- * The default is config/site.json. Set NEXT_PUBLIC_SITE_URL to override it.
+ * Public origin for canonical URLs, the sitemap, Open Graph, badge embeds,
+ * and certificate records. The default is config/site.json.
+ * Set NEXT_PUBLIC_SITE_URL to override it.
  */
 export const SITE_ORIGIN = trimOrigin(process.env.NEXT_PUBLIC_SITE_URL || siteConfig.origin);
 

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:fa1093a432cb354d33a7330a8a747a9b690e0d4fd83c628e5442174aa204e544",
+  "id": "skill-csv-profile",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "csv-profile"
+  },
+  "tier": "verified"
+}

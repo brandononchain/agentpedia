@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:25d8a4b1401aa4992f28a0ae4a8dd9a73d1e385661ed8010d9775ff661ca537e",
+  "id": "skill-position-risk-sizer",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "position-risk-sizer"
+  },
+  "tier": "verified"
+}

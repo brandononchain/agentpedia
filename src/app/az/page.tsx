@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
+import { TierMark } from "@/components/tier-mark";
+import { certificateFor } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
 import { SITE_NAME, siteMeta } from "@/lib/site";
 import { alphabet, groupByLetter } from "@/lib/wiki";
@@ -11,22 +13,32 @@ export const metadata: Metadata = {
   ...siteMeta("/az"),
 };
 
-type Row = { key: string; title: string; href: string; kind: "Skill" | "Agent" };
+type Row = { key: string; title: string; href: string; kind: "Skill" | "Agent"; certId?: string; tier?: string };
 
 export default function IndexPage() {
   const rows: Row[] = [
-    ...catalog.skills.map((skill) => ({
-      key: `skill-${skill.name}`,
-      title: skill.title,
-      href: `/skills/${skill.name}`,
-      kind: "Skill" as const,
-    })),
-    ...catalog.agents.map((agent) => ({
-      key: `agent-${agent.name}`,
-      title: agent.name,
-      href: `/agents/${agent.name}`,
-      kind: "Agent" as const,
-    })),
+    ...catalog.skills.map((skill) => {
+      const cert = certificateFor("skill", skill.name);
+      return {
+        key: `skill-${skill.name}`,
+        title: skill.title,
+        href: `/skills/${skill.name}`,
+        kind: "Skill" as const,
+        certId: cert?.payload.id,
+        tier: cert?.payload.displayTier,
+      };
+    }),
+    ...catalog.agents.map((agent) => {
+      const cert = certificateFor("agent", agent.name);
+      return {
+        key: `agent-${agent.name}`,
+        title: agent.name,
+        href: `/agents/${agent.name}`,
+        kind: "Agent" as const,
+        certId: cert?.payload.id,
+        tier: cert?.payload.displayTier,
+      };
+    }),
   ];
   const groups = groupByLetter(rows, (row) => row.title);
   const present = new Set(groups.map(([letter]) => letter));
@@ -64,6 +76,12 @@ export default function IndexPage() {
               <li key={item.key}>
                 <Link href={item.href}>{item.title}</Link>
                 <span className="quiet"> {item.kind}</span>
+                {item.certId && item.tier ? (
+                  <>
+                    <span className="quiet"> · </span>
+                    <TierMark id={item.certId} tier={item.tier} />
+                  </>
+                ) : null}
               </li>
             ))}
           </ul>

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:8589df704d7d7f760191849d162e1de7a70b1a1351502bbf8f0ebadb504d1cba",
+  "id": "skill-skill-reviewer",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "skill-reviewer"
+  },
+  "tier": "listed"
+}

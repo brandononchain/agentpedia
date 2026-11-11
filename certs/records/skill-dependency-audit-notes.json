@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:9958294dff451a1213a446e3824c522899aa99a47c8aadb8779f719cb71829b6",
+  "id": "skill-dependency-audit-notes",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "dependency-audit-notes"
+  },
+  "tier": "listed"
+}

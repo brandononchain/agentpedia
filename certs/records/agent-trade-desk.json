@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:9940ed8749e1d43e22915584ec6905ac8886e5184381b129d9dce462760d9886",
+  "id": "agent-trade-desk",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "cce4f851414810253c8ec3b6a35aa5f1d1e97db5",
+  "subject": {
+    "kind": "agent",
+    "name": "trade-desk"
+  },
+  "tier": "listed"
+}

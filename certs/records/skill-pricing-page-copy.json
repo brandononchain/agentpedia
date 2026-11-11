@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:6e942d447a3e8b13eb40d499d373f55f39f54c10cb30a67d0180c4f8865f4835",
+  "id": "skill-pricing-page-copy",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "pricing-page-copy"
+  },
+  "tier": "listed"
+}

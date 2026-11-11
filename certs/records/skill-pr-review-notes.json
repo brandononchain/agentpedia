@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:e490f10cea97dc9eb658fb341d037eabbea64e6ca2be98fe392e582116647fce",
+  "id": "skill-pr-review-notes",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "pr-review-notes"
+  },
+  "tier": "listed"
+}

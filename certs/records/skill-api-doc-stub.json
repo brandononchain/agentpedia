@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:76b2e7230d032217393e95e53ef0943e3ca92f191b6099dbcafe47dc5ab40586",
+  "id": "skill-api-doc-stub",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "api-doc-stub"
+  },
+  "tier": "listed"
+}

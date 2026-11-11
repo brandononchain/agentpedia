@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:6ee30c66f507017be66d131abe3a81ed4d851bc481a96926d580637856f93c34",
+  "id": "skill-experiment-log",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "experiment-log"
+  },
+  "tier": "listed"
+}

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:c3f492af5f1919631325ce8449584dd49a5273099a8aa6f6f3ba8da087e7a1e2",
+  "id": "skill-competitor-snapshot",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "411d40c0740700e38c1ea49c71007479e7f91ce2",
+  "subject": {
+    "kind": "skill",
+    "name": "competitor-snapshot"
+  },
+  "tier": "listed"
+}

@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "python3 tools/build_index.py && next dev -H 0.0.0.0 -p 43123",
-    "build": "python3 tools/build_index.py && next build",
+    "dev": "python3 tools/build_index.py && node tools/cert_sign.mjs && next dev -H 0.0.0.0 -p 43123",
+    "build": "python3 tools/build_index.py && node tools/cert_sign.mjs && next build",
+    "test:certs": "PYTHONPATH=tools python3 -m pytest tools/tests -q && node --test tools/cert_sign.test.mjs",
     "start": "next start -H 0.0.0.0 -p 43123",
     "lint": "eslint",
     "index": "python3 tools/build_index.py",

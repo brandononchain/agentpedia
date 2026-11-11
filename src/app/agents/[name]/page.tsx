@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
+import { CertFact } from "@/components/cert-fact";
 import { Contents } from "@/components/contents";
 import { CopyButton } from "@/components/copy-button";
 import { MarkdownBody } from "@/components/markdown-body";
@@ -53,6 +54,7 @@ export default async function AgentPage({ params }: { params: Promise<Params> })
           <dl>
             <dt>Kind</dt>
             <dd>Agent</dd>
+            <CertFact kind="agent" name={agent.name} />
             <dt>Skills</dt>
             <dd>{agent.skills.length}</dd>
             <dt>Added</dt>

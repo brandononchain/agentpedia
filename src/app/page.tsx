@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { certificates } from "@/lib/certificates";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
 import { SITE_NAME, SITE_TAGLINE, siteMeta } from "@/lib/site";
 import { didYouKnow, featuredSkill, firstSentence } from "@/lib/wiki";
@@ -29,7 +30,12 @@ export default function HomePage() {
       <p className="portal-counts">
         {stats.skills} skills, {stats.agents} agents, and {stats.categories} shelves. This build has {stats.errors} lint
         errors and {stats.warnings} warnings.
-        {stats.clean === stats.skills ? " Every entry scores 100." : ""}
+        {stats.clean === stats.skills ? " Every entry scores 100." : ""}{" "}
+        <Link href="/certification">
+          {certificates.stats.listed} listed
+          {certificates.stats.verified ? `, ${certificates.stats.verified} verified` : ""}
+        </Link>
+        .
       </p>
 
       <ul className="shelf-grid" id="shelves">
