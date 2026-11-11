@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:b285ce08fd623ac143c383dca30ec6ac17824de3ed8fdf88f45f810fa7ad17c0",
+  "id": "skill-event-risk-guard",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "1cba132356d8a6c847cfa1ad81dea8c647e3973a",
+  "subject": {
+    "kind": "skill",
+    "name": "event-risk-guard"
+  },
+  "tier": "listed"
+}
