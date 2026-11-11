@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { certificates } from "@/lib/certificates";
-import { SITE_NAME, SITE_ORIGIN, siteMeta } from "@/lib/site";
+import { SITE_NAME, siteMeta } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Certification",
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 export default function CertificationPage() {
   const { stats } = certificates;
+  const example = certificates.certificates.find((item) => item.payload.id === "skill-csv-profile");
   return (
     <ArticleFrame
       title="Certification"
@@ -115,11 +116,14 @@ export default function CertificationPage() {
               ? "This build signed the records."
               : "This build left every record unsigned. The signature field is null, and signed is false. That is the honest state until a key is configured."}{" "}
             The public key, when one is pinned, is published at{" "}
-            <a href="/.well-known/agentpedia-signing-key.json">/.well-known/agentpedia-signing-key.json</a>.
+            <a href={example?.payload.urls.publicKey ?? "/.well-known/agentpedia-signing-key.json"}>
+              {example?.payload.urls.publicKey ?? "/.well-known/agentpedia-signing-key.json"}
+            </a>
+            .
           </p>
           <p>To verify one record:</p>
           <pre className="snippet">
-            <code>{`node tools/verify_cert.mjs ${SITE_ORIGIN}/cert/skill-csv-profile.json`}</code>
+            <code>{`node tools/verify_cert.mjs ${example?.payload.urls.record ?? "/cert/skill-csv-profile.json"}`}</code>
           </pre>
           <p>
             Exit 0 means the signature matches. Exit 2 means the record is unsigned. Exit 1 means the signature is

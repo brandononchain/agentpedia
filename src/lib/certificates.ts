@@ -1,5 +1,4 @@
 import raw from "../../data/certificates.json";
-import { SITE_ORIGIN } from "@/lib/site";
 
 export type DisplayTier =
   | "listed"
@@ -64,6 +63,7 @@ export type CertificatePayload = {
   }>;
   limits: string[];
   badge: { width: number; height: number; label: string; message: string };
+  urls: { page: string; badge: string; record: string; publicKey: string };
 };
 
 export type CertificateDocument = {
@@ -122,13 +122,13 @@ export function badgeAlt(document: CertificateDocument) {
 }
 
 export function embedMarkdown(document: CertificateDocument) {
-  const id = document.payload.id;
   const alt = badgeAlt(document);
-  return `[![${alt}](${SITE_ORIGIN}/badge/${id}.svg)](${SITE_ORIGIN}/cert/${id})`;
+  const { page, badge } = document.payload.urls;
+  return `[![${alt}](${badge})](${page})`;
 }
 
 export function embedHtml(document: CertificateDocument) {
-  const id = document.payload.id;
   const alt = badgeAlt(document);
-  return `<a href="${SITE_ORIGIN}/cert/${id}"><img alt="${alt}" src="${SITE_ORIGIN}/badge/${id}.svg"></a>`;
+  const { page, badge } = document.payload.urls;
+  return `<a href="${page}"><img alt="${alt}" src="${badge}"></a>`;
 }

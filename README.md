@@ -105,7 +105,7 @@ No database. One optional secret.
 1. Import this repository. Framework preset: **Next.js**. Root directory: the repository root.
 2. Install command: `npm ci` (the default).
 3. Build command: `npm run build`. That runs `python3 tools/build_index.py`, `node tools/cert_sign.mjs`, and then `next build`. Vercel's build image includes Python 3 and Node. No extra Python packages are required for signing.
-4. The public origin is `https://agentpedia.sh`, read from `config/site.json`. Canonical URLs, Open Graph, the sitemap, and badge embeds use that origin. Set `NEXT_PUBLIC_SITE_URL` only to override it.
+4. The public origin is `https://agentpedia.sh`, read from `config/site.json`. Canonical URLs, Open Graph, the sitemap, badge embeds, and certificate records use that origin. Set `NEXT_PUBLIC_SITE_URL` only to override it.
 5. Optional: set `AGENTPEDIA_SIGNING_KEY` to the PKCS#8 PEM from `node tools/gen_signing_key.mjs`, on Production and Preview. Commit `certs/public-key.json` and leave the PEM out of the repo. Without the secret, the site still builds and the certificates say they are unsigned.
 
 The pages are statically generated from the catalog at build time. Blocked or warned skills fail the build, so a preview deploy cannot publish an entry the linter rejected.

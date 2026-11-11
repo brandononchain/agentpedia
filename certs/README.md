@@ -31,4 +31,4 @@ node tools/verify_cert.mjs https://agentpedia.sh/cert/skill-csv-profile.json
 
 Exit 0 matches. Exit 2 means unsigned. Exit 1 means the signature does not match.
 
-The public key is served at `/.well-known/agentpedia-signing-key.json`.
+The public key is served at `https://agentpedia.sh/.well-known/agentpedia-signing-key.json`. That origin comes from `config/site.json`.
