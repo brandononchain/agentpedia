@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, siteMeta } from "@/lib/site";
 import { formatDropDate } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Recent changes",
   description: `Skills and agents by the day they were added to ${SITE_NAME}.`,
+  ...siteMeta("/changelog"),
 };
 
 export default function ChangelogPage() {

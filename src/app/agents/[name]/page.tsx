@@ -7,6 +7,7 @@ import { Contents } from "@/components/contents";
 import { CopyButton } from "@/components/copy-button";
 import { MarkdownBody } from "@/components/markdown-body";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
+import { siteMeta } from "@/lib/site";
 import { formatDropDate, stripTitle } from "@/lib/format";
 import { extractToc, otherAgents, type TocItem } from "@/lib/wiki";
 
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { name } = await params;
   const agent = getAgent(name);
   if (!agent) return { title: "Agent" };
-  return { title: agent.name, description: agent.description };
+  return { title: agent.name, description: agent.description, ...siteMeta(`/agents/${agent.name}`) };
 }
 
 export default async function AgentPage({ params }: { params: Promise<Params> }) {

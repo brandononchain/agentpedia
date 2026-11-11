@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, siteMeta } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Glossary",
   description: `Definitions for the words ${SITE_NAME} uses: skill, agent, shelf, lint score, and drop.`,
+  ...siteMeta("/glossary"),
 };
 
 const TERMS = [

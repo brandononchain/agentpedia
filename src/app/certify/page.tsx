@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
-import { REPO_URL, SITE_NAME } from "@/lib/site";
+import { REPO_URL, SITE_NAME, siteMeta } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Submit for certification",
   description: `How to submit a skill or agent to ${SITE_NAME} for a Listed or Verified certificate. No account and no form.`,
+  ...siteMeta("/certify"),
 };
 
 export default function CertifyPage() {

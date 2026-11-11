@@ -4,12 +4,13 @@ import { ArticleFrame } from "@/components/article-frame";
 import { TierMark } from "@/components/tier-mark";
 import { certificateFor } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, siteMeta } from "@/lib/site";
 import { alphabet, groupByLetter } from "@/lib/wiki";
 
 export const metadata: Metadata = {
   title: "Index",
   description: `Alphabetical index of skills and agents in ${SITE_NAME}.`,
+  ...siteMeta("/az"),
 };
 
 type Row = { key: string; title: string; href: string; kind: "Skill" | "Agent"; certId?: string; tier?: string };

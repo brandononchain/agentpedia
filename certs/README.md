@@ -26,7 +26,7 @@ Set `AGENTPEDIA_SIGNING_KEY` to the PEM contents:
 Verify:
 
 ```bash
-node tools/verify_cert.mjs https://agentpedia-ten.vercel.app/cert/skill-csv-profile.json
+node tools/verify_cert.mjs https://agentpedia.sh/cert/skill-csv-profile.json
 ```
 
 Exit 0 matches. Exit 2 means unsigned. Exit 1 means the signature does not match.

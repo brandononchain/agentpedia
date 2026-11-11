@@ -5,7 +5,7 @@ import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { CopyButton } from "@/components/copy-button";
 import { badgeAlt, certificateById, certificates, embedHtml, embedMarkdown, tierLabel } from "@/lib/certificates";
-import { REPO_URL, SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { REPO_URL, SITE_NAME, SITE_ORIGIN, siteMeta } from "@/lib/site";
 import { formatDropDate } from "@/lib/format";
 
 type Params = { id: string };
@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: `${payload.subject.title} certificate`,
     description: `${SITE_NAME} ${tierLabel(payload.displayTier)} certificate for ${payload.subject.title}. ${payload.statusReason}`,
+    ...siteMeta(`/cert/${payload.id}`),
   };
 }
 

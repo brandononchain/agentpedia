@@ -2,7 +2,7 @@
  * Verify one Agentpedia certificate.
  *
  *   node tools/verify_cert.mjs public/cert/skill-csv-profile.json
- *   node tools/verify_cert.mjs https://agentpedia-ten.vercel.app/cert/skill-csv-profile.json
+ *   node tools/verify_cert.mjs https://agentpedia.sh/cert/skill-csv-profile.json
  *
  * Exit 0 when the Ed25519 signature matches the pinned public key.
  * Exit 2 when the record is explicitly unsigned.

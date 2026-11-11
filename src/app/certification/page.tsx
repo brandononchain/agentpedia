@@ -3,11 +3,12 @@ import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { certificates } from "@/lib/certificates";
-import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { SITE_NAME, SITE_ORIGIN, siteMeta } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Certification",
   description: `What ${SITE_NAME} Listed, Verified, and Certified certificates check, and what they do not guarantee.`,
+  ...siteMeta("/certification"),
 };
 
 export default function CertificationPage() {
