@@ -121,6 +121,10 @@ def test_listed_is_active(pinned_manifest):
     assert body["status"] == "active"
     assert body["displayTier"] == "listed"
     assert body["expiresAt"] == "2027-11-10"
+    assert body["urls"]["page"] == "https://agentpedia.sh/cert/skill-csv-profile"
+    assert body["urls"]["badge"] == "https://agentpedia.sh/badge/skill-csv-profile.svg"
+    assert body["urls"]["record"] == "https://agentpedia.sh/cert/skill-csv-profile.json"
+    assert body["urls"]["publicKey"] == "https://agentpedia.sh/.well-known/agentpedia-signing-key.json"
     assert 'fill="#0e4f57"' in svg
     assert "rx=" not in svg
 

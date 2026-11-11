@@ -46,6 +46,7 @@ BADGE_DIR = ROOT / "public" / "badge"
 CERT_PUBLIC_DIR = ROOT / "public" / "cert"
 WELL_KNOWN_PATH = ROOT / "public" / ".well-known" / "agentpedia-signing-key.json"
 HARNESS_PATH = ROOT / "tools" / "verify_checks.py"
+SITE_CONFIG_PATH = ROOT / "config" / "site.json"
 
 RECORD_SCHEMA = "agentpedia.certificate-record.v1"
 SET_SCHEMA = "agentpedia.certificate-set.v1"
@@ -113,6 +114,20 @@ class CertError(Exception):
 def canonical(value: object) -> str:
     """UTF-8 JSON with sorted keys and no insignificant whitespace."""
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+
+
+def site_origin() -> str:
+    """Public origin. NEXT_PUBLIC_SITE_URL overrides config/site.json."""
+    override = os.environ.get("NEXT_PUBLIC_SITE_URL", "").strip()
+    if override:
+        return override.rstrip("/")
+    if not SITE_CONFIG_PATH.is_file():
+        raise CertError("config/site.json is missing")
+    config = json.loads(SITE_CONFIG_PATH.read_text(encoding="utf-8"))
+    origin = str(config.get("origin") or "").strip().rstrip("/")
+    if not origin:
+        raise CertError("config/site.json is missing origin")
+    return origin
 
 
 def today_iso() -> str:
@@ -550,6 +565,7 @@ def evaluate_entry(entry: dict, record: dict, today: date, harness: str, result:
         "checks": _checks_payload(result) if result else [],
         "limits": LIMITS,
         "badge": badge,
+        "urls": _record_urls(identifier),
     }
     return {"payload": payload, "svg": svg}
 
@@ -560,6 +576,16 @@ def _prepare_entry(entry: dict) -> dict:
     prepared["digest"] = content_digest(directory)
     prepared["commit"] = git_commit(ROOT, directory)
     return prepared
+
+
+def _record_urls(identifier: str) -> dict:
+    origin = site_origin()
+    return {
+        "page": f"{origin}/cert/{identifier}",
+        "badge": f"{origin}/badge/{identifier}.svg",
+        "record": f"{origin}/cert/{identifier}.json",
+        "publicKey": f"{origin}/.well-known/agentpedia-signing-key.json",
+    }
 
 
 def _signing_key_document(signed: bool) -> dict:
@@ -589,6 +615,7 @@ def _signing_key_document(signed: bool) -> dict:
         "configured": signed,
         "pinned": bool(keys),
         "alg": "Ed25519",
+        "url": f"{site_origin()}/.well-known/agentpedia-signing-key.json",
         "keys": keys,
         "note": note,
     }
@@ -636,7 +663,7 @@ def publish_certificates(entries: list[dict]) -> dict:
             "canonical": canonical(payload),
             "signed": False,
             "signature": None,
-            "keyUrl": "/.well-known/agentpedia-signing-key.json",
+            "keyUrl": payload["urls"]["publicKey"],
         }
         published.append(document)
         svgs[identifier] = svg

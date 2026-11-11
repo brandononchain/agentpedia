@@ -5,6 +5,7 @@ import { ArticleFrame } from "@/components/article-frame";
 import { TierMark } from "@/components/tier-mark";
 import { certificateFor } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
+import { siteMeta } from "@/lib/site";
 import { alphabet, firstSentence, groupByLetter } from "@/lib/wiki";
 
 type Params = { id: string };
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { id } = await params;
   const category = catalog.categories.find((item) => item.id === id);
   if (!category) return { title: "Shelf" };
-  return { title: category.label, description: category.blurb };
+  return { title: category.label, description: category.blurb, ...siteMeta(`/category/${category.id}`) };
 }
 
 export default async function CategoryPage({ params }: { params: Promise<Params> }) {

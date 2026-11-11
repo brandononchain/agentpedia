@@ -5,7 +5,7 @@ import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { CopyButton } from "@/components/copy-button";
 import { badgeAlt, certificateById, certificates, embedHtml, embedMarkdown, tierLabel } from "@/lib/certificates";
-import { REPO_URL, SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { REPO_URL, SITE_NAME, siteMeta } from "@/lib/site";
 import { formatDropDate } from "@/lib/format";
 
 type Params = { id: string };
@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: `${payload.subject.title} certificate`,
     description: `${SITE_NAME} ${tierLabel(payload.displayTier)} certificate for ${payload.subject.title}. ${payload.statusReason}`,
+    ...siteMeta(`/cert/${payload.id}`),
   };
 }
 
@@ -182,14 +183,14 @@ export default async function CertificatePage({ params }: { params: Promise<Para
         <section id="verify">
           <h2>Verify</h2>
           <p>
-            The machine-readable record is <a href={`/cert/${payload.id}.json`}>/cert/{payload.id}.json</a>. The public
-            key is <a href="/.well-known/agentpedia-signing-key.json">/.well-known/agentpedia-signing-key.json</a>.
+            The machine-readable record is <a href={payload.urls.record}>{payload.urls.record}</a>. The public
+            key is <a href={payload.urls.publicKey}>{payload.urls.publicKey}</a>.
             {document.signed
               ? " This build signed the canonical payload with Ed25519."
               : " This build left the record unsigned because AGENTPEDIA_SIGNING_KEY was unset. The signature field is null on purpose."}
           </p>
           <pre className="snippet">
-            <code>{`node tools/verify_cert.mjs ${SITE_ORIGIN}/cert/${payload.id}.json`}</code>
+            <code>{`node tools/verify_cert.mjs ${payload.urls.record}`}</code>
           </pre>
           <p>
             Exit 0 means the signature matches the canonical payload and the pinned public key. Exit 2 means the record
