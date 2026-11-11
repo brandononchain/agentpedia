@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:a0d426b7bfd1ad7da2a762b4c3749c1ecbd6f57483c573f79d6171b412e27ade",
+  "id": "agent-household-desk",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "agent",
+    "name": "household-desk"
+  },
+  "tier": "listed"
+}

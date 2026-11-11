@@ -1,0 +1,4 @@
+{
+  "label": "Agent ops & evals",
+  "blurb": "Plans an evaluation, reads a trace when another agent misbehaves, and lays benchmark numbers into a table. It tests other agents. It does not raise a score the run did not produce, and it does not declare a model the winner from a single example."
+}

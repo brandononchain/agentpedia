@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:a0ea4da53359222d6c2f3fdea3b5cd127c77bd5dc8c1119c71d48780549c0110",
+  "id": "skill-nda-checklist",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "skill",
+    "name": "nda-checklist"
+  },
+  "tier": "listed"
+}

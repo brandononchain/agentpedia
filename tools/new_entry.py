@@ -214,9 +214,36 @@ def add_agent(args: argparse.Namespace) -> None:
     print(f"dated {TODAY}. Edit the manifest, then run python3 tools/build_index.py.")
 
 
+def print_shelves(_args: argparse.Namespace) -> None:
+    from shelf_rotation import shelf_ids
+
+    shelves = shelf_ids(ROOT / "skills")
+    if not shelves:
+        fail("no shelves found under skills/")
+    for shelf in shelves:
+        print(shelf)
+
+
+def print_next_shelf(args: argparse.Namespace) -> None:
+    from shelf_rotation import next_shelf, shelf_ids
+
+    shelves = shelf_ids(ROOT / "skills")
+    if not shelves:
+        fail("no shelves found under skills/")
+    on = date.fromisoformat(args.date) if args.date else date.today()
+    print(next_shelf(shelves, on))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Add an Agentpedia entry dated today.")
     sub = parser.add_subparsers(dest="kind", required=True)
+
+    shelves_parser = sub.add_parser("shelves", help="List every shelf, in rotation order")
+    shelves_parser.set_defaults(func=print_shelves)
+
+    next_parser = sub.add_parser("next-shelf", help="Print the shelf for a daily entry")
+    next_parser.add_argument("--date", help="YYYY-MM-DD. Defaults to today.")
+    next_parser.set_defaults(func=print_next_shelf)
 
     skill_parser = sub.add_parser("skill", help="Scaffold a skill and lint it")
     skill_parser.add_argument("--category", required=True)

@@ -36,9 +36,12 @@ const TERMS = [
     term: "Shelf",
     body: (
       <>
-        A category of skills, such as <Link href="/category/trading">Trading</Link> or{" "}
-        <Link href="/category/skill-authoring">Skill authoring</Link>. Shelves are listed from the{" "}
-        <Link href="/#shelves">portal</Link>.
+        A category of skills. The portal lists every shelf, including{" "}
+        <Link href="/category/trading">Trading & markets</Link>,{" "}
+        <Link href="/category/security-compliance">Security & compliance</Link>, and{" "}
+        <Link href="/category/legal-contracts">Legal & contracts</Link>. Legal pages say they are not legal advice.
+        Health notes on <Link href="/category/personal-life">Personal & life</Link> are informational only.{" "}
+        <Link href="/category/crypto-onchain">Crypto & onchain</Link> skills do not move funds or sign transactions.
       </>
     ),
   },

@@ -565,13 +565,16 @@ main {
 }
 
 .shelf-name {
+  min-width: 0;
   font-family: var(--font-serif);
   font-size: 1.35rem;
   letter-spacing: -0.02em;
   line-height: 1.15;
+  overflow-wrap: break-word;
 }
 
 .shelf-count {
+  flex: none;
   font-variant-numeric: tabular-nums;
   color: var(--muted-ink);
 }

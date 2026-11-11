@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:030dee9a26ab4973ebdc9cccefeb80176470cb30c5cdd9c323f0540cb33aa938",
+  "id": "skill-warehouse-scan-review",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "skill",
+    "name": "warehouse-scan-review"
+  },
+  "tier": "listed"
+}

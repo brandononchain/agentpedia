@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:07ea5cac856859ab814cac5e71725063b7b8eb5b0e533459c61329fda4e46f59",
+  "id": "skill-contract-read-notes",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "skill",
+    "name": "contract-read-notes"
+  },
+  "tier": "listed"
+}

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:fb23f606002eef90aa38ada241f6bdc427043d8e34ab408f0a5f3a373324aa91",
+  "id": "agent-studio-desk",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "agent",
+    "name": "studio-desk"
+  },
+  "tier": "listed"
+}

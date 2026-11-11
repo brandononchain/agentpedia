@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:f0e99703ee9e781620ea68ecca54b8c6f76cd94eaf0584655754877b13302f8e",
+  "id": "skill-video-script-outline",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "skill",
+    "name": "video-script-outline"
+  },
+  "tier": "listed"
+}

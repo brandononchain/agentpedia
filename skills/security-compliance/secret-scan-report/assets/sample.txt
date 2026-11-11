@@ -1,0 +1,4 @@
+# notes for the staging host
+export GH_TOKEN=ghp_abcdefghijklmnopqrst
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+plain sentence with no secret

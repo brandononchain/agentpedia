@@ -1,0 +1,4 @@
+{
+  "label": "Finance & ops",
+  "blurb": "Checks an invoice against its lines, totals a spend export, and builds a forecast only from actuals the user provides. A figure that is not in the file stays blank. This is bookkeeping support, not tax, audit, or investment advice."
+}
