@@ -160,7 +160,7 @@ export function BrowseExplorer({ skills, categories }: { skills: SkillSummary[];
               {sorted.map((skill) => (
                 <li key={skill.name} style={{ borderTop: "1px solid var(--rule)", padding: "0.85rem 0" }}>
                   <Link href={`/skills/${skill.name}`} style={{ display: "grid", gap: "0.35rem" }}>
-                    <span style={{ display: "flex", justifyContent: "space-between", gap: "1rem", alignItems: "baseline" }}>
+                    <span className="entry-row">
                       <span className="shelf-name">{skill.title}</span>
                       <ScoreMark score={skill.score} badge={skill.badge} />
                     </span>

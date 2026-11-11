@@ -55,7 +55,7 @@ export default function LintPage() {
         {catalog.rules.map((group) => (
           <section key={group.group}>
             <h2 id={slugify(group.group)}>{group.group}</h2>
-            <div style={{ overflowX: "auto" }}>
+            <div className="table-scroll">
               <table className="data-table">
                 <caption className="sr-only">{group.group} rules</caption>
                 <thead>
