@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { catalog } from "@/lib/catalog";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, siteMeta } from "@/lib/site";
 import { slugify, type TocItem } from "@/lib/wiki";
 
 export const metadata: Metadata = {
   title: "How we lint",
   description: `The skill-lint rules ${SITE_NAME} runs before an entry can be listed, and how the score is calculated.`,
+  ...siteMeta("/lint"),
 };
 
 export default function LintPage() {

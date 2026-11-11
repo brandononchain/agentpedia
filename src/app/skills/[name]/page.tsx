@@ -7,6 +7,7 @@ import { InstallPanel } from "@/components/install-panel";
 import { MarkdownBody } from "@/components/markdown-body";
 import { ScoreMark } from "@/components/score-mark";
 import { catalog, getSkill } from "@/lib/catalog";
+import { siteMeta } from "@/lib/site";
 import { formatBytes, formatDropDate, stripTitle } from "@/lib/format";
 import { agentForSkill, extractToc, relatedSkills, shelfNeighbors, type TocItem } from "@/lib/wiki";
 
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { name } = await params;
   const skill = getSkill(name);
   if (!skill) return { title: "Entry" };
-  return { title: skill.title, description: skill.description };
+  return { title: skill.title, description: skill.description, ...siteMeta(`/skills/${skill.name}`) };
 }
 
 export default async function SkillPage({ params }: { params: Promise<Params> }) {

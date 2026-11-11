@@ -1,8 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
-import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+import { SITE_NAME, SITE_TAGLINE, siteMeta } from "@/lib/site";
 import { didYouKnow, featuredSkill, firstSentence } from "@/lib/wiki";
 import { formatDropDate } from "@/lib/format";
+
+export const metadata: Metadata = siteMeta("/");
 
 export default function HomePage() {
   const featured = featuredSkill();

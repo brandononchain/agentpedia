@@ -78,7 +78,7 @@ No environment variables and no database.
 1. Import this repository. Framework preset: **Next.js**. Root directory: the repository root.
 2. Install command: `npm ci` (the default).
 3. Build command: `npm run build`. That runs `python3 tools/build_index.py` and then `next build`. Vercel's build image includes Python 3.
-4. Optional: set `NEXT_PUBLIC_SITE_URL` to the production origin (`https://your-domain`) so canonical URLs and the sitemap use it.
+4. The public origin is `https://agentpedia.sh`, read from `config/site.json`. Canonical URLs, Open Graph, and the sitemap use that origin. Set `NEXT_PUBLIC_SITE_URL` only to override it.
 
 The pages are statically generated from the catalog at build time. Blocked or warned skills fail the build, so a preview deploy cannot publish an entry the linter rejected.
 

@@ -2,11 +2,12 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { BrowseExplorer } from "@/components/browse-explorer";
 import { catalog, skillSummaries } from "@/lib/catalog";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, siteMeta } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Search",
   description: `Search ${SITE_NAME} by name, shelf, tag, recency, and lint score.`,
+  ...siteMeta("/browse"),
 };
 
 export default function BrowsePage() {

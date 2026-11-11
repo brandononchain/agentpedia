@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Atkinson_Hyperlegible, Geist_Mono, Literata } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 import "./globals.css";
 
 const sans = Atkinson_Hyperlegible({
@@ -25,17 +25,34 @@ const mono = Geist_Mono({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://127.0.0.1:43123";
+const description = `${SITE_TAGLINE} Every entry is linted before it is listed.`;
 
 const themeScript = `(function(){try{var t=localStorage.getItem("encyclopedia-theme");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){}})();`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: SITE_NAME,
     template: `%s · ${SITE_NAME}`,
   },
-  description: `${SITE_TAGLINE} Every entry is linted before it is listed.`,
+  description,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: {
+      default: SITE_NAME,
+      template: `%s · ${SITE_NAME}`,
+    },
+    description,
+  },
+  twitter: {
+    card: "summary",
+    title: {
+      default: SITE_NAME,
+      template: `%s · ${SITE_NAME}`,
+    },
+    description,
+  },
   authors: [{ name: "Brandon", url: "https://brandononchain.com" }],
 };
 

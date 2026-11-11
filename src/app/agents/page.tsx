@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
 import { catalog } from "@/lib/catalog";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, siteMeta } from "@/lib/site";
 import { alphabet, firstSentence, groupByLetter } from "@/lib/wiki";
 
 export const metadata: Metadata = {
   title: "Agents",
   description: `Agents in ${SITE_NAME}, each a bundle of linted skills.`,
+  ...siteMeta("/agents"),
 };
 
 export default function AgentsPage() {
