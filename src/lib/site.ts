@@ -23,6 +23,16 @@ export const SITE_ORIGIN = trimOrigin(process.env.NEXT_PUBLIC_SITE_URL || siteCo
 export function siteMeta(path: string): Pick<Metadata, "alternates" | "openGraph"> {
   return {
     alternates: { canonical: path },
-    openGraph: { url: path },
+    openGraph: {
+      url: path,
+      images: [
+        {
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: `${SITE_NAME}. ${SITE_TAGLINE}`,
+        },
+      ],
+    },
   };
 }
