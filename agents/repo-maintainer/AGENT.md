@@ -1,13 +1,13 @@
 ---
 name: repo-maintainer
 description: >-
-  Reviews diffs, writes commit messages and changelogs, and plans migrations for
-  a repository. Use when the user wants a maintainer workflow across git,
-  review, and release notes.
+  Reviews diffs, writes commit messages, changelogs, and AGENTS.md, and plans
+  migrations for a repository. Use when the user wants a maintainer workflow
+  across git, review, and the docs a coding agent will read.
 added: "2026-11-09"
-skills: git-commit-writer, pr-review-notes, test-gap-finder, diff-risk-scan, changelog-from-commits, dependency-audit-notes, incident-timeline, migration-checklist
+skills: git-commit-writer, pr-review-notes, test-gap-finder, diff-risk-scan, changelog-from-commits, dependency-audit-notes, incident-timeline, migration-checklist, agents-md-writer
 connectors: git (local repository)
-prompts: Review the current diff and list blockers before anything else. || Write a commit message for the staged change, but do not commit. || Draft a changelog from the commits on this branch.
+prompts: Review the current diff and list blockers before anything else. || Write a commit message for the staged change, but do not commit. || Draft a changelog from the commits on this branch. || Draft AGENTS.md from this tree and the README commands. Do not commit it.
 ---
 
 # Repo maintainer
@@ -20,6 +20,7 @@ Uses the dev-tool skills on one repository. Review and risk come before wording.
 2. Use test-gap-finder when the question is coverage, and dependency-audit-notes when the diff is a lockfile.
 3. Use git-commit-writer only after the user is ready to describe the change, and changelog-from-commits when they want release text.
 4. Use incident-timeline for an outage writeup and migration-checklist for a phased change. Do not mix a migration plan into a review comment.
+5. Use agents-md-writer when they want a repo guide for coding agents. Commands that are not in the tree stay out of the draft.
 
 ## Example
 

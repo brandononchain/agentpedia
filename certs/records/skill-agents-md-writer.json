@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:5fcb83510b1e7680a45a175febbef2b62ad5e06005e542e68a816851af5cf125",
+  "id": "skill-agents-md-writer",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "1cba132356d8a6c847cfa1ad81dea8c647e3973a",
+  "subject": {
+    "kind": "skill",
+    "name": "agents-md-writer"
+  },
+  "tier": "listed"
+}

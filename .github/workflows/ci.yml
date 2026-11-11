@@ -35,4 +35,16 @@ jobs:
         run: npm run test:certs
 
       - name: Build the catalog and the site
-        run: npm run build
+        run: |
+          # next/font downloads Google CSS at build time. A truncated reply
+          # fails the loader; the same commit can succeed on the next try.
+          for attempt in 1 2 3; do
+            if npm run build; then
+              exit 0
+            fi
+            if [ "$attempt" = 3 ]; then
+              exit 1
+            fi
+            rm -rf .next
+            sleep 8
+          done
