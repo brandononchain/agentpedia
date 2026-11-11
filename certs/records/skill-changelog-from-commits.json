@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:e6fccd4dab4848cc05a5835e5026fa6512dddf5ec8828cf30de338fdee4160dc",
+  "id": "skill-changelog-from-commits",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "changelog-from-commits"
+  },
+  "tier": "listed"
+}

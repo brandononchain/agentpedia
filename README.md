@@ -25,8 +25,9 @@ npm run dev
 The dev server prints a local URL on port **43123**. `npm run dev` rebuilds `data/catalog.json` from `skills/` and `agents/` before Next.js starts.
 
 ```bash
-npm run build         # lint the catalog, write the index, then next build
+npm run build         # lint the catalog, write certificates, sign if a key is set, then next build
 npm run test:lint     # skill-lint unit tests
+npm run test:certs    # certificate and signing tests
 npm run lint:skills
 ```
 
@@ -37,7 +38,10 @@ skills/<category>/<skill-name>/SKILL.md   # plus scripts/, references/, assets/
 agents/<agent-name>/AGENT.md              # purpose, bundled skills, connectors, prompts
 tools/skill-lint/                          # vendored dependency-free linter
 tools/build_index.py                       # lints everything and writes data/catalog.json
-tools/new_entry.py                         # one command to add today's skill or agent
+tools/certlib.py                           # issues Listed records and publishes certificate JSON
+tools/verify_checks.py                     # runs install probes and evals for Verified
+tools/cert_sign.mjs                        # Ed25519-signs the canonical payload when a key is set
+certs/                                     # records, check manifests, and harness results
 src/                                       # Next.js App Router site
 ```
 
@@ -71,14 +75,38 @@ python3 tools/build_index.py
 
 The quality bar, and what the linter refuses, is in [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Certification
+
+Every skill with a skill-lint score of 100, and every agent whose bundled skills all score 100, gets a **Listed** certificate bound to the source commit and a sha256 digest of the entry directory. **Verified** adds a real run of `tools/verify_checks.py` (an install probe and at least one eval). **Certified** adds a human review stored in `certs/records/<id>.json`. The build refuses a Verified or Certified claim that does not have that evidence. Nothing in the current tree is Certified.
+
+| Route | What it is |
+| --- | --- |
+| `/certification` | What each tier checks, and what it does not guarantee |
+| `/certify` | The pull-request path for an outside submission |
+| `/cert/<id>` | One certificate, with embed snippets |
+| `/cert/<id>.json` | The same record, plus an Ed25519 signature when a key is set |
+| `/badge/<id>.svg` | The shields-style badge |
+| `/.well-known/agentpedia-signing-key.json` | The public key |
+
+A changed entry digest sets the certificate to re-check pending. Listed expires after 365 days, a verification run after 90 days, and a review after 365 days. Certified needs both the run and the review to be current. Details and the signing setup are in [certs/README.md](certs/README.md).
+
+```bash
+node tools/gen_signing_key.mjs
+# commit certs/public-key.json only, then set AGENTPEDIA_SIGNING_KEY to the PEM
+node tools/verify_cert.mjs https://agentpedia-ten.vercel.app/cert/skill-csv-profile.json
+```
+
+Until that secret is set, records are unsigned on purpose (`signed: false`, `signature: null`).
+
 ## Deploy on Vercel
 
-No environment variables and no database.
+No database. One optional secret.
 
 1. Import this repository. Framework preset: **Next.js**. Root directory: the repository root.
 2. Install command: `npm ci` (the default).
-3. Build command: `npm run build`. That runs `python3 tools/build_index.py` and then `next build`. Vercel's build image includes Python 3.
-4. Optional: set `NEXT_PUBLIC_SITE_URL` to the production origin (`https://your-domain`) so canonical URLs and the sitemap use it.
+3. Build command: `npm run build`. That runs `python3 tools/build_index.py`, `node tools/cert_sign.mjs`, and then `next build`. Vercel's build image includes Python 3 and Node. No extra Python packages are required for signing.
+4. Optional: set `NEXT_PUBLIC_SITE_URL` to the production origin (`https://your-domain`) so canonical URLs, the sitemap, and badge embeds use it. The default embed origin is `https://agentpedia-ten.vercel.app`.
+5. Optional: set `AGENTPEDIA_SIGNING_KEY` to the PKCS#8 PEM from `node tools/gen_signing_key.mjs`, on Production and Preview. Commit `certs/public-key.json` and leave the PEM out of the repo. Without the secret, the site still builds and the certificates say they are unsigned.
 
 The pages are statically generated from the catalog at build time. Blocked or warned skills fail the build, so a preview deploy cannot publish an entry the linter rejected.
 

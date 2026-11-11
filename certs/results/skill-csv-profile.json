@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "argv": [
+        "agentpedia-install-probe",
+        "copy-tree",
+        "SKILL.md"
+      ],
+      "cwd": "skills/data-analysis/csv-profile",
+      "durationMs": 0,
+      "exitCode": 0,
+      "expectExit": 0,
+      "id": "install-copy",
+      "kind": "install",
+      "ok": true,
+      "stderr": "",
+      "stdout": "files=3\nSKILL.md=present\nbytes=1643\n",
+      "truncated": false
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/profile_csv.py",
+        "assets/sample.csv"
+      ],
+      "cwd": "skills/data-analysis/csv-profile",
+      "durationMs": 26,
+      "exitCode": 0,
+      "expectExit": 0,
+      "id": "profile-sample",
+      "kind": "eval",
+      "ok": true,
+      "stderr": "",
+      "stdout": "rows=3\ncolumns=4\ndate: empty=0 distinct=2 sample=2026-11-09 | 2026-11-10\nsymbol: empty=0 distinct=2 sample=EURUSD | XAUUSD\nside: empty=0 distinct=2 sample=long | short\npnl: empty=1 distinct=2 sample=42.50 | -15.00\n",
+      "truncated": false
+    }
+  ],
+  "contentDigest": "sha256:fa1093a432cb354d33a7330a8a747a9b690e0d4fd83c628e5442174aa204e544",
+  "harnessDigest": "sha256:310eac3e4b365a31e0b857011bc851121d9bfee27a67ca78d81b0b46e3c394c5",
+  "harnessVersion": "1",
+  "id": "skill-csv-profile",
+  "manifestDigest": "sha256:3de23bc399ae0752b47478aadbc4b42938bcf15cf9f75e6d97406461ccc41bbd",
+  "ok": true,
+  "producer": "agentpedia-verify-checks",
+  "ranAt": "2026-11-10T21:49:00.844986+00:00",
+  "schema": "agentpedia.check-result.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e"
+}

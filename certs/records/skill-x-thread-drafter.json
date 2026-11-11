@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:7094f0709bf88b31cff73ab18d7e939340402a9b067c7a64563c2a2a7469921b",
+  "id": "skill-x-thread-drafter",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "411d40c0740700e38c1ea49c71007479e7f91ce2",
+  "subject": {
+    "kind": "skill",
+    "name": "x-thread-drafter"
+  },
+  "tier": "listed"
+}

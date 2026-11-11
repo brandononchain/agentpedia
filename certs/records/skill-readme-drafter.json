@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:7953496b1d2ff6ad5210e84999e00dfcf6d8501eba82b47d6bb8980281c8722d",
+  "id": "skill-readme-drafter",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "subject": {
+    "kind": "skill",
+    "name": "readme-drafter"
+  },
+  "tier": "listed"
+}

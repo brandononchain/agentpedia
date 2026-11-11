@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:ce7300bf92b3f814b209e9578d50db07ff63cc09ab471487e9da0a14b8ace3b0",
+  "id": "skill-prop-firm-rule-check",
+  "issuedAt": "2026-11-10",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "cce4f851414810253c8ec3b6a35aa5f1d1e97db5",
+  "subject": {
+    "kind": "skill",
+    "name": "prop-firm-rule-check"
+  },
+  "tier": "listed"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "agentpedia.check-manifest.v1",
+  "id": "skill-position-risk-sizer",
+  "entry": "skills/trading/position-risk-sizer",
+  "timeoutSec": 20,
+  "install": {
+    "id": "install-copy",
+    "kind": "copy-tree"
+  },
+  "evals": [
+    {
+      "id": "size-one-percent",
+      "argv": [
+        "python3",
+        "scripts/size_position.py",
+        "--equity",
+        "10000",
+        "--risk-pct",
+        "1",
+        "--stop",
+        "0.5",
+        "--value-per-unit",
+        "1"
+      ],
+      "expectExit": 0,
+      "expectStdoutContains": ["risk_cash=100.00", "units=200.0000"]
+    }
+  ]
+}

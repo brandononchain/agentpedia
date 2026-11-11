@@ -1,0 +1,18 @@
+{
+  "schema": "agentpedia.check-manifest.v1",
+  "id": "skill-csv-profile",
+  "entry": "skills/data-analysis/csv-profile",
+  "timeoutSec": 20,
+  "install": {
+    "id": "install-copy",
+    "kind": "copy-tree"
+  },
+  "evals": [
+    {
+      "id": "profile-sample",
+      "argv": ["python3", "scripts/profile_csv.py", "assets/sample.csv"],
+      "expectExit": 0,
+      "expectStdoutContains": ["rows=3", "columns=4"]
+    }
+  ]
+}
