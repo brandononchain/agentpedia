@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:de9f1b24d62028ad43894fc9a6fd2dd8da5e33f54cedb892f799468b1ef30d7d",
+  "id": "skill-token-research-brief",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "skill",
+    "name": "token-research-brief"
+  },
+  "tier": "listed"
+}

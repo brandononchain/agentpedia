@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:74a0f614588134b323682cfd1667b5e6593df086ab2bb3342e9293343745f80f",
+  "id": "skill-spend-report",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "skill",
+    "name": "spend-report"
+  },
+  "tier": "listed"
+}

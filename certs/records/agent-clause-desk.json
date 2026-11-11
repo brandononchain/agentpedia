@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:7689e7bb74d669c175e768c7e4b2dbb8e76c426732312411e7d3344657b2ad1d",
+  "id": "agent-clause-desk",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "agent",
+    "name": "clause-desk"
+  },
+  "tier": "listed"
+}

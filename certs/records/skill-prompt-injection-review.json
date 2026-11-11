@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:d57bf919a2e5fe166acf7a993bbd9a481620b7488fffcc5a64fbfc8e7e9d438e",
+  "id": "skill-prompt-injection-review",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "skill",
+    "name": "prompt-injection-review"
+  },
+  "tier": "listed"
+}

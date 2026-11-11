@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:6149ad5778ee5503e635af169a12e796acbf1c72f8236a284db26bf4e699e7f4",
+  "id": "skill-soc2-evidence-index",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "skill",
+    "name": "soc2-evidence-index"
+  },
+  "tier": "listed"
+}

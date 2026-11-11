@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:1b9f002d4dc8b4994ebf8077648a9970b30dfabbd1d8c6d930784654f62d0629",
+  "id": "agent-eval-desk",
+  "issuedAt": "2026-11-11",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "subject": {
+    "kind": "agent",
+    "name": "eval-desk"
+  },
+  "tier": "listed"
+}
