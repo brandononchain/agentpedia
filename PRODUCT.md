@@ -39,7 +39,7 @@ The display name is Agentpedia, set in `src/lib/site.ts`. The site is the refere
 
 ## Evidence on Hand
 
-The catalog in `data/catalog.json` (39 skills, 8 agents, dated drops, lint scores, install snippets, the UC Irvine study URL, the Agent Skills spec URL, and the AAIF URL). No customer logos, testimonials, or version numbers exist. Do not invent them.
+The catalog in `data/catalog.json` (72 skills, 19 agents, 20 shelves, dated drops, lint scores, install snippets, the UC Irvine study URL, the Agent Skills spec URL, and the AAIF URL). No customer logos, testimonials, or version numbers exist. Do not invent them.
 
 ## Product Principles
 

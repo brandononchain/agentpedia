@@ -1,0 +1,4 @@
+{
+  "label": "Data engineering",
+  "blurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data analysis. This shelf is the pipeline around the query."
+}

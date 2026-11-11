@@ -1,0 +1,4 @@
+{
+  "label": "Security & compliance",
+  "blurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification."
+}

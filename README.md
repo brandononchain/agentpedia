@@ -1,7 +1,7 @@
 # Agentpedia
 
-[![skills](https://img.shields.io/badge/skills-39_linted-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
-[![agents](https://img.shields.io/badge/agents-8-efe6d2?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia)
+[![skills](https://img.shields.io/badge/skills-72_linted-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
+[![agents](https://img.shields.io/badge/agents-19-efe6d2?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia)
 [![lint errors](https://img.shields.io/badge/lint_errors-0-ff5a36?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia/actions)
 [![license](https://img.shields.io/badge/license-Apache--2.0-c9c0ae?style=flat-square&labelColor=10110e)](LICENSE)
 
@@ -49,11 +49,13 @@ The index carries the name, description, category, tags, lint score and findings
 
 ## Add a daily entry
 
-One command scaffolds a dated folder, lints it, and refreshes the index:
+The daily shelf rotates through every directory under `skills/` that has a `category.json`, in alphabetical id order. One calendar day picks one shelf, and a run of days equal to the shelf count visits each shelf once. With the current catalog that is 20 shelves, so 20 consecutive days cover all of them.
 
 ```bash
+python3 tools/new_entry.py shelves
+python3 tools/new_entry.py next-shelf
 python3 tools/new_entry.py skill \
-  --category dev-tools \
+  --category "$(python3 tools/new_entry.py next-shelf)" \
   --name retry-notes \
   --description "Writes a retry policy from a handler. Use when the user asks how a call should retry." \
   --tags retries, http

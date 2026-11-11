@@ -94,6 +94,22 @@ export function featuredSkill() {
   return featured[0] ?? catalog.skills[0];
 }
 
+export const SHELF_EXPANSION_DATE = "2026-11-10";
+
+export const SHELF_EXPANSION_IDS = [
+  "security-compliance",
+  "devops-cloud",
+  "data-engineering",
+  "design-frontend",
+  "customer-support",
+  "finance-ops",
+  "legal-contracts",
+  "crypto-onchain",
+  "media-content",
+  "agent-ops",
+  "personal-life",
+] as const;
+
 export function didYouKnow() {
   const { stats, categories, drops } = catalog;
   const biggest = [...categories].sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))[0];

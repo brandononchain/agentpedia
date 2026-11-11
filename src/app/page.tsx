@@ -3,7 +3,7 @@ import Link from "next/link";
 import { certificates } from "@/lib/certificates";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
 import { SITE_NAME, SITE_TAGLINE, siteMeta } from "@/lib/site";
-import { didYouKnow, featuredSkill, firstSentence } from "@/lib/wiki";
+import { didYouKnow, featuredSkill, firstSentence, SHELF_EXPANSION_DATE, SHELF_EXPANSION_IDS } from "@/lib/wiki";
 import { formatDropDate } from "@/lib/format";
 
 export const metadata: Metadata = siteMeta("/");
@@ -78,7 +78,30 @@ export default function HomePage() {
           <h2>
             Newly added{latest ? <> <time dateTime={latest.date}>{formatDropDate(latest.date)}</time></> : null}
           </h2>
-          {latest ? (
+          {latest?.date === SHELF_EXPANSION_DATE ? (
+            <div className="module-copy">
+              <p>
+                Shelf expansion. Eleven shelves joined the catalog. Each one has three skills and an anchor agent.
+              </p>
+              <ul className="module-list">
+                {catalog.categories
+                  .filter((category) => (SHELF_EXPANSION_IDS as readonly string[]).includes(category.id))
+                  .sort(
+                    (a, b) =>
+                      SHELF_EXPANSION_IDS.indexOf(a.id as (typeof SHELF_EXPANSION_IDS)[number]) -
+                      SHELF_EXPANSION_IDS.indexOf(b.id as (typeof SHELF_EXPANSION_IDS)[number]),
+                  )
+                  .map((category) => (
+                    <li key={category.id}>
+                      <Link href={`/category/${category.id}`}>{category.label}</Link>
+                    </li>
+                  ))}
+                <li>
+                  <Link href="/changelog">Recent changes</Link>
+                </li>
+              </ul>
+            </div>
+          ) : latest ? (
             <ul className="module-list">
               {latest.skills.map((name) => {
                 const skill = getSkill(name);

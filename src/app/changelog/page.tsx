@@ -4,6 +4,7 @@ import { ArticleFrame } from "@/components/article-frame";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
 import { SITE_NAME, siteMeta } from "@/lib/site";
 import { formatDropDate } from "@/lib/format";
+import { SHELF_EXPANSION_DATE } from "@/lib/wiki";
 
 export const metadata: Metadata = {
   title: "Recent changes",
@@ -26,6 +27,12 @@ export default function ChangelogPage() {
           <h2>
             <time dateTime={drop.date}>{formatDropDate(drop.date)}</time>
           </h2>
+          {drop.date === SHELF_EXPANSION_DATE ? (
+            <p>
+              Shelf expansion. Eleven new shelves, with three skills and an anchor agent on each. Entries already
+              dated this day stay in the list below.
+            </p>
+          ) : null}
           <ul className="change-list">
             {drop.skills.map((name) => {
               const skill = getSkill(name);

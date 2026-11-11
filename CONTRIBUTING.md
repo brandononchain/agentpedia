@@ -6,15 +6,17 @@ Agentpedia publishes skills that an agent can follow and that a reviewer can che
 
 From the repo root:
 
+Daily entries rotate across every shelf. `python3 tools/new_entry.py shelves` prints them in rotation order, and `python3 tools/new_entry.py next-shelf` prints the shelf for today. A stretch of days equal to the shelf count visits each shelf once, including all 20 current shelves.
+
 ```bash
 python3 tools/new_entry.py skill \
-  --category dev-tools \
+  --category "$(python3 tools/new_entry.py next-shelf)" \
   --name retry-notes \
   --description "Writes a retry policy from a handler. Use when the user asks how a call should retry." \
   --tags retries, http
 ```
 
-That writes `skills/dev-tools/retry-notes/SKILL.md`, dated today, runs skill-lint, and rebuilds `data/catalog.json`.
+That writes the skill folder, dated today, runs skill-lint, and rebuilds `data/catalog.json`.
 
 If the category does not exist yet, pass `--label` and `--blurb` as well. Those land in `skills/<category>/category.json` and become the shelf name on the site.
 
@@ -61,6 +63,8 @@ Do not put any of the following in a skill, including inside an example:
 Write original instructions. Do not paste someone else's skill verbatim.
 
 Trading and market skills in this catalog record, size, and brief. They do not place orders and they do not invent prices. Match that restraint if you add to the shelf. Marketing and sales skills do not invent social proof, personal facts, or a feature the product does not have.
+
+The same restraint applies on the newer shelves. Legal skills say they are not legal advice. Health notes are informational only and do not diagnose. Crypto skills are read-only: they do not move funds or sign transactions. Security skills read text the user supplies and do not produce an exploit.
 
 ## What the site shows
 

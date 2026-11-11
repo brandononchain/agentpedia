@@ -1,0 +1,4 @@
+{
+  "label": "Crypto & onchain",
+  "blurb": "Watches balances the user pastes, researches a token from sources they supply, and reads a contract for who can move it. Every skill is read-only. None of them moves funds or signs a transaction, and a reading is not an audit."
+}

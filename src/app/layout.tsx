@@ -44,15 +44,32 @@ export const metadata: Metadata = {
       template: `%s · ${SITE_NAME}`,
     },
     description,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME}. ${SITE_TAGLINE}`,
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: {
       default: SITE_NAME,
       template: `%s · ${SITE_NAME}`,
     },
     description,
+    images: ["/og.png"],
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/manifest.webmanifest",
   authors: [{ name: "Brandon", url: "https://brandononchain.com" }],
 };
 
