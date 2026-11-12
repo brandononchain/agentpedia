@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T16:09:16.739282+00:00",
+  "generatedAt": "2026-11-12T16:12:51.037589+00:00",
   "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
@@ -10,13 +10,13 @@
   "aaifUrl": "https://aaif.io/projects/agent-skills",
   "studyUrl": "https://arxiv.org/abs/2607.01456",
   "stats": {
-    "skills": 75,
+    "skills": 78,
     "agents": 19,
     "categories": 20,
     "errors": 0,
     "warnings": 0,
     "info": 0,
-    "clean": 75
+    "clean": 78
   },
   "scoring": {
     "start": 100,
@@ -293,8 +293,8 @@
     {
       "id": "media-content",
       "label": "Media & content",
-      "blurb": "Outlines a video script, briefs a thumbnail, and cuts a transcript into podcast notes and social clips. It uses only the material the user provides. It does not invent a view count, a quote, or a guest.",
-      "count": 3
+      "blurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
+      "count": 6
     },
     {
       "id": "personal-life",
@@ -340,6 +340,222 @@
     }
   ],
   "skills": [
+    {
+      "name": "chapter-marker-list",
+      "title": "Chapter marker list",
+      "description": "Checks a chapter list the user already timed and prints YouTube description lines. Use when the user asks for video chapters from timestamps they marked. It does not invent a start time.",
+      "category": "media-content",
+      "categoryLabel": "Media & content",
+      "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
+      "tags": [
+        "chapters",
+        "youtube"
+      ],
+      "added": "2026-11-12",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/chapter_check.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2264,
+          "url": "/raw/skills/media-content/chapter-marker-list/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 125,
+          "url": "/raw/skills/media-content/chapter-marker-list/assets/sample.csv"
+        },
+        {
+          "path": "references/youtube-chapters.md",
+          "bytes": 1248,
+          "url": "/raw/skills/media-content/chapter-marker-list/references/youtube-chapters.md"
+        },
+        {
+          "path": "scripts/chapter_check.py",
+          "bytes": 4849,
+          "url": "/raw/skills/media-content/chapter-marker-list/scripts/chapter_check.py"
+        }
+      ],
+      "body": "# Chapter marker list\n\nTurn timestamps the user already marked into description lines YouTube can read as chapters. The rules that are checked are in [references/youtube-chapters.md](/raw/skills/media-content/chapter-marker-list/references/youtube-chapters.md). Do not detect chapters from silence, and do not upload the video.\n\n## Steps\n\n1. Take a CSV with `start` and `title`. If the runtime is missing, ask for it. Do not infer a chapter from a transcript that has no timestamps, and do not move a time to make a gap longer.\n2. Run `python3 scripts/chapter_check.py` on that file with `--runtime`. The fixture is [assets/sample.csv](/raw/skills/media-content/chapter-marker-list/assets/sample.csv) with runtime `01:20`, and it is not a live video.\n3. Read `chapters`, `first_is_zero`, `ascending`, `short_chapters`, `last_length`, and `ready`. A chapter is short when the gap to the next timestamp is under 10 seconds. The last chapter uses the runtime. `last_length=not-checked` means the runtime was not supplied.\n4. If `ready=no`, name the failed check and show the description lines as a draft. Do not paste them into a video description as finished chapters. Do not edit a title so the list looks cleaner.\n5. If `ready=yes`, show the description lines. Each title must match the file. Stop there. Do not upload, and do not change the automatic-chapters setting.\n\n## Example\n\nUser: Check `assets/sample.csv` with runtime `01:20`. Do not upload.\n\nAgent: The script prints `chapters=4`, `first_is_zero=yes`, `ascending=yes`, `short_chapters=0`, `last_length=15`, `runtime=80`, `ready=yes`. The first line is `00:00 Cold open`. The titles are the four titles from the file. Nothing is uploaded.\n\n## Boundaries\n\nDo not invent a start time, a title, or a runtime. Do not pull a transcript from a URL. A `ready=yes` line list is not a claim that the channel has access to chapters.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/chapter-marker-list\ncp -R skills/media-content/chapter-marker-list/. .claude/skills/chapter-marker-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/chapter-marker-list\ncp -R agentpedia/skills/media-content/chapter-marker-list/. .claude/skills/chapter-marker-list\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/chapter-marker-list\ncp -R skills/media-content/chapter-marker-list/. .codex/skills/chapter-marker-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/chapter-marker-list\ncp -R agentpedia/skills/media-content/chapter-marker-list/. .codex/skills/chapter-marker-list\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/chapter-marker-list\ncp -R skills/media-content/chapter-marker-list/. .cursor/skills/chapter-marker-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/chapter-marker-list\ncp -R agentpedia/skills/media-content/chapter-marker-list/. .cursor/skills/chapter-marker-list\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/chapter-marker-list\ncp -R skills/media-content/chapter-marker-list/. bot/skills/chapter-marker-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/chapter-marker-list\ncp -R agentpedia/skills/media-content/chapter-marker-list/. bot/skills/chapter-marker-list\n"
+        }
+      },
+      "rawUrl": "/raw/skills/media-content/chapter-marker-list/SKILL.md",
+      "zipUrl": "/raw/zips/chapter-marker-list.zip",
+      "sourcePath": "skills/media-content/chapter-marker-list"
+    },
+    {
+      "name": "paper-edit-list",
+      "title": "Paper edit list",
+      "description": "Selects transcript spans the user marked and keeps the total inside a runtime they set. Use when the user asks for a paper edit or a cut list before an episode is trimmed. It does not rewrite a quote.",
+      "category": "media-content",
+      "categoryLabel": "Media & content",
+      "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
+      "tags": [
+        "editing",
+        "podcasts"
+      ],
+      "added": "2026-11-12",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/paper_edit.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2364,
+          "url": "/raw/skills/media-content/paper-edit-list/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 260,
+          "url": "/raw/skills/media-content/paper-edit-list/assets/sample.csv"
+        },
+        {
+          "path": "references/keep-rules.md",
+          "bytes": 1018,
+          "url": "/raw/skills/media-content/paper-edit-list/references/keep-rules.md"
+        },
+        {
+          "path": "scripts/paper_edit.py",
+          "bytes": 5218,
+          "url": "/raw/skills/media-content/paper-edit-list/scripts/paper_edit.py"
+        }
+      ],
+      "body": "# Paper edit list\n\nPick spans that fit a runtime from a transcript the user already marked. The keep rules are in [references/keep-rules.md](/raw/skills/media-content/paper-edit-list/references/keep-rules.md). This is a paper edit. It does not trim the recording.\n\n## Steps\n\n1. Take a CSV with `start`, `end`, `text`, and `must`. Set `must` to yes only for a span the user said has to survive. Ask for the target in whole seconds. Do not invent a span or a boundary.\n2. Run `python3 scripts/paper_edit.py` on that file with `--target-seconds`. The fixture is [assets/sample.csv](/raw/skills/media-content/paper-edit-list/assets/sample.csv) with target `30`, and it is not a finished cut.\n3. Required spans are reserved first. Optional spans then fill what is left, in file order. A short later span can still fit after a longer one is skipped. If the script stops on an overlap, show that message and do not move a timestamp.\n4. Check `must_keep_over_target`, `kept_seconds`, `ready`, and both line lists. If `must_keep_over_target=yes`, the required spans already pass the target. Say how far over, leave those spans in, and do not drop one to force a fit. A negative `remaining_seconds` is that overage.\n5. If `ready=yes`, show the kept lines and the skipped lines. Every quote must match the file. Do not export, trim, or publish the episode.\n\n## Example\n\nUser: Paper-edit `assets/sample.csv` to 30 seconds. The two `must=yes` rows have to stay. Do not trim the file.\n\nAgent: The script prints `spans=5`, `must_keep_seconds=24`, `must_keep_over_target=no`, `kept=3`, `kept_seconds=28`, `remaining_seconds=2`, `ready=yes`. Kept text includes `A warning costs eight points.` and `The score starts at 100.` The office story and the lunch span are skipped. No quote is rewritten, and the recording is not trimmed.\n\n## Boundaries\n\nDo not mark a span required because it sounds better. Do not rewrite a quote to save seconds. Do not open an editor or upload the episode.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/paper-edit-list\ncp -R skills/media-content/paper-edit-list/. .claude/skills/paper-edit-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/paper-edit-list\ncp -R agentpedia/skills/media-content/paper-edit-list/. .claude/skills/paper-edit-list\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/paper-edit-list\ncp -R skills/media-content/paper-edit-list/. .codex/skills/paper-edit-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/paper-edit-list\ncp -R agentpedia/skills/media-content/paper-edit-list/. .codex/skills/paper-edit-list\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/paper-edit-list\ncp -R skills/media-content/paper-edit-list/. .cursor/skills/paper-edit-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/paper-edit-list\ncp -R agentpedia/skills/media-content/paper-edit-list/. .cursor/skills/paper-edit-list\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/paper-edit-list\ncp -R skills/media-content/paper-edit-list/. bot/skills/paper-edit-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/paper-edit-list\ncp -R agentpedia/skills/media-content/paper-edit-list/. bot/skills/paper-edit-list\n"
+        }
+      },
+      "rawUrl": "/raw/skills/media-content/paper-edit-list/SKILL.md",
+      "zipUrl": "/raw/zips/paper-edit-list.zip",
+      "sourcePath": "skills/media-content/paper-edit-list"
+    },
+    {
+      "name": "subtitle-cue-sheet",
+      "title": "Subtitle cue sheet",
+      "description": "Builds an SRT or WebVTT cue sheet from timed lines the user supplies, and checks order, overlap, and a character budget they set. Use when the user asks for captions or subtitles from a transcript they already timed.",
+      "category": "media-content",
+      "categoryLabel": "Media & content",
+      "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
+      "tags": [
+        "subtitles",
+        "captions"
+      ],
+      "added": "2026-11-12",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/subtitle_cues.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2239,
+          "url": "/raw/skills/media-content/subtitle-cue-sheet/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 134,
+          "url": "/raw/skills/media-content/subtitle-cue-sheet/assets/sample.csv"
+        },
+        {
+          "path": "references/cue-formats.md",
+          "bytes": 1344,
+          "url": "/raw/skills/media-content/subtitle-cue-sheet/references/cue-formats.md"
+        },
+        {
+          "path": "scripts/subtitle_cues.py",
+          "bytes": 5578,
+          "url": "/raw/skills/media-content/subtitle-cue-sheet/scripts/subtitle_cues.py"
+        }
+      ],
+      "body": "# Subtitle cue sheet\n\nWrite captions from timed lines the user already has. The format notes are in [references/cue-formats.md](/raw/skills/media-content/subtitle-cue-sheet/references/cue-formats.md). Do not transcribe audio, and do not burn the captions into a picture.\n\n## Steps\n\n1. Take a CSV with `start`, `end`, and `text`. Ask for `srt` or `vtt`. Apply a character budget only when the user names one. Do not invent a reading speed, and do not split a line to meet a budget.\n2. Run `python3 scripts/subtitle_cues.py` on that file with `--format` and, when they set a budget, `--max-chars`. The fixture is [assets/sample.csv](/raw/skills/media-content/subtitle-cue-sheet/assets/sample.csv).\n3. Read `end_after_start`, `ordered`, `overlap`, `arrow_in_text`, `over_budget`, and `ready`. Overlap is reported and left in the file. WebVTT allows it. Say so when `overlap=yes`, and do not delete a cue to hide it.\n4. If `ready=no`, show the failing row and do not hand the cue file off as finished captions. Do not shorten the words, and do not drop a cue that contains an arrow. Ask the user to change the source line.\n5. If `ready=yes`, show the cue file. Cue text must match the CSV, including the words and not a paraphrase. Do not mux the file into a video.\n\n## Example\n\nUser: Build WebVTT from `assets/sample.csv` with a budget of 80 characters. Do not transcribe anything else.\n\nAgent: The script prints `cues=2`, `format=vtt`, `ordered=yes`, `overlap=no`, `over_budget=0`, `char_budget=80`, `longest_chars=36`, `ready=yes`. The cue file starts with `WEBVTT`. The first cue text is `We lint every skill before it ships.` No line is shortened.\n\n## Boundaries\n\nDo not fetch a video, translate a cue, or invent a millisecond the file did not have. A finished cue sheet is not a burned-in subtitle and it is not a publish.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/subtitle-cue-sheet\ncp -R skills/media-content/subtitle-cue-sheet/. .claude/skills/subtitle-cue-sheet\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/subtitle-cue-sheet\ncp -R agentpedia/skills/media-content/subtitle-cue-sheet/. .claude/skills/subtitle-cue-sheet\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/subtitle-cue-sheet\ncp -R skills/media-content/subtitle-cue-sheet/. .codex/skills/subtitle-cue-sheet\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/subtitle-cue-sheet\ncp -R agentpedia/skills/media-content/subtitle-cue-sheet/. .codex/skills/subtitle-cue-sheet\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/subtitle-cue-sheet\ncp -R skills/media-content/subtitle-cue-sheet/. .cursor/skills/subtitle-cue-sheet\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/subtitle-cue-sheet\ncp -R agentpedia/skills/media-content/subtitle-cue-sheet/. .cursor/skills/subtitle-cue-sheet\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/subtitle-cue-sheet\ncp -R skills/media-content/subtitle-cue-sheet/. bot/skills/subtitle-cue-sheet\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/subtitle-cue-sheet\ncp -R agentpedia/skills/media-content/subtitle-cue-sheet/. bot/skills/subtitle-cue-sheet\n"
+        }
+      },
+      "rawUrl": "/raw/skills/media-content/subtitle-cue-sheet/SKILL.md",
+      "zipUrl": "/raw/zips/subtitle-cue-sheet.zip",
+      "sourcePath": "skills/media-content/subtitle-cue-sheet"
+    },
     {
       "name": "agents-md-writer",
       "title": "AGENTS.md writer",
@@ -884,7 +1100,7 @@
       "description": "Turns a transcript the user pastes into podcast notes and short clip suggestions, each tied to a timestamp or a quote. Use when the user asks for show notes or social clips from a recording they already transcribed.",
       "category": "media-content",
       "categoryLabel": "Media & content",
-      "categoryBlurb": "Outlines a video script, briefs a thumbnail, and cuts a transcript into podcast notes and social clips. It uses only the material the user provides. It does not invent a view count, a quote, or a guest.",
+      "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "tags": [
         "podcasts",
         "clips"
@@ -2442,7 +2658,7 @@
       "description": "Briefs a thumbnail with the words, the subject, and the crop the user asked for. Use when the user asks for a thumbnail before a video or a social clip is cut.",
       "category": "media-content",
       "categoryLabel": "Media & content",
-      "categoryBlurb": "Outlines a video script, briefs a thumbnail, and cuts a transcript into podcast notes and social clips. It uses only the material the user provides. It does not invent a view count, a quote, or a guest.",
+      "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "tags": [
         "thumbnails",
         "video"
@@ -2784,7 +3000,7 @@
       "description": "Outlines a video script with a hook, sections, and an on-screen fact only when the user supplied it. Use when the user asks for a script outline from notes they already have.",
       "category": "media-content",
       "categoryLabel": "Media & content",
-      "categoryBlurb": "Outlines a video script, briefs a thumbnail, and cuts a transcript into podcast notes and social clips. It uses only the material the user provides. It does not invent a view count, a quote, or a guest.",
+      "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "tags": [
         "video",
         "scripts"
@@ -5110,6 +5326,15 @@
     }
   ],
   "drops": [
+    {
+      "date": "2026-11-12",
+      "skills": [
+        "chapter-marker-list",
+        "paper-edit-list",
+        "subtitle-cue-sheet"
+      ],
+      "agents": []
+    },
     {
       "date": "2026-11-11",
       "skills": [

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:c48636d776e086cafa1257ca03ff0aad35cc5b5e610fbb2ed1291bd69ff416e8",
+  "id": "skill-subtitle-cue-sheet",
+  "issuedAt": "2026-11-12",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "b8ce0c9553a41b681ae901a21905272e750019c8",
+  "subject": {
+    "kind": "skill",
+    "name": "subtitle-cue-sheet"
+  },
+  "tier": "listed"
+}

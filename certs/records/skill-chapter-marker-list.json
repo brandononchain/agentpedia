@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:d6237b22b542fe58abe422faf21f2c21d6490aae6b67aceecb00987fc3217108",
+  "id": "skill-chapter-marker-list",
+  "issuedAt": "2026-11-12",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "b8ce0c9553a41b681ae901a21905272e750019c8",
+  "subject": {
+    "kind": "skill",
+    "name": "chapter-marker-list"
+  },
+  "tier": "listed"
+}

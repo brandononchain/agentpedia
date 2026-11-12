@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:2b1f05c330e73f171e7facad57b9cbd546c47ec3c932ddff9057ad3494f00a44",
+  "id": "skill-paper-edit-list",
+  "issuedAt": "2026-11-12",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "b8ce0c9553a41b681ae901a21905272e750019c8",
+  "subject": {
+    "kind": "skill",
+    "name": "paper-edit-list"
+  },
+  "tier": "listed"
+}
