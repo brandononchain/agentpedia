@@ -4,7 +4,7 @@ import siteConfig from "../../config/site.json";
 /** Display name. The site reads this string. */
 export const SITE_NAME = "Agentpedia";
 
-export const SITE_TAGLINE = "The reference encyclopedia of agent skills and agents.";
+export const SITE_TAGLINE = "The open encyclopedia of agents and skills";
 
 export const REPO_URL = "https://github.com/brandononchain/agentpedia";
 

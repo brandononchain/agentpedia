@@ -1,6 +1,6 @@
 ---
 name: Agentpedia
-description: The reference encyclopedia of agent skills and agents.
+description: The open encyclopedia of agents and skills.
 colors:
   verdigris: "#0e4f57"
   verdigris-dark: "#9fd4ce"

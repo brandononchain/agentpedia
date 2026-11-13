@@ -14,11 +14,11 @@ Inferred from the repository and Brandon’s redesign request. No separate inter
 
 ## Product Purpose
 
-A reference encyclopedia of Agent Skills and the agents that bundle them. Every entry is linted before it ships, and the page shows the score. Success is finding the right entry, reading it, and copying an install snippet without guessing whether the file is safe to use.
+The open encyclopedia of agents and skills. Every entry is linted before it ships, and the page shows the score. Success is finding the right entry, reading it, and copying an install snippet without guessing whether the file is safe to use.
 
 ## Positioning
 
-The reference encyclopedia for agent skills and agents. Neighboring directories can list files. This one refuses to ship an entry that has a lint error or a warning, and it presents each entry as an article with its agent, shelf, score, and install path.
+The open encyclopedia of agents and skills. Neighboring directories can list files. This one refuses to ship an entry that has a lint error or a warning, and it presents each entry as an article with its agent, shelf, score, and install path.
 
 ## Operating Context
 
@@ -35,7 +35,7 @@ The catalog is generated from `skills/` and `agents/` by `tools/build_index.py`.
 
 ## Brand Commitments
 
-The display name is Agentpedia, set in `src/lib/site.ts`. The site is the reference encyclopedia of agent skills and agents. Brandon asked for structural cues from a general encyclopedia portal and a scholarly text library, and forbade copying their logos, wordmarks, exact layouts, or assets. Visual constraints he set: warm off-white paper, near-black ink, one restrained accent, a serif for reading, a sans for chrome, dark mode, and WCAG AA.
+The display name is Agentpedia, set in `src/lib/site.ts`. The site is the open encyclopedia of agents and skills. Brandon asked for structural cues from a general encyclopedia portal and a scholarly text library, and forbade copying their logos, wordmarks, exact layouts, or assets. Visual constraints he set: warm off-white paper, near-black ink, one restrained accent, a serif for reading, a sans for chrome, dark mode, and WCAG AA.
 
 ## Evidence on Hand
 

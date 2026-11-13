@@ -25,7 +25,7 @@ const mono = Geist_Mono({
   display: "swap",
 });
 
-const description = `${SITE_TAGLINE} Every entry is linted before it is listed.`;
+const description = `${SITE_TAGLINE}. Every entry is linted before it is listed.`;
 
 const themeScript = `(function(){try{var t=localStorage.getItem("encyclopedia-theme");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){}})();`;
 
