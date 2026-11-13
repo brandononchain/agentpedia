@@ -1,0 +1,5 @@
+account,kind,must_move,where
+Email,authenticator,yes,password manager
+Photo library,files,yes,external drive
+Editor license,subscription,yes,email receipt
+News app,login,no,
