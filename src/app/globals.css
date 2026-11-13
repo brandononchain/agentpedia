@@ -421,7 +421,7 @@ main {
 }
 
 .portal-tagline {
-  margin: 0.9rem auto 0;
+  margin: 1.6rem auto 0;
   max-width: 36rem;
   text-align: center;
   font-size: 1.15rem;
@@ -431,7 +431,7 @@ main {
 .portal-rule {
   width: min(14rem, 40%);
   height: 1px;
-  margin: 1.1rem auto 0;
+  margin: 1.8rem auto 0;
   background: var(--accent-ink);
   transform-origin: left center;
   animation: rule-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -1243,6 +1243,12 @@ main {
   .portal-tagline,
   .lede {
     font-size: 1.05rem;
+  }
+  .portal-tagline {
+    margin-top: 1.35rem;
+  }
+  .portal-rule {
+    margin-top: 1.55rem;
   }
   .entry-title {
     font-size: clamp(1.85rem, 8vw, 2.4rem);
