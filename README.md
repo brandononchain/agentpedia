@@ -5,7 +5,7 @@
 [![lint errors](https://img.shields.io/badge/lint_errors-0-ff5a36?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia/actions)
 [![license](https://img.shields.io/badge/license-Apache--2.0-c9c0ae?style=flat-square&labelColor=10110e)](LICENSE)
 
-Agentpedia is the reference encyclopedia of [Agent Skills](https://agentskills.io/specification) and the agents that bundle them. The display name is `SITE_NAME` in `src/lib/site.ts`. The format is now a project of the [Agentic AI Foundation](https://aaif.io/projects/agent-skills) at the Linux Foundation.
+Agentpedia is the open encyclopedia of agents and skills. The display name is `SITE_NAME` in `src/lib/site.ts`. Entries follow the [Agent Skills](https://agentskills.io/specification) format, now a project of the [Agentic AI Foundation](https://aaif.io/projects/agent-skills) at the Linux Foundation.
 
 Most published skills do not meet their own authoring rules. In [From Anatomy to Smells](https://arxiv.org/abs/2607.01456), Hong, Imani, and Ahmed at UC Irvine studied 238 real `SKILL.md` files. 237 of them — over 99 percent — had at least one skill smell, and those smells rarely got fixed later.
 
