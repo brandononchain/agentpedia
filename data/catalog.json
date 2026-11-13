@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T16:12:51.037589+00:00",
+  "generatedAt": "2026-11-13T16:09:55.139126+00:00",
   "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
@@ -10,13 +10,13 @@
   "aaifUrl": "https://aaif.io/projects/agent-skills",
   "studyUrl": "https://arxiv.org/abs/2607.01456",
   "stats": {
-    "skills": 78,
+    "skills": 81,
     "agents": 19,
     "categories": 20,
     "errors": 0,
     "warnings": 0,
     "info": 0,
-    "clean": 78
+    "clean": 81
   },
   "scoring": {
     "start": 100,
@@ -299,8 +299,8 @@
     {
       "id": "personal-life",
       "label": "Personal & life",
-      "blurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin and appointments. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means.",
-      "count": 3
+      "blurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
+      "count": 6
     },
     {
       "id": "productivity",
@@ -340,6 +340,222 @@
     }
   ],
   "skills": [
+    {
+      "name": "away-coverage-note",
+      "title": "Away coverage note",
+      "description": "Checks a house-coverage list against the dates the user will be away. Use when the user asks for a note for the person watching the home. It does not book the trip and it does not store a code or a password.",
+      "category": "personal-life",
+      "categoryLabel": "Personal & life",
+      "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
+      "tags": [
+        "home",
+        "travel"
+      ],
+      "added": "2026-11-13",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/coverage_check.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2177,
+          "url": "/raw/skills/personal-life/away-coverage-note/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 168,
+          "url": "/raw/skills/personal-life/away-coverage-note/assets/sample.csv"
+        },
+        {
+          "path": "references/coverage-note.md",
+          "bytes": 1035,
+          "url": "/raw/skills/personal-life/away-coverage-note/references/coverage-note.md"
+        },
+        {
+          "path": "scripts/coverage_check.py",
+          "bytes": 4168,
+          "url": "/raw/skills/personal-life/away-coverage-note/scripts/coverage_check.py"
+        }
+      ],
+      "body": "# Away coverage note\n\nTurn a list the user already wrote into a note for the person watching the home. The limits are in [references/coverage-note.md](/raw/skills/personal-life/away-coverage-note/references/coverage-note.md). Do not book the trip, and do not add a task they did not type.\n\n## Steps\n\n1. Record the away start and away end as dates they stated. The CSV needs `item`, `owner`, `window_start`, `window_end`, and `instruction`. The fixture is [assets/sample.csv](/raw/skills/personal-life/away-coverage-note/assets/sample.csv).\n2. Run `python3 scripts/coverage_check.py` on that file with `--away-start` and `--away-end`.\n3. Read `items`, `incomplete`, `outside`, `duplicate`, `secretish`, and `ready`. A row flag names which of those failed.\n4. If `ready=no`, name the flags and stop. Do not rewrite an instruction so the row looks finished, and do not copy a code into the reply.\n5. If `ready=yes`, show the rows. Check that every item, owner, window, and instruction matches the file, and that no row was added. Do not contact the owner.\n\n## Example\n\nUser: Check `assets/sample.csv` for 2026-12-01 through 2026-12-08. Do not email Sam.\n\nAgent: The script prints `away=2026-12-01..2026-12-08`, `items=2`, `incomplete=0`, `outside=0`, `duplicate=0`, `secretish=0`, `ready=yes`. Fern is Sam, Water on Tuesday and Friday. Mail is Sam, Leave packages inside the door. Both windows match the file. Nothing is added, and Sam is not contacted.\n\n## Boundaries\n\nDo not book travel. Do not invent a plant, a pet, a bill, or a spare key. If an instruction mentions medicine, copy the words they wrote and do not add a dose. That line is informational only and is not medical advice. A door code, alarm code, or password stays out of the note. The user shares that in person.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/away-coverage-note\ncp -R skills/personal-life/away-coverage-note/. .claude/skills/away-coverage-note\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/away-coverage-note\ncp -R agentpedia/skills/personal-life/away-coverage-note/. .claude/skills/away-coverage-note\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/away-coverage-note\ncp -R skills/personal-life/away-coverage-note/. .codex/skills/away-coverage-note\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/away-coverage-note\ncp -R agentpedia/skills/personal-life/away-coverage-note/. .codex/skills/away-coverage-note\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/away-coverage-note\ncp -R skills/personal-life/away-coverage-note/. .cursor/skills/away-coverage-note\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/away-coverage-note\ncp -R agentpedia/skills/personal-life/away-coverage-note/. .cursor/skills/away-coverage-note\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/away-coverage-note\ncp -R skills/personal-life/away-coverage-note/. bot/skills/away-coverage-note\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/away-coverage-note\ncp -R agentpedia/skills/personal-life/away-coverage-note/. bot/skills/away-coverage-note\n"
+        }
+      },
+      "rawUrl": "/raw/skills/personal-life/away-coverage-note/SKILL.md",
+      "zipUrl": "/raw/zips/away-coverage-note.zip",
+      "sourcePath": "skills/personal-life/away-coverage-note"
+    },
+    {
+      "name": "device-switch-list",
+      "title": "Device switch list",
+      "description": "Lists accounts and files the user says must move to a new device, and where they said each one lives. Use when the user is replacing a phone or a computer. It does not sign in and it does not print a one-time code.",
+      "category": "personal-life",
+      "categoryLabel": "Personal & life",
+      "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
+      "tags": [
+        "devices",
+        "accounts"
+      ],
+      "added": "2026-11-13",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/switch_check.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2144,
+          "url": "/raw/skills/personal-life/device-switch-list/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 174,
+          "url": "/raw/skills/personal-life/device-switch-list/assets/sample.csv"
+        },
+        {
+          "path": "references/what-moves.md",
+          "bytes": 1356,
+          "url": "/raw/skills/personal-life/device-switch-list/references/what-moves.md"
+        },
+        {
+          "path": "scripts/switch_check.py",
+          "bytes": 3291,
+          "url": "/raw/skills/personal-life/device-switch-list/scripts/switch_check.py"
+        }
+      ],
+      "body": "# Device switch list\n\nCheck a move list the user already wrote before they replace a phone or a computer. Why an authenticator does not come along with photos is in [references/what-moves.md](/raw/skills/personal-life/device-switch-list/references/what-moves.md). Do not sign in, and do not print a code.\n\n## Steps\n\n1. Confirm the CSV has `account`, `kind`, `must_move`, and `where`. `kind` is `login`, `authenticator`, `files`, `subscription`, or `other`. The fixture is [assets/sample.csv](/raw/skills/personal-life/device-switch-list/assets/sample.csv).\n2. Run `python3 scripts/switch_check.py` on that file.\n3. Read `rows`, `must_move`, `missing_where`, `secretish`, `bad_kind`, and `ready`.\n4. If `ready=no`, name the flags and stop. Do not fill in a place the user did not write, and do not type a code or a password to make `secretish` go away.\n5. If `ready=yes`, show the rows. Check that every account, kind, and place matches the file. An empty place is allowed only when `must_move` is `no`. Do not sign in.\n\n## Example\n\nUser: Check `assets/sample.csv` before replacing a phone. Do not sign in.\n\nAgent: The script prints `rows=4`, `must_move=3`, `missing_where=0`, `secretish=0`, `bad_kind=0`, `ready=yes`. Email is an authenticator in the password manager. Photo library is files on an external drive. Editor license is a subscription in an email receipt. News app is a login with `must_move=no`, so the empty place is left empty. No account is added, and nothing is signed in.\n\n## Boundaries\n\nDo not claim a sign-in method will transfer because a contact list will. Do not invent a backup the user did not name. `ready=yes` means the list is complete on the page. It does not mean the new device already has the accounts.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/device-switch-list\ncp -R skills/personal-life/device-switch-list/. .claude/skills/device-switch-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/device-switch-list\ncp -R agentpedia/skills/personal-life/device-switch-list/. .claude/skills/device-switch-list\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/device-switch-list\ncp -R skills/personal-life/device-switch-list/. .codex/skills/device-switch-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/device-switch-list\ncp -R agentpedia/skills/personal-life/device-switch-list/. .codex/skills/device-switch-list\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/device-switch-list\ncp -R skills/personal-life/device-switch-list/. .cursor/skills/device-switch-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/device-switch-list\ncp -R agentpedia/skills/personal-life/device-switch-list/. .cursor/skills/device-switch-list\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/device-switch-list\ncp -R skills/personal-life/device-switch-list/. bot/skills/device-switch-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/device-switch-list\ncp -R agentpedia/skills/personal-life/device-switch-list/. bot/skills/device-switch-list\n"
+        }
+      },
+      "rawUrl": "/raw/skills/personal-life/device-switch-list/SKILL.md",
+      "zipUrl": "/raw/zips/device-switch-list.zip",
+      "sourcePath": "skills/personal-life/device-switch-list"
+    },
+    {
+      "name": "subscription-renewal-watch",
+      "title": "Subscription renewal watch",
+      "description": "Projects the next date and an annualized amount for repeated charges in a CSV the user exported. Use when the user asks which subscriptions renew. A projected date is not a bill, and the skill does not contact a bank.",
+      "category": "personal-life",
+      "categoryLabel": "Personal & life",
+      "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
+      "tags": [
+        "subscriptions",
+        "renewals"
+      ],
+      "added": "2026-11-13",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/renewal_watch.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2479,
+          "url": "/raw/skills/personal-life/subscription-renewal-watch/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 286,
+          "url": "/raw/skills/personal-life/subscription-renewal-watch/assets/sample.csv"
+        },
+        {
+          "path": "references/cadence.md",
+          "bytes": 1781,
+          "url": "/raw/skills/personal-life/subscription-renewal-watch/references/cadence.md"
+        },
+        {
+          "path": "scripts/renewal_watch.py",
+          "bytes": 5670,
+          "url": "/raw/skills/personal-life/subscription-renewal-watch/scripts/renewal_watch.py"
+        }
+      ],
+      "body": "# Subscription renewal watch\n\nGroup charges the user already exported and project a next date only when the gaps fit a cadence. The windows are in [references/cadence.md](/raw/skills/personal-life/subscription-renewal-watch/references/cadence.md). Do not call a bank, and do not treat the projection as a bill.\n\n## Steps\n\n1. Confirm the CSV has `date`, `merchant`, and `amount`. If the export uses other headers, ask the user to rename them. Do not guess which column is the amount. The fixture is [assets/sample.csv](/raw/skills/personal-life/subscription-renewal-watch/assets/sample.csv), and those merchant names are labels in the file.\n2. Run `python3 scripts/renewal_watch.py` on that file.\n3. Report `rows`, `charges`, `merchants`, `recurring`, `annualized_total`, and `annualized_skipped` as printed. For each merchant, report cadence, last amount, annualized amount, next date, and whether it was projected.\n4. Check the report. Add every numeric annualized value and confirm it equals `annualized_total`. Confirm every merchant line is a merchant in the file. Say that a `projected=yes` date is the last charge plus the gap, not a bill the merchant sent.\n5. If the user asks whether to cancel a charge, say the file does not say that. Do not move money.\n\n## Example\n\nUser: Run the fixture `assets/sample.csv`. Do not contact a bank.\n\nAgent: The script prints `rows=9`, `charges=9`, `merchants=4`, `recurring=3`, `annualized_total=402.00`, `annualized_skipped=1`. Design seat is monthly, gap 30, annualized 180.00, next 2026-11-14. Domain registrar is yearly, annualized 14.00, next 2027-11-03. News stand is weekly, annualized 208.00, next 2026-10-27. City transit is one charge, cadence unknown, annualized skipped. 180.00 + 14.00 + 208.00 = 402.00. The 2.75 transit row is not in that total. No merchant was added, and nothing was paid.\n\n## Boundaries\n\nDo not invent a price, a cadence, or a next date the script did not print. Do not call a charge fraud because the amount changed. This is a reading of one file, not tax advice and not a reason to cancel.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/subscription-renewal-watch\ncp -R skills/personal-life/subscription-renewal-watch/. .claude/skills/subscription-renewal-watch\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/subscription-renewal-watch\ncp -R agentpedia/skills/personal-life/subscription-renewal-watch/. .claude/skills/subscription-renewal-watch\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/subscription-renewal-watch\ncp -R skills/personal-life/subscription-renewal-watch/. .codex/skills/subscription-renewal-watch\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/subscription-renewal-watch\ncp -R agentpedia/skills/personal-life/subscription-renewal-watch/. .codex/skills/subscription-renewal-watch\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/subscription-renewal-watch\ncp -R skills/personal-life/subscription-renewal-watch/. .cursor/skills/subscription-renewal-watch\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/subscription-renewal-watch\ncp -R agentpedia/skills/personal-life/subscription-renewal-watch/. .cursor/skills/subscription-renewal-watch\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/subscription-renewal-watch\ncp -R skills/personal-life/subscription-renewal-watch/. bot/skills/subscription-renewal-watch\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/subscription-renewal-watch\ncp -R agentpedia/skills/personal-life/subscription-renewal-watch/. bot/skills/subscription-renewal-watch\n"
+        }
+      },
+      "rawUrl": "/raw/skills/personal-life/subscription-renewal-watch/SKILL.md",
+      "zipUrl": "/raw/zips/subscription-renewal-watch.zip",
+      "sourcePath": "skills/personal-life/subscription-renewal-watch"
+    },
     {
       "name": "chapter-marker-list",
       "title": "Chapter marker list",
@@ -1561,7 +1777,7 @@
       "description": "Summarizes a health log the user kept, without interpreting a symptom. Use when the user asks to turn health notes into a dated list. The summary is informational only and is not medical advice.",
       "category": "personal-life",
       "categoryLabel": "Personal & life",
-      "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin and appointments. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means.",
+      "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "tags": [
         "health",
         "logs"
@@ -1618,7 +1834,7 @@
       "description": "Lays out a week of home admin and appointments from tasks and fixed times the user lists. Use when the user asks to schedule errands, chores, or a household calendar without dropping a commitment they already have.",
       "category": "personal-life",
       "categoryLabel": "Personal & life",
-      "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin and appointments. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means.",
+      "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "tags": [
         "scheduling",
         "home"
@@ -2886,7 +3102,7 @@
       "description": "Builds a trip sheet from dates, a city, and constraints the user states. Use when the user asks to plan travel and has the dates or the limit in the message.",
       "category": "personal-life",
       "categoryLabel": "Personal & life",
-      "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin and appointments. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means.",
+      "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "tags": [
         "travel",
         "planning"
@@ -5326,6 +5542,15 @@
     }
   ],
   "drops": [
+    {
+      "date": "2026-11-13",
+      "skills": [
+        "away-coverage-note",
+        "device-switch-list",
+        "subscription-renewal-watch"
+      ],
+      "agents": []
+    },
     {
       "date": "2026-11-12",
       "skills": [

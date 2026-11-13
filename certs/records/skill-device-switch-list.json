@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:b6746766674b33b57cbcc6d097869178e752c1a2022a8ea80283c300cb4ecb59",
+  "id": "skill-device-switch-list",
+  "issuedAt": "2026-11-13",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "b06a1a1f9b10aa990195c6dc970b54f1311ca623",
+  "subject": {
+    "kind": "skill",
+    "name": "device-switch-list"
+  },
+  "tier": "listed"
+}
