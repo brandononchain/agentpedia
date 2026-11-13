@@ -1,6 +1,6 @@
 # Agentpedia
 
-[![skills](https://img.shields.io/badge/skills-75_linted-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
+[![skills](https://img.shields.io/badge/skills-78_linted-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
 [![agents](https://img.shields.io/badge/agents-19-efe6d2?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia)
 [![lint errors](https://img.shields.io/badge/lint_errors-0-ff5a36?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia/actions)
 [![license](https://img.shields.io/badge/license-Apache--2.0-c9c0ae?style=flat-square&labelColor=10110e)](LICENSE)

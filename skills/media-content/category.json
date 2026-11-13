@@ -1,4 +1,4 @@
 {
   "label": "Media & content",
-  "blurb": "Outlines a video script, briefs a thumbnail, and cuts a transcript into podcast notes and social clips. It uses only the material the user provides. It does not invent a view count, a quote, or a guest."
+  "blurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest."
 }

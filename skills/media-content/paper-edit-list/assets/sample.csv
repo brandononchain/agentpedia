@@ -1,0 +1,6 @@
+start,end,text,must
+00:00,00:12,We lint every skill before it ships.,yes
+00:12,00:20,Here is a side story about the office.,no
+00:20,00:32,A warning costs eight points.,yes
+00:32,00:48,And then we talked about lunch.,no
+00:48,00:52,The score starts at 100.,no
