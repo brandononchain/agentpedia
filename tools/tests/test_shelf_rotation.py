@@ -8,7 +8,9 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def test_cycle_visits_each_shelf_once():
     shelves = shelf_ids(ROOT / "skills")
-    assert len(shelves) == 20
+    assert len(shelves) == 23
+    for shelf in ("education", "product", "people"):
+        assert shelf in shelves
     start = date(2026, 11, 11)
     picked = [next_shelf(shelves, start + timedelta(days=offset)) for offset in range(len(shelves))]
     assert sorted(picked) == sorted(shelves)
