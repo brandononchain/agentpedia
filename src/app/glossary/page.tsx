@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
+import { catalog } from "@/lib/catalog";
 import { SITE_NAME, siteMeta } from "@/lib/site";
+
+function ShelfLink({ id }: { id: string }) {
+  const shelf = catalog.categories.find((item) => item.id === id);
+  if (!shelf) return id;
+  return <Link href={`/category/${shelf.id}`}>{shelf.label}</Link>;
+}
 
 export const metadata: Metadata = siteMeta("/glossary", {
   title: "Glossary",
@@ -37,11 +44,9 @@ const TERMS = [
     body: (
       <>
         A category of skills. The portal lists every shelf, including{" "}
-        <Link href="/category/trading">Trading & markets</Link>,{" "}
-        <Link href="/category/security-compliance">Security & compliance</Link>, and{" "}
-        <Link href="/category/legal-contracts">Legal & contracts</Link>. Legal pages say they are not legal advice.
-        Health notes on <Link href="/category/personal-life">Personal & life</Link> are informational only.{" "}
-        <Link href="/category/crypto-onchain">Crypto & onchain</Link> skills do not move funds or sign transactions.
+        <ShelfLink id="trading" />, <ShelfLink id="security-compliance" />, and <ShelfLink id="legal-contracts" />.
+        Legal pages say they are not legal advice. Health notes on <ShelfLink id="personal-life" /> are informational
+        only. <ShelfLink id="crypto-onchain" /> skills do not move funds or sign transactions.
       </>
     ),
   },

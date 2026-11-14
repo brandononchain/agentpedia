@@ -68,7 +68,7 @@ python3 tools/new_entry.py agent \
   --skills changelog-from-commits, release-notes-editor
 ```
 
-A new category also needs `--label` and `--blurb` the first time. Then edit the placeholder example, and run:
+A new category also needs `--label` and `--blurb` the first time. The label is the shelf's display name in title case (`Agent Ops & Evals`, `DevOps & Cloud`, `Sales & GTM`), with acronyms left in capitals. The folder slug stays lowercase. Then edit the placeholder example, and run:
 
 ```bash
 PYTHONPATH=tools/skill-lint python3 -m skill_lint skills/<category>/<name>

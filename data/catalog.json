@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T16:09:55.139126+00:00",
+  "generatedAt": "2026-11-14T05:10:44.801073+00:00",
   "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
@@ -220,67 +220,67 @@
   "categories": [
     {
       "id": "agent-ops",
-      "label": "Agent ops & evals",
+      "label": "Agent Ops & Evals",
       "blurb": "Plans an evaluation, reads a trace when another agent misbehaves, lays benchmark numbers into a table, and reviews an MCP connector before install. It tests other agents. It does not raise a score the run did not produce, and it does not declare a model the winner from a single example.",
       "count": 4
     },
     {
       "id": "crypto-onchain",
-      "label": "Crypto & onchain",
+      "label": "Crypto & Onchain",
       "blurb": "Watches balances the user pastes, researches a token from sources they supply, and reads a contract for who can move it. Every skill is read-only. None of them moves funds or signs a transaction, and a reading is not an audit.",
       "count": 3
     },
     {
       "id": "customer-support",
-      "label": "Customer support",
+      "label": "Customer Support",
       "blurb": "Sorts a pasted ticket queue, drafts a reply from the facts in the ticket, and updates a knowledge-base article when the same answer keeps coming back. It does not promise a refund, a feature, or a policy the user did not supply.",
       "count": 3
     },
     {
       "id": "data-analysis",
-      "label": "Data & analysis",
+      "label": "Data & Analysis",
       "blurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
       "count": 4
     },
     {
       "id": "data-engineering",
-      "label": "Data engineering",
-      "blurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data analysis. This shelf is the pipeline around the query.",
+      "label": "Data Engineering",
+      "blurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
       "count": 3
     },
     {
       "id": "design-frontend",
-      "label": "Design & frontend",
+      "label": "Design & Frontend",
       "blurb": "Reviews an interface the user describes, checks it against the four accessibility principles, and turns a pasted frame into a component spec with the tokens they named. It does not invent a brand, and it does not claim a contrast ratio it did not calculate from colors the user supplied.",
       "count": 3
     },
     {
       "id": "dev-tools",
-      "label": "Dev tools",
+      "label": "Dev Tools",
       "blurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "count": 9
     },
     {
       "id": "devops-cloud",
-      "label": "DevOps & cloud",
+      "label": "DevOps & Cloud",
       "blurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console.",
       "count": 3
     },
     {
       "id": "docs-writing",
-      "label": "Docs & writing",
+      "label": "Docs & Writing",
       "blurb": "READMEs, decision records, API docs, and release notes.",
       "count": 4
     },
     {
       "id": "finance-ops",
-      "label": "Finance & ops",
+      "label": "Finance & Ops",
       "blurb": "Checks an invoice against its lines, totals a spend export, and builds a forecast only from actuals the user provides. A figure that is not in the file stays blank. This is bookkeeping support, not tax, audit, or investment advice.",
       "count": 3
     },
     {
       "id": "legal-contracts",
-      "label": "Legal & contracts",
+      "label": "Legal & Contracts",
       "blurb": "Reads a clause, an NDA, or a redline the user pastes and writes down what the words say in plain language. Every page on this shelf says the same limit: this is not legal advice, and it is not a substitute for a lawyer.",
       "count": 3
     },
@@ -292,13 +292,13 @@
     },
     {
       "id": "media-content",
-      "label": "Media & content",
+      "label": "Media & Content",
       "blurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "count": 6
     },
     {
       "id": "personal-life",
-      "label": "Personal & life",
+      "label": "Personal & Life",
       "blurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "count": 6
     },
@@ -316,25 +316,25 @@
     },
     {
       "id": "security-compliance",
-      "label": "Security & compliance",
-      "blurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification.",
+      "label": "Security & Compliance",
+      "blurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev Tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification.",
       "count": 3
     },
     {
       "id": "skill-authoring",
-      "label": "Skill authoring",
+      "label": "Skill Authoring",
       "blurb": "Write a skill, review one, and bundle skills into an agent.",
       "count": 4
     },
     {
       "id": "trading",
-      "label": "Trading & markets",
+      "label": "Trading & Markets",
       "blurb": "Trade journals, position size, session briefs, plans, and event blackouts.",
       "count": 6
     },
     {
       "id": "web-research",
-      "label": "Web research",
+      "label": "Web Research",
       "blurb": "Source-backed briefs, citation checks, and competitor snapshots.",
       "count": 3
     }
@@ -345,7 +345,7 @@
       "title": "Away coverage note",
       "description": "Checks a house-coverage list against the dates the user will be away. Use when the user asks for a note for the person watching the home. It does not book the trip and it does not store a code or a password.",
       "category": "personal-life",
-      "categoryLabel": "Personal & life",
+      "categoryLabel": "Personal & Life",
       "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "tags": [
         "home",
@@ -417,7 +417,7 @@
       "title": "Device switch list",
       "description": "Lists accounts and files the user says must move to a new device, and where they said each one lives. Use when the user is replacing a phone or a computer. It does not sign in and it does not print a one-time code.",
       "category": "personal-life",
-      "categoryLabel": "Personal & life",
+      "categoryLabel": "Personal & Life",
       "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "tags": [
         "devices",
@@ -489,7 +489,7 @@
       "title": "Subscription renewal watch",
       "description": "Projects the next date and an annualized amount for repeated charges in a CSV the user exported. Use when the user asks which subscriptions renew. A projected date is not a bill, and the skill does not contact a bank.",
       "category": "personal-life",
-      "categoryLabel": "Personal & life",
+      "categoryLabel": "Personal & Life",
       "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "tags": [
         "subscriptions",
@@ -561,7 +561,7 @@
       "title": "Chapter marker list",
       "description": "Checks a chapter list the user already timed and prints YouTube description lines. Use when the user asks for video chapters from timestamps they marked. It does not invent a start time.",
       "category": "media-content",
-      "categoryLabel": "Media & content",
+      "categoryLabel": "Media & Content",
       "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "tags": [
         "chapters",
@@ -633,7 +633,7 @@
       "title": "Paper edit list",
       "description": "Selects transcript spans the user marked and keeps the total inside a runtime they set. Use when the user asks for a paper edit or a cut list before an episode is trimmed. It does not rewrite a quote.",
       "category": "media-content",
-      "categoryLabel": "Media & content",
+      "categoryLabel": "Media & Content",
       "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "tags": [
         "editing",
@@ -705,7 +705,7 @@
       "title": "Subtitle cue sheet",
       "description": "Builds an SRT or WebVTT cue sheet from timed lines the user supplies, and checks order, overlap, and a character budget they set. Use when the user asks for captions or subtitles from a transcript they already timed.",
       "category": "media-content",
-      "categoryLabel": "Media & content",
+      "categoryLabel": "Media & Content",
       "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "tags": [
         "subtitles",
@@ -777,7 +777,7 @@
       "title": "AGENTS.md writer",
       "description": "Drafts or refreshes AGENTS.md from the repository structure, the build and test commands, and the conventions the files already state. Use when the user asks for an agent guide for a repo. It does not invent a command the repo does not show.",
       "category": "dev-tools",
-      "categoryLabel": "Dev tools",
+      "categoryLabel": "Dev Tools",
       "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "tags": [
         "docs",
@@ -839,7 +839,7 @@
       "title": "Event risk guard",
       "description": "Builds a blackout window around high-impact releases the user supplies (CPI, FOMC, NFP, EIA crude inventories) and gives a go, reduce, or stand-aside call for each planned trade. Use when the user asks whether a trade sits on an economic release. Advisory only. It does not place trades.",
       "category": "trading",
-      "categoryLabel": "Trading & markets",
+      "categoryLabel": "Trading & Markets",
       "categoryBlurb": "Trade journals, position size, session briefs, plans, and event blackouts.",
       "tags": [
         "calendar",
@@ -906,7 +906,7 @@
       "title": "MCP tool audit",
       "description": "Reviews each tool on an MCP connector the user pastes, covering scope, writes, destructive actions, data egress, auth, and prompt-injection surface, then recommends keep, trim, or block. Use when the user asks whether an agent should install a connector.",
       "category": "agent-ops",
-      "categoryLabel": "Agent ops & evals",
+      "categoryLabel": "Agent Ops & Evals",
       "categoryBlurb": "Plans an evaluation, reads a trace when another agent misbehaves, lays benchmark numbers into a table, and reviews an MCP connector before install. It tests other agents. It does not raise a score the run did not produce, and it does not declare a model the winner from a single example.",
       "tags": [
         "mcp",
@@ -968,7 +968,7 @@
       "title": "Accessibility pass",
       "description": "Checks a component the user describes against the four WCAG principles and records what was not shown. Use when the user asks for an accessibility pass on a screen, a form, or a widget.",
       "category": "design-frontend",
-      "categoryLabel": "Design & frontend",
+      "categoryLabel": "Design & Frontend",
       "categoryBlurb": "Reviews an interface the user describes, checks it against the four accessibility principles, and turns a pasted frame into a component spec with the tokens they named. It does not invent a brand, and it does not claim a contrast ratio it did not calculate from colors the user supplied.",
       "tags": [
         "accessibility",
@@ -1030,7 +1030,7 @@
       "title": "Agent bundler",
       "description": "Composes an agent manifest that bundles existing skills, names the connectors it needs, and includes sample prompts. Use when the user asks to define an agent or to bundle skills into one workflow.",
       "category": "skill-authoring",
-      "categoryLabel": "Skill authoring",
+      "categoryLabel": "Skill Authoring",
       "categoryBlurb": "Write a skill, review one, and bundle skills into an agent.",
       "tags": [
         "agents",
@@ -1087,7 +1087,7 @@
       "title": "Benchmark table",
       "description": "Lays out benchmark numbers the user already measured, with the case count and the metric they named. Use when the user asks to compare agent runs and has the scores in hand.",
       "category": "agent-ops",
-      "categoryLabel": "Agent ops & evals",
+      "categoryLabel": "Agent Ops & Evals",
       "categoryBlurb": "Plans an evaluation, reads a trace when another agent misbehaves, lays benchmark numbers into a table, and reviews an MCP connector before install. It tests other agents. It does not raise a score the run did not produce, and it does not declare a model the winner from a single example.",
       "tags": [
         "benchmarks",
@@ -1144,7 +1144,7 @@
       "title": "Change window note",
       "description": "Writes who changes production, when the window opens and closes, and how to stop. Use when the user asks for a change window before a deploy or a config edit on Vercel, AWS, or Docker.",
       "category": "devops-cloud",
-      "categoryLabel": "DevOps & cloud",
+      "categoryLabel": "DevOps & Cloud",
       "categoryBlurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console.",
       "tags": [
         "incidents",
@@ -1201,7 +1201,7 @@
       "title": "CI log triage",
       "description": "Names the first failing step in a pasted CI log and separates the error line from noise around it. Use when the user asks why a GitHub Actions, Vercel, or other build log failed.",
       "category": "devops-cloud",
-      "categoryLabel": "DevOps & cloud",
+      "categoryLabel": "DevOps & Cloud",
       "categoryBlurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console.",
       "tags": [
         "ci",
@@ -1258,7 +1258,7 @@
       "title": "Clause review",
       "description": "Restates one contract clause in plain language and lists the obligations it names. Use when the user asks what a clause says. This is not legal advice.",
       "category": "legal-contracts",
-      "categoryLabel": "Legal & contracts",
+      "categoryLabel": "Legal & Contracts",
       "categoryBlurb": "Reads a clause, an NDA, or a redline the user pastes and writes down what the words say in plain language. Every page on this shelf says the same limit: this is not legal advice, and it is not a substitute for a lawyer.",
       "tags": [
         "contracts",
@@ -1315,7 +1315,7 @@
       "title": "Clip cutdown",
       "description": "Turns a transcript the user pastes into podcast notes and short clip suggestions, each tied to a timestamp or a quote. Use when the user asks for show notes or social clips from a recording they already transcribed.",
       "category": "media-content",
-      "categoryLabel": "Media & content",
+      "categoryLabel": "Media & Content",
       "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "tags": [
         "podcasts",
@@ -1372,7 +1372,7 @@
       "title": "Contract read notes",
       "description": "Reads a contract or ABI the user pasted and notes who can move assets or change the code, in their own words. Use when the user asks for a smart-contract reading. The skill does not move funds or sign a transaction.",
       "category": "crypto-onchain",
-      "categoryLabel": "Crypto & onchain",
+      "categoryLabel": "Crypto & Onchain",
       "categoryBlurb": "Watches balances the user pastes, researches a token from sources they supply, and reads a contract for who can move it. Every skill is read-only. None of them moves funds or signs a transaction, and a reading is not an audit.",
       "tags": [
         "contracts",
@@ -1429,7 +1429,7 @@
       "title": "Deploy readiness",
       "description": "Checks a written deploy plan for the rollback, the migration, and the health check before anyone ships it. Use when the user asks if a Vercel, AWS, or Docker deploy is ready to start.",
       "category": "devops-cloud",
-      "categoryLabel": "DevOps & cloud",
+      "categoryLabel": "DevOps & Cloud",
       "categoryBlurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console.",
       "tags": [
         "deploy",
@@ -1486,7 +1486,7 @@
       "title": "Docs to skill",
       "description": "Turns a README, an API docs page, or CLI help text into a draft SKILL.md with a when-to-use description, steps, and long material moved into references/. Use when the user wants to package an existing tool or library as an agent skill from docs they already have.",
       "category": "skill-authoring",
-      "categoryLabel": "Skill authoring",
+      "categoryLabel": "Skill Authoring",
       "categoryBlurb": "Write a skill, review one, and bundle skills into an agent.",
       "tags": [
         "skills",
@@ -1548,8 +1548,8 @@
       "title": "ETL column contract",
       "description": "Writes a source-to-target column contract with types, nulls, and a grain. Use when the user asks for an ETL or dbt mapping before a model is built.",
       "category": "data-engineering",
-      "categoryLabel": "Data engineering",
-      "categoryBlurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data analysis. This shelf is the pipeline around the query.",
+      "categoryLabel": "Data Engineering",
+      "categoryBlurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
       "tags": [
         "etl",
         "dbt"
@@ -1605,7 +1605,7 @@
       "title": "Eval case plan",
       "description": "Writes evaluation cases for another agent, each with an input, an observable result, and a way to fail. Use when the user asks to test or benchmark an agent before calling the result a pass.",
       "category": "agent-ops",
-      "categoryLabel": "Agent ops & evals",
+      "categoryLabel": "Agent Ops & Evals",
       "categoryBlurb": "Plans an evaluation, reads a trace when another agent misbehaves, lays benchmark numbers into a table, and reviews an MCP connector before install. It tests other agents. It does not raise a score the run did not produce, and it does not declare a model the winner from a single example.",
       "tags": [
         "evals",
@@ -1662,7 +1662,7 @@
       "title": "Frame spec",
       "description": "Turns a pasted frame description into a component spec with the tokens and states the user named. Use when the user asks to go from a Figma frame, a design-system note, or a redline to something an engineer can build.",
       "category": "design-frontend",
-      "categoryLabel": "Design & frontend",
+      "categoryLabel": "Design & Frontend",
       "categoryBlurb": "Reviews an interface the user describes, checks it against the four accessibility principles, and turns a pasted frame into a component spec with the tokens they named. It does not invent a brand, and it does not claim a contrast ratio it did not calculate from colors the user supplied.",
       "tags": [
         "figma",
@@ -1719,7 +1719,7 @@
       "title": "Forecast from actuals",
       "description": "Projects a next period as the average of actuals the user supplies, and labels it as a projection. Use when the user asks for a forecast, a run-rate, or a simple forward view from past figures.",
       "category": "finance-ops",
-      "categoryLabel": "Finance & ops",
+      "categoryLabel": "Finance & Ops",
       "categoryBlurb": "Checks an invoice against its lines, totals a spend export, and builds a forecast only from actuals the user provides. A figure that is not in the file stays blank. This is bookkeeping support, not tax, audit, or investment advice.",
       "tags": [
         "forecasting",
@@ -1776,7 +1776,7 @@
       "title": "Health log summary",
       "description": "Summarizes a health log the user kept, without interpreting a symptom. Use when the user asks to turn health notes into a dated list. The summary is informational only and is not medical advice.",
       "category": "personal-life",
-      "categoryLabel": "Personal & life",
+      "categoryLabel": "Personal & Life",
       "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "tags": [
         "health",
@@ -1833,7 +1833,7 @@
       "title": "Home week plan",
       "description": "Lays out a week of home admin and appointments from tasks and fixed times the user lists. Use when the user asks to schedule errands, chores, or a household calendar without dropping a commitment they already have.",
       "category": "personal-life",
-      "categoryLabel": "Personal & life",
+      "categoryLabel": "Personal & Life",
       "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "tags": [
         "scheduling",
@@ -1890,7 +1890,7 @@
       "title": "Invoice line check",
       "description": "Sums invoice lines and says whether they match the total printed on the invoice. Use when the user asks to check an invoice, a bill, or a vendor statement against its lines.",
       "category": "finance-ops",
-      "categoryLabel": "Finance & ops",
+      "categoryLabel": "Finance & Ops",
       "categoryBlurb": "Checks an invoice against its lines, totals a spend export, and builds a forecast only from actuals the user provides. A figure that is not in the file stays blank. This is bookkeeping support, not tax, audit, or investment advice.",
       "tags": [
         "invoices",
@@ -1957,7 +1957,7 @@
       "title": "Knowledge-base update",
       "description": "Updates a knowledge-base article from the current article and the tickets that show it is wrong or thin. Use when the user asks to fix a help article after the same question keeps arriving.",
       "category": "customer-support",
-      "categoryLabel": "Customer support",
+      "categoryLabel": "Customer Support",
       "categoryBlurb": "Sorts a pasted ticket queue, drafts a reply from the facts in the ticket, and updates a knowledge-base article when the same answer keeps coming back. It does not promise a refund, a feature, or a policy the user did not supply.",
       "tags": [
         "knowledge-base",
@@ -2014,7 +2014,7 @@
       "title": "Market data briefing",
       "description": "Writes a pre-session market briefing from quotes and headlines the user or a data connector supplies. Use when the user asks for a morning brief, a session outlook, or a note on what the market just did.",
       "category": "trading",
-      "categoryLabel": "Trading & markets",
+      "categoryLabel": "Trading & Markets",
       "categoryBlurb": "Trade journals, position size, session briefs, plans, and event blackouts.",
       "tags": [
         "markets",
@@ -2076,7 +2076,7 @@
       "title": "MT5 trade journal",
       "description": "Records an MT5 trade with the setup, the risk taken, the result, and whether the plan held. Use when the user asks to journal a trade, review a closed position, or write up an MT5 deal.",
       "category": "trading",
-      "categoryLabel": "Trading & markets",
+      "categoryLabel": "Trading & Markets",
       "categoryBlurb": "Trade journals, position size, session briefs, plans, and event blackouts.",
       "tags": [
         "mt5",
@@ -2138,7 +2138,7 @@
       "title": "NDA checklist",
       "description": "Checks an NDA the user pasted for the parties, the definition, the term, and the return duty, and marks anything missing. Use when the user asks for an NDA check. This is not legal advice.",
       "category": "legal-contracts",
-      "categoryLabel": "Legal & contracts",
+      "categoryLabel": "Legal & Contracts",
       "categoryBlurb": "Reads a clause, an NDA, or a redline the user pastes and writes down what the words say in plain language. Every page on this shelf says the same limit: this is not legal advice, and it is not a substitute for a lawyer.",
       "tags": [
         "nda",
@@ -2195,7 +2195,7 @@
       "title": "Position risk sizer",
       "description": "Computes position size from account equity, a risk percent, and stop distance. Use when the user asks how large a position should be or for a lot or unit size from a fixed risk.",
       "category": "trading",
-      "categoryLabel": "Trading & markets",
+      "categoryLabel": "Trading & Markets",
       "categoryBlurb": "Trade journals, position size, session briefs, plans, and event blackouts.",
       "tags": [
         "risk",
@@ -2257,8 +2257,8 @@
       "title": "Prompt injection review",
       "description": "Marks untrusted text that tries to override an agent's instructions, hide a command, or push data out. Use when the user asks to check a prompt, a web page, a tool result, or a retrieved document before an agent reads it.",
       "category": "security-compliance",
-      "categoryLabel": "Security & compliance",
-      "categoryBlurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification.",
+      "categoryLabel": "Security & Compliance",
+      "categoryBlurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev Tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification.",
       "tags": [
         "prompts",
         "review"
@@ -2319,7 +2319,7 @@
       "title": "Prop firm rule check",
       "description": "Checks a proposed trade or day plan against prop-firm rules and account numbers the user supplies, then reports pass or fail with remaining headroom. Use when the user asks whether a trade still fits a daily loss limit, trailing drawdown, contract cap, news blackout, or consistency rule.",
       "category": "trading",
-      "categoryLabel": "Trading & markets",
+      "categoryLabel": "Trading & Markets",
       "categoryBlurb": "Trade journals, position size, session briefs, plans, and event blackouts.",
       "tags": [
         "risk",
@@ -2376,7 +2376,7 @@
       "title": "Redline summary",
       "description": "Summarizes insertions and deletions in a redline the user pasted, without judging who should win. Use when the user asks what a redline changes. This is not legal advice.",
       "category": "legal-contracts",
-      "categoryLabel": "Legal & contracts",
+      "categoryLabel": "Legal & Contracts",
       "categoryBlurb": "Reads a clause, an NDA, or a redline the user pastes and writes down what the words say in plain language. Every page on this shelf says the same limit: this is not legal advice, and it is not a substitute for a lawyer.",
       "tags": [
         "redlines",
@@ -2433,8 +2433,8 @@
       "title": "Schema expand and contract",
       "description": "Plans a schema migration as expand, migrate, then contract so old readers keep working. Use when the user asks to add, rename, or drop a warehouse column without taking the table down.",
       "category": "data-engineering",
-      "categoryLabel": "Data engineering",
-      "categoryBlurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data analysis. This shelf is the pipeline around the query.",
+      "categoryLabel": "Data Engineering",
+      "categoryBlurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
       "tags": [
         "schema",
         "migrations"
@@ -2495,8 +2495,8 @@
       "title": "Secret scan report",
       "description": "Reports line numbers where pasted text looks like a token, a cloud key, or a private-key header. Use when the user asks whether a diff, a log, or a note contains a secret.",
       "category": "security-compliance",
-      "categoryLabel": "Security & compliance",
-      "categoryBlurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification.",
+      "categoryLabel": "Security & Compliance",
+      "categoryBlurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev Tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification.",
       "tags": [
         "secrets",
         "scanning"
@@ -2562,7 +2562,7 @@
       "title": "Skill author",
       "description": "Writes a new Agent Skill folder and checks it with skill-lint before calling it done. Use when the user asks to create, draft, or scaffold a SKILL.md file.",
       "category": "skill-authoring",
-      "categoryLabel": "Skill authoring",
+      "categoryLabel": "Skill Authoring",
       "categoryBlurb": "Write a skill, review one, and bundle skills into an agent.",
       "tags": [
         "skills",
@@ -2629,7 +2629,7 @@
       "title": "Skill reviewer",
       "description": "Reviews a SKILL.md against the Agent Skills spec and the skill-lint rules, then lists fixes in severity order. Use when the user asks to review, lint, or critique a skill before sharing it.",
       "category": "skill-authoring",
-      "categoryLabel": "Skill authoring",
+      "categoryLabel": "Skill Authoring",
       "categoryBlurb": "Write a skill, review one, and bundle skills into an agent.",
       "tags": [
         "skills",
@@ -2687,8 +2687,8 @@
       "title": "SOC 2 evidence index",
       "description": "Indexes evidence the user already has against one trust-services category they name. Use when the user asks which document supports a SOC 2 control, including a dependency audit they paste.",
       "category": "security-compliance",
-      "categoryLabel": "Security & compliance",
-      "categoryBlurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification.",
+      "categoryLabel": "Security & Compliance",
+      "categoryBlurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev Tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification.",
       "tags": [
         "compliance",
         "evidence"
@@ -2749,7 +2749,7 @@
       "title": "Spend report",
       "description": "Totals a spend export by vendor and checks the grand total against the rows. Use when the user asks for a spend report, a bookkeeping summary, or where the money in a CSV went.",
       "category": "finance-ops",
-      "categoryLabel": "Finance & ops",
+      "categoryLabel": "Finance & Ops",
       "categoryBlurb": "Checks an invoice against its lines, totals a spend export, and builds a forecast only from actuals the user provides. A figure that is not in the file stays blank. This is bookkeeping support, not tax, audit, or investment advice.",
       "tags": [
         "spend",
@@ -2816,7 +2816,7 @@
       "title": "Support reply draft",
       "description": "Drafts a support reply using only the ticket and the policy the user pasted. Use when the user asks for a reply to send after they have triaged the ticket.",
       "category": "customer-support",
-      "categoryLabel": "Customer support",
+      "categoryLabel": "Customer Support",
       "categoryBlurb": "Sorts a pasted ticket queue, drafts a reply from the facts in the ticket, and updates a knowledge-base article when the same answer keeps coming back. It does not promise a refund, a feature, or a policy the user did not supply.",
       "tags": [
         "support",
@@ -2873,7 +2873,7 @@
       "title": "Thumbnail brief",
       "description": "Briefs a thumbnail with the words, the subject, and the crop the user asked for. Use when the user asks for a thumbnail before a video or a social clip is cut.",
       "category": "media-content",
-      "categoryLabel": "Media & content",
+      "categoryLabel": "Media & Content",
       "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "tags": [
         "thumbnails",
@@ -2930,7 +2930,7 @@
       "title": "Ticket triage",
       "description": "Sorts pasted support tickets into reply, wait, bug, or billing, with the fact that decided the bucket. Use when the user asks to triage a queue before anyone answers.",
       "category": "customer-support",
-      "categoryLabel": "Customer support",
+      "categoryLabel": "Customer Support",
       "categoryBlurb": "Sorts a pasted ticket queue, drafts a reply from the facts in the ticket, and updates a knowledge-base article when the same answer keeps coming back. It does not promise a refund, a feature, or a policy the user did not supply.",
       "tags": [
         "support",
@@ -2987,7 +2987,7 @@
       "title": "Token research brief",
       "description": "Briefs a token from sources the user supplies, and keeps claims tied to those sources. Use when the user asks for token research. The skill does not move funds or sign a transaction, and it does not say to buy or sell.",
       "category": "crypto-onchain",
-      "categoryLabel": "Crypto & onchain",
+      "categoryLabel": "Crypto & Onchain",
       "categoryBlurb": "Watches balances the user pastes, researches a token from sources they supply, and reads a contract for who can move it. Every skill is read-only. None of them moves funds or signs a transaction, and a reading is not an audit.",
       "tags": [
         "tokens",
@@ -3044,7 +3044,7 @@
       "title": "Trace debug note",
       "description": "Reads a pasted agent trace and names the first step that diverged from the job. Use when the user asks to debug or monitor another agent's run from a log they already captured.",
       "category": "agent-ops",
-      "categoryLabel": "Agent ops & evals",
+      "categoryLabel": "Agent Ops & Evals",
       "categoryBlurb": "Plans an evaluation, reads a trace when another agent misbehaves, lays benchmark numbers into a table, and reviews an MCP connector before install. It tests other agents. It does not raise a score the run did not produce, and it does not declare a model the winner from a single example.",
       "tags": [
         "debugging",
@@ -3101,7 +3101,7 @@
       "title": "Trip plan sheet",
       "description": "Builds a trip sheet from dates, a city, and constraints the user states. Use when the user asks to plan travel and has the dates or the limit in the message.",
       "category": "personal-life",
-      "categoryLabel": "Personal & life",
+      "categoryLabel": "Personal & Life",
       "categoryBlurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password.",
       "tags": [
         "travel",
@@ -3158,7 +3158,7 @@
       "title": "UI review notes",
       "description": "Writes review notes for a screen the user describes, tied to the states they named. Use when the user asks for a UI review of a page, a component, or a screenshot description before it is built or merged.",
       "category": "design-frontend",
-      "categoryLabel": "Design & frontend",
+      "categoryLabel": "Design & Frontend",
       "categoryBlurb": "Reviews an interface the user describes, checks it against the four accessibility principles, and turns a pasted frame into a component spec with the tokens they named. It does not invent a brand, and it does not claim a contrast ratio it did not calculate from colors the user supplied.",
       "tags": [
         "ui",
@@ -3215,7 +3215,7 @@
       "title": "Video script outline",
       "description": "Outlines a video script with a hook, sections, and an on-screen fact only when the user supplied it. Use when the user asks for a script outline from notes they already have.",
       "category": "media-content",
-      "categoryLabel": "Media & content",
+      "categoryLabel": "Media & Content",
       "categoryBlurb": "Outlines a video script, briefs a thumbnail, cuts a transcript into notes and clips, checks chapter timestamps, builds a subtitle cue sheet, and keeps a paper edit inside a runtime. It uses only the material the user provides. It does not invent a view count, a quote, a timestamp, or a guest.",
       "tags": [
         "video",
@@ -3272,7 +3272,7 @@
       "title": "Wallet watch note",
       "description": "Writes a read-only note of balances and transfers the user pasted for one address. Use when the user asks to watch a wallet. The skill does not move funds or sign a transaction.",
       "category": "crypto-onchain",
-      "categoryLabel": "Crypto & onchain",
+      "categoryLabel": "Crypto & Onchain",
       "categoryBlurb": "Watches balances the user pastes, researches a token from sources they supply, and reads a contract for who can move it. Every skill is read-only. None of them moves funds or signs a transaction, and a reading is not an audit.",
       "tags": [
         "wallets",
@@ -3329,8 +3329,8 @@
       "title": "Warehouse scan review",
       "description": "Reads a warehouse query for partition filters, unbounded joins, and select-star scans. Use when the user asks why a BigQuery, Snowflake, Redshift, or dbt query might read more data than they expect.",
       "category": "data-engineering",
-      "categoryLabel": "Data engineering",
-      "categoryBlurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data analysis. This shelf is the pipeline around the query.",
+      "categoryLabel": "Data Engineering",
+      "categoryBlurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
       "tags": [
         "sql",
         "warehouse"
@@ -3500,7 +3500,7 @@
       "title": "Git commit writer",
       "description": "Drafts a Conventional Commits message from a diff and a one-line intent. Use when the user asks for a commit message or to summarize a change before committing.",
       "category": "dev-tools",
-      "categoryLabel": "Dev tools",
+      "categoryLabel": "Dev Tools",
       "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "tags": [
         "git",
@@ -3671,7 +3671,7 @@
       "title": "Session plan",
       "description": "Writes a trading session plan with a bias, an invalidation, a max loss, and a time to stop. Use when the user asks for a plan before the session opens or for a checklist before they trade.",
       "category": "trading",
-      "categoryLabel": "Trading & markets",
+      "categoryLabel": "Trading & Markets",
       "categoryBlurb": "Trade journals, position size, session briefs, plans, and event blackouts.",
       "tags": [
         "planning",
@@ -3785,7 +3785,7 @@
       "title": "Changelog from commits",
       "description": "Turns commit subjects into a Keep a Changelog entry grouped by Added, Changed, Fixed, and Security. Use when the user asks for a changelog or a release section from git history.",
       "category": "dev-tools",
-      "categoryLabel": "Dev tools",
+      "categoryLabel": "Dev Tools",
       "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "tags": [
         "changelog",
@@ -3842,7 +3842,7 @@
       "title": "Dependency audit notes",
       "description": "Reads a dependency diff and notes major bumps, new install scripts, unmaintained packages, and license changes. Use when the user asks to review a lockfile update or a dependency bump.",
       "category": "dev-tools",
-      "categoryLabel": "Dev tools",
+      "categoryLabel": "Dev Tools",
       "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "tags": [
         "dependencies",
@@ -3899,7 +3899,7 @@
       "title": "Diff risk scan",
       "description": "Flags risk in a diff across auth, data loss, migrations, money, concurrency, and silent behavior changes. Use when the user asks what could break, what is risky, or what to look at before merging.",
       "category": "dev-tools",
-      "categoryLabel": "Dev tools",
+      "categoryLabel": "Dev Tools",
       "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "tags": [
         "review",
@@ -3956,7 +3956,7 @@
       "title": "Incident timeline",
       "description": "Builds a timestamped incident timeline from logs, alerts, and notes the user supplies. Use when the user asks to reconstruct an outage, write a timeline, or start a postmortem.",
       "category": "dev-tools",
-      "categoryLabel": "Dev tools",
+      "categoryLabel": "Dev Tools",
       "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "tags": [
         "incidents"
@@ -4012,7 +4012,7 @@
       "title": "PR review notes",
       "description": "Reviews a diff and writes findings ordered by severity, each with a file reference and a test note. Use when the user asks for a code review, a PR review, or a second pass before merge.",
       "category": "dev-tools",
-      "categoryLabel": "Dev tools",
+      "categoryLabel": "Dev Tools",
       "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "tags": [
         "review",
@@ -4074,7 +4074,7 @@
       "title": "Test gap finder",
       "description": "Maps a code change to existing tests and lists behaviors that nothing covers. Use when the user asks which tests are missing, what to test next, or where a diff is untested.",
       "category": "dev-tools",
-      "categoryLabel": "Dev tools",
+      "categoryLabel": "Dev Tools",
       "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "tags": [
         "testing",
@@ -4131,7 +4131,7 @@
       "title": "ADR writer",
       "description": "Writes an architecture decision record with context, the decision, and consequences. Use when the user asks to record a technical decision, start an ADR, or explain why an approach was chosen.",
       "category": "docs-writing",
-      "categoryLabel": "Docs & writing",
+      "categoryLabel": "Docs & Writing",
       "categoryBlurb": "READMEs, decision records, API docs, and release notes.",
       "tags": [
         "adr",
@@ -4193,7 +4193,7 @@
       "title": "API doc stub",
       "description": "Documents one HTTP endpoint from its handler: method, path, parameters, status codes, and an example call. Use when the user asks for API docs for a route or a handler.",
       "category": "docs-writing",
-      "categoryLabel": "Docs & writing",
+      "categoryLabel": "Docs & Writing",
       "categoryBlurb": "READMEs, decision records, API docs, and release notes.",
       "tags": [
         "api",
@@ -4250,7 +4250,7 @@
       "title": "CSV profile",
       "description": "Profiles a CSV file with row counts, empty cells, distinct values, and sample values per column. Use when the user asks what is in a spreadsheet export or a CSV before any analysis.",
       "category": "data-analysis",
-      "categoryLabel": "Data & analysis",
+      "categoryLabel": "Data & Analysis",
       "categoryBlurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
       "tags": [
         "csv",
@@ -4317,7 +4317,7 @@
       "title": "Migration checklist",
       "description": "Plans an expand-and-contract migration for a schema, an API, or a config flag. Use when the user asks how to migrate without a big-bang cutover or wants a migration checklist.",
       "category": "dev-tools",
-      "categoryLabel": "Dev tools",
+      "categoryLabel": "Dev Tools",
       "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
       "tags": [
         "migrations"
@@ -4373,7 +4373,7 @@
       "title": "README drafter",
       "description": "Drafts a README that says what the project is, how to run it, and how to test it. Use when the user asks for a README or to rewrite one that does not explain how to start.",
       "category": "docs-writing",
-      "categoryLabel": "Docs & writing",
+      "categoryLabel": "Docs & Writing",
       "categoryBlurb": "READMEs, decision records, API docs, and release notes.",
       "tags": [
         "readme",
@@ -4430,7 +4430,7 @@
       "title": "Release notes editor",
       "description": "Rewrites internal changelog lines into release notes a user of the product can act on. Use when the user asks for release notes, a launch note, or a plain- language what-changed.",
       "category": "docs-writing",
-      "categoryLabel": "Docs & writing",
+      "categoryLabel": "Docs & Writing",
       "categoryBlurb": "READMEs, decision records, API docs, and release notes.",
       "tags": [
         "release",
@@ -4487,7 +4487,7 @@
       "title": "Citation checker",
       "description": "Checks a draft against the sources provided and marks claims the sources do not support. Use when the user asks to verify citations, fact-check a writeup, or see which sentences need a source.",
       "category": "web-research",
-      "categoryLabel": "Web research",
+      "categoryLabel": "Web Research",
       "categoryBlurb": "Source-backed briefs, citation checks, and competitor snapshots.",
       "tags": [
         "research",
@@ -4544,7 +4544,7 @@
       "title": "Competitor snapshot",
       "description": "Compares products on a fixed rubric: who it is for, the job it does, pricing if public, and what is not known. Use when the user asks for a competitor snapshot or a market comparison.",
       "category": "web-research",
-      "categoryLabel": "Web research",
+      "categoryLabel": "Web Research",
       "categoryBlurb": "Source-backed briefs, citation checks, and competitor snapshots.",
       "tags": [
         "research",
@@ -4601,7 +4601,7 @@
       "title": "Experiment log",
       "description": "Records a hypothesis, the observed result, and a decision to ship, iterate, or stop. Use when the user asks to log an experiment, write up an A/B test, or capture a learning.",
       "category": "data-analysis",
-      "categoryLabel": "Data & analysis",
+      "categoryLabel": "Data & Analysis",
       "categoryBlurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
       "tags": [
         "experiments",
@@ -4658,7 +4658,7 @@
       "title": "Metric definition",
       "description": "Writes a metric spec with grain, formula, filters, and known caveats. Use when the user asks to define a KPI, a funnel step, or what a reported number means.",
       "category": "data-analysis",
-      "categoryLabel": "Data & analysis",
+      "categoryLabel": "Data & Analysis",
       "categoryBlurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
       "tags": [
         "metrics",
@@ -4715,7 +4715,7 @@
       "title": "Source brief",
       "description": "Writes a research brief where every claim is tied to a source the user or a search tool supplied. Use when the user asks for a briefing on a topic and wants citations, not a general essay.",
       "category": "web-research",
-      "categoryLabel": "Web research",
+      "categoryLabel": "Web Research",
       "categoryBlurb": "Source-backed briefs, citation checks, and competitor snapshots.",
       "tags": [
         "research",
@@ -4772,7 +4772,7 @@
       "title": "SQL explain, in plain language",
       "description": "Explains a SQL query in plain language and names full scans, unbounded joins, and non-deterministic ordering. Use when the user asks what a query does or why it might be slow or surprising.",
       "category": "data-analysis",
-      "categoryLabel": "Data & analysis",
+      "categoryLabel": "Data & Analysis",
       "categoryBlurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
       "tags": [
         "sql",

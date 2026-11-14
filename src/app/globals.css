@@ -222,7 +222,7 @@ main {
 .site-head {
   position: sticky;
   top: 0;
-  z-index: 40;
+  z-index: 85;
   background: var(--paper);
   border-bottom: 1px solid var(--rule);
 }
@@ -239,11 +239,14 @@ main {
 }
 
 .site-head-inner {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem 1.25rem;
-  padding: 0.7rem 0;
+  padding: 0.35rem 0;
+  background: var(--paper);
 }
 
 .wordmark {
@@ -264,7 +267,8 @@ main {
   font-size: 0.95rem;
 }
 
-.nav-toggle {
+.nav-toggle,
+.nav-backdrop {
   display: none;
 }
 
@@ -275,6 +279,9 @@ main {
 }
 
 .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--ink);
   text-decoration: none;
   white-space: nowrap;
@@ -312,7 +319,8 @@ main {
 .solid-button,
 .text-button,
 .theme-toggle,
-.rail-button {
+.rail-button,
+.nav-toggle {
   font: inherit;
   cursor: pointer;
 }
@@ -323,7 +331,8 @@ main {
   border: 0;
   background: var(--ink);
   color: var(--paper);
-  padding: 0.3rem 0.7rem;
+  min-height: 44px;
+  padding: 0.45rem 0.9rem;
 }
 
 .portal-search button {
@@ -364,12 +373,21 @@ main {
 .theme-toggle,
 .text-button,
 .rail-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   border: 0;
   background: transparent;
   color: var(--accent-ink);
   text-decoration: underline;
   text-underline-offset: 0.18em;
-  padding: 0;
+  padding: 0 0.15rem;
+}
+
+.theme-toggle {
+  min-width: 7.4rem;
+  justify-content: flex-end;
 }
 
 .site-foot {
@@ -391,7 +409,14 @@ main {
 }
 
 .site-foot a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--accent-ink);
+}
+
+.site-foot li {
+  margin: 0;
 }
 
 .site-foot p,
@@ -476,10 +501,10 @@ main {
 
 .portal-definition {
   margin: 1.15rem auto 0;
-  max-width: min(40rem, 100%);
+  max-width: min(65ch, 100%);
   text-align: center;
   font-size: 1.05rem;
-  line-height: 1.55;
+  line-height: 1.65;
   overflow-wrap: break-word;
 }
 
@@ -585,19 +610,43 @@ main {
   .nav-toggle {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    border: 0;
+    background: transparent;
+    color: var(--accent-ink);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    border: 0;
+    background: color-mix(in srgb, var(--ink) 28%, transparent);
+    cursor: pointer;
   }
   .site-nav {
     display: none;
     grid-area: menu;
+    position: relative;
+    z-index: 45;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
+    margin: 0 -0.15rem;
+    padding: 0.15rem 0 0.35rem;
+    background: var(--paper);
   }
-  .site-nav.is-open { display: flex; }
+  .site-nav.is-open {
+    display: flex;
+    border-top: 3px double var(--ink);
+  }
   .site-nav a {
     min-height: 44px;
-    padding: 0.65rem 0;
-    border-top: 1px solid var(--rule);
+    padding: 0.55rem 0.15rem;
+    border-bottom: 1px solid var(--rule);
     white-space: normal;
   }
 }
@@ -727,14 +776,41 @@ main {
   border-bottom: 1px solid var(--ink);
 }
 
+.wiki-rail a,
+.rail-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+}
+
+@media (max-width: 1099px) {
+  .wiki-rail {
+    display: grid;
+    gap: 0.2rem 0;
+  }
+  .rail-group:last-child {
+    flex-wrap: nowrap;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-bottom: 0.35rem;
+  }
+  .rail-group:last-child a {
+    flex: none;
+  }
+}
+
 @media (min-width: 1100px) {
   .wiki-rail {
     display: block;
     position: sticky;
-    top: 4.25rem;
-    overflow: visible;
+    top: 4.6rem;
+    max-height: calc(100vh - 5.4rem);
+    overflow: auto;
     border-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 0.4rem;
   }
   .rail-group {
     display: grid;
@@ -874,7 +950,8 @@ main {
 .file-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 0.7rem;
+  gap: 0.15rem 0.35rem;
+  margin-top: 0.7rem;
 }
 
 .contents {
@@ -979,6 +1056,13 @@ main {
   font-size: 0.78rem;
   line-height: 1.55;
   -webkit-overflow-scrolling: touch;
+}
+
+.wiki-prose pre:focus-visible,
+.snippet:focus-visible,
+.table-scroll:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 3px;
 }
 
 .table-scroll {
@@ -1108,13 +1192,16 @@ main {
 }
 
 .install-tabs button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   border: 0;
   background: transparent;
   color: var(--accent-ink);
   font: inherit;
   text-decoration: underline;
   text-underline-offset: 0.15em;
-  padding: 0;
+  padding: 0 0.15rem;
   cursor: pointer;
 }
 
@@ -1127,13 +1214,26 @@ main {
 .letter-jump {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 0.7rem;
-  margin: 1rem 0 1.4rem;
+  gap: 0.15rem;
+  margin: 0.6rem 0 1.2rem;
+}
+
+.letter-jump a,
+.letter-jump span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  font-variant-numeric: tabular-nums;
 }
 
 .letter-jump a {
   color: var(--accent-ink);
-  font-variant-numeric: tabular-nums;
+}
+
+.letter-jump a:hover {
+  background: color-mix(in srgb, var(--accent-ink) 8%, transparent);
 }
 
 .letter-jump span {
@@ -1145,7 +1245,9 @@ main {
   font-size: 1.7rem;
   font-weight: 600;
   border-bottom: 1px solid var(--rule);
-  margin-top: 1.4rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.2rem;
 }
 
 .change-op {
@@ -1188,24 +1290,32 @@ main {
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 0.7rem;
+  gap: 0.15rem 0.7rem;
   min-width: 0;
   max-width: 100%;
+  margin-top: 0.35rem;
   padding-bottom: 0.3rem;
 }
 
 .filter-button {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 0.7rem;
+  width: 100%;
+  min-height: 44px;
   border: 0;
   background: transparent;
   color: var(--muted-ink);
   font: inherit;
   text-align: left;
   white-space: normal;
-  padding: 0.25rem 0;
+  padding: 0.35rem 0.15rem;
   cursor: pointer;
+}
+
+.filter-button:hover {
+  color: var(--accent-ink);
 }
 
 .filter-button[aria-pressed="true"] {
@@ -1217,6 +1327,7 @@ main {
 .field,
 .select-field {
   width: 100%;
+  min-height: 44px;
   border: 0;
   border-bottom: 1px solid var(--ink);
   background: transparent;
@@ -1224,6 +1335,73 @@ main {
   font: inherit;
   font-size: 1.05rem;
   padding: 0.45rem 0;
+}
+
+.search-fields {
+  display: grid;
+  gap: 1rem;
+}
+
+.search-fields label {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--muted-ink);
+  font-size: 0.92rem;
+}
+
+@media (min-width: 640px) {
+  .search-fields {
+    grid-template-columns: minmax(0, 1fr) 10rem;
+    align-items: end;
+  }
+}
+
+.result-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  min-height: 44px;
+}
+
+.result-list {
+  margin-top: 0.4rem;
+}
+
+.result-list li {
+  border-top: 1px solid var(--rule);
+}
+
+.result-list a {
+  display: grid;
+  gap: 0.28rem;
+  padding: 0.85rem 0.2rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.result-list a:hover {
+  background: color-mix(in srgb, var(--accent-ink) 8%, transparent);
+}
+
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin-top: 1.1rem;
+}
+
+.page-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent-ink);
+}
+
+.foot-note {
+  margin-top: 0.35rem;
+  max-width: 36rem;
 }
 
 .field::placeholder {
@@ -1245,6 +1423,9 @@ main {
 }
 
 .tag-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   border: 0;
   background: transparent;
   color: var(--accent-ink);
@@ -1252,7 +1433,7 @@ main {
   text-decoration: underline;
   text-underline-offset: 0.15em;
   cursor: pointer;
-  padding: 0;
+  padding: 0 0.15rem;
 }
 
 .tag-chip[aria-pressed="true"] {

@@ -68,10 +68,8 @@ export function BrowseExplorer({
 
       <div className="search-layout">
         <aside>
-          <h2 className="section-title" style={{ fontSize: "1.25rem" }}>
-            Shelves
-          </h2>
-          <ul className="filters" style={{ marginTop: "0.45rem" }}>
+          <h2 className="section-title">Shelves</h2>
+          <ul className="filters">
             <li>
               <FilterButton active={!category} onClick={() => setParam("category", "")}>
                 All <span className="quiet">{skills.length}</span>
@@ -87,7 +85,7 @@ export function BrowseExplorer({
           </ul>
         </aside>
         <div className="wiki-reading">
-          <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_10rem] sm:items-end">
+          <div className="search-fields">
             <div>
               <label htmlFor="shelf-search">Search</label>
               <input
@@ -113,7 +111,7 @@ export function BrowseExplorer({
             </div>
           </div>
 
-          <div className="tag-list" style={{ marginTop: "0.9rem" }}>
+          <div className="tag-list">
             {tags.map(([name]) => (
               <button
                 key={name}
@@ -127,7 +125,7 @@ export function BrowseExplorer({
             ))}
           </div>
 
-          <div style={{ marginTop: "1rem", display: "flex", justifyContent: "space-between", gap: "1rem" }}>
+          <div className="result-meta">
             <p className="quiet" aria-live="polite">
               {sorted.length} {sorted.length === 1 ? "skill" : "skills"}
             </p>
@@ -144,17 +142,17 @@ export function BrowseExplorer({
               <p className="quiet" style={{ marginTop: "0.45rem" }}>
                 Try a broader word, or clear the shelf and tag. Every published skill is still lint-clean.
               </p>
-              <p style={{ marginTop: "0.7rem" }}>
+              <p className="page-actions">
                 <button type="button" className="solid-button" onClick={() => router.replace(pathname, { scroll: false })}>
                   Show every skill
                 </button>
               </p>
             </div>
           ) : (
-            <ul className="entry-list" style={{ marginTop: "0.6rem" }}>
+            <ul className="result-list">
               {sorted.map((skill) => (
-                <li key={skill.name} style={{ borderTop: "1px solid var(--rule)", padding: "0.85rem 0" }}>
-                  <Link href={`/skills/${skill.name}`} style={{ display: "grid", gap: "0.35rem" }}>
+                <li key={skill.name}>
+                  <Link href={`/skills/${skill.name}`}>
                     <span className="entry-row">
                       <span className="shelf-name">{skill.title}</span>
                       <ScoreMark score={skill.score} badge={skill.badge} />

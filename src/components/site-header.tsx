@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -18,26 +18,50 @@ const LINKS = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
   useEffect(() => {
+    function onResize() {
+      if (window.innerWidth > 860) setOpen(false);
+    }
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const first = menuRef.current?.querySelector("a");
+    first?.focus();
     function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
     }
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   return (
     <header className="site-head">
+      {open ? (
+        <button type="button" className="nav-backdrop" aria-label="Close menu" onClick={() => setOpen(false)} />
+      ) : null}
       <div className="site-head-inner">
         <Link href="/" className="wordmark">
           {SITE_NAME}
         </Link>
-        <nav id="site-menu" className={open ? "site-nav is-open" : "site-nav"} aria-label="Primary">
+        <nav id="site-menu" ref={menuRef} className={open ? "site-nav is-open" : "site-nav"} aria-label="Primary">
           {LINKS.map((link) => {
             const active = link.href !== "/#shelves" && (pathname === link.href || pathname.startsWith(`${link.href}/`));
             return (
@@ -57,6 +81,7 @@ export function SiteHeader() {
         <div className="head-tools">
           <ThemeToggle />
           <button
+            ref={toggleRef}
             type="button"
             className="nav-toggle"
             aria-expanded={open}

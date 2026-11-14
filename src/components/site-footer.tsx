@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="site-foot-inner">
         <div>
           <p className="foot-name">{SITE_NAME}</p>
-          <p className="quiet" style={{ marginTop: "0.4rem", maxWidth: "28rem" }}>
+          <p className="quiet foot-note">
             {SITE_TAGLINE}. Maintained by{" "}
             <a href={catalog.owner.site}>{catalog.owner.name}</a>.
           </p>

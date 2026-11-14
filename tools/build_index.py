@@ -22,6 +22,7 @@ sys.path.insert(0, str(ROOT / "tools" / "skill-lint"))
 
 from skill_lint.frontmatter import split_frontmatter  # noqa: E402
 from skill_lint.rules import lint_skill  # noqa: E402
+from skill_lint.shelf_case import shelf_label_error  # noqa: E402
 
 SKILLS_DIR = ROOT / "skills"
 AGENTS_DIR = ROOT / "agents"
@@ -132,6 +133,9 @@ def read_category(folder: Path) -> tuple[str, str]:
     blurb = str(data.get("blurb") or "").strip()
     if not label or not blurb:
         raise SystemExit(f"{meta_path.relative_to(ROOT)} needs label and blurb")
+    reason = shelf_label_error(label)
+    if reason:
+        raise SystemExit(f"{meta_path.relative_to(ROOT)} label is not title case: {reason}")
     return label, blurb
 
 

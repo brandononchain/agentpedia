@@ -18,7 +18,7 @@ python3 tools/new_entry.py skill \
 
 That writes the skill folder, dated today, runs skill-lint, and rebuilds `data/catalog.json`.
 
-If the category does not exist yet, pass `--label` and `--blurb` as well. Those land in `skills/<category>/category.json` and become the shelf name on the site.
+If the category does not exist yet, pass `--label` and `--blurb` as well. Those land in `skills/<category>/category.json` and become the shelf name on the site. The label is title case (`Security & Compliance`, `Marketing & X`). skill-lint and the catalog build both refuse a label that is not.
 
 Then replace the placeholder example with a real one. The scaffold is only a passing skeleton.
 

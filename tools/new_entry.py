@@ -30,6 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools" / "skill-lint"))
 
 from skill_lint.rules import NAME_RE, UNCLEAR_NAMES  # noqa: E402
+from skill_lint.shelf_case import shelf_label_error  # noqa: E402
 
 TODAY = date.today().isoformat()
 
@@ -90,6 +91,9 @@ def ensure_category(category: str, label: str | None, blurb: str | None) -> None
         return
     if not label or not blurb:
         fail(f"new category {category} needs --label and --blurb")
+    reason = shelf_label_error(label)
+    if reason:
+        fail(f"label is not title case: {reason}")
     meta.write_text(
         json.dumps({"label": label, "blurb": blurb}, indent=2) + "\n",
         encoding="utf-8",

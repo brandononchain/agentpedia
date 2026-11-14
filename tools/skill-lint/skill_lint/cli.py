@@ -9,6 +9,7 @@ from skill_lint.discover import discover
 from skill_lint.models import Finding, LintResult
 from skill_lint.report import render_json, render_text
 from skill_lint.rules import lint_skill
+from skill_lint.shelf_case import category_files_for, findings_for_category
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -61,6 +62,8 @@ def lint_path(path: Path) -> LintResult:
         return result
     for file in files:
         result.skills.append(lint_skill(file))
+    for meta in category_files_for(files):
+        result.extra_findings.extend(findings_for_category(meta))
     return result
 
 
