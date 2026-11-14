@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: dev-tools
+  subshelf: incidents
   tags: incidents
   added: "2026-11-08"
   featured: false

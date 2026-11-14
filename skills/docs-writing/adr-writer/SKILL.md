@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: docs-writing
+  subshelf: decisions
   tags: adr, docs
   added: "2026-11-07"
   featured: false

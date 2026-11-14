@@ -1,4 +1,22 @@
 {
   "label": "Productivity",
-  "blurb": "A day plan, a decision log, and a way through the inbox."
+  "blurb": "A day plan, a decision log, and a way through the inbox.",
+  "number": 19,
+  "subshelves": [
+    {
+      "slug": "planning",
+      "label": "Planning",
+      "description": "A day plan from the constraints the user states."
+    },
+    {
+      "slug": "inbox",
+      "label": "Inbox",
+      "description": "A way through the messages they pasted."
+    },
+    {
+      "slug": "meetings",
+      "label": "Meetings",
+      "description": "Decisions from notes the user kept."
+    }
+  ]
 }

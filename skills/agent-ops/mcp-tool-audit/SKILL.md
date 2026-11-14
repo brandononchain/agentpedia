@@ -8,6 +8,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: agent-ops
+  subshelf: connectors
   tags: mcp, review
   added: "2026-11-11"
   featured: false

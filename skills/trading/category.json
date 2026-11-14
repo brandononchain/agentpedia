@@ -1,4 +1,27 @@
 {
   "label": "Trading & Markets",
-  "blurb": "Trade journals, position size, session briefs, plans, and event blackouts."
+  "blurb": "Trade journals, position size, session briefs, plans, and event blackouts.",
+  "number": 11,
+  "subshelves": [
+    {
+      "slug": "risk",
+      "label": "Risk",
+      "description": "Size, event blackouts, and the rules a plan must pass."
+    },
+    {
+      "slug": "execution",
+      "label": "Execution",
+      "description": "The session plan. This shelf does not send an order."
+    },
+    {
+      "slug": "research",
+      "label": "Research",
+      "description": "A briefing from quotes and headlines already in hand."
+    },
+    {
+      "slug": "journaling",
+      "label": "Journaling",
+      "description": "A written record of a closed trade."
+    }
+  ]
 }

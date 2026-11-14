@@ -10,6 +10,7 @@ compatibility: >-
   network.
 metadata:
   category: trading
+  subshelf: risk
   tags: risk, sizing
   added: "2026-11-10"
   featured: true

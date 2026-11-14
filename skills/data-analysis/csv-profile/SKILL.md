@@ -10,6 +10,7 @@ compatibility: >-
   packages.
 metadata:
   category: data-analysis
+  subshelf: profiles
   tags: csv, data
   added: "2026-11-07"
   featured: false

@@ -10,6 +10,7 @@ compatibility: >-
   packages.
 metadata:
   category: personal-life
+  subshelf: renewals
   tags: subscriptions, renewals
   added: "2026-11-13"
   featured: false

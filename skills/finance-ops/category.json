@@ -1,4 +1,22 @@
 {
   "label": "Finance & Ops",
-  "blurb": "Checks an invoice against its lines, totals a spend export, and builds a forecast only from actuals the user provides. A figure that is not in the file stays blank. This is bookkeeping support, not tax, audit, or investment advice."
+  "blurb": "Checks an invoice against its lines, totals a spend export, and builds a forecast only from actuals the user provides. A figure that is not in the file stays blank. This is bookkeeping support, not tax, audit, or investment advice.",
+  "number": 13,
+  "subshelves": [
+    {
+      "slug": "invoices",
+      "label": "Invoices",
+      "description": "Checks a bill against its lines."
+    },
+    {
+      "slug": "spend",
+      "label": "Spend",
+      "description": "Totals a spend export the user provides."
+    },
+    {
+      "slug": "forecasts",
+      "label": "Forecasts",
+      "description": "Projects only from actuals. A missing figure stays blank."
+    }
+  ]
 }

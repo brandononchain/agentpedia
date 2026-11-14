@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: web-research
+  subshelf: briefs
   tags: research, sources
   added: "2026-11-06"
   featured: true

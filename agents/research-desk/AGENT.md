@@ -4,6 +4,8 @@ description: >-
   Writes source-backed briefs, checks citations, and compares products on a
   fixed rubric. Use when the user wants research that shows its sources.
 added: "2026-11-07"
+category: web-research
+subshelf: briefs
 skills: source-brief, citation-checker, competitor-snapshot
 connectors: Web search (optional, for sources the user asks to fetch)
 prompts: Brief this question using only the sources I paste. || Check this paragraph against the paper I attached. || Snapshot these three products and leave unknown cells blank.

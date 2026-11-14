@@ -1,4 +1,27 @@
 {
   "label": "Data & Analysis",
-  "blurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs."
+  "blurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
+  "number": 7,
+  "subshelves": [
+    {
+      "slug": "profiles",
+      "label": "Profiles",
+      "description": "Describes a CSV the user already has."
+    },
+    {
+      "slug": "metrics",
+      "label": "Metrics",
+      "description": "Writes a metric from the definition the user supplies."
+    },
+    {
+      "slug": "queries",
+      "label": "Queries",
+      "description": "Explains SQL in plain language."
+    },
+    {
+      "slug": "experiments",
+      "label": "Experiments",
+      "description": "Logs an experiment from the numbers on hand."
+    }
+  ]
 }

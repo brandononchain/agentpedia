@@ -10,6 +10,7 @@ compatibility: >-
   authorized. Does not send orders.
 metadata:
   category: trading
+  subshelf: journaling
   tags: mt5, journal
   added: "2026-11-10"
   featured: true

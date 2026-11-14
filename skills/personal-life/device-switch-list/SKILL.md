@@ -10,6 +10,7 @@ compatibility: >-
   packages.
 metadata:
   category: personal-life
+  subshelf: devices
   tags: devices, accounts
   added: "2026-11-13"
   featured: false

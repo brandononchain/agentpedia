@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
+import { BookToc } from "@/components/book";
 import { CertFact } from "@/components/cert-fact";
-import { Contents } from "@/components/contents";
 import { InstallPanel } from "@/components/install-panel";
 import { MarkdownBody } from "@/components/markdown-body";
 import { ScoreMark } from "@/components/score-mark";
+import { bookChapters, bookCrumbs, bookJsonLd, recordedCommit, skillBook } from "@/lib/book";
 import { catalog, getSkill } from "@/lib/catalog";
 import { certificateFor, tierLabel } from "@/lib/certificates";
 import { metaDescription } from "@/lib/seo";
 import { absoluteUrl, siteMeta } from "@/lib/site";
 import { formatBytes, formatDropDate, stripTitle } from "@/lib/format";
-import { agentForSkill, extractToc, relatedSkills, shelfNeighbors, type TocItem } from "@/lib/wiki";
+import { agentForSkill, relatedSkills, shelfNeighbors } from "@/lib/wiki";
 
 type Params = { name: string };
 
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     description,
     keywords: [skill.title, skill.categoryLabel, "agent skill", ...skill.tags].slice(0, 8),
     image: `/skills/${skill.name}/opengraph-image`,
-    imageAlt: `${skill.title}, a ${skill.categoryLabel} skill. Lint score ${skill.lint.score}. ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
+    imageAlt: `${skill.title}, call number ${skill.callNumber} ${skill.subshelfLabel}. Lint score ${skill.lint.score}. ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
   });
 }
 
@@ -47,26 +48,19 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
   const related = relatedSkills(skill);
   const { prev, next } = shelfNeighbors(skill);
   const body = stripTitle(skill.body);
-  const toc: TocItem[] = [
-    ...extractToc(body),
-    { id: "lint-report", text: "Lint report", depth: 2 },
-    ...(related.length ? [{ id: "see-also", text: "See also", depth: 2 as const }] : []),
-    { id: "references", text: "References", depth: 2 },
-  ];
+  const entry = skillBook(skill);
+  const chapters = bookChapters(entry);
 
   return (
     <ArticleFrame
       current={`/category/${skill.category}`}
+      mark={skill.callNumber}
       title={skill.title}
       lede={skill.description}
       path={`/skills/${skill.name}`}
-      crumbs={[
-        { href: "/", label: "Home" },
-        { href: "/#shelves", label: "Shelves" },
-        { href: `/category/${skill.category}`, label: skill.categoryLabel },
-        { label: skill.title },
-      ]}
+      crumbs={bookCrumbs(entry)}
       structuredData={[
+        bookJsonLd(entry, chapters),
         {
           "@context": "https://schema.org",
           "@type": ["SoftwareSourceCode", "CreativeWork"],
@@ -78,8 +72,13 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
           license: skill.license || undefined,
           datePublished: skill.added,
           keywords: skill.tags.join(", "),
-          isPartOf: { "@type": "CreativeWork", name: skill.categoryLabel, url: absoluteUrl(`/category/${skill.category}`) },
+          isPartOf: {
+            "@type": "Collection",
+            name: skill.subshelfLabel,
+            url: absoluteUrl(`/category/${skill.category}/${skill.subshelf}`),
+          },
           additionalProperty: [
+            { "@type": "PropertyValue", name: "callNumber", value: skill.callNumber },
             { "@type": "PropertyValue", name: "lintScore", value: skill.lint.score },
             { "@type": "PropertyValue", name: "certificate", value: tier ? tierLabel(tier.payload.displayTier) : "unlisted" },
           ],
@@ -89,10 +88,24 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
         <aside className="plate" aria-label="Entry facts">
           <p className="plate-name">{skill.name}</p>
           <dl>
-            <dt>Category</dt>
+            <dt>Call number</dt>
+            <dd>{skill.callNumber}</dd>
+            <dt>Shelf</dt>
             <dd>
-              <Link href={`/category/${skill.category}`}>{skill.categoryLabel}</Link>
+              <Link href={`/category/${skill.category}`}>
+                {skill.shelfNumber} {skill.categoryLabel}
+              </Link>
             </dd>
+            <dt>Sub-shelf</dt>
+            <dd>
+              <Link href={`/category/${skill.category}/${skill.subshelf}`}>
+                {skill.subshelfLabel}
+              </Link>
+            </dd>
+            <dt>Author</dt>
+            <dd>{catalog.owner.name}</dd>
+            <dt>Source</dt>
+            <dd>{skill.sourcePath}</dd>
             <dt>Agent</dt>
             <dd>
               {agent ? <Link href={`/agents/${agent.name}`}>{agent.name}</Link> : "Not bundled"}
@@ -104,6 +117,8 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
             <CertFact kind="skill" name={skill.name} />
             <dt>Version</dt>
             <dd>Not recorded</dd>
+            <dt>Commit</dt>
+            <dd>{recordedCommit("skill", skill.name)}</dd>
             <dt>Added</dt>
             <dd>
               <time dateTime={skill.added}>{formatDropDate(skill.added)}</time>
@@ -132,8 +147,11 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
         </aside>
       }
     >
-      <Contents items={toc} />
-      <MarkdownBody source={body} selfHref={`/skills/${skill.name}`} />
+      <BookToc entry={entry} chapters={chapters} />
+      <p className="quiet">The sections below are this book on one page.</p>
+      <div id="book-body">
+        <MarkdownBody source={body} selfHref={`/skills/${skill.name}`} />
+      </div>
 
       <section className="see-also" id="lint-report">
         <h2 className="section-title">Lint report</h2>

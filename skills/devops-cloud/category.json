@@ -1,4 +1,17 @@
 {
   "label": "DevOps & Cloud",
-  "blurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console."
+  "blurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console.",
+  "number": 4,
+  "subshelves": [
+    {
+      "slug": "deploys",
+      "label": "Deploys",
+      "description": "Readiness notes and change windows. Nothing here deploys."
+    },
+    {
+      "slug": "ci",
+      "label": "CI",
+      "description": "Names the first failing step in a pasted log."
+    }
+  ]
 }

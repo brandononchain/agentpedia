@@ -31,6 +31,10 @@ export type Skill = {
   category: string;
   categoryLabel: string;
   categoryBlurb: string;
+  shelfNumber: number;
+  subshelf: string;
+  subshelfLabel: string;
+  callNumber: string;
   tags: string[];
   added: string;
   featured: boolean;
@@ -56,11 +60,26 @@ export type Agent = {
   name: string;
   description: string;
   added: string;
+  category: string;
+  categoryLabel: string;
+  shelfNumber: number;
+  subshelf: string;
+  subshelfLabel: string;
+  callNumber: string;
   skills: string[];
   connectors: string[];
   prompts: string[];
   body: string;
   sourcePath: string;
+};
+
+export type Subshelf = {
+  slug: string;
+  label: string;
+  description: string;
+  number: number;
+  skills: number;
+  agents: number;
 };
 
 export type Catalog = {
@@ -90,7 +109,15 @@ export type Catalog = {
     group: string;
     rules: { id: string; severity: string; summary: string }[];
   }[];
-  categories: { id: string; label: string; blurb: string; count: number }[];
+  categories: {
+    id: string;
+    label: string;
+    blurb: string;
+    number: number;
+    count: number;
+    agentCount: number;
+    subshelves: Subshelf[];
+  }[];
   skills: Skill[];
   agents: Agent[];
   drops: { date: string; skills: string[]; agents: string[] }[];
@@ -113,6 +140,9 @@ export function skillSummaries() {
     description: skill.description,
     category: skill.category,
     categoryLabel: skill.categoryLabel,
+    subshelf: skill.subshelf,
+    subshelfLabel: skill.subshelfLabel,
+    callNumber: skill.callNumber,
     tags: skill.tags,
     added: skill.added,
     featured: skill.featured,

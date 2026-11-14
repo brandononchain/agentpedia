@@ -10,6 +10,7 @@ compatibility: >-
   packages.
 metadata:
   category: media-content
+  subshelf: scripts
   tags: editing, podcasts
   added: "2026-11-12"
   featured: false

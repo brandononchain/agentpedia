@@ -72,6 +72,7 @@ Agent: Show a short concrete result, then delete this placeholder sentence.
             "license: Apache-2.0",
             "metadata:",
             f"  category: {args.category}",
+            f"  subshelf: {args.subshelf}",
             f"  tags: {tags}",
             f'  added: "{TODAY}"',
             "  featured: false",
@@ -83,19 +84,67 @@ Agent: Show a short concrete result, then delete this placeholder sentence.
     )
 
 
-def ensure_category(category: str, label: str | None, blurb: str | None) -> None:
+def next_shelf_number() -> int:
+    numbers = []
+    for meta in (ROOT / "skills").glob("*/category.json"):
+        try:
+            data = json.loads(meta.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        if isinstance(data.get("number"), int):
+            numbers.append(data["number"])
+    return max(numbers or [0]) + 1
+
+
+def ensure_category(
+    category: str,
+    subshelf: str,
+    label: str | None,
+    blurb: str | None,
+    subshelf_label: str | None,
+    subshelf_description: str | None,
+) -> None:
+    if not NAME_RE.fullmatch(subshelf):
+        fail("subshelf must be lowercase letters, numbers, and single hyphens")
     folder = ROOT / "skills" / category
     folder.mkdir(parents=True, exist_ok=True)
     meta = folder / "category.json"
     if meta.is_file():
+        data = json.loads(meta.read_text(encoding="utf-8"))
+        slugs = [
+            str(item.get("slug"))
+            for item in data.get("subshelves") or []
+            if isinstance(item, dict) and item.get("slug")
+        ]
+        if subshelf not in slugs:
+            listed = ", ".join(slugs) if slugs else "(none)"
+            fail(f"subshelf {subshelf} is not on {category}. Use one of: {listed}")
         return
-    if not label or not blurb:
-        fail(f"new category {category} needs --label and --blurb")
-    reason = shelf_label_error(label)
-    if reason:
-        fail(f"label is not title case: {reason}")
+    if not label or not blurb or not subshelf_label or not subshelf_description:
+        fail(
+            f"new category {category} needs --label, --blurb, --subshelf-label, and --subshelf-description"
+        )
+    for text, name in ((label, "label"), (subshelf_label, "subshelf label")):
+        reason = shelf_label_error(text)
+        if reason:
+            fail(f"{name} is not title case: {reason}")
     meta.write_text(
-        json.dumps({"label": label, "blurb": blurb}, indent=2) + "\n",
+        json.dumps(
+            {
+                "label": label,
+                "blurb": blurb,
+                "number": next_shelf_number(),
+                "subshelves": [
+                    {
+                        "slug": subshelf,
+                        "label": subshelf_label,
+                        "description": subshelf_description.strip(),
+                    }
+                ],
+            },
+            indent=2,
+        )
+        + "\n",
         encoding="utf-8",
     )
 
@@ -147,7 +196,14 @@ def add_skill(args: argparse.Namespace) -> None:
         fail("description must be at least 40 characters and say when to use the skill")
     if "when" not in description.lower():
         fail("description must say when to use the skill (for example, 'Use when')")
-    ensure_category(args.category, args.label, args.blurb)
+    ensure_category(
+        args.category,
+        args.subshelf,
+        args.label,
+        args.blurb,
+        args.subshelf_label,
+        args.subshelf_description,
+    )
     folder = ROOT / "skills" / args.category / args.name
     if folder.exists():
         fail(f"{folder.relative_to(ROOT)} already exists")
@@ -173,6 +229,14 @@ def add_agent(args: argparse.Namespace) -> None:
     missing = [name for name in skills if name not in known]
     if missing:
         fail("unknown skills: " + ", ".join(missing))
+    ensure_category(
+        args.category,
+        args.subshelf,
+        args.label,
+        args.blurb,
+        args.subshelf_label,
+        args.subshelf_description,
+    )
     folder = ROOT / "agents" / args.name
     if folder.exists():
         fail(f"{folder.relative_to(ROOT)} already exists")
@@ -189,6 +253,8 @@ def add_agent(args: argparse.Namespace) -> None:
             f"name: {args.name}",
             wrapped_description(description),
             f'added: "{TODAY}"',
+            f"category: {args.category}",
+            f"subshelf: {args.subshelf}",
             "skills: " + ", ".join(skills),
             "connectors: " + connectors,
             "prompts: " + prompts,
@@ -254,14 +320,29 @@ def main() -> None:
     skill_parser.add_argument("--name", required=True)
     skill_parser.add_argument("--description", required=True)
     skill_parser.add_argument("--tags", default="draft")
+    skill_parser.add_argument("--subshelf", required=True, help="Sub-shelf slug already on the shelf")
     skill_parser.add_argument("--label", help="Shelf label, required only for a new category")
     skill_parser.add_argument("--blurb", help="Shelf sentence, required only for a new category")
+    skill_parser.add_argument("--subshelf-label", help="Sub-shelf name, required only for a new category")
+    skill_parser.add_argument(
+        "--subshelf-description",
+        help="One line for the sub-shelf, required only for a new category",
+    )
     skill_parser.set_defaults(func=add_skill)
 
     agent_parser = sub.add_parser("agent", help="Scaffold an agent manifest")
     agent_parser.add_argument("--name", required=True)
     agent_parser.add_argument("--description", required=True)
+    agent_parser.add_argument("--category", required=True)
+    agent_parser.add_argument("--subshelf", required=True)
     agent_parser.add_argument("--skills", required=True, help="Comma-separated skill names")
+    agent_parser.add_argument("--label", help="Shelf label, required only for a new category")
+    agent_parser.add_argument("--blurb", help="Shelf sentence, required only for a new category")
+    agent_parser.add_argument("--subshelf-label", help="Sub-shelf name, required only for a new category")
+    agent_parser.add_argument(
+        "--subshelf-description",
+        help="One line for the sub-shelf, required only for a new category",
+    )
     agent_parser.add_argument("--connectors", default="none")
     agent_parser.add_argument(
         "--prompts",

@@ -8,6 +8,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: skill-authoring
+  subshelf: writing
   tags: skills, docs
   added: "2026-11-10"
   featured: false

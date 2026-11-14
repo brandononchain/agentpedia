@@ -5,6 +5,8 @@ description: >-
   connector's tools before install. Use when the user wants an agent tested or
   a connector checked from a plan, a log, or a pasted tool list.
 added: "2026-11-10"
+category: agent-ops
+subshelf: evaluation
 skills: eval-case-plan, trace-debug-note, benchmark-table, mcp-tool-audit
 connectors: none
 prompts: Write eval cases for the invoice checker, including a refusal. Do not score it. || The trace paid the invoice. Where did it diverge? || Table these two pass counts. Do not declare a winner. || Audit this MCP tool list. Do not install the connector.

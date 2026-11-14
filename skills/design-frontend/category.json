@@ -1,4 +1,22 @@
 {
   "label": "Design & Frontend",
-  "blurb": "Reviews an interface the user describes, checks it against the four accessibility principles, and turns a pasted frame into a component spec with the tokens they named. It does not invent a brand, and it does not claim a contrast ratio it did not calculate from colors the user supplied."
+  "blurb": "Reviews an interface the user describes, checks it against the four accessibility principles, and turns a pasted frame into a component spec with the tokens they named. It does not invent a brand, and it does not claim a contrast ratio it did not calculate from colors the user supplied.",
+  "number": 10,
+  "subshelves": [
+    {
+      "slug": "review",
+      "label": "Review",
+      "description": "Notes on an interface the user describes."
+    },
+    {
+      "slug": "accessibility",
+      "label": "Accessibility",
+      "description": "Checks the four principles against supplied colors and names."
+    },
+    {
+      "slug": "specs",
+      "label": "Specs",
+      "description": "Turns a pasted frame into a component spec."
+    }
+  ]
 }

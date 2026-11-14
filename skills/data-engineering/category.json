@@ -1,4 +1,22 @@
 {
   "label": "Data Engineering",
-  "blurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query."
+  "blurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
+  "number": 6,
+  "subshelves": [
+    {
+      "slug": "contracts",
+      "label": "Contracts",
+      "description": "Maps source columns onto a warehouse table."
+    },
+    {
+      "slug": "schema",
+      "label": "Schema",
+      "description": "Plans a change as expand, then contract."
+    },
+    {
+      "slug": "warehouses",
+      "label": "Warehouses",
+      "description": "Reads how much data a query scans."
+    }
+  ]
 }

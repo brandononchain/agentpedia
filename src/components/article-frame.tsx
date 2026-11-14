@@ -13,6 +13,7 @@ export function ArticleFrame({
   plate,
   current,
   path,
+  mark,
   structuredData,
   children,
 }: {
@@ -22,6 +23,7 @@ export function ArticleFrame({
   plate?: ReactNode;
   current?: string;
   path?: string;
+  mark?: string;
   structuredData?: unknown[];
   children: ReactNode;
 }) {
@@ -48,7 +50,7 @@ export function ArticleFrame({
         names={names}
         categories={catalog.categories.map((category) => ({
           id: category.id,
-          label: category.label,
+          label: `${category.number} ${category.label}`,
           count: category.count,
         }))}
       />
@@ -66,6 +68,7 @@ export function ArticleFrame({
             })}
           </ol>
         </nav>
+        {mark ? <p className="call-number">{mark}</p> : null}
         <h1 className="entry-title">{title}</h1>
         {lede ? <div className="lede">{lede}</div> : null}
         <div className="wiki-split">

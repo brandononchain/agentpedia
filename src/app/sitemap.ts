@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
+import { agentBook, bookChapters, skillBook } from "@/lib/book";
 import { certificates } from "@/lib/certificates";
-import { catalog } from "@/lib/catalog";
+import { catalog, getAgent, getSkill } from "@/lib/catalog";
 import { latestDate } from "@/lib/git-dates";
 import { absoluteUrl } from "@/lib/site";
 
@@ -11,6 +12,7 @@ const STATIC_PAGES: { path: string; files: string[] }[] = [
   { path: "/lint", files: ["src/app/lint/page.tsx"] },
   { path: "/changelog", files: ["src/app/changelog/page.tsx"] },
   { path: "/az", files: ["src/app/az/page.tsx"] },
+  { path: "/az/numbered", files: ["src/app/az/numbered/page.tsx"] },
   { path: "/glossary", files: ["src/app/glossary/page.tsx"] },
   { path: "/certification", files: ["src/app/certification/page.tsx"] },
   { path: "/certify", files: ["src/app/certify/page.tsx"] },
@@ -28,22 +30,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(page.path),
     lastModified: latestDate(page.files, fallback),
   }));
-  const categories = catalog.categories.map((category) => ({
-    url: absoluteUrl(`/category/${category.id}`),
-    lastModified: latestDate([`skills/${category.id}`, `src/app/category`], fallback),
-  }));
+  const categories = catalog.categories
+    .filter((category) => category.count + category.agentCount > 0)
+    .map((category) => ({
+      url: absoluteUrl(`/category/${category.id}`),
+      lastModified: latestDate([`skills/${category.id}`, `src/app/category`], fallback),
+    }));
+  const subshelves = catalog.categories.flatMap((category) =>
+    category.subshelves
+      .filter((subshelf) => subshelf.skills + subshelf.agents > 0)
+      .map((subshelf) => ({
+        url: absoluteUrl(`/category/${category.id}/${subshelf.slug}`),
+        lastModified: latestDate([`skills/${category.id}`, `src/app/category`], fallback),
+      })),
+  );
   const skills = catalog.skills.flatMap((skill) => {
     const lastModified = latestDate([skill.sourcePath], `${skill.added}T00:00:00Z`);
+    const entry = skillBook(getSkill(skill.name) ?? skill);
     return [
       { url: absoluteUrl(`/skills/${skill.name}`), lastModified },
       { url: absoluteUrl(`/skills/${skill.name}.md`), lastModified },
+      { url: absoluteUrl(`/skills/${skill.name}/read`), lastModified },
+      ...bookChapters(entry).map((chapter) => ({
+        url: absoluteUrl(`/skills/${skill.name}/ch/${chapter.slug}`),
+        lastModified,
+      })),
     ];
   });
   const agents = catalog.agents.flatMap((agent) => {
     const lastModified = latestDate([agent.sourcePath], `${agent.added}T00:00:00Z`);
+    const entry = agentBook(getAgent(agent.name) ?? agent);
     return [
       { url: absoluteUrl(`/agents/${agent.name}`), lastModified },
       { url: absoluteUrl(`/agents/${agent.name}.md`), lastModified },
+      { url: absoluteUrl(`/agents/${agent.name}/read`), lastModified },
+      ...bookChapters(entry).map((chapter) => ({
+        url: absoluteUrl(`/agents/${agent.name}/ch/${chapter.slug}`),
+        lastModified,
+      })),
     ];
   });
   const certs = certificates.certificates.map((document) => ({
@@ -53,5 +77,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       `${document.payload.issuedAt}T00:00:00Z`,
     ),
   }));
-  return [...staticRoutes, ...categories, ...skills, ...agents, ...certs];
+  return [...staticRoutes, ...categories, ...subshelves, ...skills, ...agents, ...certs];
 }

@@ -11,6 +11,7 @@ compatibility: >-
   packages.
 metadata:
   category: trading
+  subshelf: risk
   tags: calendar, risk
   added: "2026-11-11"
   featured: false

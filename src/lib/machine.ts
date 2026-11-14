@@ -40,15 +40,50 @@ export function llmsTxt() {
     HOME_NOTE,
     "",
     "## Shelves",
-    ...catalog.categories.map(
-      (category) =>
-        `- [${category.label}](${absoluteUrl(`/category/${category.id}`)}): ${oneLine(category.blurb)} ${category.count} entries.`,
-    ),
+    ...catalog.categories.flatMap((category) => {
+      const block = [
+        "",
+        `### ${category.number} ${category.label}`,
+        "",
+        `${oneLine(category.blurb)} ${category.count} skills.`,
+      ];
+      for (const subshelf of category.subshelves) {
+        const callNumber = `${category.number}.${subshelf.number}`;
+        const href = absoluteUrl(`/category/${category.id}/${subshelf.slug}`);
+        block.push("", `#### ${callNumber} ${subshelf.label}`, "");
+        const skills = catalog.skills.filter(
+          (skill) => skill.category === category.id && skill.subshelf === subshelf.slug,
+        );
+        const agents = catalog.agents.filter(
+          (agent) => agent.category === category.id && agent.subshelf === subshelf.slug,
+        );
+        if (skills.length + agents.length === 0) {
+          block.push(`Being written. ${oneLine(subshelf.description)}`);
+          continue;
+        }
+        block.push(`[${subshelf.label}](${href}): ${oneLine(subshelf.description)}`);
+        for (const skill of skills) {
+          const tier = certificateFor("skill", skill.name);
+          const mark = tier ? tierLabel(tier.payload.displayTier) : "unlisted";
+          block.push(
+            `- [${skill.title}](${absoluteUrl(`/skills/${skill.name}`)}): ${oneLine(skill.description)} Call number ${skill.callNumber}. Lint ${skill.lint.score}. ${mark}. Markdown: ${absoluteUrl(`/skills/${skill.name}.md`)}.`,
+          );
+        }
+        for (const agent of agents) {
+          const tier = certificateFor("agent", agent.name);
+          const mark = tier ? tierLabel(tier.payload.displayTier) : "unlisted";
+          block.push(
+            `- [${agent.name}](${absoluteUrl(`/agents/${agent.name}`)}): ${oneLine(agent.description)} Call number ${agent.callNumber}. ${agent.skills.length} skills. ${mark}. Markdown: ${absoluteUrl(`/agents/${agent.name}.md`)}.`,
+          );
+        }
+      }
+      return block;
+    }),
     "",
     "## Key pages",
     `- [Home](${origin}/): ${oneLine(homeDescription(stats.categories))}`,
     `- [Search](${origin}/browse): Search skills by name, shelf, tag, and lint score.`,
-    `- [Index](${origin}/az): Every skill and agent, listed by title.`,
+    `- [Index](${origin}/az): Every skill and agent, listed A–Z. Numbered view: ${origin}/az/numbered.`,
     `- [Agents](${origin}/agents): Each agent bundles skills for one job.`,
     `- [Recent changes](${origin}/changelog): Entries by the day they were added.`,
     `- [How we lint](${origin}/lint): The skill-lint score and the rules behind it.`,
@@ -56,20 +91,6 @@ export function llmsTxt() {
     `- [Certification](${origin}/certification): Listed, Verified, and Certified, and what they do not guarantee.`,
     `- [Catalog JSON](${origin}/catalog.json): Machine-readable catalog of every entry.`,
     `- [RSS](${origin}/feed.xml): Recent changes as a feed.`,
-    "",
-    "## Skills",
-    ...catalog.skills.map((skill) => {
-      const tier = certificateFor("skill", skill.name);
-      const mark = tier ? tierLabel(tier.payload.displayTier) : "unlisted";
-      return `- [${skill.title}](${absoluteUrl(`/skills/${skill.name}`)}): ${oneLine(skill.description)} Shelf: ${skill.categoryLabel}. Lint ${skill.lint.score}. ${mark}. Markdown: ${absoluteUrl(`/skills/${skill.name}.md`)}.`;
-    }),
-    "",
-    "## Agents",
-    ...catalog.agents.map((agent) => {
-      const tier = certificateFor("agent", agent.name);
-      const mark = tier ? tierLabel(tier.payload.displayTier) : "unlisted";
-      return `- [${agent.name}](${absoluteUrl(`/agents/${agent.name}`)}): ${oneLine(agent.description)} ${agent.skills.length} skills. ${mark}. Markdown: ${absoluteUrl(`/agents/${agent.name}.md`)}.`;
-    }),
     "",
   ];
   return lines.join("\n");

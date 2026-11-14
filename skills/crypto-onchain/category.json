@@ -1,4 +1,22 @@
 {
   "label": "Crypto & Onchain",
-  "blurb": "Watches balances the user pastes, researches a token from sources they supply, and reads a contract for who can move it. Every skill is read-only. None of them moves funds or signs a transaction, and a reading is not an audit."
+  "blurb": "Watches balances the user pastes, researches a token from sources they supply, and reads a contract for who can move it. Every skill is read-only. None of them moves funds or signs a transaction, and a reading is not an audit.",
+  "number": 12,
+  "subshelves": [
+    {
+      "slug": "research",
+      "label": "Research",
+      "description": "A token note from sources the user supplies."
+    },
+    {
+      "slug": "contracts",
+      "label": "Contracts",
+      "description": "Who can move a contract. A reading is not an audit."
+    },
+    {
+      "slug": "wallets",
+      "label": "Wallets",
+      "description": "Balances the user pastes. Nothing here signs or sends."
+    }
+  ]
 }

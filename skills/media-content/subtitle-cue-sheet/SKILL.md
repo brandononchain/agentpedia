@@ -10,6 +10,7 @@ compatibility: >-
   packages.
 metadata:
   category: media-content
+  subshelf: captions
   tags: subtitles, captions
   added: "2026-11-12"
   featured: false

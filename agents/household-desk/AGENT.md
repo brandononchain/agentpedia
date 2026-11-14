@@ -5,6 +5,8 @@ description: >-
   interpreting it, and schedules a week around fixed appointments. Use when the
   user wants personal admin. Health content is informational only.
 added: "2026-11-10"
+category: personal-life
+subshelf: travel
 skills: trip-plan-sheet, health-log-summary, home-week-plan
 connectors: none
 prompts: Plan two days from the places I named. Do not book. || Summarize this health log. Do not diagnose. || Put the water bill around Tuesday's dentist. Do not move the dentist.

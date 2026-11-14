@@ -1,4 +1,22 @@
 {
   "label": "Legal & Contracts",
-  "blurb": "Reads a clause, an NDA, or a redline the user pastes and writes down what the words say in plain language. Every page on this shelf says the same limit: this is not legal advice, and it is not a substitute for a lawyer."
+  "blurb": "Reads a clause, an NDA, or a redline the user pastes and writes down what the words say in plain language. Every page on this shelf says the same limit: this is not legal advice, and it is not a substitute for a lawyer.",
+  "number": 14,
+  "subshelves": [
+    {
+      "slug": "clauses",
+      "label": "Clauses",
+      "description": "Plain language for a clause the user pastes. Not legal advice."
+    },
+    {
+      "slug": "ndas",
+      "label": "NDA",
+      "description": "A checklist for an NDA the user supplies."
+    },
+    {
+      "slug": "redlines",
+      "label": "Redlines",
+      "description": "What a redline changes, in the words on the page."
+    }
+  ]
 }

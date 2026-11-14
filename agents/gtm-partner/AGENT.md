@@ -5,6 +5,8 @@ description: >-
   grounded in the product. Use when the user wants go-to-market prep rather than
   a single email.
 added: "2026-11-06"
+category: sales-gtm
+subshelf: discovery
 skills: discovery-call-notes, outbound-sequence, objection-map
 connectors: none
 prompts: Turn these call notes into pains, stack, and the next step. || Draft a three-touch note to a head of support. Do not invent personal details. || Map the objections we have actually heard, and mark the ones that should end the deal.

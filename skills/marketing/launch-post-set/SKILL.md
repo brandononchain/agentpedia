@@ -6,6 +6,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: marketing
+  subshelf: launches
   tags: x, launch
   added: "2026-11-09"
   featured: false

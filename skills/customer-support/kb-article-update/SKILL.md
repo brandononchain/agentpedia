@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: customer-support
+  subshelf: knowledge
   tags: knowledge-base, support
   added: "2026-11-10"
   featured: false

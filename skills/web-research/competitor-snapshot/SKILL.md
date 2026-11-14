@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: web-research
+  subshelf: competitors
   tags: research, competitors
   added: "2026-11-06"
   featured: false

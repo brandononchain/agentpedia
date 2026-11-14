@@ -5,6 +5,8 @@ description: >-
   skills into an agent manifest. Use when the user wants to author or audit
   Agent Skills rather than use a single domain skill.
 added: "2026-11-10"
+category: skill-authoring
+subshelf: writing
 skills: skill-author, skill-reviewer, agent-bundler, docs-to-skill
 connectors: none
 prompts: Write a skill for journaling closed MT5 trades and lint it before you show me. || Review this SKILL.md and tell me whether it should ship. || Bundle the research skills into an agent and name the sample prompts. || Turn this CLI help into a skill. Keep the long flag table in references. Do not invent flags.

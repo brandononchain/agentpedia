@@ -5,6 +5,8 @@ description: >-
   migrations for a repository. Use when the user wants a maintainer workflow
   across git, review, and the docs a coding agent will read.
 added: "2026-11-09"
+category: dev-tools
+subshelf: git
 skills: git-commit-writer, pr-review-notes, test-gap-finder, diff-risk-scan, changelog-from-commits, dependency-audit-notes, incident-timeline, migration-checklist, agents-md-writer
 connectors: git (local repository)
 prompts: Review the current diff and list blockers before anything else. || Write a commit message for the staged change, but do not commit. || Draft a changelog from the commits on this branch. || Draft AGENTS.md from this tree and the README commands. Do not commit it.

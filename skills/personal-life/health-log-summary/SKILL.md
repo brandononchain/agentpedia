@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: personal-life
+  subshelf: health
   tags: health, logs
   added: "2026-11-10"
   featured: false

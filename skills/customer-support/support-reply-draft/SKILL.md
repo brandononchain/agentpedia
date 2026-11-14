@@ -6,6 +6,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: customer-support
+  subshelf: replies
   tags: support, writing
   added: "2026-11-10"
   featured: false

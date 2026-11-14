@@ -5,6 +5,8 @@ description: >-
   work the user describes. Use when the user wants a cloud change checked before
   it runs, not executed.
 added: "2026-11-10"
+category: devops-cloud
+subshelf: deploys
 skills: deploy-readiness, ci-log-triage, change-window-note
 connectors: none
 prompts: Is this ECS plan ready? Do not deploy it. || What failed first in this CI log? || Write the change window. Do not start it.

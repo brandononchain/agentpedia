@@ -1,4 +1,22 @@
 {
   "label": "Docs & Writing",
-  "blurb": "READMEs, decision records, API docs, and release notes."
+  "blurb": "READMEs, decision records, API docs, and release notes.",
+  "number": 9,
+  "subshelves": [
+    {
+      "slug": "repository",
+      "label": "Repository",
+      "description": "READMEs and API stubs from the code in front of you."
+    },
+    {
+      "slug": "decisions",
+      "label": "Decisions",
+      "description": "An architecture decision record from the choice just made."
+    },
+    {
+      "slug": "releases",
+      "label": "Releases",
+      "description": "Release notes from the changes the user lists."
+    }
+  ]
 }

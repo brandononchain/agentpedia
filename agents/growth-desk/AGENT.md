@@ -6,6 +6,8 @@ description: >-
   marketing writing that stays tied to the real product and is not published
   unless they ask.
 added: "2026-11-09"
+category: marketing
+subshelf: social
 skills: x-thread-drafter, launch-post-set, content-calendar, pricing-page-copy, x-reply-scout
 connectors: X (optional, and only to publish when the user explicitly asks)
 prompts: Draft a four-post thread about the lint badge. Do not post it. || Write the three launch posts from this fact list. || Plan two weeks of posts about how a skill gets reviewed. || Here are the posts and the niche. Rank which are worth a reply and draft the replies. Do not post.

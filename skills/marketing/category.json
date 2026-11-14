@@ -1,4 +1,27 @@
 {
   "label": "Marketing & X",
-  "blurb": "Threads, launch posts, calendars, and pricing-page copy."
+  "blurb": "Threads, launch posts, calendars, and pricing-page copy.",
+  "number": 16,
+  "subshelves": [
+    {
+      "slug": "social",
+      "label": "Social",
+      "description": "Threads and replies. It does not post."
+    },
+    {
+      "slug": "launches",
+      "label": "Launches",
+      "description": "A set of launch posts from the facts supplied."
+    },
+    {
+      "slug": "pricing",
+      "label": "Pricing",
+      "description": "Pricing-page copy from the offer the user states."
+    },
+    {
+      "slug": "calendars",
+      "label": "Calendars",
+      "description": "A content calendar from the dates and themes on hand."
+    }
+  ]
 }

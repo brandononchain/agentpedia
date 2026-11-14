@@ -1,4 +1,22 @@
 {
   "label": "Sales & GTM",
-  "blurb": "Discovery notes, outbound sequences, and objection maps."
+  "blurb": "Discovery notes, outbound sequences, and objection maps.",
+  "number": 15,
+  "subshelves": [
+    {
+      "slug": "discovery",
+      "label": "Discovery",
+      "description": "Notes from a call the user describes."
+    },
+    {
+      "slug": "outbound",
+      "label": "Outbound",
+      "description": "A sequence from the offer and the reader they name."
+    },
+    {
+      "slug": "objections",
+      "label": "Objections",
+      "description": "A map of the objections the user has actually heard."
+    }
+  ]
 }

@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: legal-contracts
+  subshelf: redlines
   tags: redlines, contracts
   added: "2026-11-10"
   featured: false

@@ -11,6 +11,7 @@ Daily entries rotate across every shelf. `python3 tools/new_entry.py shelves` pr
 ```bash
 python3 tools/new_entry.py skill \
   --category "$(python3 tools/new_entry.py next-shelf)" \
+  --subshelf notes \
   --name retry-notes \
   --description "Writes a retry policy from a handler. Use when the user asks how a call should retry." \
   --tags retries, http
@@ -18,7 +19,7 @@ python3 tools/new_entry.py skill \
 
 That writes the skill folder, dated today, runs skill-lint, and rebuilds `data/catalog.json`.
 
-If the category does not exist yet, pass `--label` and `--blurb` as well. Those land in `skills/<category>/category.json` and become the shelf name on the site. The label is title case (`Security & Compliance`, `Marketing & X`). skill-lint and the catalog build both refuse a label that is not.
+`--subshelf` is required. It must already be listed in that shelf's `category.json`. If the category does not exist yet, also pass `--label`, `--blurb`, `--subshelf-label`, and `--subshelf-description`. Those land in `skills/<category>/category.json` and become the shelf and its first sub-shelf. Labels are title case (`Security & Compliance`, `Marketing & X`). skill-lint and the catalog build both refuse a label that is not, and they refuse an entry with no sub-shelf.
 
 Then replace the placeholder example with a real one. The scaffold is only a passing skeleton.
 
