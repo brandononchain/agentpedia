@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:de780a8856b6a488bf1f2349149b1c424188ab37b55f1315d7881a6e18416c2f",
+  "contentDigest": "sha256:eccfe8841be791b5f2566e10fd9eb76b01b8d190475568b8f0ebd7d2998eff97",
   "id": "skill-benchmark-table",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "benchmark-table"

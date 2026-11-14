@@ -82,7 +82,7 @@ The quality bar, and what the linter refuses, is in [CONTRIBUTING.md](CONTRIBUTI
 
 ## Certification
 
-Every skill with a skill-lint score of 100, and every agent whose bundled skills all score 100, gets a **Listed** certificate bound to the source commit and a sha256 digest of the entry directory. **Verified** adds a real run of `tools/verify_checks.py` (an install probe and at least one eval). **Certified** adds a human review stored in `certs/records/<id>.json`. The build refuses a Verified or Certified claim that does not have that evidence. Nothing in the current tree is Certified.
+Every skill with a skill-lint score of 100, and every agent whose bundled skills all score 100, gets a **Listed** certificate bound to the source commit and a sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: `category` and `subshelf` in the frontmatter, and the shelf number, sub-shelf order, and call number in `category.json`. **Verified** adds a real run of `tools/verify_checks.py` (an install probe and at least one eval). **Certified** adds a human review stored in `certs/records/<id>.json`. The build refuses a Verified or Certified claim that does not have that evidence. Nothing in the current tree is Certified.
 
 | Route | What it is |
 | --- | --- |

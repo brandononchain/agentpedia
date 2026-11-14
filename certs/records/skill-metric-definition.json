@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:cbcc5f3fbf3130a3176f3a6a049a5060c39f5123c3c80de720b5f5c046a91e01",
+  "contentDigest": "sha256:a128374a2eca7666a5ee3cdeb68778e1288b81fca1f1d0428c289a829b15aba1",
   "id": "skill-metric-definition",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "metric-definition"

@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:735855a3e1ea1660d7eaa0e7092df0ace9ef5a159436ffc7c18e5479ba9442aa",
+  "contentDigest": "sha256:e971882224e99d0b5a789c88d3af551001c185bb1fa38ab8c2557257f9d1045a",
   "id": "skill-session-plan",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "session-plan"

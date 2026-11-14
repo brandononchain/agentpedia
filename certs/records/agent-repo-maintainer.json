@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:a857e3165e29e62a53543eb1fd1dc7e068a147592966d268b33e5f830a0dce81",
+  "contentDigest": "sha256:ae4ecfcbdf4b1941df9e1ca56f1d8f540a03f6a4386b74f2c0c2d55a0ad7535a",
   "id": "agent-repo-maintainer",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "agent",
     "name": "repo-maintainer"

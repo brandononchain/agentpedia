@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:5d470eedf491b7b1bac127d768bb35a972a2c8c2e0c78d7c105d961783edfa6f",
+  "contentDigest": "sha256:2dea2ead85208f73f65bde163ce5ef0f966e4a7280c4de9dcf314dc7d5c5b96e",
   "id": "skill-daily-plan",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "411d40c0740700e38c1ea49c71007479e7f91ce2",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "daily-plan"

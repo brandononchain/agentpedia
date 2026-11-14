@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:ea0fe1b213adb31583b72c3d9c3da8388b1cd9ace7783857392e6f5b34be2b4e",
+  "contentDigest": "sha256:ebe02031bae26827d530328af062eb4aa2152979a9df1c51403fa400942911d6",
   "id": "skill-schema-expand-contract",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "schema-expand-contract"

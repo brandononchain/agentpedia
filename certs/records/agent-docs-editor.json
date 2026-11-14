@@ -1,10 +1,10 @@
 {
   "contentDigest": "sha256:affe1660e811c8c7766f76e2e313f3b1ad79d8b533c4e262b93e5bfa1832e091",
   "id": "agent-docs-editor",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "agent",
     "name": "docs-editor"

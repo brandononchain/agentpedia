@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:1905304d3ad3b28491c63f104e3d1c2b5beb14603982e81b57a58ac60ce5f10d",
+  "contentDigest": "sha256:3bc64d57b743d68c6e767ba4a78269923baa2e525c4c4291086e4e4615ebdd8c",
   "id": "skill-market-data-briefing",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "market-data-briefing"

@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:519ffb36d680d7226138e735c5f2727d656154782697eb7f0b32a478ffe4a571",
+  "contentDigest": "sha256:a25175a7fa9c0eb7670367ffbb5f728a4425daa36ecf6f5862560910a089246f",
   "id": "skill-skill-author",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "411d40c0740700e38c1ea49c71007479e7f91ce2",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "skill-author"

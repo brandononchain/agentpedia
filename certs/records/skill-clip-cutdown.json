@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:da6fed209bdc1efbddb8fcf8a51788754f5fc27aca396e8d9d6be6dc3968505d",
+  "contentDigest": "sha256:9b9934079827a47c2303c276398f6f6feda539e39643a2e00d295ba7e4734f0f",
   "id": "skill-clip-cutdown",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "clip-cutdown"

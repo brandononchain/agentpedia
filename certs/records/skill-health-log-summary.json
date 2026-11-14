@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:35ed533669b0c5f4ce17691718f47dbedb9668ba9689bacb74822719e3034603",
+  "contentDigest": "sha256:9362ca922e33dccb2de78147495fe7cec79529d5fb2d0c75e4b4938dd70a8e19",
   "id": "skill-health-log-summary",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "health-log-summary"

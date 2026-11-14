@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:0c9edc3bbf2e5196d67dfe67ded4442570b49b9272e5c3516fc9337a5963903a",
+  "contentDigest": "sha256:a376cb4c40609835be8815c8565fa33a508b68cac220e6baad141bf9d8783810",
   "id": "skill-ci-log-triage",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "ci-log-triage"

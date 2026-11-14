@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:bb15c6895f86df9ee3aa66c047ae917f905f907b454f2e8edb9659e23e6930de",
+  "contentDigest": "sha256:86a5c9024c5590930523df2734d84190f0c95626ac93bd18ec91833eaf2d1f9e",
   "id": "skill-clause-review",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "clause-review"

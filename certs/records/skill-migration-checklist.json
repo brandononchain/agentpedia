@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:4503ee9d206279b43f3c27c8b4aec7db380d6fe96be4cd089a2b5bcd1b8f67b9",
+  "contentDigest": "sha256:f910dabfa1399955cbdbe755fe338ae2663db92dbf1a9f0efa3dd5f7cec42a38",
   "id": "skill-migration-checklist",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "migration-checklist"

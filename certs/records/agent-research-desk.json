@@ -1,10 +1,10 @@
 {
   "contentDigest": "sha256:e1ab14c3fc88fc90f3eab69e0839db5e1168c68f1a683782875588e033e6df35",
   "id": "agent-research-desk",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "agent",
     "name": "research-desk"

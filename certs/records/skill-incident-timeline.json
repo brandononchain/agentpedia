@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:b5c78eb19e69394bc4f714a342eb96fd4bf9b5235577102b1991653079974bf9",
+  "contentDigest": "sha256:d031e4d8a085cd7f6604b37b42a1fc0aec6fdc4c51340ed36a4e277321dc8bcf",
   "id": "skill-incident-timeline",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "incident-timeline"

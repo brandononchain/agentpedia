@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:68c157a7f4ade0ce283d66c3cbe60414138828bf9046e2178abbb406956920fd",
+  "contentDigest": "sha256:823421571465034283693ed1196d51cedfe03f1608c29a0b6adb98e90239c9dc",
   "id": "skill-test-gap-finder",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "test-gap-finder"

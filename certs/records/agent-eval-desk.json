@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:1b9f002d4dc8b4994ebf8077648a9970b30dfabbd1d8c6d930784654f62d0629",
+  "contentDigest": "sha256:a92332591abfb8876680d25f3b0bab417f300992da7ffe88ccff789e86cb754f",
   "id": "agent-eval-desk",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "agent",
     "name": "eval-desk"

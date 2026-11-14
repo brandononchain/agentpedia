@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:a0ea4da53359222d6c2f3fdea3b5cd127c77bd5dc8c1119c71d48780549c0110",
+  "contentDigest": "sha256:d538f92b7e2fc0eb6c1f8a1c188e962414a3e7f1e9d2ce34699db3095b8e08c9",
   "id": "skill-nda-checklist",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "nda-checklist"

@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:a620254742cef214a58f685c6a4be5d57a0b791ef8b5cba72d9ae7e419ffc690",
+  "contentDigest": "sha256:a7604d077132e234a06647a68bdfcb89d37bd2503cbdc05c692ba9fd2d3bd83b",
   "id": "skill-etl-column-contract",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "etl-column-contract"

@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:d407351c3a0e4b2821dc67ec48df8a26b8bdf14c94f27178f7c213fea974fe53",
+  "contentDigest": "sha256:4ccb8c51a8f914d59da4c68ffe4d9cfd348fc057dc964f9c18505dd5c0376ae1",
   "id": "skill-forecast-from-actuals",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "forecast-from-actuals"

@@ -60,7 +60,9 @@ export default function CertificationPage() {
           </p>
           <p>
             Listed does not install the entry and does not run it. It does not review the advice in the article. It
-            expires 365 days after the issue date, and earlier if the entry&apos;s file digest changes.
+            expires 365 days after the issue date, and earlier if the entry&apos;s file digest changes. That digest
+            covers the instructions and the assets. It does not cover the shelf, the sub-shelf, the call number, or
+            the order of the shelves. Moving an entry on the shelf does not by itself make the certificate stale.
           </p>
         </section>
         <section id="verified">

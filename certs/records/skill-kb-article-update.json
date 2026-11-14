@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:2bdd499ed5bad867aedbb720771d3523844bab6a9ec86c5555a800c311137556",
+  "contentDigest": "sha256:37fd5c04a2db27b02a12c769fc2665a9b64b09bf95e59f6be6e54b00a170d12c",
   "id": "skill-kb-article-update",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "kb-article-update"
