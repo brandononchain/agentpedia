@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:3ef83dca24c3411dc60c54687a14a05a63bdfeb9d8fdefb6dc8626527c03139d",
+  "contentDigest": "sha256:0e78ed517b7ba13f2a29414196cd80731476d28f58a64663ec5334fd360dd76a",
   "id": "skill-git-commit-writer",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "git-commit-writer"

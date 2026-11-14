@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:e70f7eb7380fb4ba72456a89514457df55110109da1ea1a4604885bb60243058",
+  "contentDigest": "sha256:213533187f98e114fe64e0c37e7278e08927e342a26b280894de46ae07382da9",
   "id": "skill-adr-writer",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "adr-writer"

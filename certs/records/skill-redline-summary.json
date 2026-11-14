@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:3fbd692dd95c3cb5739d8ec15ef3f9a4aaa77521cd578a4ef2c026167bcfcc13",
+  "contentDigest": "sha256:37cecf4b5117bb9dbe409dc583f97c76928097a15d35498797425d139295a5a4",
   "id": "skill-redline-summary",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "redline-summary"

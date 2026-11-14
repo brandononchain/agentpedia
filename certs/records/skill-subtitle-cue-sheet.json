@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:c48636d776e086cafa1257ca03ff0aad35cc5b5e610fbb2ed1291bd69ff416e8",
+  "contentDigest": "sha256:b6ad2849fee41b3e51671cdf830ed0352e1ff7b9dfa7e249d2cacc0cdb634e4a",
   "id": "skill-subtitle-cue-sheet",
-  "issuedAt": "2026-11-12",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "b8ce0c9553a41b681ae901a21905272e750019c8",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "subtitle-cue-sheet"

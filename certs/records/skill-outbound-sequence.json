@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:126d319bb240cd779e39f0dc143e1874be4dc0be70184be0b13eb0408cee5493",
+  "contentDigest": "sha256:d5c48fd647f899772d58c4a2feabb344aab19da1ecf993163c64b263e8220ba9",
   "id": "skill-outbound-sequence",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "outbound-sequence"

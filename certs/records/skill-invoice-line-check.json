@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:8ff30cb282ad172f541c2d4332b3e66f81b9e1ce227877a73c8b9fe23124aefc",
+  "contentDigest": "sha256:0207743160be9d4cdd2a4f8f1b9c284b8147affa510bbd59eaa3c64d453c8d3d",
   "id": "skill-invoice-line-check",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "invoice-line-check"

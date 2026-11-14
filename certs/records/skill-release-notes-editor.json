@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:85b46a869d915970ed29e7e94141fb498740e83e58b758b8f971480e3f6197fa",
+  "contentDigest": "sha256:37a5917cbc0dd32b1b6ed1aeb1671c44f0330b899cf179844860b4e24d3bfd55",
   "id": "skill-release-notes-editor",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "release-notes-editor"

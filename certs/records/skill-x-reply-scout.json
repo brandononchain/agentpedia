@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:43521faf99770d6e684f7a50d891e13c8e0c059e3297229b07a88fb13900460d",
+  "contentDigest": "sha256:ab5d782f4327adeb23f3973f6df94a584e702d83a9cc6bf2630cb8c727dc7a99",
   "id": "skill-x-reply-scout",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "cce4f851414810253c8ec3b6a35aa5f1d1e97db5",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "x-reply-scout"

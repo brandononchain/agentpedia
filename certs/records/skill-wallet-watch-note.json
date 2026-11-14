@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:f351742db73bec67f84ec9728bdf5be1dadc00a70a8a6a89608f58bed7a5c840",
+  "contentDigest": "sha256:7bbe002a32aa8919149cb1bd6ddace8ecafbf7bc4f1ffe49aa3048f1777ef3aa",
   "id": "skill-wallet-watch-note",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "wallet-watch-note"

@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:7e4f80e341abc1be844e7bf1aed477d55450a917dfdcaacd1ba10cfec0f56daa",
+  "contentDigest": "sha256:812a9eb7c0a6a1be813d50fe3c111a471e7c0a509293626e338990350959190e",
   "id": "skill-sql-explain-plain",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "sql-explain-plain"

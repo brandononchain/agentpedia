@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:22022df47478232989bf0af821ce9b3f6109e83200743250cea3b7a9b9be7a02",
+  "contentDigest": "sha256:96bb90859eb40057396dba31dca05c8d84944c16dcc4b28dec6725e3e951c1ab",
   "id": "skill-objection-map",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "411d40c0740700e38c1ea49c71007479e7f91ce2",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "objection-map"

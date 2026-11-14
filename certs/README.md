@@ -4,6 +4,8 @@
 
 `checks/<id>.json` is the manifest `tools/verify_checks.py` runs. Checks live outside the skill folder so they do not change the entry digest.
 
+The digest hashes the entry directory. It covers the instructions and the assets. Two catalog fields in the frontmatter are left out before hashing: `category` and `subshelf`, on a skill's `metadata` block or at the top of an agent manifest. The shelf number, the order of sub-shelves, and the call number live in `skills/<shelf>/category.json`, which is outside the entry directory, so a reorder does not change the digest. Editing a step, a script, a reference, or any other file still does.
+
 `results/<id>.json` is a harness result. Commit one only after the harness writes it. Do not hand-edit `ok` or the stdout.
 
 The catalog build issues a Listed record for every skill with a skill-lint score of 100, and for every agent whose bundled skills all score 100. It refuses a Verified or Certified claim that lacks a matching passing result. Certified also requires `review.reviewer`, `review.date`, and `review.notes`.

@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:c8bf14c045202f7dd205368dd23eeaaa8bdbc12fa972b9a9cfc993af326788db",
+  "contentDigest": "sha256:db11dc7fda6a92bc19e1c09964e532014698e2b759cf5259fe9c1da4af874963",
   "id": "skill-eval-case-plan",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "eval-case-plan"

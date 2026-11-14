@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:6149ad5778ee5503e635af169a12e796acbf1c72f8236a284db26bf4e699e7f4",
+  "contentDigest": "sha256:0630a78045f144a235f08e7b54811d7eee2c6dede45b7797ddd2587cc3046a1d",
   "id": "skill-soc2-evidence-index",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "soc2-evidence-index"

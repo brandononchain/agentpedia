@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:6cb901cb5139497346f390de2d50b0a7fb18a405c3c0c03b95493f1839c8e1d3",
+  "contentDigest": "sha256:909a4ce4e9ac20cb47dc9ff7c3529a166f11be3b7687fc92fe25ca3fccd93ca2",
   "id": "skill-meeting-decisions",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "meeting-decisions"

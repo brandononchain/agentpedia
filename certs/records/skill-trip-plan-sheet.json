@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:d5003261628c3e9af5fbee248cbcd8c9699d620a877b1aefef587ba02b8ea011",
+  "contentDigest": "sha256:92519f6805937df5354df0a01171aedd314dc3028bc0134b9bdd647e5e510e88",
   "id": "skill-trip-plan-sheet",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "trip-plan-sheet"

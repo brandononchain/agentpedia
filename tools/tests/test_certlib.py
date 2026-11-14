@@ -116,6 +116,59 @@ def test_content_digest_changes_when_a_file_changes(tmp_path: Path):
     assert content_digest(folder) != first
 
 
+def test_content_digest_ignores_catalog_placement(tmp_path: Path):
+    folder = tmp_path / "entry"
+    folder.mkdir()
+    skill = """---
+name: example
+metadata:
+  category: trading
+  subshelf: risk
+  tags: calendar
+---
+
+# Example
+
+Do the work.
+"""
+    (folder / "SKILL.md").write_text(skill, encoding="utf-8")
+    (folder / "notes.py").write_text("print(1)\n", encoding="utf-8")
+    first = content_digest(folder)
+    moved = skill.replace("category: trading", "category: legal-contracts").replace("subshelf: risk", "subshelf: execution")
+    (folder / "SKILL.md").write_text(moved, encoding="utf-8")
+    assert content_digest(folder) == first
+    (folder / "SKILL.md").write_text(moved.replace("Do the work.", "Do other work."), encoding="utf-8")
+    assert content_digest(folder) != first
+    (folder / "SKILL.md").write_text(moved, encoding="utf-8")
+    assert content_digest(folder) == first
+    (folder / "notes.py").write_text("print(2)\n", encoding="utf-8")
+    assert content_digest(folder) != first
+
+
+def test_content_digest_keeps_subshelf_mentions_in_the_body(tmp_path: Path):
+    folder = tmp_path / "agent"
+    folder.mkdir()
+    manifest = """---
+name: trade-desk
+category: trading
+subshelf: risk
+---
+
+# Trade desk
+
+The subshelf is part of this sentence.
+"""
+    (folder / "AGENT.md").write_text(manifest, encoding="utf-8")
+    first = content_digest(folder)
+    (folder / "AGENT.md").write_text(manifest.replace("category: trading", "category: product"), encoding="utf-8")
+    assert content_digest(folder) == first
+    (folder / "AGENT.md").write_text(
+        manifest.replace("The subshelf is part of this sentence.", "The shelf label is not the work."),
+        encoding="utf-8",
+    )
+    assert content_digest(folder) != first
+
+
 def test_listed_is_active(pinned_manifest):
     body, svg = payload(record())
     assert body["status"] == "active"

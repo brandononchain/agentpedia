@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:b6746766674b33b57cbcc6d097869178e752c1a2022a8ea80283c300cb4ecb59",
+  "contentDigest": "sha256:d9e59e5633546f80a9971beb2c34d78b775b374600bfbd3ac1ad1aa29ce25377",
   "id": "skill-device-switch-list",
-  "issuedAt": "2026-11-13",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "b06a1a1f9b10aa990195c6dc970b54f1311ca623",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "device-switch-list"

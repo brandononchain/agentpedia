@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:bfb34244570b49a187579e5efb609d0a2a3a204622f741b103f74ef33f7a19b7",
+  "contentDigest": "sha256:91b479c00691a48a3314fc760eb77ec3d4c4135d173f0eb50184edd70ec5d508",
   "id": "skill-discovery-call-notes",
-  "issuedAt": "2026-11-10",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "11be82f200f948cf330560b1c9af0e954c57986e",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "discovery-call-notes"

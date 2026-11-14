@@ -18,6 +18,10 @@ certified
 Clocks
 ------
 A changed entry digest sets status to recheck-pending.
+The digest covers instructions and assets. It skips catalog placement:
+category and subshelf in the entry frontmatter, and the shelf number,
+sub-shelf order, and call number, which live in category.json outside
+the entry directory. A shelf move does not by itself invalidate a certificate.
 Listed lapses 365 days after issuedAt.
 A verification run lapses 90 days after it ran.
 A human review lapses 365 days after its date.
@@ -75,6 +79,9 @@ LIMITS = [
 
 SOURCE_RULE = (
     "The certificate names one git commit and one sha256 digest of the entry directory. "
+    "The digest covers the instructions and assets. It skips catalog placement: "
+    "category and subshelf in the frontmatter, and the shelf number, sub-shelf order, "
+    "and call number stored in category.json outside the entry. "
     "A different digest sets the status to re-check pending."
 )
 EXPIRY_RULE = (
@@ -104,6 +111,9 @@ BADGE_MESSAGE = {
 }
 
 SKIP_DIRS = {"__pycache__", ".pytest_cache"}
+# Placement in the catalog. These lines do not change what the entry tells an agent to do.
+CATALOG_PLACEMENT_KEYS = frozenset({"category", "subshelf"})
+_PLACEMENT_LINE = re.compile(r"^[ \t]*(category|subshelf)[ \t]*:")
 _AUTO = object()
 
 
@@ -157,8 +167,43 @@ def sha256_file(path: Path) -> str:
     return sha256_bytes(path.read_bytes())
 
 
+def digest_bytes(path: Path) -> bytes:
+    """Bytes that enter the digest. Catalog placement lines are omitted from frontmatter."""
+    data = path.read_bytes()
+    if path.name not in {"SKILL.md", "AGENT.md"}:
+        return data
+    text = data.decode("utf-8")
+    if not text.startswith("---"):
+        return data
+    lines = text.splitlines(keepends=True)
+    if not lines or lines[0].strip() != "---":
+        return data
+    end = None
+    for index in range(1, len(lines)):
+        if lines[index].strip() == "---":
+            end = index
+            break
+    if end is None:
+        return data
+    kept = [lines[0]]
+    for line in lines[1:end]:
+        match = _PLACEMENT_LINE.match(line)
+        if match and match.group(1) in CATALOG_PLACEMENT_KEYS:
+            continue
+        kept.append(line)
+    kept.extend(lines[end:])
+    return "".join(kept).encode("utf-8")
+
+
 def content_digest(directory: Path) -> str:
-    """Digest of every file under a skill or agent directory."""
+    """Digest of the instructions and assets in a skill or agent directory.
+
+    category.json is not inside that directory, so the shelf number, the
+    sub-shelf order, and the call number are not part of the digest.
+    category and subshelf lines in SKILL.md or AGENT.md frontmatter are
+    removed before hashing. A change to steps, scripts, references, or any
+    other file still changes the digest.
+    """
     if not directory.is_dir():
         raise CertError(f"missing entry directory {directory}")
     hasher = hashlib.sha256()
@@ -171,7 +216,7 @@ def content_digest(directory: Path) -> str:
         files.append(path)
     for path in sorted(files, key=lambda item: item.relative_to(directory).as_posix()):
         rel = path.relative_to(directory).as_posix().encode()
-        data = path.read_bytes()
+        data = digest_bytes(path)
         hasher.update(rel)
         hasher.update(b"\0")
         hasher.update(str(len(data)).encode())

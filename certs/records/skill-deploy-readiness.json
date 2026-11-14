@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:f0d1d2859b0083cbfcd17bcba89f8ad1bc5f496c36aeb9108ae68e9f19563be2",
+  "contentDigest": "sha256:846bd693502505c65877b7f22e605208931504b7854fb88dc5d062d2a047f916",
   "id": "skill-deploy-readiness",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "deploy-readiness"

@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:ae5ea8058911c0748a9cf34844edb84c559d1cf651ec3c4ea9ea80d6afc672c9",
+  "contentDigest": "sha256:738f06d687772be0b7a41dad5912dbd397fee56707d18f49219fc2ff653aa8c2",
   "id": "skill-trace-debug-note",
-  "issuedAt": "2026-11-11",
+  "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "d58b861d9e5e48129551d2750f7a41eef0c33520",
+  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
   "subject": {
     "kind": "skill",
     "name": "trace-debug-note"
