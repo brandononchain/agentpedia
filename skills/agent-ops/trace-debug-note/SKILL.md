@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: agent-ops
+  subshelf: traces
   tags: debugging, traces
   added: "2026-11-10"
   featured: false

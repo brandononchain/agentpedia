@@ -1,4 +1,22 @@
 {
   "label": "Skill Authoring",
-  "blurb": "Write a skill, review one, and bundle skills into an agent."
+  "blurb": "Write a skill, review one, and bundle skills into an agent.",
+  "number": 1,
+  "subshelves": [
+    {
+      "slug": "writing",
+      "label": "Writing",
+      "description": "Drafts a skill from a job the user describes."
+    },
+    {
+      "slug": "review",
+      "label": "Review",
+      "description": "Reads a skill for gaps before it is published."
+    },
+    {
+      "slug": "bundles",
+      "label": "Bundles",
+      "description": "Groups skills into an agent for one job."
+    }
+  ]
 }

@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: devops-cloud
+  subshelf: ci
   tags: ci, logs
   added: "2026-11-10"
   featured: false

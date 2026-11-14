@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: data-analysis
+  subshelf: queries
   tags: sql, data
   added: "2026-11-06"
   featured: false

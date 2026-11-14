@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: data-engineering
+  subshelf: warehouses
   tags: sql, warehouse
   added: "2026-11-10"
   featured: false

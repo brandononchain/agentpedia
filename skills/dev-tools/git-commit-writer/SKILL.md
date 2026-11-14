@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: dev-tools
+  subshelf: git
   tags: git, commits
   added: "2026-11-09"
   featured: true

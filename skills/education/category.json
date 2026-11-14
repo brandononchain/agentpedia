@@ -1,0 +1,22 @@
+{
+  "label": "Education",
+  "blurb": "Lesson plans, practice sets, and checks of what a learner can already do. Nothing here is published yet.",
+  "number": 21,
+  "subshelves": [
+    {
+      "slug": "lessons",
+      "label": "Lessons",
+      "description": "A lesson from the objective and the time the user sets."
+    },
+    {
+      "slug": "practice",
+      "label": "Practice",
+      "description": "Drills from material the user already has."
+    },
+    {
+      "slug": "assessment",
+      "label": "Assessment",
+      "description": "A check of what was learned. It does not assign a grade the work did not earn."
+    }
+  ]
+}

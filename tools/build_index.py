@@ -121,7 +121,7 @@ def badge_for(errors: int, warnings: int) -> str:
     return "clean"
 
 
-def read_category(folder: Path) -> tuple[str, str]:
+def read_category(folder: Path) -> dict:
     meta_path = folder / "category.json"
     if not meta_path.is_file():
         raise SystemExit(f"missing {meta_path.relative_to(ROOT)} with label and blurb")
@@ -136,7 +136,38 @@ def read_category(folder: Path) -> tuple[str, str]:
     reason = shelf_label_error(label)
     if reason:
         raise SystemExit(f"{meta_path.relative_to(ROOT)} label is not title case: {reason}")
-    return label, blurb
+    number = data.get("number")
+    if not isinstance(number, int) or number < 1:
+        raise SystemExit(f"{meta_path.relative_to(ROOT)} needs a positive integer number")
+    raw_subs = data.get("subshelves")
+    if not isinstance(raw_subs, list) or not raw_subs:
+        raise SystemExit(f"{meta_path.relative_to(ROOT)} needs a subshelves list")
+    subshelves = []
+    seen = set()
+    for index, item in enumerate(raw_subs, start=1):
+        if not isinstance(item, dict):
+            raise SystemExit(f"{meta_path.relative_to(ROOT)} subshelf {index} is not an object")
+        slug = str(item.get("slug") or "").strip()
+        sub_label = str(item.get("label") or "").strip()
+        description = str(item.get("description") or "").strip()
+        if not slug or not sub_label or not description:
+            raise SystemExit(f"{meta_path.relative_to(ROOT)} subshelf {index} needs slug, label, and description")
+        if slug in seen:
+            raise SystemExit(f"{meta_path.relative_to(ROOT)} repeats subshelf {slug}")
+        seen.add(slug)
+        sub_reason = shelf_label_error(sub_label)
+        if sub_reason:
+            raise SystemExit(f"{meta_path.relative_to(ROOT)} subshelf {slug} is not title case: {sub_reason}")
+        subshelves.append(
+            {"slug": slug, "label": sub_label, "description": description, "number": index, "count": 0}
+        )
+    return {
+        "id": folder.name,
+        "label": label,
+        "blurb": blurb,
+        "number": number,
+        "subshelves": subshelves,
+    }
 
 
 def field(fields: dict, key: str) -> str:
@@ -275,14 +306,28 @@ def finding_payload(finding) -> dict[str, object]:
     }
 
 
+def load_shelves() -> list[dict]:
+    if not SKILLS_DIR.is_dir():
+        raise SystemExit("skills/ directory is missing")
+    shelves = []
+    for folder in sorted(path for path in SKILLS_DIR.iterdir() if (path / "category.json").is_file()):
+        shelves.append(read_category(folder))
+    numbers = [item["number"] for item in shelves]
+    if len(numbers) != len(set(numbers)):
+        raise SystemExit("shelf numbers must be unique")
+    return shelves
+
+
 def load_skills() -> tuple[list[dict], list[str]]:
     problems: list[str] = []
     skills: list[dict] = []
     if not SKILLS_DIR.is_dir():
         raise SystemExit("skills/ is missing")
     for category_dir in sorted(path for path in SKILLS_DIR.iterdir() if path.is_dir()):
-        label, blurb = read_category(category_dir)
+        meta = read_category(category_dir)
+        label, blurb = meta["label"], meta["blurb"]
         category = category_dir.name
+        allowed = {item["slug"]: item for item in meta["subshelves"]}
         for skill_dir in sorted(path for path in category_dir.iterdir() if path.is_dir()):
             skill_file = skill_dir / "SKILL.md"
             if not skill_file.is_file():
@@ -300,6 +345,10 @@ def load_skills() -> tuple[list[dict], list[str]]:
             declared = meta_value(front.fields, "category")
             if declared and declared != category:
                 problems.append(f"{name} metadata.category is {declared}, folder is {category}")
+            subshelf = meta_value(front.fields, "subshelf")
+            sub = allowed.get(subshelf)
+            if sub is None:
+                problems.append(f"{name} metadata.subshelf must be one of: {', '.join(allowed)}")
             errors = report.error_count
             warnings = report.warn_count
             info = report.info_count
@@ -314,6 +363,10 @@ def load_skills() -> tuple[list[dict], list[str]]:
                     "category": category,
                     "categoryLabel": label,
                     "categoryBlurb": blurb,
+                    "shelfNumber": meta["number"],
+                    "subshelf": subshelf,
+                    "subshelfLabel": sub["label"] if sub else "",
+                    "callNumber": f"{meta['number']}.{sub['number']}" if sub else "",
                     "tags": split_list(meta_value(front.fields, "tags"), comma=True),
                     "added": added,
                     "featured": meta_value(front.fields, "featured").lower() == "true",
@@ -371,11 +424,17 @@ def load_agents(skill_names: set[str]) -> tuple[list[dict], list[str]]:
             problems.append(f"{name} bundles unknown skills: {', '.join(missing)}")
         if not bundled:
             problems.append(f"{name} must bundle at least one skill")
+        category = field(front.fields, "category")
+        subshelf = field(front.fields, "subshelf")
+        if not category or not subshelf:
+            problems.append(f"{name or folder.name} needs category and subshelf")
         agents.append(
             {
                 "name": name or folder.name,
                 "description": description,
                 "added": added,
+                "category": category,
+                "subshelf": subshelf,
                 "skills": bundled,
                 "connectors": split_list(field(front.fields, "connectors")),
                 "prompts": split_list(field(front.fields, "prompts")),
@@ -393,18 +452,38 @@ def build(allow_findings: bool) -> dict:
     skills, skill_problems = load_skills()
     agents, agent_problems = load_agents({item["name"] for item in skills})
     problems = skill_problems + agent_problems
-    categories = []
-    for category in sorted({item["category"] for item in skills}):
-        sample = next(item for item in skills if item["category"] == category)
-        count = sum(1 for item in skills if item["category"] == category)
-        categories.append(
-            {
-                "id": category,
-                "label": sample["categoryLabel"],
-                "blurb": sample["categoryBlurb"],
-                "count": count,
-            }
-        )
+    categories = load_shelves()
+    by_id = {item["id"]: item for item in categories}
+    for skill in skills:
+        shelf = by_id.get(skill["category"])
+        if shelf is None:
+            problems.append(f"{skill['name']} is in an unknown shelf")
+            continue
+        sub = next((item for item in shelf["subshelves"] if item["slug"] == skill["subshelf"]), None)
+        if sub is None:
+            continue
+        sub["skills"] = sub.get("skills", 0) + 1
+    for agent in agents:
+        shelf = by_id.get(agent.get("category"))
+        if shelf is None:
+            problems.append(f"{agent['name']} category is not a shelf")
+            continue
+        sub = next((item for item in shelf["subshelves"] if item["slug"] == agent.get("subshelf")), None)
+        if sub is None:
+            problems.append(f"{agent['name']} subshelf is not on {shelf['id']}")
+            continue
+        sub["agents"] = sub.get("agents", 0) + 1
+        agent["categoryLabel"] = shelf["label"]
+        agent["shelfNumber"] = shelf["number"]
+        agent["subshelfLabel"] = sub["label"]
+        agent["callNumber"] = f"{shelf['number']}.{sub['number']}"
+    for shelf in categories:
+        for sub in shelf["subshelves"]:
+            sub["skills"] = sub.get("skills", 0)
+            sub["agents"] = sub.get("agents", 0)
+        shelf["count"] = sum(sub["skills"] for sub in shelf["subshelves"])
+        shelf["agentCount"] = sum(sub["agents"] for sub in shelf["subshelves"])
+    categories.sort(key=lambda item: item["number"])
     dates = sorted({item["added"] for item in skills} | {item["added"] for item in agents}, reverse=True)
     drops = []
     for day in dates:

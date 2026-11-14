@@ -6,6 +6,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: data-analysis
+  subshelf: metrics
   tags: metrics, data
   added: "2026-11-06"
   featured: false

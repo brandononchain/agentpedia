@@ -7,6 +7,8 @@ description: >-
   pastes. Use when the user wants a trading workflow rather than a single
   calculation.
 added: "2026-11-10"
+category: trading
+subshelf: risk
 skills: mt5-trade-journal, position-risk-sizer, market-data-briefing, session-plan, prop-firm-rule-check, event-risk-guard
 connectors: MetaTrader 5 (optional, read-only) || MetaTrader MarketData (optional)
 prompts: Journal the closed ticket I pasted and flag whether I followed the stop. || Size a position for 0.5% risk. Equity and stop are in the next lines. Do not send an order. || Write the pre-London briefing from these quotes only. Do not invent a price. || Check this 2-contract plan against the daily loss and max contracts I pasted. Do not send an order. || Build the blackout table from this calendar and call the EURUSD entry. Do not send an order.

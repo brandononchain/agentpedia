@@ -10,6 +10,7 @@ compatibility: >-
   Does not send orders.
 metadata:
   category: trading
+  subshelf: research
   tags: markets, briefing
   added: "2026-11-10"
   featured: false

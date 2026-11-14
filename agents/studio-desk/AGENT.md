@@ -5,6 +5,8 @@ description: >-
   clips. Use when the user wants media drafted from material they already have,
   not a performance or a publish.
 added: "2026-11-10"
+category: media-content
+subshelf: scripts
 skills: video-script-outline, thumbnail-brief, clip-cutdown
 connectors: none
 prompts: Outline a 45 second script from these notes. Do not add a statistic. || Brief a thumbnail with these words and no face. || Cut this transcript into notes and one clip. Do not invent a quote.

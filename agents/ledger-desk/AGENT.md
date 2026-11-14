@@ -5,6 +5,8 @@ description: >-
   the user provides. Use when the user wants bookkeeping arithmetic and not a
   payment, a tax position, or a valuation.
 added: "2026-11-10"
+category: finance-ops
+subshelf: invoices
 skills: invoice-line-check, spend-report, forecast-from-actuals
 connectors: none
 prompts: Check this invoice against its printed total. Do not pay it. || Total this spend CSV by vendor. || Project next month from these three actuals only.

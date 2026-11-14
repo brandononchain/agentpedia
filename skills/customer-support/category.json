@@ -1,4 +1,22 @@
 {
   "label": "Customer Support",
-  "blurb": "Sorts a pasted ticket queue, drafts a reply from the facts in the ticket, and updates a knowledge-base article when the same answer keeps coming back. It does not promise a refund, a feature, or a policy the user did not supply."
+  "blurb": "Sorts a pasted ticket queue, drafts a reply from the facts in the ticket, and updates a knowledge-base article when the same answer keeps coming back. It does not promise a refund, a feature, or a policy the user did not supply.",
+  "number": 17,
+  "subshelves": [
+    {
+      "slug": "triage",
+      "label": "Triage",
+      "description": "Sorts a ticket queue the user pastes."
+    },
+    {
+      "slug": "replies",
+      "label": "Replies",
+      "description": "A draft from the facts in the ticket. No promise they did not make."
+    },
+    {
+      "slug": "knowledge",
+      "label": "Knowledge",
+      "description": "Updates an article when the same answer keeps returning."
+    }
+  ]
 }

@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: media-content
+  subshelf: scripts
   tags: video, scripts
   added: "2026-11-10"
   featured: false

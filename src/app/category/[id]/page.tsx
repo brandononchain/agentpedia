@@ -21,12 +21,18 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { id } = await params;
   const category = catalog.categories.find((item) => item.id === id);
   if (!category) return { title: "Shelf" };
+  const occupied = category.count + category.agentCount > 0;
   return siteMeta(`/category/${category.id}`, {
     title: category.label,
-    description: metaDescription(`${category.blurb} ${category.count} ${category.count === 1 ? "entry" : "entries"}.`),
+    description: metaDescription(
+      occupied
+        ? `Shelf ${category.number}. ${category.blurb} ${category.count} ${category.count === 1 ? "skill" : "skills"}.`
+        : `Shelf ${category.number}. ${category.blurb} This shelf is being written.`,
+    ),
     keywords: [category.label, "agent skills", "shelf"],
     image: `/category/${category.id}/opengraph-image`,
-    imageAlt: `${category.label} shelf on Agentpedia. ${category.count} entries.`,
+    imageAlt: `Shelf ${category.number}, ${category.label}. ${occupied ? `${category.count} skills.` : "Being written."}`,
+    noindex: !occupied,
   });
 }
 
@@ -42,10 +48,14 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
   return (
     <ArticleFrame
       current={`/category/${category.id}`}
+      mark={`Shelf ${category.number}`}
       title={category.label}
       lede={
         <>
-          {category.blurb} {category.count} {category.count === 1 ? "entry" : "entries"}, listed by title.
+          {category.blurb}{" "}
+          {category.count + category.agentCount === 0
+            ? "This shelf is being written."
+            : `${category.count} ${category.count === 1 ? "skill" : "skills"}, listed by title.`}
         </>
       }
       path={`/category/${category.id}`}
@@ -70,39 +80,62 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
         },
       ]}
     >
-      <nav className="letter-jump" aria-label="Letters">
-        {alphabet().map((letter) =>
-          present.has(letter) ? (
-            <a key={letter} href={`#letter-${letter}`}>
-              {letter}
-            </a>
-          ) : (
-            <span key={letter}>{letter}</span>
-          ),
-        )}
-      </nav>
-      {groups.map(([letter, items]) => (
-        <section key={letter} className="letter-block" id={`letter-${letter}`}>
-          <h2>{letter}</h2>
-          <ul className="letter-list">
-            {items.map((skill) => (
-              <li key={skill.name}>
-                <Link href={`/skills/${skill.name}`}>{skill.title}</Link>
-                {certificateFor("skill", skill.name) ? (
-                  <>
-                    <span className="quiet"> · </span>
-                    <TierMark
-                      id={certificateFor("skill", skill.name)!.payload.id}
-                      tier={certificateFor("skill", skill.name)!.payload.displayTier}
-                    />
-                  </>
-                ) : null}
-                <span className="quiet"> — {firstSentence(skill.description)}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+      <ul className="subshelf-list">
+        {category.subshelves.map((subshelf) => {
+          const count = subshelf.skills + subshelf.agents;
+          const callNumber = `${category.number}.${subshelf.number}`;
+          return (
+            <li key={subshelf.slug}>
+              <Link href={`/category/${category.id}/${subshelf.slug}`}>
+                <span className="quiet">{callNumber}</span>
+                <span>
+                  {subshelf.label}
+                  <span className="quiet"> — {count === 0 ? "Being written" : subshelf.description}</span>
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      {skills.length === 0 ? (
+        <p className="empty-note">This shelf is being written. Its sub-shelves are reserved.</p>
+      ) : (
+        <>
+          <nav className="letter-jump" aria-label="Letters">
+            {alphabet().map((letter) =>
+              present.has(letter) ? (
+                <a key={letter} href={`#letter-${letter}`}>
+                  {letter}
+                </a>
+              ) : (
+                <span key={letter}>{letter}</span>
+              ),
+            )}
+          </nav>
+          {groups.map(([letter, items]) => (
+            <section key={letter} className="letter-block" id={`letter-${letter}`}>
+              <h2>{letter}</h2>
+              <ul className="letter-list">
+                {items.map((skill) => (
+                  <li key={skill.name}>
+                    <Link href={`/skills/${skill.name}`}>{skill.title}</Link>
+                    {certificateFor("skill", skill.name) ? (
+                      <>
+                        <span className="quiet"> · </span>
+                        <TierMark
+                          id={certificateFor("skill", skill.name)!.payload.id}
+                          tier={certificateFor("skill", skill.name)!.payload.displayTier}
+                        />
+                      </>
+                    ) : null}
+                    <span className="quiet"> — {firstSentence(skill.description)}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </>
+      )}
     </ArticleFrame>
   );
 }

@@ -5,6 +5,8 @@ description: >-
   writes small data specs the day throws up. Use when the user wants the day's
   operating loop rather than a single note.
 added: "2026-11-05"
+category: productivity
+subshelf: planning
 skills: daily-plan, meeting-decisions, inbox-triage, csv-profile, sql-explain-plain, metric-definition, experiment-log
 connectors: none
 prompts: Turn this task dump into three outcomes for today. || Extract decisions and owners from the notes I pasted. || Define the activation metric from the rules in this message, and list open questions.

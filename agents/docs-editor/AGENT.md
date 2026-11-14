@@ -5,6 +5,8 @@ description: >-
   the project in front of it. Use when the user wants project writing rather
   than a single template.
 added: "2026-11-08"
+category: docs-writing
+subshelf: repository
 skills: readme-drafter, adr-writer, api-doc-stub, release-notes-editor
 connectors: none
 prompts: Draft a README from this repo's real run and test commands. || Write an ADR for the decision I paste, status proposed. || Turn this changelog into release notes for end users.

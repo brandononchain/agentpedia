@@ -6,10 +6,11 @@ from pathlib import Path
 
 from skill_lint import __version__
 from skill_lint.discover import discover
+from skill_lint.frontmatter import split_frontmatter
 from skill_lint.models import Finding, LintResult
 from skill_lint.report import render_json, render_text
 from skill_lint.rules import lint_skill
-from skill_lint.shelf_case import category_files_for, findings_for_category
+from skill_lint.shelf_case import category_files_for, findings_for_category, findings_for_subshelf
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -62,6 +63,8 @@ def lint_path(path: Path) -> LintResult:
         return result
     for file in files:
         result.skills.append(lint_skill(file))
+        front = split_frontmatter(file.read_text(encoding="utf-8"))
+        result.extra_findings.extend(findings_for_subshelf(file, front.fields))
     for meta in category_files_for(files):
         result.extra_findings.extend(findings_for_category(meta))
     return result

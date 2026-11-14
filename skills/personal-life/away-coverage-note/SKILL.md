@@ -10,6 +10,7 @@ compatibility: >-
   packages.
 metadata:
   category: personal-life
+  subshelf: home
   tags: home, travel
   added: "2026-11-13"
   featured: false

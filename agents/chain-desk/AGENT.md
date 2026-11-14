@@ -5,6 +5,8 @@ description: >-
   contract for who can move it. Use when the user wants a read-only onchain
   note. The desk does not move funds or sign a transaction.
 added: "2026-11-10"
+category: crypto-onchain
+subshelf: wallets
 skills: wallet-watch-note, token-research-brief, contract-read-notes
 connectors: none
 prompts: Note this wallet paste. Do not sign anything. || Brief this token from these two sources. Do not tell me to buy it. || Who can pause this contract, from the ABI I pasted? Do not write a transaction.

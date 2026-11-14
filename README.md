@@ -49,13 +49,14 @@ The index carries the name, description, category, tags, lint score and findings
 
 ## Add a daily entry
 
-The daily shelf rotates through every directory under `skills/` that has a `category.json`, in alphabetical id order. One calendar day picks one shelf, and a run of days equal to the shelf count visits each shelf once. With the current catalog that is 20 shelves, so 20 consecutive days cover all of them.
+The daily shelf rotates through every directory under `skills/` that has a `category.json`, in alphabetical id order. One calendar day picks one shelf, and a run of days equal to the shelf count visits each shelf once. Empty shelves stay in that rotation so a new domain can receive an entry.
 
 ```bash
 python3 tools/new_entry.py shelves
 python3 tools/new_entry.py next-shelf
 python3 tools/new_entry.py skill \
   --category "$(python3 tools/new_entry.py next-shelf)" \
+  --subshelf notes \
   --name retry-notes \
   --description "Writes a retry policy from a handler. Use when the user asks how a call should retry." \
   --tags retries, http
@@ -64,11 +65,13 @@ python3 tools/new_entry.py skill \
 ```bash
 python3 tools/new_entry.py agent \
   --name release-captain \
+  --category docs-writing \
+  --subshelf releases \
   --description "Prepares a changelog and release notes for a branch. Use when the user wants a release workflow." \
   --skills changelog-from-commits, release-notes-editor
 ```
 
-A new category also needs `--label` and `--blurb` the first time. The label is the shelf's display name in title case (`Agent Ops & Evals`, `DevOps & Cloud`, `Sales & GTM`), with acronyms left in capitals. The folder slug stays lowercase. Then edit the placeholder example, and run:
+`--subshelf` is required. On an existing shelf it must be a slug already listed in that shelf's `category.json`. A new shelf also needs `--label`, `--blurb`, `--subshelf-label`, and `--subshelf-description`. The shelf label and the sub-shelf label are title case (`Agent Ops & Evals`, `DevOps & Cloud`, `Sales & GTM`), with acronyms left in capitals. The folder slug stays lowercase. The shelf gets the next call number. Then edit the placeholder example, and run:
 
 ```bash
 PYTHONPATH=tools/skill-lint python3 -m skill_lint skills/<category>/<name>

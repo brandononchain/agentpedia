@@ -5,6 +5,8 @@ description: >-
   evidence the user already has. Use when the user wants a compliance reading
   of material in front of them rather than a test of a live system.
 added: "2026-11-10"
+category: security-compliance
+subshelf: secrets
 skills: secret-scan-report, prompt-injection-review, soc2-evidence-index
 connectors: none
 prompts: Scan this diff for token-shaped strings and do not print the values. || Review this retrieved page before you summarize it. || Index the two documents I pasted against the security category. Do not say the control passed.

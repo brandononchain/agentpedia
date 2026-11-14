@@ -6,7 +6,7 @@ import { FaqList } from "@/components/faq-list";
 import { JsonLd } from "@/components/json-ld";
 import { HOME_DEFINITION, HOME_FAQ, HOME_TITLE, homeDescription, homeGraph } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE, siteMeta } from "@/lib/site";
-import { didYouKnow, featuredSkill, firstSentence, SHELF_EXPANSION_DATE, SHELF_EXPANSION_IDS } from "@/lib/wiki";
+import { alphabet, didYouKnow, featuredSkill, firstSentence, SHELF_EXPANSION_DATE, SHELF_EXPANSION_IDS } from "@/lib/wiki";
 import { formatDropDate } from "@/lib/format";
 
 export const metadata: Metadata = siteMeta("/", {
@@ -47,16 +47,35 @@ export default function HomePage() {
         .
       </p>
 
-      <ul className="shelf-grid" id="shelves">
-        {catalog.categories.map((category) => (
-          <li key={category.id}>
-            <Link href={`/category/${category.id}`}>
-              <span className="shelf-name">{category.label}</span>
-              <span className="shelf-count">{category.count}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <section id="shelves" aria-label="Shelves">
+        <nav className="letter-jump" aria-label="Shelves by letter">
+          {alphabet().map((letter) => {
+            const shelf = catalog.categories.find((category) => category.label.toUpperCase().startsWith(letter));
+            return shelf ? (
+              <a key={letter} href={`#shelf-${shelf.id}`}>
+                {letter}
+              </a>
+            ) : (
+              <span key={letter}>{letter}</span>
+            );
+          })}
+        </nav>
+        <ul className="shelf-grid">
+          {catalog.categories.map((category) => (
+            <li key={category.id} id={`shelf-${category.id}`}>
+              <Link href={`/category/${category.id}`}>
+                <span className="shelf-id">
+                  <span className="shelf-number">{category.number}</span>
+                  <span className="shelf-name">{category.label}</span>
+                </span>
+                <span className="shelf-count">
+                  {category.count + category.agentCount === 0 ? "Being written" : category.count}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <div className="modules">
         <section>

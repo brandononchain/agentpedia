@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: security-compliance
+  subshelf: secrets
   tags: secrets, scanning
   added: "2026-11-10"
   featured: false

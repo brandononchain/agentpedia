@@ -13,7 +13,15 @@ export const metadata: Metadata = siteMeta("/az", {
   keywords: ["index", "agent skills", SITE_NAME],
 });
 
-type Row = { key: string; title: string; href: string; kind: "Skill" | "Agent"; certId?: string; tier?: string };
+type Row = {
+  key: string;
+  title: string;
+  href: string;
+  kind: "Skill" | "Agent";
+  callNumber: string;
+  certId?: string;
+  tier?: string;
+};
 
 export default function IndexPage() {
   const rows: Row[] = [
@@ -23,6 +31,7 @@ export default function IndexPage() {
         key: `skill-${skill.name}`,
         title: skill.title,
         href: `/skills/${skill.name}`,
+        callNumber: skill.callNumber,
         kind: "Skill" as const,
         certId: cert?.payload.id,
         tier: cert?.payload.displayTier,
@@ -34,6 +43,7 @@ export default function IndexPage() {
         key: `agent-${agent.name}`,
         title: agent.name,
         href: `/agents/${agent.name}`,
+        callNumber: agent.callNumber,
         kind: "Agent" as const,
         certId: cert?.payload.id,
         tier: cert?.payload.displayTier,
@@ -53,9 +63,12 @@ export default function IndexPage() {
         { label: "Index" },
       ]}
     >
-      <p>
+      <p className="view-switch">
+        <Link href="/az" aria-current="page">
+          A–Z
+        </Link>
+        <Link href="/az/numbered">Numbered</Link>
         <Link href="/glossary">Glossary</Link>
-        <span className="quiet"> · </span>
         <Link href="/browse">Search</Link>
       </p>
       <nav className="letter-jump" aria-label="Letters">
@@ -76,7 +89,10 @@ export default function IndexPage() {
             {items.map((item) => (
               <li key={item.key}>
                 <Link href={item.href}>{item.title}</Link>
-                <span className="quiet"> {item.kind}</span>
+                <span className="quiet">
+                  {" "}
+                  {item.callNumber} {item.kind}
+                </span>
                 {item.certId && item.tier ? (
                   <>
                     <span className="quiet"> · </span>

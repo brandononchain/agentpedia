@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: trading
+  subshelf: execution
   tags: planning, risk
   added: "2026-11-09"
   featured: false

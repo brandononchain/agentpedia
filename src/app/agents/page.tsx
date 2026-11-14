@@ -59,6 +59,7 @@ export default function AgentsPage() {
             {agents.map((agent) => (
               <li key={agent.name}>
                 <Link href={`/agents/${agent.name}`}>{agent.name}</Link>
+                <span className="quiet"> {agent.callNumber}</span>
                 {certificateFor("agent", agent.name) ? (
                   <>
                     <span className="quiet"> · </span>

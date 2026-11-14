@@ -5,6 +5,8 @@ description: >-
   spec from tokens the user names. Use when the user wants a frontend reading
   before anyone builds or ships the screen.
 added: "2026-11-10"
+category: design-frontend
+subshelf: review
 skills: ui-review-notes, accessibility-pass, figma-frame-spec
 connectors: none
 prompts: Review this billing screen. Do not redesign it. || Accessibility pass on this button. Do not claim conformance. || Turn this Figma note into a spec. Do not invent tokens.

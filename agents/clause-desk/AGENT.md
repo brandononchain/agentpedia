@@ -5,6 +5,8 @@ description: >-
   when the user wants a plain-language reading of contract text. This is not
   legal advice.
 added: "2026-11-10"
+category: legal-contracts
+subshelf: clauses
 skills: clause-review, nda-checklist, redline-summary
 connectors: none
 prompts: What does this clause say? This is not legal advice. || Check this NDA for parties, definition, exclusions, term, and return. || Summarize the redline. Do not tell me what to accept.

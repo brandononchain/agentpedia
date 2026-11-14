@@ -9,6 +9,7 @@ compatibility: >-
   scaffold script uses only the standard library.
 metadata:
   category: skill-authoring
+  subshelf: writing
   tags: skills, lint
   added: "2026-11-10"
   featured: true

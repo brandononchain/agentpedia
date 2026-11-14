@@ -1,4 +1,22 @@
 {
   "label": "Agent Ops & Evals",
-  "blurb": "Plans an evaluation, reads a trace when another agent misbehaves, lays benchmark numbers into a table, and reviews an MCP connector before install. It tests other agents. It does not raise a score the run did not produce, and it does not declare a model the winner from a single example."
+  "blurb": "Plans an evaluation, reads a trace when another agent misbehaves, lays benchmark numbers into a table, and reviews an MCP connector before install. It tests other agents. It does not raise a score the run did not produce, and it does not declare a model the winner from a single example.",
+  "number": 2,
+  "subshelves": [
+    {
+      "slug": "evaluation",
+      "label": "Evaluation",
+      "description": "Plans cases and lays measured scores into a table."
+    },
+    {
+      "slug": "traces",
+      "label": "Traces",
+      "description": "Reads a trace when another agent misbehaves."
+    },
+    {
+      "slug": "connectors",
+      "label": "Connectors",
+      "description": "Reviews an MCP connector before install."
+    }
+  ]
 }

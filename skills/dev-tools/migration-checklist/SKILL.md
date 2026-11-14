@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: dev-tools
+  subshelf: migrations
   tags: migrations
   added: "2026-11-07"
   featured: false

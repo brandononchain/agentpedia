@@ -5,6 +5,8 @@ description: >-
   schema changes. Use when the user wants the pipeline around a query checked,
   not a query executed.
 added: "2026-11-10"
+category: data-engineering
+subshelf: contracts
 skills: etl-column-contract, warehouse-scan-review, schema-expand-contract
 connectors: none
 prompts: Write the column contract for this orders model. Do not create the table. || What does this BigQuery query scan? Do not run it. || Plan the rename as expand then contract.

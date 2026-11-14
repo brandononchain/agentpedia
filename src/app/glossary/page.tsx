@@ -43,7 +43,8 @@ const TERMS = [
     term: "Shelf",
     body: (
       <>
-        A category of skills. The portal lists every shelf, including{" "}
+        A numbered category of skills. Each shelf holds sub-shelves, and a skill or agent is a book on one of them.
+        The call number is the shelf number, then the sub-shelf, as in 11.2. The portal lists every shelf, including{" "}
         <ShelfLink id="trading" />, <ShelfLink id="security-compliance" />, and <ShelfLink id="legal-contracts" />.
         Legal pages say they are not legal advice. Health notes on <ShelfLink id="personal-life" /> are informational
         only. <ShelfLink id="crypto-onchain" /> skills do not move funds or sign transactions.

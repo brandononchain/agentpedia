@@ -8,6 +8,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: dev-tools
+  subshelf: guides
   tags: docs, agents
   added: "2026-11-11"
   featured: false

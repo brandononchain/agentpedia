@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: sales-gtm
+  subshelf: outbound
   tags: outbound, sales
   added: "2026-11-05"
   featured: false

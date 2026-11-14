@@ -1,0 +1,22 @@
+{
+  "label": "People & Hiring",
+  "blurb": "Role notes, interview plans, and feedback from a conversation the user had. Nothing here is published yet.",
+  "number": 23,
+  "subshelves": [
+    {
+      "slug": "roles",
+      "label": "Roles",
+      "description": "A role description from the work that actually needs doing."
+    },
+    {
+      "slug": "interviews",
+      "label": "Interviews",
+      "description": "Questions for a conversation. It does not score a person who was not in the room."
+    },
+    {
+      "slug": "feedback",
+      "label": "Feedback",
+      "description": "Notes from a review the user is willing to say out loud."
+    }
+  ]
+}

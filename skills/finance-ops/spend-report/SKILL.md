@@ -10,6 +10,7 @@ compatibility: >-
   packages.
 metadata:
   category: finance-ops
+  subshelf: spend
   tags: spend, bookkeeping
   added: "2026-11-10"
   featured: false

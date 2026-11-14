@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: personal-life
+  subshelf: home
   tags: scheduling, home
   added: "2026-11-10"
   featured: false

@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
+import { BookToc } from "@/components/book";
 import { CertFact } from "@/components/cert-fact";
-import { Contents } from "@/components/contents";
 import { CopyButton } from "@/components/copy-button";
 import { MarkdownBody } from "@/components/markdown-body";
+import { agentBook, bookChapters, bookCrumbs, bookJsonLd, recordedCommit } from "@/lib/book";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
 import { certificateFor, tierLabel } from "@/lib/certificates";
 import { metaDescription } from "@/lib/seo";
 import { absoluteUrl, siteMeta } from "@/lib/site";
 import { formatDropDate, stripTitle } from "@/lib/format";
-import { extractToc, otherAgents, type TocItem } from "@/lib/wiki";
+import { otherAgents } from "@/lib/wiki";
 
 type Params = { name: string };
 
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     description: metaDescription(agent.description),
     keywords: [agent.name, "AI agent", "agent skills"],
     image: `/agents/${agent.name}/opengraph-image`,
-    imageAlt: `${agent.name}, an agent with ${agent.skills.length} skills. ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
+    imageAlt: `${agent.name}, call number ${agent.callNumber} ${agent.subshelfLabel}. ${agent.skills.length} skills. ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
   });
 }
 
@@ -41,24 +42,19 @@ export default async function AgentPage({ params }: { params: Promise<Params> })
   if (!agent) notFound();
   const body = stripTitle(agent.body);
   const others = otherAgents(agent);
-  const toc: TocItem[] = [
-    ...extractToc(body),
-    { id: "member-skills", text: "Member skills", depth: 2 },
-    { id: "sample-prompts", text: "Sample prompts", depth: 2 },
-    { id: "see-also", text: "See also", depth: 2 },
-  ];
+  const entry = agentBook(agent);
+  const chapters = bookChapters(entry);
 
   return (
     <ArticleFrame
+      current={`/category/${agent.category}`}
+      mark={agent.callNumber}
       title={agent.name}
       lede={agent.description}
       path={`/agents/${agent.name}`}
-      crumbs={[
-        { href: "/", label: "Home" },
-        { href: "/agents", label: "Agents" },
-        { label: agent.name },
-      ]}
+      crumbs={bookCrumbs(entry)}
       structuredData={[
+        bookJsonLd(entry, chapters),
         {
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -67,13 +63,33 @@ export default async function AgentPage({ params }: { params: Promise<Params> })
           description: agent.description,
           url: absoluteUrl(`/agents/${agent.name}`),
           datePublished: agent.added,
-          isPartOf: { "@type": "WebSite", name: "Agentpedia", url: absoluteUrl("/") },
+          isPartOf: {
+            "@type": "Collection",
+            name: agent.subshelfLabel,
+            url: absoluteUrl(`/category/${agent.category}/${agent.subshelf}`),
+          },
         },
       ]}
       plate={
         <aside className="plate" aria-label="Agent facts">
           <p className="plate-name">{agent.name}</p>
           <dl>
+            <dt>Call number</dt>
+            <dd>{agent.callNumber}</dd>
+            <dt>Shelf</dt>
+            <dd>
+              <Link href={`/category/${agent.category}`}>
+                {agent.shelfNumber} {agent.categoryLabel}
+              </Link>
+            </dd>
+            <dt>Sub-shelf</dt>
+            <dd>
+              <Link href={`/category/${agent.category}/${agent.subshelf}`}>{agent.subshelfLabel}</Link>
+            </dd>
+            <dt>Author</dt>
+            <dd>{catalog.owner.name}</dd>
+            <dt>Source</dt>
+            <dd>{agent.sourcePath}</dd>
             <dt>Kind</dt>
             <dd>Agent</dd>
             <CertFact kind="agent" name={agent.name} />
@@ -85,13 +101,16 @@ export default async function AgentPage({ params }: { params: Promise<Params> })
             </dd>
             <dt>Version</dt>
             <dd>Not recorded</dd>
+            <dt>Commit</dt>
+            <dd>{recordedCommit("agent", agent.name)}</dd>
             <dt>Connectors</dt>
             <dd>{agent.connectors.length === 0 ? "None" : agent.connectors.join("; ")}</dd>
           </dl>
         </aside>
       }
     >
-      <Contents items={toc} />
+      <BookToc entry={entry} chapters={chapters} />
+      <p className="quiet">The sections below are this book on one page.</p>
       <MarkdownBody source={body} selfHref={`/agents/${agent.name}`} />
 
       <section className="see-also" id="member-skills">

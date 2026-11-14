@@ -1,4 +1,22 @@
 {
   "label": "Web Research",
-  "blurb": "Source-backed briefs, citation checks, and competitor snapshots."
+  "blurb": "Source-backed briefs, citation checks, and competitor snapshots.",
+  "number": 8,
+  "subshelves": [
+    {
+      "slug": "briefs",
+      "label": "Briefs",
+      "description": "A source-backed brief. Uncited claims stay out."
+    },
+    {
+      "slug": "citations",
+      "label": "Citations",
+      "description": "Checks that a citation points at the source."
+    },
+    {
+      "slug": "competitors",
+      "label": "Competitors",
+      "description": "A snapshot from pages the user supplies."
+    }
+  ]
 }

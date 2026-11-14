@@ -1,4 +1,42 @@
 {
   "label": "Dev Tools",
-  "blurb": "Git, review, tests, agent guides, and the risk hiding in a diff."
+  "blurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+  "number": 3,
+  "subshelves": [
+    {
+      "slug": "git",
+      "label": "Git",
+      "description": "Commit messages and changelogs from the branch."
+    },
+    {
+      "slug": "review",
+      "label": "Review",
+      "description": "Notes on a diff and the risk inside it."
+    },
+    {
+      "slug": "tests",
+      "label": "Tests",
+      "description": "Finds cases the current tests do not cover."
+    },
+    {
+      "slug": "incidents",
+      "label": "Incidents",
+      "description": "Turns a timeline into a note someone can follow."
+    },
+    {
+      "slug": "migrations",
+      "label": "Migrations",
+      "description": "Checks a migration before it runs."
+    },
+    {
+      "slug": "dependencies",
+      "label": "Dependencies",
+      "description": "Reads a lockfile change for what it pulls in."
+    },
+    {
+      "slug": "guides",
+      "label": "Guides",
+      "description": "Writes the agent guide a repository should carry."
+    }
+  ]
 }

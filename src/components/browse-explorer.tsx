@@ -44,7 +44,7 @@ export function BrowseExplorer({
     if (category && skill.category !== category) return false;
     if (tag && !skill.tags.includes(tag)) return false;
     if (!needle) return true;
-    const haystack = [skill.name, skill.title, skill.description, skill.categoryLabel, ...skill.tags].join(" ").toLowerCase();
+    const haystack = [skill.name, skill.title, skill.description, skill.categoryLabel, skill.subshelfLabel, skill.callNumber, ...skill.tags].join(" ").toLowerCase();
     return haystack.includes(needle);
   });
 
@@ -159,7 +159,7 @@ export function BrowseExplorer({
                     </span>
                     <span className="quiet">{skill.description}</span>
                     <span className="quiet">
-                      {skill.categoryLabel}
+                      {skill.callNumber} {skill.subshelfLabel} · {skill.categoryLabel}
                       {skill.tier ? ` · ${skill.tier}` : ""} · {formatDropDate(skill.added)}
                     </span>
                   </Link>

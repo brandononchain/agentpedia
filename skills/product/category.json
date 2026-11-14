@@ -1,0 +1,22 @@
+{
+  "label": "Product",
+  "blurb": "Discovery notes, specs, and roadmaps for a product the user is shaping. Nothing here is published yet.",
+  "number": 22,
+  "subshelves": [
+    {
+      "slug": "discovery",
+      "label": "Discovery",
+      "description": "What users asked for, in their words."
+    },
+    {
+      "slug": "specs",
+      "label": "Specs",
+      "description": "A spec from the decision already made."
+    },
+    {
+      "slug": "roadmaps",
+      "label": "Roadmaps",
+      "description": "A sequence of work. Dates stay blank unless the user supplied them."
+    }
+  ]
+}

@@ -5,6 +5,8 @@ description: >-
   help article when tickets show it is wrong. Use when the user wants support
   writing that stays inside the facts they supplied.
 added: "2026-11-10"
+category: customer-support
+subshelf: triage
 skills: ticket-triage, support-reply-draft, kb-article-update
 connectors: none
 prompts: Triage these four tickets. Do not reply yet. || Draft the reply from this policy. Do not send it. || Update the export article from these tickets.

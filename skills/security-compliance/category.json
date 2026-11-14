@@ -1,4 +1,22 @@
 {
   "label": "Security & Compliance",
-  "blurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev Tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification."
+  "blurb": "A shelf for reading a change before it ships: secrets in text the user supplies, untrusted instructions hidden in a prompt or a tool result, and the evidence a control asks for. Dependency-audit notes already live on Dev Tools; this shelf files that output when a control needs it. Nothing here is a penetration test or a certification.",
+  "number": 5,
+  "subshelves": [
+    {
+      "slug": "secrets",
+      "label": "Secrets",
+      "description": "Reports kinds and line numbers. It does not store the secret."
+    },
+    {
+      "slug": "prompts",
+      "label": "Prompts",
+      "description": "Stops when untrusted text tries to change the job."
+    },
+    {
+      "slug": "evidence",
+      "label": "Evidence",
+      "description": "Indexes documents a control asks for. A gap stays a gap."
+    }
+  ]
 }

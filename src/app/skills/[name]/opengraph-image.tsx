@@ -13,10 +13,10 @@ export default async function Image({ params }: { params: Promise<{ name: string
   if (!skill) return renderOg({ title: "Agentpedia", lines: ["Missing entry"] });
   const tier = certificateFor("skill", skill.name);
   return renderOg({
-    kicker: "Skill",
+    kicker: skill.callNumber,
     title: skill.title,
     lines: [
-      skill.categoryLabel,
+      `${skill.subshelfLabel} · ${skill.categoryLabel}`,
       `Lint ${skill.lint.score} · ${tier ? tierLabel(tier.payload.displayTier) : "unlisted"}`,
     ],
   });

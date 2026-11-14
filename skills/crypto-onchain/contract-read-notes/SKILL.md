@@ -7,6 +7,7 @@ description: >-
 license: Apache-2.0
 metadata:
   category: crypto-onchain
+  subshelf: contracts
   tags: contracts, review
   added: "2026-11-10"
   featured: false
