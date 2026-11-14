@@ -7,7 +7,9 @@ import { Contents } from "@/components/contents";
 import { CopyButton } from "@/components/copy-button";
 import { MarkdownBody } from "@/components/markdown-body";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
-import { siteMeta } from "@/lib/site";
+import { certificateFor, tierLabel } from "@/lib/certificates";
+import { metaDescription } from "@/lib/seo";
+import { absoluteUrl, siteMeta } from "@/lib/site";
 import { formatDropDate, stripTitle } from "@/lib/format";
 import { extractToc, otherAgents, type TocItem } from "@/lib/wiki";
 
@@ -23,7 +25,14 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { name } = await params;
   const agent = getAgent(name);
   if (!agent) return { title: "Agent" };
-  return { title: agent.name, description: agent.description, ...siteMeta(`/agents/${agent.name}`) };
+  const tier = certificateFor("agent", agent.name);
+  return siteMeta(`/agents/${agent.name}`, {
+    title: agent.name,
+    description: metaDescription(agent.description),
+    keywords: [agent.name, "AI agent", "agent skills"],
+    image: `/agents/${agent.name}/opengraph-image`,
+    imageAlt: `${agent.name}, an agent with ${agent.skills.length} skills. ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
+  });
 }
 
 export default async function AgentPage({ params }: { params: Promise<Params> }) {
@@ -43,10 +52,23 @@ export default async function AgentPage({ params }: { params: Promise<Params> })
     <ArticleFrame
       title={agent.name}
       lede={agent.description}
+      path={`/agents/${agent.name}`}
       crumbs={[
         { href: "/", label: "Home" },
         { href: "/agents", label: "Agents" },
         { label: agent.name },
+      ]}
+      structuredData={[
+        {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: agent.name,
+          applicationCategory: "AI agent",
+          description: agent.description,
+          url: absoluteUrl(`/agents/${agent.name}`),
+          datePublished: agent.added,
+          isPartOf: { "@type": "WebSite", name: "Agentpedia", url: absoluteUrl("/") },
+        },
       ]}
       plate={
         <aside className="plate" aria-label="Agent facts">

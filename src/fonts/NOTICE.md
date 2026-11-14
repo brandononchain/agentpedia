@@ -1,0 +1,1 @@
+Literata (TypeTogether) and Atkinson Hyperlegible (Braille Institute) are used under the SIL Open Font License to draw Open Graph images. Literata-600.ttf is a static instance of the variable font at optical size 48 and weight 600.

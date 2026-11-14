@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { JsonLd } from "@/components/json-ld";
 import { WikiRail } from "@/components/wiki-rail";
 import { catalog } from "@/lib/catalog";
+import { absoluteUrl } from "@/lib/site";
 import type { Crumb } from "@/lib/wiki";
 
 export function ArticleFrame({
@@ -10,6 +12,8 @@ export function ArticleFrame({
   lede,
   plate,
   current,
+  path,
+  structuredData,
   children,
 }: {
   crumbs: Crumb[];
@@ -17,11 +21,28 @@ export function ArticleFrame({
   lede?: ReactNode;
   plate?: ReactNode;
   current?: string;
+  path?: string;
+  structuredData?: unknown[];
   children: ReactNode;
 }) {
   const names = catalog.skills.map((skill) => skill.name);
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((crumb, index) => {
+      const last = index === crumbs.length - 1;
+      const href = crumb.href ?? (last ? path : undefined);
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: crumb.label,
+        ...(href ? { item: absoluteUrl(href) } : {}),
+      };
+    }),
+  };
   return (
     <div className="wiki-frame">
+      <JsonLd data={[breadcrumb, ...(structuredData ?? [])]} />
       <WikiRail
         current={current}
         names={names}

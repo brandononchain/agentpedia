@@ -4,11 +4,11 @@ import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { SITE_NAME, siteMeta } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta("/glossary", {
   title: "Glossary",
   description: `Definitions for the words ${SITE_NAME} uses: skill, agent, shelf, lint score, and drop.`,
-  ...siteMeta("/glossary"),
-};
+  keywords: ["glossary", "agent skill", "shelf", SITE_NAME],
+});
 
 const TERMS = [
   {
@@ -93,6 +93,7 @@ export default function GlossaryPage() {
     <ArticleFrame
       title="Glossary"
       lede={`The words ${SITE_NAME} uses for its own contents. Entry names elsewhere in the encyclopedia link to their articles.`}
+      path="/glossary"
       crumbs={[
         { href: "/", label: "Home" },
         { label: "Glossary" },

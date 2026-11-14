@@ -4,17 +4,18 @@ import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { REPO_URL, SITE_NAME, siteMeta } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta("/certify", {
   title: "Submit for certification",
   description: `How to submit a skill or agent to ${SITE_NAME} for a Listed or Verified certificate. No account and no form.`,
-  ...siteMeta("/certify"),
-};
+  keywords: ["certification", "submit a skill", SITE_NAME],
+});
 
 export default function CertifyPage() {
   return (
     <ArticleFrame
       title="Submit for certification"
       lede={`There is no account and no form. A certificate starts as a pull request to ${SITE_NAME}. The maintainer records Listed or Verified from the checks that run on that pull request. Certified is a later human review, written into the repository.`}
+      path="/certify"
       crumbs={[
         { href: "/", label: "Home" },
         { href: "/certification", label: "Certification" },

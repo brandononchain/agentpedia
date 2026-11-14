@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -48,3 +50,22 @@ jobs:
             rm -rf .next
             sleep 8
           done
+
+      - name: SEO tags, sitemap, and llms.txt
+        run: |
+          npx next start -H 127.0.0.1 -p 43123 &
+          echo $! > /tmp/next-seo.pid
+          trap 'kill "$(cat /tmp/next-seo.pid)" || true' EXIT
+          ready=0
+          for _ in $(seq 1 30); do
+            if curl -fsS -o /dev/null http://127.0.0.1:43123/robots.txt; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" != 1 ]; then
+            echo "the site did not answer on port 43123" >&2
+            exit 1
+          fi
+          node tools/check_seo.mjs

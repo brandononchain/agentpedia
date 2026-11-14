@@ -7,11 +7,11 @@ import { catalog } from "@/lib/catalog";
 import { SITE_NAME, siteMeta } from "@/lib/site";
 import { alphabet, groupByLetter } from "@/lib/wiki";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta("/az", {
   title: "Index",
-  description: `Alphabetical index of skills and agents in ${SITE_NAME}.`,
-  ...siteMeta("/az"),
-};
+  description: `Alphabetical index of every skill and agent in ${SITE_NAME}, the open encyclopedia of agents and skills.`,
+  keywords: ["index", "agent skills", SITE_NAME],
+});
 
 type Row = { key: string; title: string; href: string; kind: "Skill" | "Agent"; certId?: string; tier?: string };
 
@@ -46,7 +46,8 @@ export default function IndexPage() {
   return (
     <ArticleFrame
       title="Index"
-      lede={`Every skill and agent in ${SITE_NAME}, listed by title. The glossary defines the words this encyclopedia uses for itself.`}
+      lede={`${SITE_NAME} is the open encyclopedia of agents and skills. This index lists every skill and agent by title.`}
+      path="/az"
       crumbs={[
         { href: "/", label: "Home" },
         { label: "Index" },

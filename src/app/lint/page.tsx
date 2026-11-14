@@ -6,11 +6,11 @@ import { catalog } from "@/lib/catalog";
 import { SITE_NAME, siteMeta } from "@/lib/site";
 import { slugify, type TocItem } from "@/lib/wiki";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta("/lint", {
   title: "How we lint",
-  description: `The skill-lint rules ${SITE_NAME} runs before an entry can be listed, and how the score is calculated.`,
-  ...siteMeta("/lint"),
-};
+  description: `The skill-lint rules ${SITE_NAME} runs before an entry can be listed, and how a score of 100 is calculated.`,
+  keywords: ["skill-lint", "lint score", "agent skills"],
+});
 
 export default function LintPage() {
   const { scoring, stats } = catalog;
@@ -24,6 +24,7 @@ export default function LintPage() {
     <ArticleFrame
       title="How we lint"
       lede={`${SITE_NAME} lists a skill only after skill-lint reports no errors and no warnings. The score on an article is that check, not a rating of the advice inside.`}
+      path="/lint"
       crumbs={[
         { href: "/", label: "Home" },
         { label: "How we lint" },

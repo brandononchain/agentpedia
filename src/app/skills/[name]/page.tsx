@@ -8,7 +8,9 @@ import { InstallPanel } from "@/components/install-panel";
 import { MarkdownBody } from "@/components/markdown-body";
 import { ScoreMark } from "@/components/score-mark";
 import { catalog, getSkill } from "@/lib/catalog";
-import { siteMeta } from "@/lib/site";
+import { certificateFor, tierLabel } from "@/lib/certificates";
+import { metaDescription } from "@/lib/seo";
+import { absoluteUrl, siteMeta } from "@/lib/site";
 import { formatBytes, formatDropDate, stripTitle } from "@/lib/format";
 import { agentForSkill, extractToc, relatedSkills, shelfNeighbors, type TocItem } from "@/lib/wiki";
 
@@ -24,7 +26,15 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { name } = await params;
   const skill = getSkill(name);
   if (!skill) return { title: "Entry" };
-  return { title: skill.title, description: skill.description, ...siteMeta(`/skills/${skill.name}`) };
+  const description = metaDescription(skill.description);
+  const tier = certificateFor("skill", skill.name);
+  return siteMeta(`/skills/${skill.name}`, {
+    title: skill.title,
+    description,
+    keywords: [skill.title, skill.categoryLabel, "agent skill", ...skill.tags].slice(0, 8),
+    image: `/skills/${skill.name}/opengraph-image`,
+    imageAlt: `${skill.title}, a ${skill.categoryLabel} skill. Lint score ${skill.lint.score}. ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
+  });
 }
 
 export default async function SkillPage({ params }: { params: Promise<Params> }) {
@@ -33,6 +43,7 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
   if (!skill) notFound();
 
   const agent = agentForSkill(skill.name);
+  const tier = certificateFor("skill", skill.name);
   const related = relatedSkills(skill);
   const { prev, next } = shelfNeighbors(skill);
   const body = stripTitle(skill.body);
@@ -48,11 +59,31 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
       current={`/category/${skill.category}`}
       title={skill.title}
       lede={skill.description}
+      path={`/skills/${skill.name}`}
       crumbs={[
         { href: "/", label: "Home" },
         { href: "/#shelves", label: "Shelves" },
         { href: `/category/${skill.category}`, label: skill.categoryLabel },
         { label: skill.title },
+      ]}
+      structuredData={[
+        {
+          "@context": "https://schema.org",
+          "@type": ["SoftwareSourceCode", "CreativeWork"],
+          name: skill.title,
+          description: skill.description,
+          url: absoluteUrl(`/skills/${skill.name}`),
+          codeRepository: catalog.repoUrl,
+          programmingLanguage: "Markdown",
+          license: skill.license || undefined,
+          datePublished: skill.added,
+          keywords: skill.tags.join(", "),
+          isPartOf: { "@type": "CreativeWork", name: skill.categoryLabel, url: absoluteUrl(`/category/${skill.category}`) },
+          additionalProperty: [
+            { "@type": "PropertyValue", name: "lintScore", value: skill.lint.score },
+            { "@type": "PropertyValue", name: "certificate", value: tier ? tierLabel(tier.payload.displayTier) : "unlisted" },
+          ],
+        },
       ]}
       plate={
         <aside className="plate" aria-label="Entry facts">

@@ -2,11 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { certificates } from "@/lib/certificates";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
+import { FaqList } from "@/components/faq-list";
+import { JsonLd } from "@/components/json-ld";
+import { HOME_DEFINITION, HOME_FAQ, HOME_TITLE, homeDescription, homeGraph } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE, siteMeta } from "@/lib/site";
 import { didYouKnow, featuredSkill, firstSentence, SHELF_EXPANSION_DATE, SHELF_EXPANSION_IDS } from "@/lib/wiki";
 import { formatDropDate } from "@/lib/format";
 
-export const metadata: Metadata = siteMeta("/");
+export const metadata: Metadata = siteMeta("/", {
+  absoluteTitle: HOME_TITLE,
+  description: homeDescription(),
+  keywords: ["Agentpedia", "agent skills", "AI agents", "SKILL.md", "encyclopedia", "shelves"],
+});
 
 export default function HomePage() {
   const featured = featuredSkill();
@@ -17,9 +24,11 @@ export default function HomePage() {
 
   return (
     <div className="portal">
+      <JsonLd data={homeGraph()} />
       <h1 className="portal-name">{SITE_NAME}</h1>
       <p className="portal-tagline">{SITE_TAGLINE}</p>
       <div className="portal-rule" aria-hidden="true" />
+      <p className="portal-definition">{HOME_DEFINITION}</p>
       <form className="portal-search" action="/browse" role="search">
         <label htmlFor="q" className="sr-only">
           Search entries
@@ -144,6 +153,10 @@ export default function HomePage() {
           </ul>
         </section>
       </div>
+      <section className="portal-faq" id="faq">
+        <h2 className="section-title">Questions</h2>
+        <FaqList items={HOME_FAQ} />
+      </section>
     </div>
   );
 }

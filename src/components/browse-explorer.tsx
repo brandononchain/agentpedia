@@ -58,24 +58,13 @@ export function BrowseExplorer({
   const activeCategory = categories.find((item) => item.id === category);
 
   return (
-    <div className="page-wrap" style={{ padding: "1.4rem 0 2rem" }}>
-      <nav className="crumbs" aria-label="Breadcrumb">
-        <Link href="/">Home</Link>
-        <span aria-hidden="true"> / </span>
-        <span aria-current="page">Search</span>
-      </nav>
-      <h1 className="entry-title">Search</h1>
-      <p className="lede">
-        {activeCategory
-          ? `${activeCategory.label} has ${activeCategory.count} entries. Narrow them here, or open the shelf page.`
-          : "Search the encyclopedia by name, tag, or the job a skill does."}
-        {activeCategory ? (
-          <>
-            {" "}
-            <Link href={`/category/${activeCategory.id}`}>Open {activeCategory.label}</Link>.
-          </>
-        ) : null}
-      </p>
+    <div className="page-wrap" style={{ padding: "0 0 2rem" }}>
+      {activeCategory ? (
+        <p className="lede">
+          {activeCategory.label} has {activeCategory.count} entries. Narrow them here, or open the shelf page.{" "}
+          <Link href={`/category/${activeCategory.id}`}>Open {activeCategory.label}</Link>.
+        </p>
+      ) : null}
 
       <div className="search-layout">
         <aside>
