@@ -5,7 +5,8 @@ import { ArticleFrame } from "@/components/article-frame";
 import { TierMark } from "@/components/tier-mark";
 import { certificateFor } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
-import { siteMeta } from "@/lib/site";
+import { metaDescription } from "@/lib/seo";
+import { absoluteUrl, siteMeta } from "@/lib/site";
 import { alphabet, firstSentence, groupByLetter } from "@/lib/wiki";
 
 type Params = { id: string };
@@ -20,7 +21,13 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { id } = await params;
   const category = catalog.categories.find((item) => item.id === id);
   if (!category) return { title: "Shelf" };
-  return { title: category.label, description: category.blurb, ...siteMeta(`/category/${category.id}`) };
+  return siteMeta(`/category/${category.id}`, {
+    title: category.label,
+    description: metaDescription(`${category.blurb} ${category.count} ${category.count === 1 ? "entry" : "entries"}.`),
+    keywords: [category.label, "agent skills", "shelf"],
+    image: `/category/${category.id}/opengraph-image`,
+    imageAlt: `${category.label} shelf on Agentpedia. ${category.count} entries.`,
+  });
 }
 
 export default async function CategoryPage({ params }: { params: Promise<Params> }) {
@@ -41,10 +48,26 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
           {category.blurb} {category.count} {category.count === 1 ? "entry" : "entries"}, listed by title.
         </>
       }
+      path={`/category/${category.id}`}
       crumbs={[
         { href: "/", label: "Home" },
         { href: "/#shelves", label: "Shelves" },
         { label: category.label },
+      ]}
+      structuredData={[
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: category.label,
+          description: category.blurb,
+          numberOfItems: skills.length,
+          itemListElement: skills.map((skill, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: skill.title,
+            url: absoluteUrl(`/skills/${skill.name}`),
+          })),
+        },
       ]}
     >
       <nav className="letter-jump" aria-label="Letters">

@@ -3,13 +3,16 @@ import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { certificates } from "@/lib/certificates";
+import { FaqList } from "@/components/faq-list";
+import { JsonLd } from "@/components/json-ld";
+import { CERT_FAQ, faqNode } from "@/lib/seo";
 import { SITE_NAME, siteMeta } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta("/certification", {
   title: "Certification",
   description: `What ${SITE_NAME} Listed, Verified, and Certified certificates check, and what they do not guarantee.`,
-  ...siteMeta("/certification"),
-};
+  keywords: ["Listed", "Verified", "Certified", "agent skills", SITE_NAME],
+});
 
 export default function CertificationPage() {
   const { stats } = certificates;
@@ -18,6 +21,7 @@ export default function CertificationPage() {
     <ArticleFrame
       title="Certification"
       lede={`${SITE_NAME} publishes a certificate for every skill and agent that passes the lint gate. The certificate names a tier, one source commit, and a date. It is a public record of those checks. It is not a security audit.`}
+      path="/certification"
       crumbs={[
         { href: "/", label: "Home" },
         { label: "Certification" },
@@ -32,6 +36,7 @@ export default function CertificationPage() {
           { id: "status", text: "Status", depth: 2 },
           { id: "signing", text: "Signing", depth: 2 },
           { id: "counts", text: "This build", depth: 2 },
+          { id: "faq", text: "Questions", depth: 2 },
         ]}
       />
       <div className="wiki-prose">
@@ -156,7 +161,12 @@ export default function CertificationPage() {
             <Link href="/certify">the submission path</Link>.
           </p>
         </section>
+        <section id="faq">
+          <h2>Questions</h2>
+          <FaqList items={CERT_FAQ} />
+        </section>
       </div>
+      <JsonLd data={{ "@context": "https://schema.org", ...faqNode(CERT_FAQ) }} />
     </ArticleFrame>
   );
 }

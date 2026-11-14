@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { siteMeta } from "@/lib/site";
+
+export const metadata: Metadata = siteMeta("/404", {
+  title: "No entry by that name",
+  description: "That name is not a skill, an agent, or a shelf in this build of Agentpedia.",
+  noindex: true,
+});
 
 export default function NotFound() {
   return (

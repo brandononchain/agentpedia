@@ -5,7 +5,8 @@ import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { CopyButton } from "@/components/copy-button";
 import { badgeAlt, certificateById, certificates, embedHtml, embedMarkdown, tierLabel } from "@/lib/certificates";
-import { REPO_URL, SITE_NAME, siteMeta } from "@/lib/site";
+import { metaDescription } from "@/lib/seo";
+import { absoluteUrl, REPO_URL, SITE_NAME, siteMeta } from "@/lib/site";
 import { formatDropDate } from "@/lib/format";
 
 type Params = { id: string };
@@ -21,11 +22,16 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const document = certificateById(id);
   if (!document) return { title: "Certificate" };
   const { payload } = document;
-  return {
+  const description = metaDescription(
+    `${SITE_NAME} ${tierLabel(payload.displayTier)} certificate for ${payload.subject.title}. ${payload.statusReason}`,
+  );
+  return siteMeta(`/cert/${payload.id}`, {
     title: `${payload.subject.title} certificate`,
-    description: `${SITE_NAME} ${tierLabel(payload.displayTier)} certificate for ${payload.subject.title}. ${payload.statusReason}`,
-    ...siteMeta(`/cert/${payload.id}`),
-  };
+    description,
+    keywords: [payload.subject.title, "certificate", tierLabel(payload.displayTier)],
+    image: `/cert/${payload.id}/opengraph-image`,
+    imageAlt: `${payload.subject.title} certificate, ${tierLabel(payload.displayTier)}.`,
+  });
 }
 
 export default async function CertificatePage({ params }: { params: Promise<Params> }) {
@@ -42,10 +48,22 @@ export default async function CertificatePage({ params }: { params: Promise<Para
     <ArticleFrame
       title={payload.subject.title}
       lede={`${tierLabel(payload.displayTier)} on ${SITE_NAME}. ${payload.statusReason}`}
+      path={`/cert/${payload.id}`}
       crumbs={[
         { href: "/", label: "Home" },
         { href: "/certification", label: "Certification" },
         { label: payload.id },
+      ]}
+      structuredData={[
+        {
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: `${payload.subject.title} certificate`,
+          description: payload.statusReason,
+          url: absoluteUrl(`/cert/${payload.id}`),
+          datePublished: payload.issuedAt,
+          identifier: payload.id,
+        },
       ]}
       plate={
         <aside className="plate" aria-label="Certificate facts">

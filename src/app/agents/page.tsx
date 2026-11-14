@@ -4,14 +4,14 @@ import { ArticleFrame } from "@/components/article-frame";
 import { TierMark } from "@/components/tier-mark";
 import { certificateFor } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
-import { SITE_NAME, siteMeta } from "@/lib/site";
+import { absoluteUrl, SITE_NAME, siteMeta } from "@/lib/site";
 import { alphabet, firstSentence, groupByLetter } from "@/lib/wiki";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta("/agents", {
   title: "Agents",
-  description: `Agents in ${SITE_NAME}, each a bundle of linted skills.`,
-  ...siteMeta("/agents"),
-};
+  description: `Agents in ${SITE_NAME}, each a bundle of linted skills for one job.`,
+  keywords: ["AI agents", "agent skills", SITE_NAME],
+});
 
 export default function AgentsPage() {
   const groups = groupByLetter(catalog.agents, (agent) => agent.name);
@@ -21,9 +21,24 @@ export default function AgentsPage() {
     <ArticleFrame
       title="Agents"
       lede="An agent is a bundle: a job, the skills that do it, and the connectors it may use. Every bundled skill has already passed the linter. Each skill is listed under one agent."
+      path="/agents"
       crumbs={[
         { href: "/", label: "Home" },
         { label: "Agents" },
+      ]}
+      structuredData={[
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Agents",
+          numberOfItems: catalog.agents.length,
+          itemListElement: catalog.agents.map((agent, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: agent.name,
+            url: absoluteUrl(`/agents/${agent.name}`),
+          })),
+        },
       ]}
     >
       <nav className="letter-jump" aria-label="Letters">

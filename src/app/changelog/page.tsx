@@ -6,17 +6,18 @@ import { SITE_NAME, siteMeta } from "@/lib/site";
 import { formatDropDate } from "@/lib/format";
 import { SHELF_EXPANSION_DATE } from "@/lib/wiki";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta("/changelog", {
   title: "Recent changes",
-  description: `Skills and agents by the day they were added to ${SITE_NAME}.`,
-  ...siteMeta("/changelog"),
-};
+  description: `Skills and agents by the day they were added to ${SITE_NAME}. A drop is a new entry, dated on the file.`,
+  keywords: ["changelog", "agent skills", SITE_NAME],
+});
 
 export default function ChangelogPage() {
   return (
     <ArticleFrame
       title="Recent changes"
       lede="A log of entries by the day they were added. A new skill or agent is a drop. The date lives on the entry. This page does not backdate anything."
+      path="/changelog"
       crumbs={[
         { href: "/", label: "Home" },
         { label: "Recent changes" },

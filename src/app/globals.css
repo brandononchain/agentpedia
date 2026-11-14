@@ -474,6 +474,44 @@ main {
   overflow-wrap: break-word;
 }
 
+.portal-definition {
+  margin: 1.15rem auto 0;
+  max-width: min(40rem, 100%);
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+.portal-faq {
+  margin-top: 2.8rem;
+  max-width: 44rem;
+  border-top: 3px double var(--ink);
+  padding-top: 0.75rem;
+}
+
+.portal-faq h2 {
+  font-size: 1.55rem;
+}
+
+.faq-list {
+  margin: 0.4rem 0 0;
+}
+
+.faq-list div {
+  margin-top: 1rem;
+}
+
+.faq-list dt {
+  font-weight: 700;
+}
+
+.faq-list dd {
+  margin: 0.3rem 0 0;
+  max-width: 65ch;
+  overflow-wrap: break-word;
+}
+
 .shelf-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
