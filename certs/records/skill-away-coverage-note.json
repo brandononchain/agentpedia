@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:e51ee94ff07e6dc8bc512861ed327952ba3b13e04c4f2bba50878fbe87f4d348",
+  "id": "skill-away-coverage-note",
+  "issuedAt": "2026-11-13",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "b06a1a1f9b10aa990195c6dc970b54f1311ca623",
+  "subject": {
+    "kind": "skill",
+    "name": "away-coverage-note"
+  },
+  "tier": "listed"
+}

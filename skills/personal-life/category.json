@@ -1,4 +1,4 @@
 {
   "label": "Personal & life",
-  "blurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin and appointments. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means."
+  "blurb": "Plans a trip from constraints the user states, summarizes a health log they kept, and lays out a week of home admin. It also projects subscription renewals from a charge export, checks an away-from-home coverage note, and lists what must move to a new device. Health content is informational only. It does not diagnose, prescribe, or say what a symptom means. It does not book travel, move money, or store a password."
 }

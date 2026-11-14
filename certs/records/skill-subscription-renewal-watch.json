@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:ab0c6a4b34c18fc31e5e175602053af312d2b57c53743cc5f88b37ffc72aefa4",
+  "id": "skill-subscription-renewal-watch",
+  "issuedAt": "2026-11-13",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "b06a1a1f9b10aa990195c6dc970b54f1311ca623",
+  "subject": {
+    "kind": "skill",
+    "name": "subscription-renewal-watch"
+  },
+  "tier": "listed"
+}
