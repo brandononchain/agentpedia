@@ -1,4 +1,4 @@
 {
-  "label": "DevOps & cloud",
+  "label": "DevOps & Cloud",
   "blurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console."
 }

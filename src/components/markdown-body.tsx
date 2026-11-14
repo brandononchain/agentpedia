@@ -29,8 +29,9 @@ export function MarkdownBody({ source, selfHref }: { source: string; selfHref?: 
     },
     h2: ({ children }) => <h2 id={headingId(plainText(children), seen)}>{children}</h2>,
     h3: ({ children }) => <h3 id={headingId(plainText(children), seen)}>{children}</h3>,
+    pre: ({ children }) => <pre tabIndex={0}>{children}</pre>,
     table: ({ children }) => (
-      <div className="table-scroll">
+      <div className="table-scroll" tabIndex={0}>
         <table>{children}</table>
       </div>
     ),
