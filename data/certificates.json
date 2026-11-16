@@ -1,6 +1,78 @@
 {
   "certificates": [
     {
+      "canonical": "{\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed\",\"width\":120},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:345793906b882b873b689376862b11d73b58561cc2524f42b4498eab9dd5893b\",\"currentCommit\":\"c5fc3993ad73d51fd274b59aaf05a37d2f49e45d\",\"currentDigest\":\"sha256:345793906b882b873b689376862b11d73b58561cc2524f42b4498eab9dd5893b\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-16\",\"id\":\"agent-analysis-desk\",\"issuedAt\":\"2026-11-16\",\"limits\":[\"This certificate is not a security audit.\",\"It does not claim the entry is safe against a hostile user or a hostile file.\",\"Listed means the published lint gate scored 100 on this exact tree.\",\"Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.\",\"Certified means Verified plus one named review stored in this repository.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\"],\"lint\":{\"errors\":0,\"gate\":\"agent-manifest\",\"info\":0,\"score\":100,\"summary\":\"Manifest accepted and every bundled skill scores 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"c5fc3993ad73d51fd274b59aaf05a37d2f49e45d\",\"status\":\"active\",\"statusReason\":\"Listed. The agent manifest is accepted and every bundled skill scores 100.\",\"subject\":{\"entryPath\":\"/agents/analysis-desk\",\"kind\":\"agent\",\"name\":\"analysis-desk\",\"sourcePath\":\"agents/analysis-desk\",\"title\":\"analysis-desk\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/agent-analysis-desk.svg\",\"page\":\"https://agentpedia.sh/cert/agent-analysis-desk\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/agent-analysis-desk.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed",
+          "width": 120
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:345793906b882b873b689376862b11d73b58561cc2524f42b4498eab9dd5893b",
+        "currentCommit": "c5fc3993ad73d51fd274b59aaf05a37d2f49e45d",
+        "currentDigest": "sha256:345793906b882b873b689376862b11d73b58561cc2524f42b4498eab9dd5893b",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-16",
+        "id": "agent-analysis-desk",
+        "issuedAt": "2026-11-16",
+        "limits": [
+          "This certificate is not a security audit.",
+          "It does not claim the entry is safe against a hostile user or a hostile file.",
+          "Listed means the published lint gate scored 100 on this exact tree.",
+          "Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.",
+          "Certified means Verified plus one named review stored in this repository.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "agent-manifest",
+          "info": 0,
+          "score": 100,
+          "summary": "Manifest accepted and every bundled skill scores 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "c5fc3993ad73d51fd274b59aaf05a37d2f49e45d",
+        "status": "active",
+        "statusReason": "Listed. The agent manifest is accepted and every bundled skill scores 100.",
+        "subject": {
+          "entryPath": "/agents/analysis-desk",
+          "kind": "agent",
+          "name": "analysis-desk",
+          "sourcePath": "agents/analysis-desk",
+          "title": "analysis-desk"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/agent-analysis-desk.svg",
+          "page": "https://agentpedia.sh/cert/agent-analysis-desk",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/agent-analysis-desk.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
       "canonical": "{\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed\",\"width\":120},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:36cef60d0434d3fce5ccd6fdfea8f85cb7046bb8a6859383de51ec1b8d515fd4\",\"currentCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"currentDigest\":\"sha256:36cef60d0434d3fce5ccd6fdfea8f85cb7046bb8a6859383de51ec1b8d515fd4\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-14\",\"id\":\"agent-chain-desk\",\"issuedAt\":\"2026-11-14\",\"limits\":[\"This certificate is not a security audit.\",\"It does not claim the entry is safe against a hostile user or a hostile file.\",\"Listed means the published lint gate scored 100 on this exact tree.\",\"Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.\",\"Certified means Verified plus one named review stored in this repository.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\"],\"lint\":{\"errors\":0,\"gate\":\"agent-manifest\",\"info\":0,\"score\":100,\"summary\":\"Manifest accepted and every bundled skill scores 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"status\":\"active\",\"statusReason\":\"Listed. The agent manifest is accepted and every bundled skill scores 100.\",\"subject\":{\"entryPath\":\"/agents/chain-desk\",\"kind\":\"agent\",\"name\":\"chain-desk\",\"sourcePath\":\"agents/chain-desk\",\"title\":\"chain-desk\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/agent-chain-desk.svg\",\"page\":\"https://agentpedia.sh/cert/agent-chain-desk\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/agent-chain-desk.json\"}}",
       "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
       "payload": {
@@ -3620,6 +3692,78 @@
       "signed": false
     },
     {
+      "canonical": "{\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed\",\"width\":120},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:fdf99824fc75f89ca712d3c90a4b8d4bbb492ce5bfc34f14ef46ada441df2b22\",\"currentCommit\":\"c5fc3993ad73d51fd274b59aaf05a37d2f49e45d\",\"currentDigest\":\"sha256:fdf99824fc75f89ca712d3c90a4b8d4bbb492ce5bfc34f14ef46ada441df2b22\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-16\",\"id\":\"skill-funnel-step-counts\",\"issuedAt\":\"2026-11-16\",\"limits\":[\"This certificate is not a security audit.\",\"It does not claim the entry is safe against a hostile user or a hostile file.\",\"Listed means the published lint gate scored 100 on this exact tree.\",\"Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.\",\"Certified means Verified plus one named review stored in this repository.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"c5fc3993ad73d51fd274b59aaf05a37d2f49e45d\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"entryPath\":\"/skills/funnel-step-counts\",\"kind\":\"skill\",\"name\":\"funnel-step-counts\",\"sourcePath\":\"skills/data-analysis/funnel-step-counts\",\"title\":\"Funnel step counts\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-funnel-step-counts.svg\",\"page\":\"https://agentpedia.sh/cert/skill-funnel-step-counts\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-funnel-step-counts.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed",
+          "width": 120
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:fdf99824fc75f89ca712d3c90a4b8d4bbb492ce5bfc34f14ef46ada441df2b22",
+        "currentCommit": "c5fc3993ad73d51fd274b59aaf05a37d2f49e45d",
+        "currentDigest": "sha256:fdf99824fc75f89ca712d3c90a4b8d4bbb492ce5bfc34f14ef46ada441df2b22",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-16",
+        "id": "skill-funnel-step-counts",
+        "issuedAt": "2026-11-16",
+        "limits": [
+          "This certificate is not a security audit.",
+          "It does not claim the entry is safe against a hostile user or a hostile file.",
+          "Listed means the published lint gate scored 100 on this exact tree.",
+          "Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.",
+          "Certified means Verified plus one named review stored in this repository.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "c5fc3993ad73d51fd274b59aaf05a37d2f49e45d",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "entryPath": "/skills/funnel-step-counts",
+          "kind": "skill",
+          "name": "funnel-step-counts",
+          "sourcePath": "skills/data-analysis/funnel-step-counts",
+          "title": "Funnel step counts"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-funnel-step-counts.svg",
+          "page": "https://agentpedia.sh/cert/skill-funnel-step-counts",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-funnel-step-counts.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
       "canonical": "{\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed\",\"width\":120},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:0e78ed517b7ba13f2a29414196cd80731476d28f58a64663ec5334fd360dd76a\",\"currentCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"currentDigest\":\"sha256:0e78ed517b7ba13f2a29414196cd80731476d28f58a64663ec5334fd360dd76a\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-14\",\"id\":\"skill-git-commit-writer\",\"issuedAt\":\"2026-11-14\",\"limits\":[\"This certificate is not a security audit.\",\"It does not claim the entry is safe against a hostile user or a hostile file.\",\"Listed means the published lint gate scored 100 on this exact tree.\",\"Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.\",\"Certified means Verified plus one named review stored in this repository.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"entryPath\":\"/skills/git-commit-writer\",\"kind\":\"skill\",\"name\":\"git-commit-writer\",\"sourcePath\":\"skills/dev-tools/git-commit-writer\",\"title\":\"Git commit writer\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-git-commit-writer.svg\",\"page\":\"https://agentpedia.sh/cert/skill-git-commit-writer\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-git-commit-writer.json\"}}",
       "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
       "payload": {
@@ -4700,6 +4844,78 @@
       "signed": false
     },
     {
+      "canonical": "{\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed\",\"width\":120},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:ca01a8aa6a356760fc3237347beed5a786edbe911e55d867e923c7339339d540\",\"currentCommit\":\"c5fc3993ad73d51fd274b59aaf05a37d2f49e45d\",\"currentDigest\":\"sha256:ca01a8aa6a356760fc3237347beed5a786edbe911e55d867e923c7339339d540\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-16\",\"id\":\"skill-numeric-column-summary\",\"issuedAt\":\"2026-11-16\",\"limits\":[\"This certificate is not a security audit.\",\"It does not claim the entry is safe against a hostile user or a hostile file.\",\"Listed means the published lint gate scored 100 on this exact tree.\",\"Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.\",\"Certified means Verified plus one named review stored in this repository.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"c5fc3993ad73d51fd274b59aaf05a37d2f49e45d\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"entryPath\":\"/skills/numeric-column-summary\",\"kind\":\"skill\",\"name\":\"numeric-column-summary\",\"sourcePath\":\"skills/data-analysis/numeric-column-summary\",\"title\":\"Numeric column summary\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-numeric-column-summary.svg\",\"page\":\"https://agentpedia.sh/cert/skill-numeric-column-summary\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-numeric-column-summary.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed",
+          "width": 120
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:ca01a8aa6a356760fc3237347beed5a786edbe911e55d867e923c7339339d540",
+        "currentCommit": "c5fc3993ad73d51fd274b59aaf05a37d2f49e45d",
+        "currentDigest": "sha256:ca01a8aa6a356760fc3237347beed5a786edbe911e55d867e923c7339339d540",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-16",
+        "id": "skill-numeric-column-summary",
+        "issuedAt": "2026-11-16",
+        "limits": [
+          "This certificate is not a security audit.",
+          "It does not claim the entry is safe against a hostile user or a hostile file.",
+          "Listed means the published lint gate scored 100 on this exact tree.",
+          "Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.",
+          "Certified means Verified plus one named review stored in this repository.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "c5fc3993ad73d51fd274b59aaf05a37d2f49e45d",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "entryPath": "/skills/numeric-column-summary",
+          "kind": "skill",
+          "name": "numeric-column-summary",
+          "sourcePath": "skills/data-analysis/numeric-column-summary",
+          "title": "Numeric column summary"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-numeric-column-summary.svg",
+          "page": "https://agentpedia.sh/cert/skill-numeric-column-summary",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-numeric-column-summary.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
       "canonical": "{\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed\",\"width\":120},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:96bb90859eb40057396dba31dca05c8d84944c16dcc4b28dec6725e3e951c1ab\",\"currentCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"currentDigest\":\"sha256:96bb90859eb40057396dba31dca05c8d84944c16dcc4b28dec6725e3e951c1ab\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-14\",\"id\":\"skill-objection-map\",\"issuedAt\":\"2026-11-14\",\"limits\":[\"This certificate is not a security audit.\",\"It does not claim the entry is safe against a hostile user or a hostile file.\",\"Listed means the published lint gate scored 100 on this exact tree.\",\"Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.\",\"Certified means Verified plus one named review stored in this repository.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"entryPath\":\"/skills/objection-map\",\"kind\":\"skill\",\"name\":\"objection-map\",\"sourcePath\":\"skills/sales-gtm/objection-map\",\"title\":\"Objection map\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-objection-map.svg\",\"page\":\"https://agentpedia.sh/cert/skill-objection-map\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-objection-map.json\"}}",
       "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
       "payload": {
@@ -5649,6 +5865,78 @@
           "page": "https://agentpedia.sh/cert/skill-secret-scan-report",
           "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
           "record": "https://agentpedia.sh/cert/skill-secret-scan-report.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
+      "canonical": "{\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed\",\"width\":120},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:b03b084cb5da4e529f938ed5a7e41f6d86129dcc5632661187862ee66da8909c\",\"currentCommit\":\"c5fc3993ad73d51fd274b59aaf05a37d2f49e45d\",\"currentDigest\":\"sha256:b03b084cb5da4e529f938ed5a7e41f6d86129dcc5632661187862ee66da8909c\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-16\",\"id\":\"skill-series-gap-list\",\"issuedAt\":\"2026-11-16\",\"limits\":[\"This certificate is not a security audit.\",\"It does not claim the entry is safe against a hostile user or a hostile file.\",\"Listed means the published lint gate scored 100 on this exact tree.\",\"Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.\",\"Certified means Verified plus one named review stored in this repository.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"c5fc3993ad73d51fd274b59aaf05a37d2f49e45d\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"entryPath\":\"/skills/series-gap-list\",\"kind\":\"skill\",\"name\":\"series-gap-list\",\"sourcePath\":\"skills/data-analysis/series-gap-list\",\"title\":\"Series gap list\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-series-gap-list.svg\",\"page\":\"https://agentpedia.sh/cert/skill-series-gap-list\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-series-gap-list.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed",
+          "width": 120
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:b03b084cb5da4e529f938ed5a7e41f6d86129dcc5632661187862ee66da8909c",
+        "currentCommit": "c5fc3993ad73d51fd274b59aaf05a37d2f49e45d",
+        "currentDigest": "sha256:b03b084cb5da4e529f938ed5a7e41f6d86129dcc5632661187862ee66da8909c",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-16",
+        "id": "skill-series-gap-list",
+        "issuedAt": "2026-11-16",
+        "limits": [
+          "This certificate is not a security audit.",
+          "It does not claim the entry is safe against a hostile user or a hostile file.",
+          "Listed means the published lint gate scored 100 on this exact tree.",
+          "Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.",
+          "Certified means Verified plus one named review stored in this repository.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets the status to re-check pending.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "c5fc3993ad73d51fd274b59aaf05a37d2f49e45d",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "entryPath": "/skills/series-gap-list",
+          "kind": "skill",
+          "name": "series-gap-list",
+          "sourcePath": "skills/data-analysis/series-gap-list",
+          "title": "Series gap list"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-series-gap-list.svg",
+          "page": "https://agentpedia.sh/cert/skill-series-gap-list",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-series-gap-list.json"
         }
       },
       "signature": null,
@@ -7239,7 +7527,7 @@
       "signed": false
     }
   ],
-  "generatedAt": "2026-11-14T05:39:49.895345+00:00",
+  "generatedAt": "2026-11-16T16:13:03.975909+00:00",
   "rules": {
     "listedDays": 365,
     "reviewDays": 365,
@@ -7251,12 +7539,12 @@
     "signed": false
   },
   "stats": {
-    "active": 100,
+    "active": 104,
     "certified": 0,
     "expired": 0,
-    "listed": 98,
+    "listed": 102,
     "recheckPending": 0,
-    "total": 100,
+    "total": 104,
     "verified": 2,
     "withheld": 0
   }
