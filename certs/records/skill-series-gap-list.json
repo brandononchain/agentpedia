@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:b03b084cb5da4e529f938ed5a7e41f6d86129dcc5632661187862ee66da8909c",
+  "id": "skill-series-gap-list",
+  "issuedAt": "2026-11-16",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "c5fc3993ad73d51fd274b59aaf05a37d2f49e45d",
+  "subject": {
+    "kind": "skill",
+    "name": "series-gap-list"
+  },
+  "tier": "listed"
+}

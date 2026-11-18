@@ -1,17 +1,17 @@
 {
   "label": "Data & Analysis",
-  "blurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
+  "blurb": "CSV profiles, numeric summaries, time-series gaps, funnel counts, plain-language SQL, metric specs, and experiment logs.",
   "number": 7,
   "subshelves": [
     {
       "slug": "profiles",
       "label": "Profiles",
-      "description": "Describes a CSV the user already has."
+      "description": "Describes a CSV, summarizes one numeric column, and lists gaps in a regular series."
     },
     {
       "slug": "metrics",
       "label": "Metrics",
-      "description": "Writes a metric from the definition the user supplies."
+      "description": "Writes a metric spec and counts an ordered funnel from rows the user supplies."
     },
     {
       "slug": "queries",
