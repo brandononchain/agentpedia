@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T20:23:23.355344+00:00",
+  "generatedAt": "2026-11-18T20:52:58.632306+00:00",
   "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
@@ -10,13 +10,13 @@
   "aaifUrl": "https://aaif.io/projects/agent-skills",
   "studyUrl": "https://arxiv.org/abs/2607.01456",
   "stats": {
-    "skills": 87,
+    "skills": 90,
     "agents": 21,
     "categories": 23,
     "errors": 0,
     "warnings": 0,
     "info": 0,
-    "clean": 87
+    "clean": 90
   },
   "scoring": {
     "start": 100,
@@ -433,38 +433,38 @@
     {
       "id": "data-engineering",
       "label": "Data Engineering",
-      "blurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
+      "blurb": "Maps columns, plans an incremental load, checks freshness from an export, reads a query for how much it scans, and plans a schema change as expand-then-contract or as a type-2 snapshot. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
       "number": 6,
       "subshelves": [
         {
           "slug": "contracts",
           "label": "Contracts",
-          "description": "Maps source columns onto a warehouse table.",
+          "description": "Maps source columns onto a warehouse table, and plans how an incremental load merges.",
           "number": 1,
           "count": 0,
-          "skills": 1,
+          "skills": 2,
           "agents": 1
         },
         {
           "slug": "schema",
           "label": "Schema",
-          "description": "Plans a change as expand, then contract.",
+          "description": "Plans a change as expand then contract, or as a type-2 snapshot.",
           "number": 2,
           "count": 0,
-          "skills": 1,
+          "skills": 2,
           "agents": 0
         },
         {
           "slug": "warehouses",
           "label": "Warehouses",
-          "description": "Reads how much data a query scans.",
+          "description": "Reads how much a query scans, and checks freshness from an export.",
           "number": 3,
           "count": 0,
-          "skills": 1,
+          "skills": 2,
           "agents": 0
         }
       ],
-      "count": 3,
+      "count": 6,
       "agentCount": 1
     },
     {
@@ -1367,6 +1367,219 @@
       "rawUrl": "/raw/skills/design-frontend/viewport-overflow-scan/SKILL.md",
       "zipUrl": "/raw/zips/viewport-overflow-scan.zip",
       "sourcePath": "skills/design-frontend/viewport-overflow-scan"
+    },
+    {
+      "name": "incremental-merge-plan",
+      "title": "Incremental merge plan",
+      "description": "Writes an incremental load plan with the unique key, the strategy, and the filter that keeps a rerun from duplicating rows. Use when the user asks how a dbt model should increment or whether a reload will double-count.",
+      "category": "data-engineering",
+      "categoryLabel": "Data Engineering",
+      "categoryBlurb": "Maps columns, plans an incremental load, checks freshness from an export, reads a query for how much it scans, and plans a schema change as expand-then-contract or as a type-2 snapshot. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
+      "shelfNumber": 6,
+      "subshelf": "contracts",
+      "subshelfLabel": "Contracts",
+      "callNumber": "6.1",
+      "tags": [
+        "dbt",
+        "incremental"
+      ],
+      "added": "2026-11-17",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/check_strategy.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 3144,
+          "url": "/raw/skills/data-engineering/incremental-merge-plan/SKILL.md"
+        },
+        {
+          "path": "references/strategies.md",
+          "bytes": 1673,
+          "url": "/raw/skills/data-engineering/incremental-merge-plan/references/strategies.md"
+        },
+        {
+          "path": "scripts/check_strategy.py",
+          "bytes": 5256,
+          "url": "/raw/skills/data-engineering/incremental-merge-plan/scripts/check_strategy.py"
+        }
+      ],
+      "body": "# Incremental merge plan\n\nWrite the reload rule for one incremental model. Do not run it, and do not pick a strategy the user did not name. Column types stay with etl-column-contract.\n\n## Steps\n\n1. Name the model and the grain (one row means what). If either is missing, ask. If they already stated a grain, keep it.\n2. Record the unique-key columns they named, and whether a key column can be null. Leave the key unset when they named none.\n3. Record the strategy they chose: `append`, `merge`, `delete+insert`, `insert_overwrite`, or `microbatch`. Record the adapter they named. Leave either unset when they did not say. Do not substitute a strategy.\n4. Run `python3 scripts/check_strategy.py` with those flags. Quote `strategy_listed` and every `note` line. When the script says the strategy is not listed, keep their strategy and say the published table does not include that pair.\n5. Record the incremental filter they gave, column and comparison. When the comparison is `>` on a timestamp, say rows equal to the stored maximum can be skipped on the next run. When they gave no filter, write \"filter not stated\".\n6. Pass full refresh as they asked. A yes adds the script note that a full refresh drops the existing table. When they ask how a new column lands on rows already stored, say `on_schema_change` does not backfill those rows.\n7. Check the plan against the script output. Every key column and the strategy must be ones they named. Drop the rest.\n\n## Example\n\nUser: Model `fct_orders`, one row per `order_id`. `order_id` is not null. Adapter BigQuery. Strategy `insert_overwrite`. Filter is `order_date >=` the max `order_date` already stored. Do not full refresh. Do not run dbt.\n\nAgent: Runs `python3 scripts/check_strategy.py --adapter bigquery --strategy insert_overwrite --unique-key order_id --key-nullable no --full-refresh no`. The script prints `strategy_listed=yes` and `note=insert_overwrite replaces whole partitions and does not use unique_key`. Grain stays one row per `order_id`. Filter is `order_date >=` the stored max. `full_refresh=no`. dbt is not run.\n\n## Boundaries\n\nDo not connect to a warehouse or estimate a cost. `strategy_listed=yes` means the pair is on the dbt v2 or v1 Latest matrix in [scripts/check_strategy.py](/raw/skills/data-engineering/incremental-merge-plan/scripts/check_strategy.py). It is not a probe of an older adapter install.\n\n## References\n\nUnique-key nulls, the incremental filter, `--full-refresh`, and `on_schema_change` are summarized in [references/strategies.md](/raw/skills/data-engineering/incremental-merge-plan/references/strategies.md) from dbt's incremental docs. Quote the script for the adapter matrix. Do not restate that matrix from memory.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/incremental-merge-plan\ncp -R skills/data-engineering/incremental-merge-plan/. .claude/skills/incremental-merge-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/incremental-merge-plan\ncp -R agentpedia/skills/data-engineering/incremental-merge-plan/. .claude/skills/incremental-merge-plan\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/incremental-merge-plan\ncp -R skills/data-engineering/incremental-merge-plan/. .codex/skills/incremental-merge-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/incremental-merge-plan\ncp -R agentpedia/skills/data-engineering/incremental-merge-plan/. .codex/skills/incremental-merge-plan\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/incremental-merge-plan\ncp -R skills/data-engineering/incremental-merge-plan/. .cursor/skills/incremental-merge-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/incremental-merge-plan\ncp -R agentpedia/skills/data-engineering/incremental-merge-plan/. .cursor/skills/incremental-merge-plan\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/incremental-merge-plan\ncp -R skills/data-engineering/incremental-merge-plan/. bot/skills/incremental-merge-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/incremental-merge-plan\ncp -R agentpedia/skills/data-engineering/incremental-merge-plan/. bot/skills/incremental-merge-plan\n"
+        }
+      },
+      "rawUrl": "/raw/skills/data-engineering/incremental-merge-plan/SKILL.md",
+      "zipUrl": "/raw/zips/incremental-merge-plan.zip",
+      "sourcePath": "skills/data-engineering/incremental-merge-plan"
+    },
+    {
+      "name": "snapshot-strategy-plan",
+      "title": "Snapshot strategy plan",
+      "description": "Plans a type-2 snapshot with a unique key, a timestamp or check strategy, and a hard-delete rule. Use when the user asks to keep history of a mutable table instead of overwriting the row.",
+      "category": "data-engineering",
+      "categoryLabel": "Data Engineering",
+      "categoryBlurb": "Maps columns, plans an incremental load, checks freshness from an export, reads a query for how much it scans, and plans a schema change as expand-then-contract or as a type-2 snapshot. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
+      "shelfNumber": 6,
+      "subshelf": "schema",
+      "subshelfLabel": "Schema",
+      "callNumber": "6.2",
+      "tags": [
+        "snapshots",
+        "scd"
+      ],
+      "added": "2026-11-17",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/check_snapshot.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2530,
+          "url": "/raw/skills/data-engineering/snapshot-strategy-plan/SKILL.md"
+        },
+        {
+          "path": "references/snapshot-config.md",
+          "bytes": 1640,
+          "url": "/raw/skills/data-engineering/snapshot-strategy-plan/references/snapshot-config.md"
+        },
+        {
+          "path": "scripts/check_snapshot.py",
+          "bytes": 3886,
+          "url": "/raw/skills/data-engineering/snapshot-strategy-plan/scripts/check_snapshot.py"
+        }
+      ],
+      "body": "# Snapshot strategy plan\n\nPlan one type-2 snapshot. Do not run it. A column add, rename, or drop stays with schema-expand-contract. This skill is the history of a row.\n\n## Steps\n\n1. Name the table and the unique key the user says identifies one entity. When the key is missing, ask. When they say the key is not unique, the plan cannot match rows.\n2. Record the strategy they chose. `timestamp` needs an `updated_at` column they named. `check` needs the columns they named, or `all` when they said to compare every column. When they chose neither, leave the strategy unset. Do not pick one for them.\n3. Record hard deletes only when they named `ignore`, `invalidate`, or `new_record`. Otherwise leave it unset. Do not fill the dbt default in as if they chose it.\n4. Run `python3 scripts/check_snapshot.py` with those flags. Quote `status`, every `reason` line, and every `note` line. `full_refresh=ignored` means a full refresh will not rebuild this history.\n5. Check the plan against the script. `status=ready` requires the strategy's fields and a key they said is unique. A missing field stays missing.\n\n## Example\n\nUser: Snapshot `orders`. Unique key `id`, and it is unique. `updated_at` is reliable. When a source row is hard-deleted, keep a new row that says so. Do not run dbt.\n\nAgent: Runs `python3 scripts/check_snapshot.py --unique-key id --key-unique yes --strategy timestamp --updated-at updated_at --hard-deletes new_record`. The script prints `status=ready`, `strategy=timestamp`, `hard_deletes=new_record`, `full_refresh=ignored`, and `note=new_record adds a row with dbt_is_deleted when a source row disappears`. dbt is not run.\n\n## Boundaries\n\nDo not invent `updated_at`. Do not drop the source table. Do not treat `hard_deletes=not-stated` as `ignore`. The note that names the default is a warning, not a choice.\n\n## References\n\nThe field names and the full-refresh rule are summarized in [references/snapshot-config.md](/raw/skills/data-engineering/snapshot-strategy-plan/references/snapshot-config.md) from dbt's snapshot docs. Quote the script for the ready check.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/snapshot-strategy-plan\ncp -R skills/data-engineering/snapshot-strategy-plan/. .claude/skills/snapshot-strategy-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/snapshot-strategy-plan\ncp -R agentpedia/skills/data-engineering/snapshot-strategy-plan/. .claude/skills/snapshot-strategy-plan\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/snapshot-strategy-plan\ncp -R skills/data-engineering/snapshot-strategy-plan/. .codex/skills/snapshot-strategy-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/snapshot-strategy-plan\ncp -R agentpedia/skills/data-engineering/snapshot-strategy-plan/. .codex/skills/snapshot-strategy-plan\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/snapshot-strategy-plan\ncp -R skills/data-engineering/snapshot-strategy-plan/. .cursor/skills/snapshot-strategy-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/snapshot-strategy-plan\ncp -R agentpedia/skills/data-engineering/snapshot-strategy-plan/. .cursor/skills/snapshot-strategy-plan\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/snapshot-strategy-plan\ncp -R skills/data-engineering/snapshot-strategy-plan/. bot/skills/snapshot-strategy-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/snapshot-strategy-plan\ncp -R agentpedia/skills/data-engineering/snapshot-strategy-plan/. bot/skills/snapshot-strategy-plan\n"
+        }
+      },
+      "rawUrl": "/raw/skills/data-engineering/snapshot-strategy-plan/SKILL.md",
+      "zipUrl": "/raw/zips/snapshot-strategy-plan.zip",
+      "sourcePath": "skills/data-engineering/snapshot-strategy-plan"
+    },
+    {
+      "name": "source-freshness-check",
+      "title": "Source freshness check",
+      "description": "Compares the newest timestamp in an export to warn and error ages the user sets. Use when the user asks whether a source or a model is fresh enough, without querying the warehouse.",
+      "category": "data-engineering",
+      "categoryLabel": "Data Engineering",
+      "categoryBlurb": "Maps columns, plans an incremental load, checks freshness from an export, reads a query for how much it scans, and plans a schema change as expand-then-contract or as a type-2 snapshot. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
+      "shelfNumber": 6,
+      "subshelf": "warehouses",
+      "subshelfLabel": "Warehouses",
+      "callNumber": "6.3",
+      "tags": [
+        "freshness",
+        "dbt"
+      ],
+      "added": "2026-11-17",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/check_freshness.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2945,
+          "url": "/raw/skills/data-engineering/source-freshness-check/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 77,
+          "url": "/raw/skills/data-engineering/source-freshness-check/assets/sample.csv"
+        },
+        {
+          "path": "scripts/check_freshness.py",
+          "bytes": 4424,
+          "url": "/raw/skills/data-engineering/source-freshness-check/scripts/check_freshness.py"
+        }
+      ],
+      "body": "# Source freshness check\n\nJudge one export against ages the user set. Do not query a warehouse, and do not invent an SLA. A scan-cost reading of SQL stays with warehouse-scan-review.\n\n## Steps\n\n1. Confirm the file, the timestamp column, the as-of time, and at least one threshold. Each threshold is a positive count plus a period of `minute`, `hour`, or `day`. When the as-of time or a number is missing, ask. Do not read the wall clock.\n2. Run `python3 scripts/check_freshness.py` on that file. The fixture is [assets/sample.csv](/raw/skills/data-engineering/source-freshness-check/assets/sample.csv), and it is not a live table. A date with no clock time is midnight UTC.\n3. Report `rows`, `nonempty`, `blank`, `max_loaded_at`, `as_of`, `age_seconds`, the thresholds, and `status` as printed.\n4. The script sets `warn` when the age is greater than the warn threshold, and `error` when the age is greater than the error threshold. An equal age stays at the milder status. That comparison is the script's rule for this file.\n5. When the script rejects the file, the column, a timestamp, or a threshold, stop and quote the message. Do not guess a time.\n6. Check that the as-of time and the thresholds are the ones the user supplied. A pass is not a claim that dbt ran.\n\n## Example\n\nUser: Check `assets/sample.csv`, column `loaded_at`, as of `2026-11-17T12:00:00Z`. Warn after 12 hours. Error after 24 hours. Do not query the warehouse.\n\nAgent: Runs `python3 scripts/check_freshness.py assets/sample.csv --column loaded_at --as-of 2026-11-17T12:00:00Z --warn-count 12 --warn-period hour --error-count 24 --error-period hour`. The script prints `nonempty=2`, `blank=1`, `max_loaded_at=2026-11-16T18:00:00Z`, `age_seconds=64800`, `warn_after=12h`, `error_after=24h`, and `status=warn`. The blank `loaded_at` is skipped. No warehouse is queried.\n\n## Boundaries\n\nThis reads a file the user already has. It does not run `dbt freshness`, page anyone, or treat the fixture as production data. `status=warn` is about this file and this as-of time only.\n\n## References\n\ndbt freshness is a count plus a period of minute, hour, or day, on `warn_after` and `error_after`, compared with the newest `loaded_at_field`. The vocabulary is documented at [freshness](https://docs.getdbt.com/reference/resource-configs/freshness). The command that evaluates it is [`dbt freshness`](https://docs.getdbt.com/reference/commands/freshness). This skill borrows those two thresholds for an export. It does not render dbt's query.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/source-freshness-check\ncp -R skills/data-engineering/source-freshness-check/. .claude/skills/source-freshness-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/source-freshness-check\ncp -R agentpedia/skills/data-engineering/source-freshness-check/. .claude/skills/source-freshness-check\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/source-freshness-check\ncp -R skills/data-engineering/source-freshness-check/. .codex/skills/source-freshness-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/source-freshness-check\ncp -R agentpedia/skills/data-engineering/source-freshness-check/. .codex/skills/source-freshness-check\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/source-freshness-check\ncp -R skills/data-engineering/source-freshness-check/. .cursor/skills/source-freshness-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/source-freshness-check\ncp -R agentpedia/skills/data-engineering/source-freshness-check/. .cursor/skills/source-freshness-check\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/source-freshness-check\ncp -R skills/data-engineering/source-freshness-check/. bot/skills/source-freshness-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/source-freshness-check\ncp -R agentpedia/skills/data-engineering/source-freshness-check/. bot/skills/source-freshness-check\n"
+        }
+      },
+      "rawUrl": "/raw/skills/data-engineering/source-freshness-check/SKILL.md",
+      "zipUrl": "/raw/zips/source-freshness-check.zip",
+      "sourcePath": "skills/data-engineering/source-freshness-check"
     },
     {
       "name": "funnel-step-counts",
@@ -2881,7 +3094,7 @@
       "description": "Writes a source-to-target column contract with types, nulls, and a grain. Use when the user asks for an ETL or dbt mapping before a model is built.",
       "category": "data-engineering",
       "categoryLabel": "Data Engineering",
-      "categoryBlurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
+      "categoryBlurb": "Maps columns, plans an incremental load, checks freshness from an export, reads a query for how much it scans, and plans a schema change as expand-then-contract or as a type-2 snapshot. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
       "shelfNumber": 6,
       "subshelf": "contracts",
       "subshelfLabel": "Contracts",
@@ -3826,7 +4039,7 @@
       "description": "Plans a schema migration as expand, migrate, then contract so old readers keep working. Use when the user asks to add, rename, or drop a warehouse column without taking the table down.",
       "category": "data-engineering",
       "categoryLabel": "Data Engineering",
-      "categoryBlurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
+      "categoryBlurb": "Maps columns, plans an incremental load, checks freshness from an export, reads a query for how much it scans, and plans a schema change as expand-then-contract or as a type-2 snapshot. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
       "shelfNumber": 6,
       "subshelf": "schema",
       "subshelfLabel": "Schema",
@@ -4782,7 +4995,7 @@
       "description": "Reads a warehouse query for partition filters, unbounded joins, and select-star scans. Use when the user asks why a BigQuery, Snowflake, Redshift, or dbt query might read more data than they expect.",
       "category": "data-engineering",
       "categoryLabel": "Data Engineering",
-      "categoryBlurb": "Maps columns from a source to a warehouse table, reads a query for how much data it scans, and plans a schema change as expand then contract. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
+      "categoryBlurb": "Maps columns, plans an incremental load, checks freshness from an export, reads a query for how much it scans, and plans a schema change as expand-then-contract or as a type-2 snapshot. A plain-language reading of SQL still lives on Data & Analysis. This shelf is the pipeline around the query.",
       "shelfNumber": 6,
       "subshelf": "warehouses",
       "subshelfLabel": "Warehouses",
@@ -7298,6 +7511,15 @@
       "agents": [
         "screen-measure"
       ]
+    },
+    {
+      "date": "2026-11-17",
+      "skills": [
+        "incremental-merge-plan",
+        "snapshot-strategy-plan",
+        "source-freshness-check"
+      ],
+      "agents": []
     },
     {
       "date": "2026-11-16",

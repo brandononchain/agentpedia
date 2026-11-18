@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:9f9c04a9daf9eb858ecca278faa0b34bbc8de3ab6cf5a16b93ad31098f9ac73c",
+  "id": "skill-source-freshness-check",
+  "issuedAt": "2026-11-17",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "29b86b99b1d4a568c66818d092eb304f5f5a208b",
+  "subject": {
+    "kind": "skill",
+    "name": "source-freshness-check"
+  },
+  "tier": "listed"
+}
