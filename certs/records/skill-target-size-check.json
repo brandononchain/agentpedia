@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:3e4485212fad98ec9969087f26f6f9d953411a69588de54db6b181d45c7f6505",
+  "id": "skill-target-size-check",
+  "issuedAt": "2026-11-18",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "628f57c7644be7ef0d49bbca896c128550baf692",
+  "subject": {
+    "kind": "skill",
+    "name": "target-size-check"
+  },
+  "tier": "listed"
+}

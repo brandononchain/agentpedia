@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:5c8f381cab91c097c56a84ed9373af3e1fa3b03cd1701ef08ad7e7e8ee78eb70",
+  "id": "skill-viewport-overflow-scan",
+  "issuedAt": "2026-11-18",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "628f57c7644be7ef0d49bbca896c128550baf692",
+  "subject": {
+    "kind": "skill",
+    "name": "viewport-overflow-scan"
+  },
+  "tier": "listed"
+}

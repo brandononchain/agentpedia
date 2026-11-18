@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:9dffe329b058104ce4a440af6bc861ddd36f2bdc691579e8e11238ef552a9ad7",
+  "id": "agent-screen-measure",
+  "issuedAt": "2026-11-18",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "628f57c7644be7ef0d49bbca896c128550baf692",
+  "subject": {
+    "kind": "agent",
+    "name": "screen-measure"
+  },
+  "tier": "listed"
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T20:22:11.763908+00:00",
+  "generatedAt": "2026-11-18T20:52:58.632306+00:00",
   "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
@@ -10,13 +10,13 @@
   "aaifUrl": "https://aaif.io/projects/agent-skills",
   "studyUrl": "https://arxiv.org/abs/2607.01456",
   "stats": {
-    "skills": 87,
-    "agents": 20,
+    "skills": 90,
+    "agents": 21,
     "categories": 23,
     "errors": 0,
     "warnings": 0,
     "info": 0,
-    "clean": 87
+    "clean": 90
   },
   "scoring": {
     "start": 100,
@@ -599,8 +599,8 @@
           "description": "Notes on an interface the user describes.",
           "number": 1,
           "count": 0,
-          "skills": 1,
-          "agents": 1
+          "skills": 2,
+          "agents": 2
         },
         {
           "slug": "accessibility",
@@ -608,7 +608,7 @@
           "description": "Checks the four principles against supplied colors and names.",
           "number": 2,
           "count": 0,
-          "skills": 1,
+          "skills": 3,
           "agents": 0
         },
         {
@@ -621,8 +621,8 @@
           "agents": 0
         }
       ],
-      "count": 3,
-      "agentCount": 1
+      "count": 6,
+      "agentCount": 2
     },
     {
       "id": "trading",
@@ -1152,6 +1152,222 @@
     }
   ],
   "skills": [
+    {
+      "name": "contrast-pair-check",
+      "title": "Contrast pair check",
+      "description": "Computes the WCAG 2 contrast ratio of two opaque sRGB colors the user supplies. Use when the user asks whether a foreground and background pair meets a contrast threshold they name.",
+      "category": "design-frontend",
+      "categoryLabel": "Design & Frontend",
+      "categoryBlurb": "Reviews an interface the user describes, checks it against the four accessibility principles, and turns a pasted frame into a component spec with the tokens they named. It does not invent a brand, and it does not claim a contrast ratio it did not calculate from colors the user supplied.",
+      "shelfNumber": 10,
+      "subshelf": "accessibility",
+      "subshelfLabel": "Accessibility",
+      "callNumber": "10.2",
+      "tags": [
+        "contrast",
+        "wcag",
+        "color"
+      ],
+      "added": "2026-11-18",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/contrast_pair.py. No network and no browser.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2462,
+          "url": "/raw/skills/design-frontend/contrast-pair-check/SKILL.md"
+        },
+        {
+          "path": "references/wcag-contrast.md",
+          "bytes": 1356,
+          "url": "/raw/skills/design-frontend/contrast-pair-check/references/wcag-contrast.md"
+        },
+        {
+          "path": "scripts/contrast_pair.py",
+          "bytes": 5114,
+          "url": "/raw/skills/design-frontend/contrast-pair-check/scripts/contrast_pair.py"
+        }
+      ],
+      "body": "# Contrast pair check\n\nReport the contrast ratio of two colors the user typed. Use [scripts/contrast_pair.py](/raw/skills/design-frontend/contrast-pair-check/scripts/contrast_pair.py). The formula and the figures they might name are in [references/wcag-contrast.md](/raw/skills/design-frontend/contrast-pair-check/references/wcag-contrast.md). Do not sample a screenshot, and do not claim the screen conforms.\n\n## Steps\n\n1. Take the foreground and the background as opaque hex (`#RGB` or `#RRGGBB`). If either color is missing, stop and ask. Do not assume white, and do not convert a translucent color.\n2. If they named a threshold, keep their number. If they named a WCAG figure in words (\"normal text\", \"large text\", \"non-text\", \"enhanced\"), use 4.5, 3, 3, or 7 from the reference, and say which one. If they named no threshold, pass none.\n3. Run `python3 scripts/contrast_pair.py` with `--foreground`, `--background`, and `--threshold` only when they named one. The same command covers a terminal ink on paper, a landing-page button, or a chat bubble. Do not compute the ratio by hand.\n4. Check that the printed foreground and background match the hex they typed, and that `threshold` is their number or empty. `meets=true` means the rounded ratio is at least that number. `meets=not-applied` means no number was compared.\n5. State that the result is this pair only. A border, a font size, and the rest of the screen were not measured.\n\n## Example\n\nUser: On the order ticket, the bid label is `#9A9286` on paper `#14120E`. Does that pair meet 4.5?\n\nAgent: Runs `python3 scripts/contrast_pair.py --foreground 9A9286 --background 14120E --threshold 4.5`.\n\n```\nforeground=#9A9286\nbackground=#14120E\nlighter=#9A9286\ndarker=#14120E\nratio=6.0839\nthreshold=4.5\nmeets=true\n```\n\nThe 4.5 figure is the one they asked about. Large text and non-text were not applied. This is not a conformance claim, and no price was read.\n\n## Boundaries\n\nDo not open a browser, pick a brand color, or round a miss up to a pass. If the script cannot run, say so instead of inventing a ratio.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/contrast-pair-check\ncp -R skills/design-frontend/contrast-pair-check/. .claude/skills/contrast-pair-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/contrast-pair-check\ncp -R agentpedia/skills/design-frontend/contrast-pair-check/. .claude/skills/contrast-pair-check\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/contrast-pair-check\ncp -R skills/design-frontend/contrast-pair-check/. .codex/skills/contrast-pair-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/contrast-pair-check\ncp -R agentpedia/skills/design-frontend/contrast-pair-check/. .codex/skills/contrast-pair-check\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/contrast-pair-check\ncp -R skills/design-frontend/contrast-pair-check/. .cursor/skills/contrast-pair-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/contrast-pair-check\ncp -R agentpedia/skills/design-frontend/contrast-pair-check/. .cursor/skills/contrast-pair-check\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/contrast-pair-check\ncp -R skills/design-frontend/contrast-pair-check/. bot/skills/contrast-pair-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/contrast-pair-check\ncp -R agentpedia/skills/design-frontend/contrast-pair-check/. bot/skills/contrast-pair-check\n"
+        }
+      },
+      "rawUrl": "/raw/skills/design-frontend/contrast-pair-check/SKILL.md",
+      "zipUrl": "/raw/zips/contrast-pair-check.zip",
+      "sourcePath": "skills/design-frontend/contrast-pair-check"
+    },
+    {
+      "name": "target-size-check",
+      "title": "Target size check",
+      "description": "Compares a control width and height in CSS pixels with a minimum target size the user names. Use when the user asks whether a button, link, or other target meets a size they specify.",
+      "category": "design-frontend",
+      "categoryLabel": "Design & Frontend",
+      "categoryBlurb": "Reviews an interface the user describes, checks it against the four accessibility principles, and turns a pasted frame into a component spec with the tokens they named. It does not invent a brand, and it does not claim a contrast ratio it did not calculate from colors the user supplied.",
+      "shelfNumber": 10,
+      "subshelf": "accessibility",
+      "subshelfLabel": "Accessibility",
+      "callNumber": "10.2",
+      "tags": [
+        "target-size",
+        "wcag",
+        "css"
+      ],
+      "added": "2026-11-18",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/check_target.py. No browser and no network.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2210,
+          "url": "/raw/skills/design-frontend/target-size-check/SKILL.md"
+        },
+        {
+          "path": "references/wcag-target-size.md",
+          "bytes": 1128,
+          "url": "/raw/skills/design-frontend/target-size-check/references/wcag-target-size.md"
+        },
+        {
+          "path": "scripts/check_target.py",
+          "bytes": 3443,
+          "url": "/raw/skills/design-frontend/target-size-check/scripts/check_target.py"
+        }
+      ],
+      "body": "# Target size check\n\nCompare one control's box with a minimum the user names. Use [scripts/check_target.py](/raw/skills/design-frontend/target-size-check/scripts/check_target.py). The two published CSS-pixel figures, and the exceptions the script ignores, are in [references/wcag-target-size.md](/raw/skills/design-frontend/target-size-check/references/wcag-target-size.md).\n\n## Steps\n\n1. Take width and height in CSS pixels from the user. A missing or non-positive side stops the run. Do not measure a screenshot.\n2. Take the minimum they named. If they say \"WCAG 2.2 target size minimum\", the published figure is 24. If they say \"enhanced\", it is 44. If they name neither a number nor one of those two, ask. Do not pick 24 or 44 for them.\n3. Run `python3 scripts/check_target.py` with `--width`, `--height`, and `--minimum`. The same command fits a send control, a close-position control, or a signup button.\n4. Check that the printed width, height, and minimum match what they gave. `meets=true` only when both sides are at least the minimum. Report each `short_by` as printed.\n5. If they already described an exception from the reference, write that sentence beside the result and do not change `meets`. If they did not, write \"exception not described\". Do not call the screen conformant.\n\n## Example\n\nUser: The send control on the assistant composer is 20 by 20 CSS pixels. Check it against 24.\n\nAgent: Runs `python3 scripts/check_target.py --width 20 --height 20 --minimum 24`.\n\n```\nwidth=20\nheight=20\nminimum=24\nwidth_short_by=4\nheight_short_by=4\nmeets=false\n```\n\nException not described, so none is applied. This is the one control, not a conformance claim.\n\n## Boundaries\n\nDo not grow the control, invent a tap-target padding, or place the control on a page. Spacing between neighbors was not measured.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/target-size-check\ncp -R skills/design-frontend/target-size-check/. .claude/skills/target-size-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/target-size-check\ncp -R agentpedia/skills/design-frontend/target-size-check/. .claude/skills/target-size-check\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/target-size-check\ncp -R skills/design-frontend/target-size-check/. .codex/skills/target-size-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/target-size-check\ncp -R agentpedia/skills/design-frontend/target-size-check/. .codex/skills/target-size-check\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/target-size-check\ncp -R skills/design-frontend/target-size-check/. .cursor/skills/target-size-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/target-size-check\ncp -R agentpedia/skills/design-frontend/target-size-check/. .cursor/skills/target-size-check\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/target-size-check\ncp -R skills/design-frontend/target-size-check/. bot/skills/target-size-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/target-size-check\ncp -R agentpedia/skills/design-frontend/target-size-check/. bot/skills/target-size-check\n"
+        }
+      },
+      "rawUrl": "/raw/skills/design-frontend/target-size-check/SKILL.md",
+      "zipUrl": "/raw/zips/target-size-check.zip",
+      "sourcePath": "skills/design-frontend/target-size-check"
+    },
+    {
+      "name": "viewport-overflow-scan",
+      "title": "Viewport overflow scan",
+      "description": "Flags CSS declarations that can force horizontal overflow at a viewport width the user names. Use when the user asks why a layout might scroll sideways on a narrow screen.",
+      "category": "design-frontend",
+      "categoryLabel": "Design & Frontend",
+      "categoryBlurb": "Reviews an interface the user describes, checks it against the four accessibility principles, and turns a pasted frame into a component spec with the tokens they named. It does not invent a brand, and it does not claim a contrast ratio it did not calculate from colors the user supplied.",
+      "shelfNumber": 10,
+      "subshelf": "review",
+      "subshelfLabel": "Review",
+      "callNumber": "10.1",
+      "tags": [
+        "overflow",
+        "css",
+        "viewport"
+      ],
+      "added": "2026-11-18",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/scan_overflow.py. Reads a local CSS file. No browser and no network.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2948,
+          "url": "/raw/skills/design-frontend/viewport-overflow-scan/SKILL.md"
+        },
+        {
+          "path": "references/overflow-kinds.md",
+          "bytes": 2029,
+          "url": "/raw/skills/design-frontend/viewport-overflow-scan/references/overflow-kinds.md"
+        },
+        {
+          "path": "scripts/scan_overflow.py",
+          "bytes": 17681,
+          "url": "/raw/skills/design-frontend/viewport-overflow-scan/scripts/scan_overflow.py"
+        }
+      ],
+      "body": "# Viewport overflow scan\n\nList declarations in a stylesheet that can force horizontal overflow at one viewport width. Use [scripts/scan_overflow.py](/raw/skills/design-frontend/viewport-overflow-scan/scripts/scan_overflow.py). What each kind means, and what is not measured, is in [references/overflow-kinds.md](/raw/skills/design-frontend/viewport-overflow-scan/references/overflow-kinds.md).\n\n## Steps\n\n1. Take a CSS file the user points at and a viewport width in CSS pixels. If either is missing, ask. Do not assume 390, and do not open a browser.\n2. Run `python3 scripts/scan_overflow.py` with `--css` and `--viewport`. The same scan fits a blotter, a pricing row, or a thread of posts. Class names in HTML are not CSS; say so and stop if that is all they have.\n3. Keep every printed finding. A query the viewport cannot match is already omitted. For `applies=unresolved`, say the finding might not apply at this width.\n4. Check each finding against the file: the `value` has to appear on that property. Drop a line that does not. `nowrap` and `max-content` are risks until the user supplies content that is wider than the viewport. Do not invent that content.\n5. End with the count the script printed. Say this is not a layout, so it does not prove the page scrolls or that it does not.\n\n## Example\n\nUser: Here is `blotter.css`. What can force sideways scroll at 390 CSS pixels?\n\n```css\n.blotter { min-width: 720px; }\n.blotter th { white-space: nowrap; }\n.ticket { width: 100vw; }\n@media (min-width: 800px) {\n  .desk { min-width: 960px; }\n}\n```\n\nAgent: Runs `python3 scripts/scan_overflow.py --css blotter.css --viewport 390`.\n\n```\nkind=px-wider-than-viewport selector=\".blotter\" property=min-width value=\"720px\" media=\"none\" applies=yes viewport=390 same_rule_overflow=absent px=720\nkind=nowrap selector=\".blotter th\" property=white-space value=\"nowrap\" media=\"none\" applies=yes viewport=390 same_rule_overflow=absent\nkind=viewport-unit selector=\".ticket\" property=width value=\"100vw\" media=\"none\" applies=yes viewport=390 same_rule_overflow=absent unit=100vw\nfindings=3\nviewport=390\n```\n\nThe blotter min-width is 720, wider than 390. The header cells do not wrap, and the header text was not in the file. `100vw` is a viewport unit of 100. The 960px rule sits in a min-width of 800, so it is not in the list. No column and no price were added. This does not prove the browser scrolls.\n\n## Boundaries\n\nDo not edit the CSS unless they ask. Do not treat a Tailwind class list as a stylesheet. Do not claim a scrollbar from a finding alone.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/viewport-overflow-scan\ncp -R skills/design-frontend/viewport-overflow-scan/. .claude/skills/viewport-overflow-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/viewport-overflow-scan\ncp -R agentpedia/skills/design-frontend/viewport-overflow-scan/. .claude/skills/viewport-overflow-scan\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/viewport-overflow-scan\ncp -R skills/design-frontend/viewport-overflow-scan/. .codex/skills/viewport-overflow-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/viewport-overflow-scan\ncp -R agentpedia/skills/design-frontend/viewport-overflow-scan/. .codex/skills/viewport-overflow-scan\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/viewport-overflow-scan\ncp -R skills/design-frontend/viewport-overflow-scan/. .cursor/skills/viewport-overflow-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/viewport-overflow-scan\ncp -R agentpedia/skills/design-frontend/viewport-overflow-scan/. .cursor/skills/viewport-overflow-scan\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/viewport-overflow-scan\ncp -R skills/design-frontend/viewport-overflow-scan/. bot/skills/viewport-overflow-scan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/viewport-overflow-scan\ncp -R agentpedia/skills/design-frontend/viewport-overflow-scan/. bot/skills/viewport-overflow-scan\n"
+        }
+      },
+      "rawUrl": "/raw/skills/design-frontend/viewport-overflow-scan/SKILL.md",
+      "zipUrl": "/raw/zips/viewport-overflow-scan.zip",
+      "sourcePath": "skills/design-frontend/viewport-overflow-scan"
+    },
     {
       "name": "incremental-merge-plan",
       "title": "Incremental merge plan",
@@ -6743,6 +6959,30 @@
   ],
   "agents": [
     {
+      "name": "screen-measure",
+      "description": "Measures a contrast pair, a control target size, and CSS that can overflow one viewport. Use when the user wants those numbers from colors, a size, or a stylesheet they supply.",
+      "added": "2026-11-18",
+      "category": "design-frontend",
+      "subshelf": "review",
+      "skills": [
+        "contrast-pair-check",
+        "target-size-check",
+        "viewport-overflow-scan"
+      ],
+      "connectors": [],
+      "prompts": [
+        "Contrast of #9A9286 on #14120E against 4.5. Do not claim conformance.",
+        "Is a 20 by 20 send control large enough for a 24 CSS pixel minimum?",
+        "Which rules in this CSS can overflow at 390 CSS pixels?"
+      ],
+      "body": "# Screen measure\n\nReads numbers the user already has. It does not review a screen for taste, and it does not ship UI.\n\n## Which skill\n\n1. Use contrast-pair-check when they have two opaque colors and want a ratio. Do not invent a color, and do not call the screen conformant.\n2. Use target-size-check when they have a width, a height, and a minimum in CSS pixels. Do not measure a picture, and do not apply an exception they did not describe.\n3. Use viewport-overflow-scan when they have a stylesheet and a viewport width. Do not open a browser, and do not treat a class list as CSS.\n4. If they ask for a qualitative review with no numbers, say that is interface-desk and wait. If none of the three inputs is present, ask for the one that matches.\n\n## Example\n\nUser: Make the ticket feel expensive, and pick a gold that passes contrast.\n\nAgent: Refuses the new color. It asks for the two hex values and the threshold, then runs contrast-pair-check. It does not claim conformance.\n\n## Boundaries\n\nDo not place a trade, draft a post, or edit the CSS unless they ask after seeing the findings.\n",
+      "sourcePath": "agents/screen-measure",
+      "categoryLabel": "Design & Frontend",
+      "shelfNumber": 10,
+      "subshelfLabel": "Review",
+      "callNumber": "10.1"
+    },
+    {
       "name": "analysis-desk",
       "description": "Profiles a CSV, summarizes one numeric column, counts an ordered funnel, and lists missing timestamps. Use when the user wants a read of a file they already have, not a query run or a forecast.",
       "added": "2026-11-16",
@@ -7261,6 +7501,17 @@
     }
   ],
   "drops": [
+    {
+      "date": "2026-11-18",
+      "skills": [
+        "contrast-pair-check",
+        "target-size-check",
+        "viewport-overflow-scan"
+      ],
+      "agents": [
+        "screen-measure"
+      ]
+    },
     {
       "date": "2026-11-17",
       "skills": [
