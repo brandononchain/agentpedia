@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T16:13:46.883251+00:00",
+  "generatedAt": "2026-11-18T20:23:23.355344+00:00",
   "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
@@ -10,13 +10,13 @@
   "aaifUrl": "https://aaif.io/projects/agent-skills",
   "studyUrl": "https://arxiv.org/abs/2607.01456",
   "stats": {
-    "skills": 84,
-    "agents": 20,
+    "skills": 87,
+    "agents": 21,
     "categories": 23,
     "errors": 0,
     "warnings": 0,
     "info": 0,
-    "clean": 84
+    "clean": 87
   },
   "scoring": {
     "start": 100,
@@ -470,25 +470,25 @@
     {
       "id": "data-analysis",
       "label": "Data & Analysis",
-      "blurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
+      "blurb": "CSV profiles, numeric summaries, time-series gaps, funnel counts, plain-language SQL, metric specs, and experiment logs.",
       "number": 7,
       "subshelves": [
         {
           "slug": "profiles",
           "label": "Profiles",
-          "description": "Describes a CSV the user already has.",
+          "description": "Describes a CSV, summarizes one numeric column, and lists gaps in a regular series.",
           "number": 1,
           "count": 0,
-          "skills": 1,
-          "agents": 0
+          "skills": 3,
+          "agents": 1
         },
         {
           "slug": "metrics",
           "label": "Metrics",
-          "description": "Writes a metric from the definition the user supplies.",
+          "description": "Writes a metric spec and counts an ordered funnel from rows the user supplies.",
           "number": 2,
           "count": 0,
-          "skills": 1,
+          "skills": 2,
           "agents": 0
         },
         {
@@ -510,8 +510,8 @@
           "agents": 0
         }
       ],
-      "count": 4,
-      "agentCount": 0
+      "count": 7,
+      "agentCount": 1
     },
     {
       "id": "web-research",
@@ -1367,6 +1367,234 @@
       "rawUrl": "/raw/skills/design-frontend/viewport-overflow-scan/SKILL.md",
       "zipUrl": "/raw/zips/viewport-overflow-scan.zip",
       "sourcePath": "skills/design-frontend/viewport-overflow-scan"
+    },
+    {
+      "name": "funnel-step-counts",
+      "title": "Funnel step counts",
+      "description": "Counts distinct actors at each step of an ordered funnel and the drop from the previous step. Use when the user asks how many people reached each stage in an event export.",
+      "category": "data-analysis",
+      "categoryLabel": "Data & Analysis",
+      "categoryBlurb": "CSV profiles, numeric summaries, time-series gaps, funnel counts, plain-language SQL, metric specs, and experiment logs.",
+      "shelfNumber": 7,
+      "subshelf": "metrics",
+      "subshelfLabel": "Metrics",
+      "callNumber": "7.2",
+      "tags": [
+        "funnel",
+        "metrics"
+      ],
+      "added": "2026-11-16",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/count_funnel.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 1976,
+          "url": "/raw/skills/data-analysis/funnel-step-counts/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 80,
+          "url": "/raw/skills/data-analysis/funnel-step-counts/assets/sample.csv"
+        },
+        {
+          "path": "references/step-order.md",
+          "bytes": 1108,
+          "url": "/raw/skills/data-analysis/funnel-step-counts/references/step-order.md"
+        },
+        {
+          "path": "scripts/count_funnel.py",
+          "bytes": 2997,
+          "url": "/raw/skills/data-analysis/funnel-step-counts/scripts/count_funnel.py"
+        }
+      ],
+      "body": "# Funnel step counts\n\nCount how many distinct actors have each step the user named, and how many have that step plus every earlier step. The count is presence of labels, not the clock order of events. The rule is in [references/step-order.md](/raw/skills/data-analysis/funnel-step-counts/references/step-order.md).\n\n## Steps\n\n1. Confirm the file, the actor column, the step column, and the ordered step list. If any of those is missing, ask. Do not invent a step.\n2. Run `python3 scripts/count_funnel.py` with `--actor`, `--step`, and `--steps`. The sample is [assets/sample.csv](/raw/skills/data-analysis/funnel-step-counts/assets/sample.csv).\n3. Report `raw`, `ordered`, `drop_from_previous`, and `of_first` for each step, exactly as printed.\n4. Report `unknown_labels` and `skipped_rows`. An actor who has a later label but not an earlier one stays in `raw` and stays out of `ordered`.\n5. Check that each ordered count is less than or equal to that step's raw count, and that `of_first` uses the first step's ordered count as its denominator. Do not turn the fraction into a significance claim.\n\n## Example\n\nUser: Count `assets/sample.csv`. Actor is `actor`, step is `step`, order is view, signup, paid.\n\nAgent: view ordered 3 of 3. signup ordered 2 of 3, drop 1. paid raw 2, ordered 1 of 3, drop 1, because cara has `paid` and not `signup`. unknown_labels=0. skipped_rows=0.\n\n## Boundaries\n\nDo not drop an actor to make the last step match its raw count. Do not compute a p-value. A metric spec with no rows belongs to metric-definition. An experiment write-up belongs to experiment-log.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/funnel-step-counts\ncp -R skills/data-analysis/funnel-step-counts/. .claude/skills/funnel-step-counts\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/funnel-step-counts\ncp -R agentpedia/skills/data-analysis/funnel-step-counts/. .claude/skills/funnel-step-counts\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/funnel-step-counts\ncp -R skills/data-analysis/funnel-step-counts/. .codex/skills/funnel-step-counts\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/funnel-step-counts\ncp -R agentpedia/skills/data-analysis/funnel-step-counts/. .codex/skills/funnel-step-counts\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/funnel-step-counts\ncp -R skills/data-analysis/funnel-step-counts/. .cursor/skills/funnel-step-counts\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/funnel-step-counts\ncp -R agentpedia/skills/data-analysis/funnel-step-counts/. .cursor/skills/funnel-step-counts\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/funnel-step-counts\ncp -R skills/data-analysis/funnel-step-counts/. bot/skills/funnel-step-counts\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/funnel-step-counts\ncp -R agentpedia/skills/data-analysis/funnel-step-counts/. bot/skills/funnel-step-counts\n"
+        }
+      },
+      "rawUrl": "/raw/skills/data-analysis/funnel-step-counts/SKILL.md",
+      "zipUrl": "/raw/zips/funnel-step-counts.zip",
+      "sourcePath": "skills/data-analysis/funnel-step-counts"
+    },
+    {
+      "name": "numeric-column-summary",
+      "title": "Numeric column summary",
+      "description": "Summarizes one numeric CSV column with count, min, max, mean, and nearest-rank quartiles. Use when the user asks for the distribution of a column in a file they already have.",
+      "category": "data-analysis",
+      "categoryLabel": "Data & Analysis",
+      "categoryBlurb": "CSV profiles, numeric summaries, time-series gaps, funnel counts, plain-language SQL, metric specs, and experiment logs.",
+      "shelfNumber": 7,
+      "subshelf": "profiles",
+      "subshelfLabel": "Profiles",
+      "callNumber": "7.1",
+      "tags": [
+        "csv",
+        "distribution"
+      ],
+      "added": "2026-11-16",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/summarize_column.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2342,
+          "url": "/raw/skills/data-analysis/numeric-column-summary/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 101,
+          "url": "/raw/skills/data-analysis/numeric-column-summary/assets/sample.csv"
+        },
+        {
+          "path": "references/nearest-rank.md",
+          "bytes": 720,
+          "url": "/raw/skills/data-analysis/numeric-column-summary/references/nearest-rank.md"
+        },
+        {
+          "path": "scripts/summarize_column.py",
+          "bytes": 3821,
+          "url": "/raw/skills/data-analysis/numeric-column-summary/scripts/summarize_column.py"
+        }
+      ],
+      "body": "# Numeric column summary\n\nReport the distribution of one column from a CSV the user already has. Every figure comes from `scripts/summarize_column.py`. A profile of empty cells and distinct values, without min or mean, belongs to csv-profile.\n\n## Steps\n\n1. Confirm the file and the column name. If the user did not name a column, ask instead of picking one.\n2. Run `python3 scripts/summarize_column.py` on that file with `--column` set to the name they gave. The sample is [assets/sample.csv](/raw/skills/data-analysis/numeric-column-summary/assets/sample.csv).\n3. Copy the printed lines: row count, numeric count, blanks, non-numeric cells, min, p25, median, p75, max, sum, and mean.\n4. If the script prints `percentiles=not-computed`, say the column has no numeric values. Do not substitute a zero.\n5. Check that min, max, and the quartiles are values from the numeric rows, and that mean is the printed sum divided by the numeric count. The rank rule is in [references/nearest-rank.md](/raw/skills/data-analysis/numeric-column-summary/references/nearest-rank.md).\n\n## Example\n\nUser: Summarize `latency_ms` in `assets/sample.csv`.\n\nAgent: Runs the script. rows=6, numeric=4, blank=1, non_numeric=1 (`n/a`). min=80, p25=80, median=100, p75=120, max=200, sum=500, mean=125. The blank row stays blank. 500 divided by 4 is 125.\n\n## Boundaries\n\nDo not strip a thousands separator, do not drop non-numeric rows to tidy the mean, and do not call a quartile a confidence interval. This is a description of one column, not a forecast.\n\n## References\n\nTyped totals are out of bounds for the same reason the xlsx skill in [anthropics/skills](https://github.com/anthropics/skills/blob/main/skills/xlsx/SKILL.md) requires spreadsheet results to come from formulas. This script is stdlib-only. It does not call the dataset `/statistics` route described in [huggingface/skills](https://github.com/huggingface/skills/blob/main/skills/huggingface-datasets/SKILL.md).\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/numeric-column-summary\ncp -R skills/data-analysis/numeric-column-summary/. .claude/skills/numeric-column-summary\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/numeric-column-summary\ncp -R agentpedia/skills/data-analysis/numeric-column-summary/. .claude/skills/numeric-column-summary\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/numeric-column-summary\ncp -R skills/data-analysis/numeric-column-summary/. .codex/skills/numeric-column-summary\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/numeric-column-summary\ncp -R agentpedia/skills/data-analysis/numeric-column-summary/. .codex/skills/numeric-column-summary\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/numeric-column-summary\ncp -R skills/data-analysis/numeric-column-summary/. .cursor/skills/numeric-column-summary\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/numeric-column-summary\ncp -R agentpedia/skills/data-analysis/numeric-column-summary/. .cursor/skills/numeric-column-summary\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/numeric-column-summary\ncp -R skills/data-analysis/numeric-column-summary/. bot/skills/numeric-column-summary\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/numeric-column-summary\ncp -R agentpedia/skills/data-analysis/numeric-column-summary/. bot/skills/numeric-column-summary\n"
+        }
+      },
+      "rawUrl": "/raw/skills/data-analysis/numeric-column-summary/SKILL.md",
+      "zipUrl": "/raw/zips/numeric-column-summary.zip",
+      "sourcePath": "skills/data-analysis/numeric-column-summary"
+    },
+    {
+      "name": "series-gap-list",
+      "title": "Series gap list",
+      "description": "Lists missing timestamps in a regular series such as daily bars or hourly events. Use when the user asks which intervals are absent from a CSV they already have.",
+      "category": "data-analysis",
+      "categoryLabel": "Data & Analysis",
+      "categoryBlurb": "CSV profiles, numeric summaries, time-series gaps, funnel counts, plain-language SQL, metric specs, and experiment logs.",
+      "shelfNumber": 7,
+      "subshelf": "profiles",
+      "subshelfLabel": "Profiles",
+      "callNumber": "7.1",
+      "tags": [
+        "series",
+        "csv"
+      ],
+      "added": "2026-11-16",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/list_gaps.py. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 1810,
+          "url": "/raw/skills/data-analysis/series-gap-list/SKILL.md"
+        },
+        {
+          "path": "assets/sample.csv",
+          "bytes": 63,
+          "url": "/raw/skills/data-analysis/series-gap-list/assets/sample.csv"
+        },
+        {
+          "path": "references/intervals.md",
+          "bytes": 1124,
+          "url": "/raw/skills/data-analysis/series-gap-list/references/intervals.md"
+        },
+        {
+          "path": "scripts/list_gaps.py",
+          "bytes": 4561,
+          "url": "/raw/skills/data-analysis/series-gap-list/scripts/list_gaps.py"
+        }
+      ],
+      "body": "# Series gap list\n\nList timestamps that a regular series is missing between the earliest and latest parsed values. Do not fill a gap and do not invent a close, a price, or a count for a missing slot. The grid rules are in [references/intervals.md](/raw/skills/data-analysis/series-gap-list/references/intervals.md).\n\n## Steps\n\n1. Confirm the file, the timestamp column, and the interval: `1d`, `1h`, or `1m`. If the interval is something else, say so and stop.\n2. Run `python3 scripts/list_gaps.py` with `--column` and `--interval`. The sample is [assets/sample.csv](/raw/skills/data-analysis/series-gap-list/assets/sample.csv).\n3. Report start, end, present, expected, missing, duplicates, and unparsed. List each `gap=` line the script printed.\n4. If the script prints `refused=span-too-wide`, report that and do not guess the missing stamps.\n5. Check that every reported gap falls strictly between start and end and is not a timestamp present in the file.\n\n## Example\n\nUser: Which daily bars are missing in `assets/sample.csv`? Column `ts`, interval `1d`.\n\nAgent: start 2026-11-10, end 2026-11-13, present 3, expected 4, missing 1. The only gap is 2026-11-12. No close is invented for that day. duplicates=0. unparsed=0.\n\n## Boundaries\n\nA gap list is not a market briefing and not a trade signal. Do not carry the previous close into the hole. A session note that uses quotes the user actually supplied belongs to market-data-briefing.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/series-gap-list\ncp -R skills/data-analysis/series-gap-list/. .claude/skills/series-gap-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/series-gap-list\ncp -R agentpedia/skills/data-analysis/series-gap-list/. .claude/skills/series-gap-list\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/series-gap-list\ncp -R skills/data-analysis/series-gap-list/. .codex/skills/series-gap-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/series-gap-list\ncp -R agentpedia/skills/data-analysis/series-gap-list/. .codex/skills/series-gap-list\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/series-gap-list\ncp -R skills/data-analysis/series-gap-list/. .cursor/skills/series-gap-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/series-gap-list\ncp -R agentpedia/skills/data-analysis/series-gap-list/. .cursor/skills/series-gap-list\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/series-gap-list\ncp -R skills/data-analysis/series-gap-list/. bot/skills/series-gap-list\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/series-gap-list\ncp -R agentpedia/skills/data-analysis/series-gap-list/. bot/skills/series-gap-list\n"
+        }
+      },
+      "rawUrl": "/raw/skills/data-analysis/series-gap-list/SKILL.md",
+      "zipUrl": "/raw/zips/series-gap-list.zip",
+      "sourcePath": "skills/data-analysis/series-gap-list"
     },
     {
       "name": "away-coverage-note",
@@ -5539,7 +5767,7 @@
       "description": "Profiles a CSV file with row counts, empty cells, distinct values, and sample values per column. Use when the user asks what is in a spreadsheet export or a CSV before any analysis.",
       "category": "data-analysis",
       "categoryLabel": "Data & Analysis",
-      "categoryBlurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
+      "categoryBlurb": "CSV profiles, numeric summaries, time-series gaps, funnel counts, plain-language SQL, metric specs, and experiment logs.",
       "shelfNumber": 7,
       "subshelf": "profiles",
       "subshelfLabel": "Profiles",
@@ -5914,7 +6142,7 @@
       "description": "Records a hypothesis, the observed result, and a decision to ship, iterate, or stop. Use when the user asks to log an experiment, write up an A/B test, or capture a learning.",
       "category": "data-analysis",
       "categoryLabel": "Data & Analysis",
-      "categoryBlurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
+      "categoryBlurb": "CSV profiles, numeric summaries, time-series gaps, funnel counts, plain-language SQL, metric specs, and experiment logs.",
       "shelfNumber": 7,
       "subshelf": "experiments",
       "subshelfLabel": "Experiments",
@@ -5975,7 +6203,7 @@
       "description": "Writes a metric spec with grain, formula, filters, and known caveats. Use when the user asks to define a KPI, a funnel step, or what a reported number means.",
       "category": "data-analysis",
       "categoryLabel": "Data & Analysis",
-      "categoryBlurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
+      "categoryBlurb": "CSV profiles, numeric summaries, time-series gaps, funnel counts, plain-language SQL, metric specs, and experiment logs.",
       "shelfNumber": 7,
       "subshelf": "metrics",
       "subshelfLabel": "Metrics",
@@ -6097,7 +6325,7 @@
       "description": "Explains a SQL query in plain language and names full scans, unbounded joins, and non-deterministic ordering. Use when the user asks what a query does or why it might be slow or surprising.",
       "category": "data-analysis",
       "categoryLabel": "Data & Analysis",
-      "categoryBlurb": "CSV profiles, plain-language SQL, metric specs, and experiment logs.",
+      "categoryBlurb": "CSV profiles, numeric summaries, time-series gaps, funnel counts, plain-language SQL, metric specs, and experiment logs.",
       "shelfNumber": 7,
       "subshelf": "queries",
       "subshelfLabel": "Queries",
@@ -6540,6 +6768,34 @@
       "shelfNumber": 10,
       "subshelfLabel": "Review",
       "callNumber": "10.1"
+    },
+    {
+      "name": "analysis-desk",
+      "description": "Profiles a CSV, summarizes one numeric column, counts an ordered funnel, and lists missing timestamps. Use when the user wants a read of a file they already have, not a query run or a forecast.",
+      "added": "2026-11-16",
+      "category": "data-analysis",
+      "subshelf": "profiles",
+      "skills": [
+        "csv-profile",
+        "numeric-column-summary",
+        "funnel-step-counts",
+        "series-gap-list",
+        "metric-definition",
+        "sql-explain-plain",
+        "experiment-log"
+      ],
+      "connectors": [],
+      "prompts": [
+        "Summarize the latency column in this CSV. Do not invent a value for a blank cell.",
+        "Count this funnel in order view, signup, paid. Do not call the drop significant.",
+        "Which daily timestamps are missing? Do not fill the gap."
+      ],
+      "body": "# Analysis desk\n\nStarts from a file the user already has. It does not open a warehouse, call a dataset API, or forecast a number that is not in the file.\n\n## Which skill\n\n1. Use csv-profile first when the columns are unknown.\n2. Use numeric-column-summary for one numeric column. Report the script's lines only.\n3. Use funnel-step-counts when the user names ordered steps and an actor column. Keep actors who skipped a step.\n4. Use series-gap-list when the user asks which timestamps are missing. Do not fill the gaps.\n5. Use metric-definition when they want a spec, not a count from rows.\n6. Use sql-explain-plain when they paste SQL. Do not run it.\n7. Use experiment-log when they already have a result to record. Do not invent a significance claim.\n\n## Example\n\nUser: How many people paid? The file is an event export. Steps are view, signup, paid. The actor column is actor.\n\nAgent: Runs funnel-step-counts and reports raw and ordered counts from the script, including anyone who paid without signup. It does not call the drop a significant change.\n\n## Boundaries\n\nDoes not open a database, invent a price or a rate the script did not print, or tell the user to ship a change. A gap is not a quote. A quartile is not a confidence interval.\n",
+      "sourcePath": "agents/analysis-desk",
+      "categoryLabel": "Data & Analysis",
+      "shelfNumber": 7,
+      "subshelfLabel": "Profiles",
+      "callNumber": "7.1"
     },
     {
       "name": "warehouse-desk",
@@ -7041,6 +7297,17 @@
       ],
       "agents": [
         "screen-measure"
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "skills": [
+        "funnel-step-counts",
+        "numeric-column-summary",
+        "series-gap-list"
+      ],
+      "agents": [
+        "analysis-desk"
       ]
     },
     {
