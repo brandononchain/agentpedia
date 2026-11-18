@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:1c90b9c1a93ef1a1c3e5eaf1c9639ce4ff29c53354273700289ec0fbd95ffe66",
+  "id": "skill-contrast-pair-check",
+  "issuedAt": "2026-11-18",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "628f57c7644be7ef0d49bbca896c128550baf692",
+  "subject": {
+    "kind": "skill",
+    "name": "contrast-pair-check"
+  },
+  "tier": "listed"
+}
