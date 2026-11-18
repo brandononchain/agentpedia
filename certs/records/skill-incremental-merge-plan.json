@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:9061fb5610d99ab4bfe36d78ffe61f30579ac198f284d70c64147f347af72287",
+  "id": "skill-incremental-merge-plan",
+  "issuedAt": "2026-11-17",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "29b86b99b1d4a568c66818d092eb304f5f5a208b",
+  "subject": {
+    "kind": "skill",
+    "name": "incremental-merge-plan"
+  },
+  "tier": "listed"
+}
