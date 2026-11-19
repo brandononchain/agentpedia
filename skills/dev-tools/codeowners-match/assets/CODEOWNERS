@@ -1,0 +1,7 @@
+# default owners
+* @platform
+# one directory level only
+docs/* @draft-owner
+# later rule covers the whole docs tree
+/docs/ @docs-owner
+*.js @js-owner # inline note

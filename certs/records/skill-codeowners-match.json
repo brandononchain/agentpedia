@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:dba420c1711c844fc2e5970a7d4a22dc0b5ba32b210c5a28ff2e28f37569e9a0",
+  "id": "skill-codeowners-match",
+  "issuedAt": "2026-11-19",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "03a43b98f01ffe9a652c0f8f44791a278aa37d76",
+  "subject": {
+    "kind": "skill",
+    "name": "codeowners-match"
+  },
+  "tier": "listed"
+}

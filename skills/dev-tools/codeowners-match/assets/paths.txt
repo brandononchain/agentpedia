@@ -1,0 +1,4 @@
+src/app.js
+docs/getting-started.md
+docs/build-app/troubleshooting.md
+README.md

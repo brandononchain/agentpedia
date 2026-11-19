@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T20:52:58.632306+00:00",
+  "generatedAt": "2026-11-19T16:16:05.445698+00:00",
   "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
@@ -10,13 +10,13 @@
   "aaifUrl": "https://aaif.io/projects/agent-skills",
   "studyUrl": "https://arxiv.org/abs/2607.01456",
   "stats": {
-    "skills": 90,
+    "skills": 93,
     "agents": 21,
     "categories": 23,
     "errors": 0,
     "warnings": 0,
     "info": 0,
-    "clean": 90
+    "clean": 93
   },
   "scoring": {
     "start": 100,
@@ -295,25 +295,25 @@
     {
       "id": "dev-tools",
       "label": "Dev Tools",
-      "blurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "blurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "number": 3,
       "subshelves": [
         {
           "slug": "git",
           "label": "Git",
-          "description": "Commit messages and changelogs from the branch.",
+          "description": "Commit messages, a Conventional Commits check, a SemVer bump, and changelogs from the branch.",
           "number": 1,
           "count": 0,
-          "skills": 2,
+          "skills": 4,
           "agents": 1
         },
         {
           "slug": "review",
           "label": "Review",
-          "description": "Notes on a diff and the risk inside it.",
+          "description": "Notes on a diff, the risk inside it, and the last CODEOWNERS match for a path.",
           "number": 2,
           "count": 0,
-          "skills": 2,
+          "skills": 3,
           "agents": 0
         },
         {
@@ -362,7 +362,7 @@
           "agents": 0
         }
       ],
-      "count": 9,
+      "count": 12,
       "agentCount": 1
     },
     {
@@ -1152,6 +1152,239 @@
     }
   ],
   "skills": [
+    {
+      "name": "codeowners-match",
+      "title": "CODEOWNERS match",
+      "description": "Names the last CODEOWNERS pattern that matches each path the user lists, and the owners on that line. Use when the user asks who owns a file or which review rule would apply.",
+      "category": "dev-tools",
+      "categoryLabel": "Dev Tools",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
+      "shelfNumber": 3,
+      "subshelf": "review",
+      "subshelfLabel": "Review",
+      "callNumber": "3.2",
+      "tags": [
+        "review",
+        "codeowners"
+      ],
+      "added": "2026-11-19",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/match_owners.py. Reads two local files. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2926,
+          "url": "/raw/skills/dev-tools/codeowners-match/SKILL.md"
+        },
+        {
+          "path": "assets/CODEOWNERS",
+          "bytes": 164,
+          "url": "/raw/skills/dev-tools/codeowners-match/assets/CODEOWNERS"
+        },
+        {
+          "path": "assets/paths.txt",
+          "bytes": 79,
+          "url": "/raw/skills/dev-tools/codeowners-match/assets/paths.txt"
+        },
+        {
+          "path": "references/pattern-rules.md",
+          "bytes": 2179,
+          "url": "/raw/skills/dev-tools/codeowners-match/references/pattern-rules.md"
+        },
+        {
+          "path": "scripts/match_owners.py",
+          "bytes": 13031,
+          "url": "/raw/skills/dev-tools/codeowners-match/scripts/match_owners.py"
+        }
+      ],
+      "body": "# CODEOWNERS match\n\nName the last matching CODEOWNERS rule for each path. Use [scripts/match_owners.py](/raw/skills/dev-tools/codeowners-match/scripts/match_owners.py). Which patterns match, which lines are skipped, and why a later line wins is in [references/pattern-rules.md](/raw/skills/dev-tools/codeowners-match/references/pattern-rules.md).\n\n## Steps\n\n1. Take one CODEOWNERS file. If `.github/CODEOWNERS`, a root `CODEOWNERS`, and `docs/CODEOWNERS` are all in play, GitHub uses the first of those three that exists, in that order. Do not merge them. If the user did not say which file that is, ask.\n2. Take the paths, one repo-relative path per line. If a path is missing, ask. Do not run git, and do not invent a path from a diff they did not paste.\n3. Run `python3 scripts/match_owners.py` with `--codeowners` and `--paths`. The fixtures are [assets/CODEOWNERS](/raw/skills/dev-tools/codeowners-match/assets/CODEOWNERS) and [assets/paths.txt](/raw/skills/dev-tools/codeowners-match/assets/paths.txt).\n4. For each path, keep `matched`, and when it is `yes` keep `line`, `pattern`, `owners`, and `owners_empty`. Keep every `skip` line. If the script stops because the file is at least 3000000 bytes, say so and do not match a prefix.\n5. Check a printed pattern against that line of the file. Drop a path whose pattern is not on that line. `owners_empty=yes` is a match that names nobody. It is not the same as `matched=no`.\n6. Do not request a review, and do not claim an owner has write access.\n\n## Example\n\nUser: Who matches the paths in `assets/paths.txt` under `assets/CODEOWNERS`? Do not open a pull request.\n\nAgent: Runs `python3 scripts/match_owners.py --codeowners assets/CODEOWNERS --paths assets/paths.txt`.\n\n```\npath=src/app.js\nmatched=yes\nline=7\npattern=*.js\nowners=@js-owner\nowners_empty=no\npath=docs/getting-started.md\nmatched=yes\nline=6\npattern=/docs/\nowners=@docs-owner\nowners_empty=no\npath=docs/build-app/troubleshooting.md\nmatched=yes\nline=6\npattern=/docs/\nowners=@docs-owner\nowners_empty=no\npath=README.md\nmatched=yes\nline=2\npattern=*\nowners=@platform\nowners_empty=no\npaths=4\nskipped=0\n```\n\n`src/app.js` hits `*.js` on line 7, which is later than the `*` on line 2. `docs/getting-started.md` also fits `docs/*` on line 4, and the later `/docs/` on line 6 wins. The nested docs path does not fit `docs/*`. `README.md` stays with `*`. No review is requested.\n\n## Boundaries\n\nDo not edit the CODEOWNERS file unless they ask. Do not treat a skipped negation or a character range as a match. A result is about this file and these paths, not about branch protection.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/codeowners-match\ncp -R skills/dev-tools/codeowners-match/. .claude/skills/codeowners-match\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/codeowners-match\ncp -R agentpedia/skills/dev-tools/codeowners-match/. .claude/skills/codeowners-match\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/codeowners-match\ncp -R skills/dev-tools/codeowners-match/. .codex/skills/codeowners-match\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/codeowners-match\ncp -R agentpedia/skills/dev-tools/codeowners-match/. .codex/skills/codeowners-match\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/codeowners-match\ncp -R skills/dev-tools/codeowners-match/. .cursor/skills/codeowners-match\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/codeowners-match\ncp -R agentpedia/skills/dev-tools/codeowners-match/. .cursor/skills/codeowners-match\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/codeowners-match\ncp -R skills/dev-tools/codeowners-match/. bot/skills/codeowners-match\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/codeowners-match\ncp -R agentpedia/skills/dev-tools/codeowners-match/. bot/skills/codeowners-match\n"
+        }
+      },
+      "rawUrl": "/raw/skills/dev-tools/codeowners-match/SKILL.md",
+      "zipUrl": "/raw/zips/codeowners-match.zip",
+      "sourcePath": "skills/dev-tools/codeowners-match"
+    },
+    {
+      "name": "conventional-commit-check",
+      "title": "Conventional commit check",
+      "description": "Checks a commit message against Conventional Commits 1.0.0 and reports the type, the scope, and whether it is breaking. Use when the user asks if a message matches that spec before committing.",
+      "category": "dev-tools",
+      "categoryLabel": "Dev Tools",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
+      "shelfNumber": 3,
+      "subshelf": "git",
+      "subshelfLabel": "Git",
+      "callNumber": "3.1",
+      "tags": [
+        "commits",
+        "conventional"
+      ],
+      "added": "2026-11-19",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/check_commit.py. Reads one local message file. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2663,
+          "url": "/raw/skills/dev-tools/conventional-commit-check/SKILL.md"
+        },
+        {
+          "path": "assets/message.txt",
+          "bytes": 98,
+          "url": "/raw/skills/dev-tools/conventional-commit-check/assets/message.txt"
+        },
+        {
+          "path": "references/spec-rules.md",
+          "bytes": 1545,
+          "url": "/raw/skills/dev-tools/conventional-commit-check/references/spec-rules.md"
+        },
+        {
+          "path": "scripts/check_commit.py",
+          "bytes": 8142,
+          "url": "/raw/skills/dev-tools/conventional-commit-check/scripts/check_commit.py"
+        }
+      ],
+      "body": "# Conventional commit check\n\nJudge one commit message against Conventional Commits 1.0.0. Use [scripts/check_commit.py](/raw/skills/dev-tools/conventional-commit-check/scripts/check_commit.py). Which tokens count as breaking, and what the script refuses to infer, is in [references/spec-rules.md](/raw/skills/dev-tools/conventional-commit-check/references/spec-rules.md).\n\n## Steps\n\n1. Take the message as a file. If the user has a diff and no message, stop. Drafting a message is git-commit-writer. Do not invent a type or a scope.\n2. Run `python3 scripts/check_commit.py` on that file. The fixture is [assets/message.txt](/raw/skills/dev-tools/conventional-commit-check/assets/message.txt), and it is not the user's commit.\n3. When `ok=yes`, report `type`, `scope`, `breaking`, `breaking_from`, `footers`, and each `footer_token` as printed. An empty `scope` means the subject had no parentheses.\n4. When `ok=no`, stop and quote `reason`. `header` means the first line is not a type, an optional scope, an optional `!`, a colon, and a space. `blank-line` means text follows the subject without a blank line. `empty` means there was no message. Do not rewrite it unless they ask.\n5. Check the printed type against the first line, and check `breaking=yes` against a `!` before the colon or a footer token the script listed. Drop a claim the output does not show.\n6. Do not commit, amend, or choose the next version. A version from classified types is semver-bump-plan.\n\n## Example\n\nUser: Does this message match Conventional Commits? It is saved as `assets/message.txt`. Do not commit, and do not pick a version.\n\nAgent: Runs `python3 scripts/check_commit.py assets/message.txt`.\n\n```\nok=yes\ntype=feat\nscope=\nbreaking=yes\nbreaking_from=both\nfooters=1\nfooter_token=BREAKING CHANGE\n```\n\nThe subject is `feat!` with no scope. The footer token is `BREAKING CHANGE`, so the break is marked in both places. The message is not rewritten, and no version is chosen.\n\n## Boundaries\n\nDo not treat a passing check as permission to commit. Do not apply a 50-character subject rule. Do not read a version number out of the type. `ok=yes` means the structure matches the rules in [references/spec-rules.md](/raw/skills/dev-tools/conventional-commit-check/references/spec-rules.md). It does not mean the type is the right word for the diff.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/conventional-commit-check\ncp -R skills/dev-tools/conventional-commit-check/. .claude/skills/conventional-commit-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/conventional-commit-check\ncp -R agentpedia/skills/dev-tools/conventional-commit-check/. .claude/skills/conventional-commit-check\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/conventional-commit-check\ncp -R skills/dev-tools/conventional-commit-check/. .codex/skills/conventional-commit-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/conventional-commit-check\ncp -R agentpedia/skills/dev-tools/conventional-commit-check/. .codex/skills/conventional-commit-check\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/conventional-commit-check\ncp -R skills/dev-tools/conventional-commit-check/. .cursor/skills/conventional-commit-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/conventional-commit-check\ncp -R agentpedia/skills/dev-tools/conventional-commit-check/. .cursor/skills/conventional-commit-check\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/conventional-commit-check\ncp -R skills/dev-tools/conventional-commit-check/. bot/skills/conventional-commit-check\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/conventional-commit-check\ncp -R agentpedia/skills/dev-tools/conventional-commit-check/. bot/skills/conventional-commit-check\n"
+        }
+      },
+      "rawUrl": "/raw/skills/dev-tools/conventional-commit-check/SKILL.md",
+      "zipUrl": "/raw/zips/conventional-commit-check.zip",
+      "sourcePath": "skills/dev-tools/conventional-commit-check"
+    },
+    {
+      "name": "semver-bump-plan",
+      "title": "SemVer bump plan",
+      "description": "Chooses the highest SemVer bump from commit types the user already classified, using the Conventional Commits correlation. Use when the user asks whether the next release is major, minor, patch, or none.",
+      "category": "dev-tools",
+      "categoryLabel": "Dev Tools",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
+      "shelfNumber": 3,
+      "subshelf": "git",
+      "subshelfLabel": "Git",
+      "callNumber": "3.1",
+      "tags": [
+        "semver",
+        "release"
+      ],
+      "added": "2026-11-19",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/plan_bump.py. Reads a local text file. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2740,
+          "url": "/raw/skills/dev-tools/semver-bump-plan/SKILL.md"
+        },
+        {
+          "path": "assets/types.txt",
+          "bytes": 29,
+          "url": "/raw/skills/dev-tools/semver-bump-plan/assets/types.txt"
+        },
+        {
+          "path": "references/bump-rules.md",
+          "bytes": 1473,
+          "url": "/raw/skills/dev-tools/semver-bump-plan/references/bump-rules.md"
+        },
+        {
+          "path": "scripts/plan_bump.py",
+          "bytes": 7882,
+          "url": "/raw/skills/dev-tools/semver-bump-plan/scripts/plan_bump.py"
+        }
+      ],
+      "body": "# SemVer bump plan\n\nChoose one bump from commit types the user has already classified. Use [scripts/plan_bump.py](/raw/skills/dev-tools/semver-bump-plan/scripts/plan_bump.py). The correlation and the cases where the next number is not computed are in [references/bump-rules.md](/raw/skills/dev-tools/semver-bump-plan/references/bump-rules.md).\n\n## Steps\n\n1. Take one line per commit: the type, then the word `breaking` only when that commit is breaking. If they handed you raw messages, stop and use conventional-commit-check. Copy `type` from that output, and add `breaking` only when it printed `breaking=yes`. Do not guess a type from a diff.\n2. Take the current version only if they named one. Do not open a manifest to invent it. A missing version means the report stops at `bump`.\n3. Run `python3 scripts/plan_bump.py` with `--types`. Add `--current` only for the version they named. The fixture is [assets/types.txt](/raw/skills/dev-tools/semver-bump-plan/assets/types.txt).\n4. Report every `line`, then `commits`, the four counts, and `bump`. When a current version was passed, also report `prerelease`, `initial_development`, `build` if it is printed, and `next`.\n5. Check each `class` against that line. A line with `breaking` is major even when the type is `feat` or `fix`. The highest class is `bump`. Quote `next=not-computed` instead of filling in a number.\n6. Do not tag, publish, or edit a version field.\n\n## Example\n\nUser: These lines are in `assets/types.txt`. The current version is `1.4.2`. What is the bump? Do not tag.\n\nAgent: Runs `python3 scripts/plan_bump.py --types assets/types.txt --current 1.4.2`.\n\n```\nline=1 type=feat breaking=no class=minor\nline=2 type=fix breaking=no class=patch\nline=3 type=docs breaking=no class=none\nline=4 type=chore breaking=yes class=major\ncommits=4\nmajor=1\nminor=1\npatch=1\nnone=1\nbump=major\ncurrent=1.4.2\nprerelease=no\ninitial_development=no\nnext=2.0.0\n```\n\nThe `chore` line is breaking, so it outranks the `feat`. `docs` adds nothing. `next` is `2.0.0` because the current major is greater than zero and there is no pre-release. Nothing is tagged.\n\n## Boundaries\n\nDo not parse a raw commit message in this skill. Do not treat major zero, a pre-release, or a leading `v` as a normal stable bump. `next=unchanged` means these lines do not call for a new number. It is not a release.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/semver-bump-plan\ncp -R skills/dev-tools/semver-bump-plan/. .claude/skills/semver-bump-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/semver-bump-plan\ncp -R agentpedia/skills/dev-tools/semver-bump-plan/. .claude/skills/semver-bump-plan\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/semver-bump-plan\ncp -R skills/dev-tools/semver-bump-plan/. .codex/skills/semver-bump-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/semver-bump-plan\ncp -R agentpedia/skills/dev-tools/semver-bump-plan/. .codex/skills/semver-bump-plan\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/semver-bump-plan\ncp -R skills/dev-tools/semver-bump-plan/. .cursor/skills/semver-bump-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/semver-bump-plan\ncp -R agentpedia/skills/dev-tools/semver-bump-plan/. .cursor/skills/semver-bump-plan\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/semver-bump-plan\ncp -R skills/dev-tools/semver-bump-plan/. bot/skills/semver-bump-plan\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/semver-bump-plan\ncp -R agentpedia/skills/dev-tools/semver-bump-plan/. bot/skills/semver-bump-plan\n"
+        }
+      },
+      "rawUrl": "/raw/skills/dev-tools/semver-bump-plan/SKILL.md",
+      "zipUrl": "/raw/zips/semver-bump-plan.zip",
+      "sourcePath": "skills/dev-tools/semver-bump-plan"
+    },
     {
       "name": "contrast-pair-check",
       "title": "Contrast pair check",
@@ -2271,7 +2504,7 @@
       "description": "Drafts or refreshes AGENTS.md from the repository structure, the build and test commands, and the conventions the files already state. Use when the user asks for an agent guide for a repo. It does not invent a command the repo does not show.",
       "category": "dev-tools",
       "categoryLabel": "Dev Tools",
-      "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "shelfNumber": 3,
       "subshelf": "guides",
       "subshelfLabel": "Guides",
@@ -5178,7 +5411,7 @@
       "description": "Drafts a Conventional Commits message from a diff and a one-line intent. Use when the user asks for a commit message or to summarize a change before committing.",
       "category": "dev-tools",
       "categoryLabel": "Dev Tools",
-      "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "shelfNumber": 3,
       "subshelf": "git",
       "subshelfLabel": "Git",
@@ -5483,7 +5716,7 @@
       "description": "Turns commit subjects into a Keep a Changelog entry grouped by Added, Changed, Fixed, and Security. Use when the user asks for a changelog or a release section from git history.",
       "category": "dev-tools",
       "categoryLabel": "Dev Tools",
-      "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "shelfNumber": 3,
       "subshelf": "git",
       "subshelfLabel": "Git",
@@ -5544,7 +5777,7 @@
       "description": "Reads a dependency diff and notes major bumps, new install scripts, unmaintained packages, and license changes. Use when the user asks to review a lockfile update or a dependency bump.",
       "category": "dev-tools",
       "categoryLabel": "Dev Tools",
-      "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "shelfNumber": 3,
       "subshelf": "dependencies",
       "subshelfLabel": "Dependencies",
@@ -5605,7 +5838,7 @@
       "description": "Flags risk in a diff across auth, data loss, migrations, money, concurrency, and silent behavior changes. Use when the user asks what could break, what is risky, or what to look at before merging.",
       "category": "dev-tools",
       "categoryLabel": "Dev Tools",
-      "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "shelfNumber": 3,
       "subshelf": "review",
       "subshelfLabel": "Review",
@@ -5666,7 +5899,7 @@
       "description": "Builds a timestamped incident timeline from logs, alerts, and notes the user supplies. Use when the user asks to reconstruct an outage, write a timeline, or start a postmortem.",
       "category": "dev-tools",
       "categoryLabel": "Dev Tools",
-      "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "shelfNumber": 3,
       "subshelf": "incidents",
       "subshelfLabel": "Incidents",
@@ -5726,7 +5959,7 @@
       "description": "Reviews a diff and writes findings ordered by severity, each with a file reference and a test note. Use when the user asks for a code review, a PR review, or a second pass before merge.",
       "category": "dev-tools",
       "categoryLabel": "Dev Tools",
-      "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "shelfNumber": 3,
       "subshelf": "review",
       "subshelfLabel": "Review",
@@ -5792,7 +6025,7 @@
       "description": "Maps a code change to existing tests and lists behaviors that nothing covers. Use when the user asks which tests are missing, what to test next, or where a diff is untested.",
       "category": "dev-tools",
       "categoryLabel": "Dev Tools",
-      "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "shelfNumber": 3,
       "subshelf": "tests",
       "subshelfLabel": "Tests",
@@ -6051,7 +6284,7 @@
       "description": "Plans an expand-and-contract migration for a schema, an API, or a config flag. Use when the user asks how to migrate without a big-bang cutover or wants a migration checklist.",
       "category": "dev-tools",
       "categoryLabel": "Dev Tools",
-      "categoryBlurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+      "categoryBlurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
       "shelfNumber": 3,
       "subshelf": "migrations",
       "subshelfLabel": "Migrations",
@@ -7501,6 +7734,15 @@
     }
   ],
   "drops": [
+    {
+      "date": "2026-11-19",
+      "skills": [
+        "codeowners-match",
+        "conventional-commit-check",
+        "semver-bump-plan"
+      ],
+      "agents": []
+    },
     {
       "date": "2026-11-18",
       "skills": [
