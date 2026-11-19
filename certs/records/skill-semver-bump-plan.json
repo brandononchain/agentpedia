@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:dee36734b5c060889253c3171380dbf1b546fbd6cf27a8f9db519bcb9af10d67",
+  "id": "skill-semver-bump-plan",
+  "issuedAt": "2026-11-19",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "03a43b98f01ffe9a652c0f8f44791a278aa37d76",
+  "subject": {
+    "kind": "skill",
+    "name": "semver-bump-plan"
+  },
+  "tier": "listed"
+}

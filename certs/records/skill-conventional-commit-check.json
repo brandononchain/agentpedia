@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:1101dec1037575afe9a7724cf225fc0d16fee963d81b1a0acad34594d520ac29",
+  "id": "skill-conventional-commit-check",
+  "issuedAt": "2026-11-19",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "03a43b98f01ffe9a652c0f8f44791a278aa37d76",
+  "subject": {
+    "kind": "skill",
+    "name": "conventional-commit-check"
+  },
+  "tier": "listed"
+}
