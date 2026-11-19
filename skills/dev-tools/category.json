@@ -1,17 +1,17 @@
 {
   "label": "Dev Tools",
-  "blurb": "Git, review, tests, agent guides, and the risk hiding in a diff.",
+  "blurb": "Commit messages, a Conventional Commits check, a SemVer bump, changelogs, review notes, CODEOWNERS matches, tests, agent guides, and the risk in a diff.",
   "number": 3,
   "subshelves": [
     {
       "slug": "git",
       "label": "Git",
-      "description": "Commit messages and changelogs from the branch."
+      "description": "Commit messages, a Conventional Commits check, a SemVer bump, and changelogs from the branch."
     },
     {
       "slug": "review",
       "label": "Review",
-      "description": "Notes on a diff and the risk inside it."
+      "description": "Notes on a diff, the risk inside it, and the last CODEOWNERS match for a path."
     },
     {
       "slug": "tests",
