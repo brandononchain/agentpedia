@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T16:16:05.445698+00:00",
+  "generatedAt": "2026-11-20T16:10:11.065635+00:00",
   "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
@@ -10,13 +10,13 @@
   "aaifUrl": "https://aaif.io/projects/agent-skills",
   "studyUrl": "https://arxiv.org/abs/2607.01456",
   "stats": {
-    "skills": 93,
+    "skills": 96,
     "agents": 21,
     "categories": 23,
     "errors": 0,
     "warnings": 0,
     "info": 0,
-    "clean": 93
+    "clean": 96
   },
   "scoring": {
     "start": 100,
@@ -368,29 +368,29 @@
     {
       "id": "devops-cloud",
       "label": "DevOps & Cloud",
-      "blurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console.",
+      "blurb": "Deploy plans, CI logs, change windows, GitHub Actions refs and token scopes, and the user and health check written in a Dockerfile. Nothing here deploys, rolls back, or opens a cloud console.",
       "number": 4,
       "subshelves": [
         {
           "slug": "deploys",
           "label": "Deploys",
-          "description": "Readiness notes and change windows. Nothing here deploys.",
+          "description": "Readiness notes, change windows, and the last USER and HEALTHCHECK in a Dockerfile. Nothing here deploys.",
           "number": 1,
           "count": 0,
-          "skills": 2,
+          "skills": 3,
           "agents": 1
         },
         {
           "slug": "ci",
           "label": "CI",
-          "description": "Names the first failing step in a pasted log.",
+          "description": "The first failing log line, the ref on each uses value, and the GITHUB_TOKEN permissions a workflow file sets.",
           "number": 2,
           "count": 0,
-          "skills": 1,
+          "skills": 3,
           "agents": 0
         }
       ],
-      "count": 3,
+      "count": 6,
       "agentCount": 1
     },
     {
@@ -1152,6 +1152,234 @@
     }
   ],
   "skills": [
+    {
+      "name": "action-uses-class",
+      "title": "Action uses class",
+      "description": "Classifies each GitHub Actions uses value as a full-length commit SHA, a movable ref, a same-repo path, or a Docker image. Use when the user asks whether a workflow pins an action before it runs.",
+      "category": "devops-cloud",
+      "categoryLabel": "DevOps & Cloud",
+      "categoryBlurb": "Deploy plans, CI logs, change windows, GitHub Actions refs and token scopes, and the user and health check written in a Dockerfile. Nothing here deploys, rolls back, or opens a cloud console.",
+      "shelfNumber": 4,
+      "subshelf": "ci",
+      "subshelfLabel": "CI",
+      "callNumber": "4.2",
+      "tags": [
+        "actions",
+        "pinning"
+      ],
+      "added": "2026-11-20",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/classify_uses.py. Reads one local workflow file. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 3437,
+          "url": "/raw/skills/devops-cloud/action-uses-class/SKILL.md"
+        },
+        {
+          "path": "assets/workflow.yml",
+          "bytes": 448,
+          "url": "/raw/skills/devops-cloud/action-uses-class/assets/workflow.yml"
+        },
+        {
+          "path": "references/ref-forms.md",
+          "bytes": 3106,
+          "url": "/raw/skills/devops-cloud/action-uses-class/references/ref-forms.md"
+        },
+        {
+          "path": "scripts/classify_uses.py",
+          "bytes": 12693,
+          "url": "/raw/skills/devops-cloud/action-uses-class/scripts/classify_uses.py"
+        }
+      ],
+      "body": "# Action uses class\n\nClassify every `uses` value in one workflow file. Use [scripts/classify_uses.py](/raw/skills/devops-cloud/action-uses-class/scripts/classify_uses.py). Which strings count as a full-length SHA, and what the script does not check, is in [references/ref-forms.md](/raw/skills/devops-cloud/action-uses-class/references/ref-forms.md).\n\n## Steps\n\n1. Take one workflow file. If the user has several, ask which file. Do not merge them, and do not fetch the actions.\n2. Run `python3 scripts/classify_uses.py` on that file. The fixture is [assets/workflow.yml](/raw/skills/devops-cloud/action-uses-class/assets/workflow.yml), and it is not the user's workflow.\n3. For each value, keep `line`, `where`, `job`, `value`, `kind`, `ref`, `suffix`, and `prefix` as printed. Keep the counts at the end.\n4. `kind=sha` is 40 hexadecimal characters after `@`. `kind=movable` is any other ref. `suffix=invalid` means a `$/` or `./` value also has `@`. `prefix=yes` means the ref starts with `refs/`.\n5. Check a printed `value` against that line of the file. Drop a row whose value is not on that line. `ok=yes` means every `uses` value was classified. It does not mean the workflow is safe to run.\n6. Do not edit the file, choose a SHA, or say a lockfile is present unless the user said so.\n\n## Example\n\nUser: Classify the `uses` values in `assets/workflow.yml`. Do not run the workflow, and do not look up the commits.\n\nAgent: Runs `python3 scripts/classify_uses.py assets/workflow.yml`.\n\n```\nok=yes\nline=7\nwhere=step\njob=test\nvalue=actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3\nkind=sha\nref=8f4b7f84864484a7bf31766abe9204da3cbe65b3\nsuffix=no\nprefix=no\nline=9\nwhere=step\njob=test\nvalue=actions/setup-node@v6\nkind=movable\nref=v6\nsuffix=no\nprefix=no\nline=10\nwhere=step\njob=test\nvalue=./.github/actions/hello-world-action\nkind=relative\nref=absent\nsuffix=no\nprefix=no\nline=11\nwhere=step\njob=test\nvalue=$/.github/actions/hello-world-action\nkind=self-repo\nref=absent\nsuffix=no\nprefix=no\nline=12\nwhere=step\njob=test\nvalue=docker://alpine:3.8\nkind=docker\nref=absent\nsuffix=no\nprefix=no\nline=14\nwhere=job\njob=call\nvalue=octo-org/this-repo/.github/workflows/workflow-1.yml@172239021f7ba04fe7327647b213799853a9eb89\nkind=sha\nref=172239021f7ba04fe7327647b213799853a9eb89\nsuffix=no\nprefix=no\nuses=6\nsha=2\nmovable=1\nself_repo=1\nrelative=1\ndocker=1\nmissing_ref=0\nexpression=0\nsuffix_invalid=0\n```\n\n`actions/checkout` on line 7 is a 40-character SHA. `actions/setup-node@v6` is movable. The `./` and `$/` steps are paths in the same repository, and the Docker image is not a git ref. The job `call` is a reusable workflow pinned to a SHA. Nothing is edited, and no commit is fetched.\n\n## Boundaries\n\nDo not treat `kind=movable` as proof the action was compromised. A tag or a branch can move, and a full-length SHA can still point at a fork. This script does not resolve either one. If the user says the repository uses a workflow dependency lockfile, say this scan does not replace it. Do not rerun the workflow. A failing log is ci-log-triage.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/action-uses-class\ncp -R skills/devops-cloud/action-uses-class/. .claude/skills/action-uses-class\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/action-uses-class\ncp -R agentpedia/skills/devops-cloud/action-uses-class/. .claude/skills/action-uses-class\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/action-uses-class\ncp -R skills/devops-cloud/action-uses-class/. .codex/skills/action-uses-class\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/action-uses-class\ncp -R agentpedia/skills/devops-cloud/action-uses-class/. .codex/skills/action-uses-class\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/action-uses-class\ncp -R skills/devops-cloud/action-uses-class/. .cursor/skills/action-uses-class\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/action-uses-class\ncp -R agentpedia/skills/devops-cloud/action-uses-class/. .cursor/skills/action-uses-class\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/action-uses-class\ncp -R skills/devops-cloud/action-uses-class/. bot/skills/action-uses-class\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/action-uses-class\ncp -R agentpedia/skills/devops-cloud/action-uses-class/. bot/skills/action-uses-class\n"
+        }
+      },
+      "rawUrl": "/raw/skills/devops-cloud/action-uses-class/SKILL.md",
+      "zipUrl": "/raw/zips/action-uses-class.zip",
+      "sourcePath": "skills/devops-cloud/action-uses-class"
+    },
+    {
+      "name": "dockerfile-stage-user",
+      "title": "Dockerfile stage user",
+      "description": "Reports the last USER in each Dockerfile stage and the last HEALTHCHECK in the file. Use when the user asks which user or health check a Dockerfile sets before a build.",
+      "category": "devops-cloud",
+      "categoryLabel": "DevOps & Cloud",
+      "categoryBlurb": "Deploy plans, CI logs, change windows, GitHub Actions refs and token scopes, and the user and health check written in a Dockerfile. Nothing here deploys, rolls back, or opens a cloud console.",
+      "shelfNumber": 4,
+      "subshelf": "deploys",
+      "subshelfLabel": "Deploys",
+      "callNumber": "4.1",
+      "tags": [
+        "docker",
+        "image"
+      ],
+      "added": "2026-11-20",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/read_stages.py. Reads one local Dockerfile. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2903,
+          "url": "/raw/skills/devops-cloud/dockerfile-stage-user/SKILL.md"
+        },
+        {
+          "path": "assets/Dockerfile",
+          "bytes": 173,
+          "url": "/raw/skills/devops-cloud/dockerfile-stage-user/assets/Dockerfile"
+        },
+        {
+          "path": "references/stage-rules.md",
+          "bytes": 2950,
+          "url": "/raw/skills/devops-cloud/dockerfile-stage-user/references/stage-rules.md"
+        },
+        {
+          "path": "scripts/read_stages.py",
+          "bytes": 11044,
+          "url": "/raw/skills/devops-cloud/dockerfile-stage-user/scripts/read_stages.py"
+        }
+      ],
+      "body": "# Dockerfile stage user\n\nReport the last `USER` in each stage and the last `HEALTHCHECK` in the file. Use [scripts/read_stages.py](/raw/skills/devops-cloud/dockerfile-stage-user/scripts/read_stages.py). Which instruction wins, and what unset does not mean, is in [references/stage-rules.md](/raw/skills/devops-cloud/dockerfile-stage-user/references/stage-rules.md).\n\n## Steps\n\n1. Take one Dockerfile. If the user has several, ask which file. Do not run `docker build`, and do not pull the base image.\n2. Run `python3 scripts/read_stages.py` on that file. The fixture is [assets/Dockerfile](/raw/skills/devops-cloud/dockerfile-stage-user/assets/Dockerfile), and it is not the user's image.\n3. For each stage, keep `from_line`, `image`, `name`, `platform`, `user`, `user_line`, `user_count`, `user_root`, and `user_numeric` as printed. Then keep `healthcheck`, `healthcheck_count`, and `healthcheck_line`.\n4. `user=unset` means that stage has no `USER` instruction. Do not call the stage root. `user_root=yes` only when the last user token is `root`. A numeric token, including `0`, stays `user_numeric=yes`.\n5. Check the printed user against that line, or against the stage when the user is unset. Check the health-check line the same way. When more than one `HEALTHCHECK` is present, the last one is the one the reference says takes effect.\n6. If the script stops, quote the message and do not fill in the missing stage. Do not add `:latest` to an image that omitted a tag.\n\n## Example\n\nUser: Which user and health check does `assets/Dockerfile` set? Do not build the image.\n\nAgent: Runs `python3 scripts/read_stages.py assets/Dockerfile`.\n\n```\nok=yes\nstages=2\nstage=0\nfrom_line=3\nimage=ubuntu:24.04\nname=base\nplatform=absent\nuser=unset\nuser_line=absent\nuser_count=0\nuser_root=no\nuser_numeric=no\nstage=1\nfrom_line=6\nimage=base\nname=absent\nplatform=absent\nuser=app\nuser_line=7\nuser_count=1\nuser_root=no\nuser_numeric=no\nhealthcheck=cmd\nhealthcheck_count=1\nhealthcheck_line=8\n```\n\nStage 0 is `ubuntu:24.04` named `base`, and this file sets no `USER` there. That is unset, not a claim that the base image runs as root. Stage 1 starts `FROM base`, then `USER app` on line 7. The only `HEALTHCHECK` starts on line 8 and is a `CMD` check, so it is the one that would take effect. The image is not built.\n\n## Boundaries\n\nDo not build, push, or run the image. Do not invent a user from a base image this file does not contain. A deploy plan that names Docker but has no Dockerfile is deploy-readiness. This skill does not decide that the deploy is ready.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/dockerfile-stage-user\ncp -R skills/devops-cloud/dockerfile-stage-user/. .claude/skills/dockerfile-stage-user\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/dockerfile-stage-user\ncp -R agentpedia/skills/devops-cloud/dockerfile-stage-user/. .claude/skills/dockerfile-stage-user\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/dockerfile-stage-user\ncp -R skills/devops-cloud/dockerfile-stage-user/. .codex/skills/dockerfile-stage-user\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/dockerfile-stage-user\ncp -R agentpedia/skills/devops-cloud/dockerfile-stage-user/. .codex/skills/dockerfile-stage-user\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/dockerfile-stage-user\ncp -R skills/devops-cloud/dockerfile-stage-user/. .cursor/skills/dockerfile-stage-user\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/dockerfile-stage-user\ncp -R agentpedia/skills/devops-cloud/dockerfile-stage-user/. .cursor/skills/dockerfile-stage-user\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/dockerfile-stage-user\ncp -R skills/devops-cloud/dockerfile-stage-user/. bot/skills/dockerfile-stage-user\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/dockerfile-stage-user\ncp -R agentpedia/skills/devops-cloud/dockerfile-stage-user/. bot/skills/dockerfile-stage-user\n"
+        }
+      },
+      "rawUrl": "/raw/skills/devops-cloud/dockerfile-stage-user/SKILL.md",
+      "zipUrl": "/raw/zips/dockerfile-stage-user.zip",
+      "sourcePath": "skills/devops-cloud/dockerfile-stage-user"
+    },
+    {
+      "name": "workflow-permission-read",
+      "title": "Workflow permission read",
+      "description": "Reads permissions keys in a GitHub Actions workflow and checks each scope against the documented access levels. Use when the user asks what GITHUB_TOKEN access that file grants.",
+      "category": "devops-cloud",
+      "categoryLabel": "DevOps & Cloud",
+      "categoryBlurb": "Deploy plans, CI logs, change windows, GitHub Actions refs and token scopes, and the user and health check written in a Dockerfile. Nothing here deploys, rolls back, or opens a cloud console.",
+      "shelfNumber": 4,
+      "subshelf": "ci",
+      "subshelfLabel": "CI",
+      "callNumber": "4.2",
+      "tags": [
+        "actions",
+        "permissions"
+      ],
+      "added": "2026-11-20",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "Python 3.10 or newer for scripts/read_permissions.py. Reads one local workflow file. No network and no extra packages.",
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 3310,
+          "url": "/raw/skills/devops-cloud/workflow-permission-read/SKILL.md"
+        },
+        {
+          "path": "assets/workflow.yml",
+          "bytes": 281,
+          "url": "/raw/skills/devops-cloud/workflow-permission-read/assets/workflow.yml"
+        },
+        {
+          "path": "references/scope-rules.md",
+          "bytes": 4126,
+          "url": "/raw/skills/devops-cloud/workflow-permission-read/references/scope-rules.md"
+        },
+        {
+          "path": "scripts/read_permissions.py",
+          "bytes": 17095,
+          "url": "/raw/skills/devops-cloud/workflow-permission-read/scripts/read_permissions.py"
+        }
+      ],
+      "body": "# Workflow permission read\n\nRead the `permissions` keys in one workflow file and check each scope against the syntax example. Use [scripts/read_permissions.py](/raw/skills/devops-cloud/workflow-permission-read/scripts/read_permissions.py). Which forms count, and which rules the script does not apply, is in [references/scope-rules.md](/raw/skills/devops-cloud/workflow-permission-read/references/scope-rules.md).\n\n## Steps\n\n1. Take one workflow file. If the user has several, ask which file. Do not call the GitHub API, and do not assume the organization default.\n2. Run `python3 scripts/read_permissions.py` on that file. The fixture is [assets/workflow.yml](/raw/skills/devops-cloud/workflow-permission-read/assets/workflow.yml), and it is not the user's workflow.\n3. Keep `ok`, `pull_request_target`, `skipped_permissions`, `duplicate_workflow`, and each printed scope. `workflow_form=absent` means the file has no top-level key. `job_form=absent` means that job has no key of its own.\n4. For a map, keep `unspecified=none`. Do not copy the workflow scopes onto a job that has its own key, and do not invent a scope the script did not print.\n5. Check each `scope` and `access` against that permissions block in the file. Drop a scope that is not on the printed line. `scope_ok=no` means the name is not in the syntax example, or the access token is not one that example allows for that name.\n6. When `ok=no`, show the `reason`, `duplicate`, `duplicate_workflow`, or `duplicate_job` line and do not pick a winner. Do not change `write` to `read` because of a fork.\n\n## Example\n\nUser: What token scopes does `assets/workflow.yml` set? Do not run it, and do not look up the repository default.\n\nAgent: Runs `python3 scripts/read_permissions.py assets/workflow.yml`.\n\n```\nok=yes\npull_request_target=no\nskipped_permissions=0\nduplicate_workflow=no\nworkflow_form=map\npermissions_line=4\nscope=contents\naccess=read\nscope_ok=yes\nunspecified=none\njob=test\njob_form=absent\njob=release\njob_form=map\npermissions_line=13\nscope=contents\naccess=write\nscope_ok=yes\nscope=id-token\naccess=write\nscope_ok=yes\nunspecified=none\njobs=2\n```\n\nThe file sets `contents: read` for every job, and every other scope at that level is unspecified, so the script marks those `none`. `test` has no key of its own, so that workflow map is the one the file sets for it. `release` replaces that with `contents: write` and `id-token: write`, and its other scopes are unspecified. `pull_request_target` is not an event in this file. The repository default is not in the file, and nothing is changed on GitHub.\n\n## Boundaries\n\nDo not grant a permission, open a pull request, or claim the token in a live run matches this file. A fork pull request can still force `write` down to `read`, and `pull_request_target` has its own grant. Those rules are in the reference. This script does not apply them. Classifying action refs is action-uses-class. A failing log is ci-log-triage.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/workflow-permission-read\ncp -R skills/devops-cloud/workflow-permission-read/. .claude/skills/workflow-permission-read\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/workflow-permission-read\ncp -R agentpedia/skills/devops-cloud/workflow-permission-read/. .claude/skills/workflow-permission-read\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/workflow-permission-read\ncp -R skills/devops-cloud/workflow-permission-read/. .codex/skills/workflow-permission-read\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/workflow-permission-read\ncp -R agentpedia/skills/devops-cloud/workflow-permission-read/. .codex/skills/workflow-permission-read\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/workflow-permission-read\ncp -R skills/devops-cloud/workflow-permission-read/. .cursor/skills/workflow-permission-read\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/workflow-permission-read\ncp -R agentpedia/skills/devops-cloud/workflow-permission-read/. .cursor/skills/workflow-permission-read\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/workflow-permission-read\ncp -R skills/devops-cloud/workflow-permission-read/. bot/skills/workflow-permission-read\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/workflow-permission-read\ncp -R agentpedia/skills/devops-cloud/workflow-permission-read/. bot/skills/workflow-permission-read\n"
+        }
+      },
+      "rawUrl": "/raw/skills/devops-cloud/workflow-permission-read/SKILL.md",
+      "zipUrl": "/raw/zips/workflow-permission-read.zip",
+      "sourcePath": "skills/devops-cloud/workflow-permission-read"
+    },
     {
       "name": "codeowners-match",
       "title": "CODEOWNERS match",
@@ -2895,7 +3123,7 @@
       "description": "Writes who changes production, when the window opens and closes, and how to stop. Use when the user asks for a change window before a deploy or a config edit on Vercel, AWS, or Docker.",
       "category": "devops-cloud",
       "categoryLabel": "DevOps & Cloud",
-      "categoryBlurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console.",
+      "categoryBlurb": "Deploy plans, CI logs, change windows, GitHub Actions refs and token scopes, and the user and health check written in a Dockerfile. Nothing here deploys, rolls back, or opens a cloud console.",
       "shelfNumber": 4,
       "subshelf": "deploys",
       "subshelfLabel": "Deploys",
@@ -2956,7 +3184,7 @@
       "description": "Names the first failing step in a pasted CI log and separates the error line from noise around it. Use when the user asks why a GitHub Actions, Vercel, or other build log failed.",
       "category": "devops-cloud",
       "categoryLabel": "DevOps & Cloud",
-      "categoryBlurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console.",
+      "categoryBlurb": "Deploy plans, CI logs, change windows, GitHub Actions refs and token scopes, and the user and health check written in a Dockerfile. Nothing here deploys, rolls back, or opens a cloud console.",
       "shelfNumber": 4,
       "subshelf": "ci",
       "subshelfLabel": "CI",
@@ -3200,7 +3428,7 @@
       "description": "Checks a written deploy plan for the rollback, the migration, and the health check before anyone ships it. Use when the user asks if a Vercel, AWS, or Docker deploy is ready to start.",
       "category": "devops-cloud",
       "categoryLabel": "DevOps & Cloud",
-      "categoryBlurb": "Turns a deploy plan, a failing CI log, or a change window into a note a person can act on. The steps ask about Vercel, AWS, and Docker when the user names them. The shelf does not deploy, roll back, or open a cloud console.",
+      "categoryBlurb": "Deploy plans, CI logs, change windows, GitHub Actions refs and token scopes, and the user and health check written in a Dockerfile. Nothing here deploys, rolls back, or opens a cloud console.",
       "shelfNumber": 4,
       "subshelf": "deploys",
       "subshelfLabel": "Deploys",
@@ -7734,6 +7962,15 @@
     }
   ],
   "drops": [
+    {
+      "date": "2026-11-20",
+      "skills": [
+        "action-uses-class",
+        "dockerfile-stage-user",
+        "workflow-permission-read"
+      ],
+      "agents": []
+    },
     {
       "date": "2026-11-19",
       "skills": [
