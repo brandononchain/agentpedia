@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:9418b22c3b0ed12896d12c8230bd7a9506212ff215759380e3706ab9bd8c4963",
+  "id": "skill-action-uses-class",
+  "issuedAt": "2026-11-20",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "1eb0868abeff3e66f5fd7c6b368b90476e4ec00f",
+  "subject": {
+    "kind": "skill",
+    "name": "action-uses-class"
+  },
+  "tier": "listed"
+}

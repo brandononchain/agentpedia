@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:e28fa3ef9dc0a1cc0f50146d43ddd4386f00a84e8bbc76fd5e3603e2048802c4",
+  "id": "skill-workflow-permission-read",
+  "issuedAt": "2026-11-20",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "1eb0868abeff3e66f5fd7c6b368b90476e4ec00f",
+  "subject": {
+    "kind": "skill",
+    "name": "workflow-permission-read"
+  },
+  "tier": "listed"
+}

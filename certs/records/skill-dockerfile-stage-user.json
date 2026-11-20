@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:489e89ed31fc62ee222d3a6251dc97c7cf6c7d27a4399469ba0165569f824c66",
+  "id": "skill-dockerfile-stage-user",
+  "issuedAt": "2026-11-20",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "1eb0868abeff3e66f5fd7c6b368b90476e4ec00f",
+  "subject": {
+    "kind": "skill",
+    "name": "dockerfile-stage-user"
+  },
+  "tier": "listed"
+}
