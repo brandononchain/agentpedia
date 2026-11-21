@@ -46,7 +46,12 @@ jobs:
       - name: Certificate tests
         run: npm run test:certs
 
+      - name: Brain unit tests and golden set
+        run: npm run test:brain
+
       - name: Build the catalog and the site
+        env:
+          AGENTPEDIA_SIGNING_KEY: ${{ secrets.AGENTPEDIA_SIGNING_KEY }}
         run: |
           # next/font downloads Google CSS at build time. A truncated reply
           # fails the loader; the same commit can succeed on the next try.

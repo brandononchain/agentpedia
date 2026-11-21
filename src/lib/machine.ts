@@ -90,6 +90,7 @@ export function llmsTxt() {
     `- [Glossary](${origin}/glossary): Skill, agent, shelf, score, and drop.`,
     `- [Certification](${origin}/certification): Listed, Verified, and Certified, and the static audit each one includes.`,
     `- [Security](${origin}/security): Audit grades for every entry. Methodology: ${origin}/security/methodology.`,
+    `- [Brain](${origin}/brain): Hosted search API and MCP server. Skill text is free. Ranked by relevance and trust. OpenAPI: ${origin}/api/v1/openapi.json. MCP: ${origin}/mcp.`,
     "",
     "## Submit",
     "",
