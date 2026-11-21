@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:363b0c4dee68a97852b9d22138f42b697b4303d95e45923c59c2bc3faef6d65e",
+  "id": "skill-agentpedia-submit",
+  "issuedAt": "2026-11-21",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0c6e81cc8d82e56af4c358d5192ec0a42f294bfa",
+  "subject": {
+    "kind": "skill",
+    "name": "agentpedia-submit"
+  },
+  "tier": "listed"
+}

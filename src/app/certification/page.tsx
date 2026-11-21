@@ -56,8 +56,8 @@ export default function CertificationPage() {
             <Link href="/security">Security</Link>.
           </p>
           <p>
-            An agent is Listed when its manifest is accepted, every bundled skill scores 100, and the agent's own
-            static audit is not on hold. Agents are not passed through skill-lint. <code>AGENT.md</code> is not a{" "}
+            An agent is Listed when its manifest is accepted, every bundled skill scores 100, and the agent audit
+            is not on hold. Agents are not passed through skill-lint. <code>AGENT.md</code> is not a{" "}
             <code>SKILL.md</code>.
           </p>
           <p>
