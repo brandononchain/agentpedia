@@ -1,0 +1,48 @@
+name: Certify record
+
+# Maintainer-only recording of check results. The job is skipped unless the
+# dispatch ref is the default branch, and the checkout is pinned to that
+# branch. Pull-request code is never executed here. A label on a pull request
+# cannot reach this job.
+
+on:
+  workflow_dispatch:
+    inputs:
+      write_results:
+        description: Record passing check runs into certs/results on the default branch
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  record:
+    if: inputs.write_results && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.repository.default_branch }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Record passing checks with the default-branch harness
+        run: python3 tools/certify_report.py --base origin/${{ github.event.repository.default_branch }} --write --out "$RUNNER_TEMP/certify-write.md"
+
+      - name: Commit recorded results
+        run: |
+          if git diff --quiet -- certs/results certs/records; then
+            echo "No result files changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add certs/results certs/records
+          git commit -m "Record certification check results"
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"

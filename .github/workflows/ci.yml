@@ -4,9 +4,16 @@ on:
   push:
   pull_request:
 
+# This job checks out and runs the workflow's code, including pull-request
+# code. The token can read the repository and cannot write it.
+permissions:
+  contents: read
+
 jobs:
   verify:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
