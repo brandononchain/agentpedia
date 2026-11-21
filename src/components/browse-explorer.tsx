@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ScoreMark } from "@/components/score-mark";
+import { ThemeSelect } from "@/components/theme-select";
 import type { SkillSummary } from "@/lib/catalog";
 import { formatDropDate } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -96,19 +97,17 @@ export function BrowseExplorer({
                 placeholder="Name, tag, or a job to be done"
               />
             </div>
-            <div>
-              <label htmlFor="shelf-sort">Sort</label>
-              <select
-                id="shelf-sort"
-                className="select-field"
-                value={sort}
-                onChange={(event) => setParam("sort", event.target.value === "newest" ? "" : event.target.value)}
-              >
-                <option value="newest">Newest</option>
-                <option value="score">Lint score</option>
-                <option value="name">Name</option>
-              </select>
-            </div>
+            <ThemeSelect
+              id="shelf-sort"
+              label="Sort"
+              value={sort}
+              onChange={(next) => setParam("sort", next === "newest" ? "" : next)}
+              options={[
+                { value: "newest", label: "Newest" },
+                { value: "score", label: "Lint score" },
+                { value: "name", label: "Name" },
+              ]}
+            />
           </div>
 
           <div className="tag-list">

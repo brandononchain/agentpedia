@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
+import { ThemeSelect } from "@/components/theme-select";
 import { catalog } from "@/lib/catalog";
 import { auditStatusLabel } from "@/lib/audit";
 import { SITE_NAME, siteMeta } from "@/lib/site";
@@ -94,38 +95,32 @@ export default async function SecurityPage({
           <Link href="/security/methodology">How the audit works</Link>.
         </p>
         <form className="audit-filters" method="get" action="/security">
-          <label>
-            Shelf
-            <select name="shelf" defaultValue={shelf}>
-              <option value="">All</option>
-              {catalog.categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.label}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Grade
-            <select name="grade" defaultValue={grade}>
-              <option value="">All</option>
-              {["A", "B", "C", "D", "F"].map((letter) => (
-                <option key={letter} value={letter}>
-                  {letter}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Status
-            <select name="status" defaultValue={status}>
-              <option value="">All</option>
-              <option value="passed">Passed</option>
-              <option value="warning">Warning</option>
-              <option value="on-hold">On hold</option>
-            </select>
-          </label>
-          <button type="submit">Filter</button>
+          <ThemeSelect
+            label="Shelf"
+            name="shelf"
+            defaultValue={shelf}
+            options={[{ value: "", label: "All" }, ...catalog.categories.map((category) => ({ value: category.id, label: category.label }))]}
+          />
+          <ThemeSelect
+            label="Grade"
+            name="grade"
+            defaultValue={grade}
+            options={[{ value: "", label: "All" }, ...["A", "B", "C", "D", "F"].map((letter) => ({ value: letter, label: letter }))]}
+          />
+          <ThemeSelect
+            label="Status"
+            name="status"
+            defaultValue={status}
+            options={[
+              { value: "", label: "All" },
+              { value: "passed", label: "Passed" },
+              { value: "warning", label: "Warning" },
+              { value: "on-hold", label: "On hold" },
+            ]}
+          />
+          <button className="solid-button" type="submit">
+            Filter
+          </button>
         </form>
         {filtered.length === 0 ? (
           <p>No entries match these filters.</p>
