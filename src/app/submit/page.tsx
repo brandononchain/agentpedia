@@ -51,6 +51,12 @@ export default function SubmitPage() {
   --description "<Third person. Use when the user asks for this job.>"`}</code>
           </pre>
           <p>
+            The command tags the catalog entry <code>source: inbound</code>. Pass <code>--author</code> and{" "}
+            <code>--author-url</code> so the book names the submitter. When <code>gh</code> can see the logged-in
+            user, the command uses that profile name, or the GitHub login when the profile has no name. Brandon is
+            recorded as the curator.
+          </p>
+          <p>
             An agent uses <code>--kind agent</code> and <code>--skills</code> with names that already exist.{" "}
             <code>python3 tools/new_entry.py shelves</code> lists shelves. The machine-readable spec is{" "}
             <Link href="/submit.md">/submit.md</Link>. The installable skill is{" "}

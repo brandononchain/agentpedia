@@ -47,6 +47,20 @@ def test_audit_workflow_is_read_only():
     assert "--ci" in text
 
 
+def test_source_candidates_does_not_run_untrusted_pr_code():
+    text = _text("source-candidates.yml")
+    assert "pull_request:" not in text
+    assert "pull_request_target" not in text
+    assert "workflow_dispatch" in text
+    assert "cron:" in text
+    assert "ref: main" in text
+    assert "git push origin candidates" in text
+    assert "git push origin main" not in text
+    assert "Refresh candidate queue" in text
+    assert "contents: write" in text
+    assert "contents: read" in text
+
+
 def test_record_workflow_is_not_a_pull_request_job():
     text = _text("certify-record.yml")
     assert "pull_request:" not in text

@@ -73,6 +73,19 @@ Do not put any of the following in a skill, including inside an example:
 
 Write original instructions. Do not paste someone else's skill verbatim.
 
+An imported skill is the exception, and only through the importer. It keeps the upstream copyright, license, commit, and author, and it is labeled as an adaptation. See [tools/sourcing/README.md](tools/sourcing/README.md).
+
+```bash
+python3 tools/new_entry.py import --from https://github.com/owner/repo/blob/main/path/SKILL.md
+python3 tools/new_entry.py import --next 8 --prefer-empty-shelves
+```
+
+The allow list is MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, CC-BY-4.0, CC0-1.0, and Unlicense. GPL, AGPL, LGPL, and CC-BY-SA are never imported. A license that appears only in a README needs a LICENSE file first. Import rewrites the skill into one job, strips vendor telemetry, and accepts it only when skill-lint scores 100 and the static audit is not on hold or grade F. Otherwise the folder is left out and the candidate row is marked rejected.
+
+`--prefer-empty-shelves` fills Education, Product, and People before thicker shelves. The book page credits `author` (the upstream creator, or their GitHub login when no name is stated) and shows Curated by Brandon. An upstream repo's star count does not make the entry Verified. Imports are Listed.
+
+`python3 tools/new_entry.py submit` tags the catalog row `source: inbound` and sets `author` from `--author` or the logged-in GitHub user. Pass `--author` when `gh` cannot see a user. Do not invent a personal name; use the GitHub login when no name is on the profile or the license.
+
 Trading and market skills in this catalog record, size, and brief. They do not place orders and they do not invent prices. Match that restraint if you add to the shelf. Marketing and sales skills do not invent social proof, personal facts, or a feature the product does not have.
 
 The same restraint applies on the newer shelves. Legal skills say they are not legal advice. Health notes are informational only and do not diagnose. Crypto skills are read-only: they do not move funds or sign transactions. Security skills read text the user supplies and do not produce an exploit.

@@ -93,6 +93,14 @@ export type AuditCatalog = {
   };
 };
 
+export type Upstream = {
+  repo: string;
+  commit: string;
+  path: string;
+  license: string;
+  url: string;
+};
+
 export type Skill = {
   name: string;
   title: string;
@@ -109,6 +117,12 @@ export type Skill = {
   featured: boolean;
   license: string;
   compatibility: string;
+  author: string;
+  authorUrl: string;
+  authorKind: "person" | "organization";
+  curator: string;
+  source: string;
+  upstream: Upstream | null;
   lint: {
     score: number;
     errors: number;
@@ -141,6 +155,12 @@ export type Agent = {
   prompts: string[];
   body: string;
   sourcePath: string;
+  author: string;
+  authorUrl: string;
+  authorKind: "person" | "organization";
+  curator: string;
+  source: string;
+  upstream: Upstream | null;
   audit?: AuditView;
 };
 

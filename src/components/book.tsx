@@ -1,7 +1,56 @@
 import Link from "next/link";
 import { MarkdownBody } from "@/components/markdown-body";
 import { SecurityReport } from "@/components/security-report";
-import { bookBase, type BookEntry, type Chapter } from "@/lib/book";
+import { CURATOR_URL, bookBase, type BookEntry, type Chapter } from "@/lib/book";
+
+export function shortSha(commit: string) {
+  return commit.slice(0, 7);
+}
+
+export function CreditRows({ entry }: { entry: BookEntry }) {
+  return (
+    <>
+      <dt>Author</dt>
+      <dd>
+        {entry.authorUrl ? (
+          <a href={entry.authorUrl}>{entry.author}</a>
+        ) : (
+          entry.author
+        )}
+      </dd>
+      {entry.curator ? (
+        <>
+          <dt>Curated by</dt>
+          <dd>
+            <a href={CURATOR_URL}>{entry.curator}</a>
+          </dd>
+        </>
+      ) : null}
+      {entry.upstream ? (
+        <>
+          <dt>Adapted from</dt>
+          <dd>
+            <a href={entry.upstream.url}>
+              {entry.upstream.repo} @ {shortSha(entry.upstream.commit)} ({entry.upstream.license})
+            </a>
+          </dd>
+        </>
+      ) : null}
+    </>
+  );
+}
+
+export function AdaptedFrom({ entry }: { entry: BookEntry }) {
+  if (!entry.upstream) return null;
+  const { repo, commit, license, url } = entry.upstream;
+  return (
+    <p className="attribution">
+      <a href={url}>
+        Adapted from {repo} @ {shortSha(commit)} ({license})
+      </a>
+    </p>
+  );
+}
 
 export function BookToc({ entry, chapters }: { entry: BookEntry; chapters: Chapter[] }) {
   const base = bookBase(entry);

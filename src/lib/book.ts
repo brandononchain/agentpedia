@@ -1,4 +1,4 @@
-import { catalog, type Agent, type AuditView, type Skill } from "@/lib/catalog";
+import { catalog, type Agent, type AuditView, type Skill, type Upstream } from "@/lib/catalog";
 import { certificateFor, tierLabel } from "@/lib/certificates";
 import { formatDropDate } from "@/lib/format";
 import { absoluteUrl } from "@/lib/site";
@@ -30,7 +30,26 @@ export type BookEntry = {
   subshelf: string;
   subshelfLabel: string;
   audit: AuditView | null;
+  author: string;
+  authorUrl: string;
+  authorKind: "person" | "organization";
+  curator: string;
+  source: string;
+  upstream: Upstream | null;
 };
+
+export const CURATOR_URL = "https://github.com/brandononchain";
+
+function creditOf(entry: { author?: string; authorUrl?: string; authorKind?: "person" | "organization"; curator?: string; source?: string; upstream?: Upstream | null }) {
+  return {
+    author: entry.author || catalog.owner.name,
+    authorUrl: entry.authorUrl || catalog.owner.github,
+    authorKind: entry.authorKind || "person",
+    curator: entry.curator || "",
+    source: entry.source || "",
+    upstream: entry.upstream ?? null,
+  };
+}
 
 export function skillBook(skill: Skill): BookEntry {
   return {
@@ -49,6 +68,7 @@ export function skillBook(skill: Skill): BookEntry {
     subshelf: skill.subshelf,
     subshelfLabel: skill.subshelfLabel,
     audit: skill.audit ?? null,
+    ...creditOf(skill),
   };
 }
 
@@ -69,6 +89,7 @@ export function agentBook(agent: Agent): BookEntry {
     subshelf: agent.subshelf,
     subshelfLabel: agent.subshelfLabel,
     audit: agent.audit ?? null,
+    ...creditOf(agent),
   };
 }
 
@@ -214,7 +235,20 @@ export function bookJsonLd(entry: BookEntry, chapters: Chapter[]) {
     inLanguage: "en",
     datePublished: entry.added,
     identifier: entry.callNumber,
-    author: { "@type": "Person", name: catalog.owner.name, url: catalog.owner.site },
+    author: {
+      "@type": entry.authorKind === "organization" ? "Organization" : "Person",
+      name: entry.author,
+      url: entry.authorUrl,
+    },
+    ...(entry.curator
+      ? {
+          contributor: {
+            "@type": "Person",
+            name: entry.curator,
+            url: CURATOR_URL,
+          },
+        }
+      : {}),
     isPartOf: {
       "@type": "Collection",
       name: `${entry.callNumber} ${entry.subshelfLabel}`,

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
-import { BookToc } from "@/components/book";
+import { AdaptedFrom, BookToc, CreditRows } from "@/components/book";
 import { CertFact } from "@/components/cert-fact";
 import { CopyButton } from "@/components/copy-button";
 import { MarkdownBody } from "@/components/markdown-body";
@@ -88,8 +88,7 @@ export default async function AgentPage({ params }: { params: Promise<Params> })
             <dd>
               <Link href={`/category/${agent.category}/${agent.subshelf}`}>{agent.subshelfLabel}</Link>
             </dd>
-            <dt>Author</dt>
-            <dd>{catalog.owner.name}</dd>
+            <CreditRows entry={entry} />
             <dt>Source</dt>
             <dd>{agent.sourcePath}</dd>
             <dt>Kind</dt>
@@ -121,6 +120,7 @@ export default async function AgentPage({ params }: { params: Promise<Params> })
         </aside>
       }
     >
+      <AdaptedFrom entry={entry} />
       <BookToc entry={entry} chapters={chapters} />
       <p className="quiet">The sections below are this book on one page.</p>
       <MarkdownBody source={body} selfHref={`/agents/${agent.name}`} />

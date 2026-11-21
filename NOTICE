@@ -2,3 +2,22 @@ Skilldex
 Copyright 2026 Brandon
 
 This product includes a vendored copy of skill-lint in tools/skill-lint.
+
+Upstream skills adapted into this catalog:
+
+- interview-me, Copyright (c) 2025 Addy Osmani, MIT
+  Source: https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/interview-me/SKILL.md
+- spec-driven-development, Copyright (c) 2025 Addy Osmani, MIT
+  Source: https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/spec-driven-development/SKILL.md
+- prd, Copyright GitHub, Inc., MIT
+  Source: https://github.com/github/awesome-copilot/blob/f10fdb8b2660ce85c98f220b2f1ca24653768a5c/skills/prd/SKILL.md
+- breakdown-feature-prd, Copyright GitHub, Inc., MIT
+  Source: https://github.com/github/awesome-copilot/blob/f10fdb8b2660ce85c98f220b2f1ca24653768a5c/skills/breakdown-feature-prd/SKILL.md
+- comment-code-generate-a-tutorial, Copyright GitHub, Inc., MIT
+  Source: https://github.com/github/awesome-copilot/blob/f10fdb8b2660ce85c98f220b2f1ca24653768a5c/skills/comment-code-generate-a-tutorial/SKILL.md
+- interview-prep, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/knowledge-work-plugins/blob/0e0fcacddcc892eb92a1b7873ff9d68159c47571/human-resources/skills/interview-prep/SKILL.md
+- write-spec, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/knowledge-work-plugins/blob/0e0fcacddcc892eb92a1b7873ff9d68159c47571/product-management/skills/write-spec/SKILL.md
+- roadmap-update, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/knowledge-work-plugins/blob/0e0fcacddcc892eb92a1b7873ff9d68159c47571/product-management/skills/roadmap-update/SKILL.md

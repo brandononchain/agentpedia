@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
-import { BookToc } from "@/components/book";
+import { AdaptedFrom, BookToc, CreditRows } from "@/components/book";
 import { CertFact } from "@/components/cert-fact";
 import { InstallPanel } from "@/components/install-panel";
 import { MarkdownBody } from "@/components/markdown-body";
@@ -73,6 +73,14 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
           programmingLanguage: "Markdown",
           license: skill.license || undefined,
           datePublished: skill.added,
+          author: {
+            "@type": entry.authorKind === "organization" ? "Organization" : "Person",
+            name: entry.author,
+            url: entry.authorUrl,
+          },
+          ...(entry.curator
+            ? { contributor: { "@type": "Person", name: entry.curator, url: "https://github.com/brandononchain" } }
+            : {}),
           keywords: skill.tags.join(", "),
           isPartOf: {
             "@type": "Collection",
@@ -104,8 +112,7 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
                 {skill.subshelfLabel}
               </Link>
             </dd>
-            <dt>Author</dt>
-            <dd>{catalog.owner.name}</dd>
+            <CreditRows entry={entry} />
             <dt>Source</dt>
             <dd>{skill.sourcePath}</dd>
             <dt>Agent</dt>
@@ -159,6 +166,7 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
         </aside>
       }
     >
+      <AdaptedFrom entry={entry} />
       <BookToc entry={entry} chapters={chapters} />
       <p className="quiet">The sections below are this book on one page.</p>
       <div id="book-body">

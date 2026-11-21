@@ -1005,6 +1005,28 @@ main {
   overflow-wrap: anywhere;
 }
 
+.attribution {
+  margin: 0.4rem 0 0.9rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.stack-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stack-list > li {
+  border-top: 1px solid var(--rule);
+  min-width: 0;
+  padding: 0.85rem 0;
+}
+
+.stack-list a {
+  overflow-wrap: anywhere;
+}
+
 @media (min-width: 720px) {
   .plate dl {
     grid-template-columns: 6.2rem minmax(0, 1fr);

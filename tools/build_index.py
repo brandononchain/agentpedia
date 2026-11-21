@@ -184,6 +184,51 @@ def meta_value(fields: dict, key: str) -> str:
     return str(metadata.get(key) or "").strip()
 
 
+DEFAULT_AUTHOR = "Brandon"
+DEFAULT_AUTHOR_URL = "https://github.com/brandononchain"
+
+
+def credit_fields(fields: dict, nested: bool) -> dict[str, object]:
+    """Author is the person or org who wrote the entry. Curator is set for imports and inbound submissions."""
+
+    def pick(key: str) -> str:
+        if nested:
+            return meta_value(fields, key)
+        return field(fields, key) or meta_value(fields, key)
+
+    author = pick("author") or DEFAULT_AUTHOR
+    author_url = pick("authorUrl") or DEFAULT_AUTHOR_URL
+    author_kind = pick("authorKind") or "person"
+    if author_kind not in {"person", "organization"}:
+        author_kind = "person"
+    repo = pick("upstream")
+    commit = pick("upstreamCommit")
+    path = pick("upstreamPath")
+    upstream_license = pick("upstreamLicense") or field(fields, "license")
+    upstream = None
+    if repo and commit:
+        url = (
+            f"https://github.com/{repo}/blob/{commit}/{path}"
+            if path
+            else f"https://github.com/{repo}/commit/{commit}"
+        )
+        upstream = {
+            "repo": repo,
+            "commit": commit,
+            "path": path,
+            "license": upstream_license,
+            "url": url,
+        }
+    return {
+        "author": author,
+        "authorUrl": author_url,
+        "authorKind": author_kind,
+        "curator": pick("curator"),
+        "source": pick("source"),
+        "upstream": upstream,
+    }
+
+
 def split_list(value: str, comma: bool = False) -> list[str]:
     text = value.strip()
     if not text or text.lower() == "none":
@@ -372,6 +417,7 @@ def load_skills() -> tuple[list[dict], list[str]]:
                     "featured": meta_value(front.fields, "featured").lower() == "true",
                     "license": field(front.fields, "license") or "Apache-2.0",
                     "compatibility": field(front.fields, "compatibility"),
+                    **credit_fields(front.fields, nested=True),
                     "lint": {
                         "score": score_for(errors, warnings, info),
                         "errors": errors,
@@ -440,6 +486,7 @@ def load_agents(skill_names: set[str]) -> tuple[list[dict], list[str]]:
                 "prompts": split_list(field(front.fields, "prompts")),
                 "body": front.body.strip() + "\n",
                 "sourcePath": folder.relative_to(ROOT).as_posix(),
+                **credit_fields(front.fields, nested=False),
             }
         )
     return agents, problems
@@ -545,6 +592,7 @@ def build(allow_findings: bool) -> dict:
         f"{errors} error(s), {warnings} warning(s), {info} info"
     )
     print(f"wrote {DATA_PATH.relative_to(ROOT)}")
+    refresh_readme_counts(len(skills), len(agents))
     if problems or errors or warnings:
         for problem in problems:
             print(f"error: {problem}", file=sys.stderr)
@@ -643,6 +691,19 @@ def certification_entries(skills: list[dict], agents: list[dict]) -> list[dict]:
             }
         )
     return entries
+
+
+def refresh_readme_counts(skill_count: int, agent_count: int) -> None:
+    """Keep the README shields in step with the catalog. The badges are generated."""
+    path = ROOT / "README.md"
+    if not path.is_file():
+        return
+    text = path.read_text(encoding="utf-8")
+    updated = re.sub(r"(badge/skills-)\d+(_linted-)", rf"\g<1>{skill_count}\2", text, count=1)
+    updated = re.sub(r"(badge/agents-)\d+(-)", rf"\g<1>{agent_count}\2", updated, count=1)
+    if updated != text:
+        path.write_text(updated, encoding="utf-8")
+        print(f"updated README counts: {skill_count} skills, {agent_count} agents")
 
 
 def main() -> None:

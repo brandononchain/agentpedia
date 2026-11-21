@@ -54,3 +54,6 @@ public/.well-known/
 
 # design review captures
 .impeccable/review/
+
+# sourcer HTTP cache
+tools/sourcing/cache/
