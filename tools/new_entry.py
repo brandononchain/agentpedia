@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import textwrap
@@ -38,6 +39,51 @@ TODAY = date.today().isoformat()
 def fail(message: str) -> None:
     print(f"error: {message}", file=sys.stderr)
     raise SystemExit(1)
+
+
+def credit_lines(args: argparse.Namespace, indent: str = "  ") -> list[str]:
+    source = getattr(args, "entry_source", "") or ""
+    if not source:
+        return []
+    author = str(getattr(args, "entry_author", "") or "").replace('"', "'")
+    url = str(getattr(args, "entry_author_url", "") or "")
+    kind = getattr(args, "entry_author_kind", "person")
+    if kind not in {"person", "organization"}:
+        kind = "person"
+    return [
+        f"{indent}source: {source}",
+        f'{indent}author: "{author}"',
+        f'{indent}authorUrl: "{url}"',
+        f"{indent}authorKind: {kind}",
+        f"{indent}curator: Brandon",
+    ]
+
+
+def submitter_identity(args: argparse.Namespace) -> tuple[str, str, str]:
+    """Name, profile URL, and person or organization. Never invent a personal name."""
+    if args.author:
+        author = " ".join(args.author.split())
+        url = (args.author_url or "").strip()
+        if not url and re.fullmatch(r"[A-Za-z0-9-]+", author):
+            url = f"https://github.com/{author}"
+        return author, url, "person"
+    completed = subprocess.run(["gh", "api", "user"], capture_output=True, text=True)
+    if completed.returncode == 0 and completed.stdout.strip():
+        try:
+            data = json.loads(completed.stdout)
+        except json.JSONDecodeError:
+            data = {}
+        login = str(data.get("login") or "")
+        stated = str(data.get("name") or "").strip()
+        url = str(data.get("html_url") or (f"https://github.com/{login}" if login else ""))
+        kind = "organization" if data.get("type") == "Organization" else "person"
+        if login:
+            return stated or login, url, kind
+    actor = os.environ.get("GITHUB_ACTOR", "").strip()
+    if actor:
+        return actor, f"https://github.com/{actor}", "person"
+    fail("pass --author and --author-url so the submission records the submitter")
+    return "", "", "person"
 
 
 def wrapped_description(description: str) -> str:
@@ -76,6 +122,7 @@ Agent: Show a short concrete result, then delete this placeholder sentence.
             f"  tags: {tags}",
             f'  added: "{TODAY}"',
             "  featured: false",
+            *credit_lines(args),
             "---",
             "",
             body.rstrip(),
@@ -255,6 +302,7 @@ def add_agent(args: argparse.Namespace) -> None:
             f'added: "{TODAY}"',
             f"category: {args.category}",
             f"subshelf: {args.subshelf}",
+            *credit_lines(args, indent=""),
             "skills: " + ", ".join(skills),
             "connectors: " + connectors,
             "prompts: " + prompts,
@@ -335,6 +383,11 @@ def submit_entry(args: argparse.Namespace) -> None:
     kind = args.entry
     if kind not in {"skill", "agent"}:
         fail("--kind must be skill or agent")
+    author, url, author_kind = submitter_identity(args)
+    args.entry_source = "inbound"
+    args.entry_author = author
+    args.entry_author_url = url
+    args.entry_author_kind = author_kind
     if kind == "skill":
         if not args.category or not args.subshelf:
             fail("a skill needs --category and --subshelf")
@@ -358,6 +411,22 @@ def submit_entry(args: argparse.Namespace) -> None:
     _print_pr_commands(folder, args.name)
     if on_hold:
         fail("the static audit is on hold")
+
+
+def run_import(args: argparse.Namespace) -> None:
+    sys.path.insert(0, str(ROOT / "tools"))
+    from sourcing.importer import run
+
+    argv: list[str] = []
+    if args.source:
+        argv.extend(["--from", args.source])
+    if args.shelf:
+        argv.extend(["--shelf", args.shelf])
+    if args.count:
+        argv.extend(["--next", str(args.count)])
+    if args.prefer_empty_shelves:
+        argv.append("--prefer-empty-shelves")
+    raise SystemExit(run(argv))
 
 
 def print_next_shelf(args: argparse.Namespace) -> None:
@@ -431,7 +500,20 @@ def main() -> None:
     submit_parser.add_argument("--skills", default="")
     submit_parser.add_argument("--connectors", default="none")
     submit_parser.add_argument("--prompts", default="")
+    submit_parser.add_argument("--author", default="", help="Submitter display name or GitHub login")
+    submit_parser.add_argument("--author-url", default="", help="Submitter profile URL")
     submit_parser.set_defaults(func=submit_entry)
+
+    import_parser = sub.add_parser("import", help="Import an upstream skill at a pinned commit")
+    import_parser.add_argument("--from", dest="source", default="", help="GitHub blob or repo URL")
+    import_parser.add_argument("--shelf", default="", help="Shelf id. Defaults to the queue guess.")
+    import_parser.add_argument("--next", dest="count", type=int, default=0, help="Import this many queued skills")
+    import_parser.add_argument(
+        "--prefer-empty-shelves",
+        action="store_true",
+        help="Prefer Education, Product, and People, then other thin shelves, and official orgs",
+    )
+    import_parser.set_defaults(func=run_import)
 
     args = parser.parse_args()
     args.func(args)

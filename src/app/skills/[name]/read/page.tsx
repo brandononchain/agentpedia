@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
-import { BookRead } from "@/components/book";
+import { AdaptedFrom, BookRead } from "@/components/book";
 import { bookChapters, bookCrumbs, bookJsonLd, skillBook } from "@/lib/book";
 import { catalog, getSkill } from "@/lib/catalog";
 import { metaDescription } from "@/lib/seo";
@@ -47,6 +47,7 @@ export default async function SkillReadPage({ params }: { params: Promise<Params
       crumbs={bookCrumbs(entry, { label: "Read as one page" })}
       structuredData={[bookJsonLd(entry, chapters)]}
     >
+      <AdaptedFrom entry={entry} />
       <p>
         <Link href={`/skills/${skill.name}`}>Title page</Link>
       </p>

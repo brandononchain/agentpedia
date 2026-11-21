@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:0a113f21ad73958bbd08bf3e706a3383cd6bf58c7bf028fa6196e94e1309887f",
+  "id": "skill-comment-code-generate-a-tutorial",
+  "issuedAt": "2026-11-21",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+  "subject": {
+    "kind": "skill",
+    "name": "comment-code-generate-a-tutorial"
+  },
+  "tier": "listed"
+}

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:bd77f6bb28faac033c7fd6c51cf6aba280e27b67a1c96855d7b878608b9fe432",
+  "id": "skill-spec-driven-development",
+  "issuedAt": "2026-11-21",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+  "subject": {
+    "kind": "skill",
+    "name": "spec-driven-development"
+  },
+  "tier": "listed"
+}

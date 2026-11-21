@@ -1,12 +1,12 @@
 # Agentpedia
 
 <!-- badges:start -->
-[![skills](https://img.shields.io/badge/skills-97-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
+[![skills](https://img.shields.io/badge/skills-105-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
 [![agents](https://img.shields.io/badge/agents-21-efe6d2?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia)
 [![shelves](https://img.shields.io/badge/shelves-23-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/)
 [![lint](https://img.shields.io/badge/lint-all_100,_0_errors-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/lint)
-[![audit](https://img.shields.io/badge/audit-118_A-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/security)
-[![listed](https://img.shields.io/badge/listed-116-efe6d2?style=flat-square&labelColor=10110e)](https://agentpedia.sh/certification)
+[![audit](https://img.shields.io/badge/audit-126_A-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/security)
+[![listed](https://img.shields.io/badge/listed-124-efe6d2?style=flat-square&labelColor=10110e)](https://agentpedia.sh/certification)
 [![verified](https://img.shields.io/badge/verified-2-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/certification)
 [![certified](https://img.shields.io/badge/certified-0-10110e?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/certification)
 [![on hold](https://img.shields.io/badge/on_hold-0-c9c0ae?style=flat-square&labelColor=10110e)](https://agentpedia.sh/security)
@@ -24,12 +24,12 @@ Agentpedia (agentpedia.sh) is the open, audited encyclopedia of AI agent skills 
 <!-- stats:start -->
 | | |
 | --- | --- |
-| Skills | 97 |
+| Skills | 105 |
 | Agents | 21 |
 | Shelves | 23 |
-| Lint | 100 on all 97 skills, 0 errors, 0 warnings |
-| Audit | 118 A, 0 B, 0 C, 0 D, 0 F |
-| Listed | 116 |
+| Lint | 100 on all 105 skills, 0 errors, 0 warnings |
+| Audit | 126 A, 0 B, 0 C, 0 D, 0 F |
+| Listed | 124 |
 | Verified | 2 |
 | Certified | 0 |
 | On hold | 0 |

@@ -3901,6 +3901,136 @@
       "signed": false
     },
     {
+      "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:6d2eed8ad8c544f83e4bffc70c41d0e92a388bff4599b4d5e607eb14f87a1d7b\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"99eb86603332eebcd248bf8977feb284a0dee6384757037e7f491003fafb277b\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:6d2eed8ad8c544f83e4bffc70c41d0e92a388bff4599b4d5e607eb14f87a1d7b\",\"currentCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"currentDigest\":\"sha256:6d2eed8ad8c544f83e4bffc70c41d0e92a388bff4599b4d5e607eb14f87a1d7b\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-21\",\"id\":\"skill-breakdown-feature-prd\",\"issuedAt\":\"2026-11-21\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/breakdown-feature-prd\",\"kind\":\"skill\",\"name\":\"breakdown-feature-prd\",\"sourcePath\":\"skills/product/breakdown-feature-prd\",\"title\":\"Breakdown feature prd\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-breakdown-feature-prd.svg\",\"page\":\"https://agentpedia.sh/cert/skill-breakdown-feature-prd\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-breakdown-feature-prd.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "audit": {
+          "auditedAt": "2026-11-21",
+          "auditedCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+          "auditor": "agentpedia-audit v1",
+          "contentDigest": "sha256:6d2eed8ad8c544f83e4bffc70c41d0e92a388bff4599b4d5e607eb14f87a1d7b",
+          "counts": {
+            "critical": 0,
+            "high": 0,
+            "info": 0,
+            "low": 0,
+            "medium": 0
+          },
+          "cveLookup": "disabled",
+          "expiresAt": "2027-02-19",
+          "findings": [],
+          "graceDays": 14,
+          "graceDaysLeft": null,
+          "grade": "A",
+          "lockHash": "99eb86603332eebcd248bf8977feb284a0dee6384757037e7f491003fafb277b",
+          "lockHashAlg": "skills-lock-v2",
+          "rulesetVersion": "1.0.0",
+          "score": 100,
+          "stages": [
+            {
+              "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed.",
+              "id": "static",
+              "phase": 1,
+              "status": "complete",
+              "title": "Static analysis"
+            },
+            {
+              "detail": "Design hook. A later phase runs the entry with no network and canary credentials.",
+              "id": "sandbox",
+              "phase": 2,
+              "status": "not-run",
+              "title": "Sandbox run"
+            },
+            {
+              "detail": "Design hook. A later phase sends hostile text at the entry against mock tools.",
+              "id": "redteam",
+              "phase": 3,
+              "status": "not-run",
+              "title": "Prompt-injection red team"
+            },
+            {
+              "detail": "Design hook. A later phase requires a reviewer who is not the entry's author.",
+              "id": "manual",
+              "phase": 4,
+              "status": "not-run",
+              "title": "Manual review"
+            }
+          ],
+          "status": "passed",
+          "summary": "Passed. The static audit found no critical or high findings."
+        },
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed \u00b7 audit A",
+          "width": 175
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:6d2eed8ad8c544f83e4bffc70c41d0e92a388bff4599b4d5e607eb14f87a1d7b",
+        "currentCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "currentDigest": "sha256:6d2eed8ad8c544f83e4bffc70c41d0e92a388bff4599b4d5e607eb14f87a1d7b",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-21",
+        "id": "skill-breakdown-feature-prd",
+        "issuedAt": "2026-11-21",
+        "limits": [
+          "Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.",
+          "Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.",
+          "Listed means lint scored 100 and the static audit is not on hold.",
+          "A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.",
+          "Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.",
+          "Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.",
+          "A changed digest voids the previous audit. The build re-audits the current files."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "authorLogin": "brandononchain",
+          "entryPath": "/skills/breakdown-feature-prd",
+          "kind": "skill",
+          "name": "breakdown-feature-prd",
+          "sourcePath": "skills/product/breakdown-feature-prd",
+          "title": "Breakdown feature prd"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-breakdown-feature-prd.svg",
+          "page": "https://agentpedia.sh/cert/skill-breakdown-feature-prd",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-breakdown-feature-prd.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
       "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:1bbb8cb330c5fa65ba2890eab19e17549ffd8aeb52cb9606dc90950399ebb8ee\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"d88807beabedcf8ac2e78f1a31a08edab22458bd3155a0e7f5cc89bd97a88e1a\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:1bbb8cb330c5fa65ba2890eab19e17549ffd8aeb52cb9606dc90950399ebb8ee\",\"currentCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"currentDigest\":\"sha256:1bbb8cb330c5fa65ba2890eab19e17549ffd8aeb52cb9606dc90950399ebb8ee\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-14\",\"id\":\"skill-change-window-note\",\"issuedAt\":\"2026-11-14\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/change-window-note\",\"kind\":\"skill\",\"name\":\"change-window-note\",\"sourcePath\":\"skills/devops-cloud/change-window-note\",\"title\":\"Change window note\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-change-window-note.svg\",\"page\":\"https://agentpedia.sh/cert/skill-change-window-note\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-change-window-note.json\"}}",
       "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
       "payload": {
@@ -4935,6 +5065,136 @@
           "page": "https://agentpedia.sh/cert/skill-codeowners-match",
           "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
           "record": "https://agentpedia.sh/cert/skill-codeowners-match.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
+      "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:0a113f21ad73958bbd08bf3e706a3383cd6bf58c7bf028fa6196e94e1309887f\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"6f3a0a207c10c975cbfc6bb4b6f06262893e228f9fe0688d85b5a9005088dc78\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:0a113f21ad73958bbd08bf3e706a3383cd6bf58c7bf028fa6196e94e1309887f\",\"currentCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"currentDigest\":\"sha256:0a113f21ad73958bbd08bf3e706a3383cd6bf58c7bf028fa6196e94e1309887f\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-21\",\"id\":\"skill-comment-code-generate-a-tutorial\",\"issuedAt\":\"2026-11-21\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/comment-code-generate-a-tutorial\",\"kind\":\"skill\",\"name\":\"comment-code-generate-a-tutorial\",\"sourcePath\":\"skills/education/comment-code-generate-a-tutorial\",\"title\":\"Comment code generate a tutorial\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-comment-code-generate-a-tutorial.svg\",\"page\":\"https://agentpedia.sh/cert/skill-comment-code-generate-a-tutorial\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-comment-code-generate-a-tutorial.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "audit": {
+          "auditedAt": "2026-11-21",
+          "auditedCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+          "auditor": "agentpedia-audit v1",
+          "contentDigest": "sha256:0a113f21ad73958bbd08bf3e706a3383cd6bf58c7bf028fa6196e94e1309887f",
+          "counts": {
+            "critical": 0,
+            "high": 0,
+            "info": 0,
+            "low": 0,
+            "medium": 0
+          },
+          "cveLookup": "disabled",
+          "expiresAt": "2027-02-19",
+          "findings": [],
+          "graceDays": 14,
+          "graceDaysLeft": null,
+          "grade": "A",
+          "lockHash": "6f3a0a207c10c975cbfc6bb4b6f06262893e228f9fe0688d85b5a9005088dc78",
+          "lockHashAlg": "skills-lock-v2",
+          "rulesetVersion": "1.0.0",
+          "score": 100,
+          "stages": [
+            {
+              "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed.",
+              "id": "static",
+              "phase": 1,
+              "status": "complete",
+              "title": "Static analysis"
+            },
+            {
+              "detail": "Design hook. A later phase runs the entry with no network and canary credentials.",
+              "id": "sandbox",
+              "phase": 2,
+              "status": "not-run",
+              "title": "Sandbox run"
+            },
+            {
+              "detail": "Design hook. A later phase sends hostile text at the entry against mock tools.",
+              "id": "redteam",
+              "phase": 3,
+              "status": "not-run",
+              "title": "Prompt-injection red team"
+            },
+            {
+              "detail": "Design hook. A later phase requires a reviewer who is not the entry's author.",
+              "id": "manual",
+              "phase": 4,
+              "status": "not-run",
+              "title": "Manual review"
+            }
+          ],
+          "status": "passed",
+          "summary": "Passed. The static audit found no critical or high findings."
+        },
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed \u00b7 audit A",
+          "width": 175
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:0a113f21ad73958bbd08bf3e706a3383cd6bf58c7bf028fa6196e94e1309887f",
+        "currentCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "currentDigest": "sha256:0a113f21ad73958bbd08bf3e706a3383cd6bf58c7bf028fa6196e94e1309887f",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-21",
+        "id": "skill-comment-code-generate-a-tutorial",
+        "issuedAt": "2026-11-21",
+        "limits": [
+          "Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.",
+          "Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.",
+          "Listed means lint scored 100 and the static audit is not on hold.",
+          "A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.",
+          "Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.",
+          "Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.",
+          "A changed digest voids the previous audit. The build re-audits the current files."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "authorLogin": "brandononchain",
+          "entryPath": "/skills/comment-code-generate-a-tutorial",
+          "kind": "skill",
+          "name": "comment-code-generate-a-tutorial",
+          "sourcePath": "skills/education/comment-code-generate-a-tutorial",
+          "title": "Comment code generate a tutorial"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-comment-code-generate-a-tutorial.svg",
+          "page": "https://agentpedia.sh/cert/skill-comment-code-generate-a-tutorial",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-comment-code-generate-a-tutorial.json"
         }
       },
       "signature": null,
@@ -8470,6 +8730,266 @@
       "signed": false
     },
     {
+      "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:45b18b7f0208aaafc51cfccd2f7abb831fe1c6bdeb7e6e2cd0dd2f06c29d5ff1\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"16adf85e6d61f905d1452e2bcf285677694fd741836e99918f82b09c84c35438\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:45b18b7f0208aaafc51cfccd2f7abb831fe1c6bdeb7e6e2cd0dd2f06c29d5ff1\",\"currentCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"currentDigest\":\"sha256:45b18b7f0208aaafc51cfccd2f7abb831fe1c6bdeb7e6e2cd0dd2f06c29d5ff1\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-21\",\"id\":\"skill-interview-me\",\"issuedAt\":\"2026-11-21\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/interview-me\",\"kind\":\"skill\",\"name\":\"interview-me\",\"sourcePath\":\"skills/people/interview-me\",\"title\":\"Interview me\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-interview-me.svg\",\"page\":\"https://agentpedia.sh/cert/skill-interview-me\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-interview-me.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "audit": {
+          "auditedAt": "2026-11-21",
+          "auditedCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+          "auditor": "agentpedia-audit v1",
+          "contentDigest": "sha256:45b18b7f0208aaafc51cfccd2f7abb831fe1c6bdeb7e6e2cd0dd2f06c29d5ff1",
+          "counts": {
+            "critical": 0,
+            "high": 0,
+            "info": 0,
+            "low": 0,
+            "medium": 0
+          },
+          "cveLookup": "disabled",
+          "expiresAt": "2027-02-19",
+          "findings": [],
+          "graceDays": 14,
+          "graceDaysLeft": null,
+          "grade": "A",
+          "lockHash": "16adf85e6d61f905d1452e2bcf285677694fd741836e99918f82b09c84c35438",
+          "lockHashAlg": "skills-lock-v2",
+          "rulesetVersion": "1.0.0",
+          "score": 100,
+          "stages": [
+            {
+              "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed.",
+              "id": "static",
+              "phase": 1,
+              "status": "complete",
+              "title": "Static analysis"
+            },
+            {
+              "detail": "Design hook. A later phase runs the entry with no network and canary credentials.",
+              "id": "sandbox",
+              "phase": 2,
+              "status": "not-run",
+              "title": "Sandbox run"
+            },
+            {
+              "detail": "Design hook. A later phase sends hostile text at the entry against mock tools.",
+              "id": "redteam",
+              "phase": 3,
+              "status": "not-run",
+              "title": "Prompt-injection red team"
+            },
+            {
+              "detail": "Design hook. A later phase requires a reviewer who is not the entry's author.",
+              "id": "manual",
+              "phase": 4,
+              "status": "not-run",
+              "title": "Manual review"
+            }
+          ],
+          "status": "passed",
+          "summary": "Passed. The static audit found no critical or high findings."
+        },
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed \u00b7 audit A",
+          "width": 175
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:45b18b7f0208aaafc51cfccd2f7abb831fe1c6bdeb7e6e2cd0dd2f06c29d5ff1",
+        "currentCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "currentDigest": "sha256:45b18b7f0208aaafc51cfccd2f7abb831fe1c6bdeb7e6e2cd0dd2f06c29d5ff1",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-21",
+        "id": "skill-interview-me",
+        "issuedAt": "2026-11-21",
+        "limits": [
+          "Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.",
+          "Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.",
+          "Listed means lint scored 100 and the static audit is not on hold.",
+          "A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.",
+          "Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.",
+          "Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.",
+          "A changed digest voids the previous audit. The build re-audits the current files."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "authorLogin": "brandononchain",
+          "entryPath": "/skills/interview-me",
+          "kind": "skill",
+          "name": "interview-me",
+          "sourcePath": "skills/people/interview-me",
+          "title": "Interview me"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-interview-me.svg",
+          "page": "https://agentpedia.sh/cert/skill-interview-me",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-interview-me.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
+      "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:fe0e34f859847f82f0ba2846aa53b7db2ae68fb0da4f155ea025787d56211968\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"b31251274691501d72775945f8dc0d628600b10d78adc499bf9a93697d48b4b9\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:fe0e34f859847f82f0ba2846aa53b7db2ae68fb0da4f155ea025787d56211968\",\"currentCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"currentDigest\":\"sha256:fe0e34f859847f82f0ba2846aa53b7db2ae68fb0da4f155ea025787d56211968\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-21\",\"id\":\"skill-interview-prep\",\"issuedAt\":\"2026-11-21\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/interview-prep\",\"kind\":\"skill\",\"name\":\"interview-prep\",\"sourcePath\":\"skills/people/interview-prep\",\"title\":\"Interview prep\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-interview-prep.svg\",\"page\":\"https://agentpedia.sh/cert/skill-interview-prep\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-interview-prep.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "audit": {
+          "auditedAt": "2026-11-21",
+          "auditedCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+          "auditor": "agentpedia-audit v1",
+          "contentDigest": "sha256:fe0e34f859847f82f0ba2846aa53b7db2ae68fb0da4f155ea025787d56211968",
+          "counts": {
+            "critical": 0,
+            "high": 0,
+            "info": 0,
+            "low": 0,
+            "medium": 0
+          },
+          "cveLookup": "disabled",
+          "expiresAt": "2027-02-19",
+          "findings": [],
+          "graceDays": 14,
+          "graceDaysLeft": null,
+          "grade": "A",
+          "lockHash": "b31251274691501d72775945f8dc0d628600b10d78adc499bf9a93697d48b4b9",
+          "lockHashAlg": "skills-lock-v2",
+          "rulesetVersion": "1.0.0",
+          "score": 100,
+          "stages": [
+            {
+              "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed.",
+              "id": "static",
+              "phase": 1,
+              "status": "complete",
+              "title": "Static analysis"
+            },
+            {
+              "detail": "Design hook. A later phase runs the entry with no network and canary credentials.",
+              "id": "sandbox",
+              "phase": 2,
+              "status": "not-run",
+              "title": "Sandbox run"
+            },
+            {
+              "detail": "Design hook. A later phase sends hostile text at the entry against mock tools.",
+              "id": "redteam",
+              "phase": 3,
+              "status": "not-run",
+              "title": "Prompt-injection red team"
+            },
+            {
+              "detail": "Design hook. A later phase requires a reviewer who is not the entry's author.",
+              "id": "manual",
+              "phase": 4,
+              "status": "not-run",
+              "title": "Manual review"
+            }
+          ],
+          "status": "passed",
+          "summary": "Passed. The static audit found no critical or high findings."
+        },
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed \u00b7 audit A",
+          "width": 175
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:fe0e34f859847f82f0ba2846aa53b7db2ae68fb0da4f155ea025787d56211968",
+        "currentCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "currentDigest": "sha256:fe0e34f859847f82f0ba2846aa53b7db2ae68fb0da4f155ea025787d56211968",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-21",
+        "id": "skill-interview-prep",
+        "issuedAt": "2026-11-21",
+        "limits": [
+          "Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.",
+          "Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.",
+          "Listed means lint scored 100 and the static audit is not on hold.",
+          "A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.",
+          "Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.",
+          "Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.",
+          "A changed digest voids the previous audit. The build re-audits the current files."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "authorLogin": "brandononchain",
+          "entryPath": "/skills/interview-prep",
+          "kind": "skill",
+          "name": "interview-prep",
+          "sourcePath": "skills/people/interview-prep",
+          "title": "Interview prep"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-interview-prep.svg",
+          "page": "https://agentpedia.sh/cert/skill-interview-prep",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-interview-prep.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
       "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:0207743160be9d4cdd2a4f8f1b9c284b8147affa510bbd59eaa3c64d453c8d3d\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"7f46c51be70511305ca6da2c3079471c3eb4fba357efd597e1796aeb49117988\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:0207743160be9d4cdd2a4f8f1b9c284b8147affa510bbd59eaa3c64d453c8d3d\",\"currentCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"currentDigest\":\"sha256:0207743160be9d4cdd2a4f8f1b9c284b8147affa510bbd59eaa3c64d453c8d3d\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-14\",\"id\":\"skill-invoice-line-check\",\"issuedAt\":\"2026-11-14\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/invoice-line-check\",\"kind\":\"skill\",\"name\":\"invoice-line-check\",\"sourcePath\":\"skills/finance-ops/invoice-line-check\",\"title\":\"Invoice line check\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-invoice-line-check.svg\",\"page\":\"https://agentpedia.sh/cert/skill-invoice-line-check\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-invoice-line-check.json\"}}",
       "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
       "payload": {
@@ -10569,6 +11089,136 @@
       "signed": false
     },
     {
+      "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:52ee009f866c36ea03c53724351eead33cb7ab279ec603d13096bc38fdb0eee5\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"30020b7857a6dc3169a20c41f1c7f6e4b6a63c2f2a6559722b9f2a3d92085075\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:52ee009f866c36ea03c53724351eead33cb7ab279ec603d13096bc38fdb0eee5\",\"currentCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"currentDigest\":\"sha256:52ee009f866c36ea03c53724351eead33cb7ab279ec603d13096bc38fdb0eee5\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-21\",\"id\":\"skill-prd\",\"issuedAt\":\"2026-11-21\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/prd\",\"kind\":\"skill\",\"name\":\"prd\",\"sourcePath\":\"skills/product/prd\",\"title\":\"Prd\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-prd.svg\",\"page\":\"https://agentpedia.sh/cert/skill-prd\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-prd.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "audit": {
+          "auditedAt": "2026-11-21",
+          "auditedCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+          "auditor": "agentpedia-audit v1",
+          "contentDigest": "sha256:52ee009f866c36ea03c53724351eead33cb7ab279ec603d13096bc38fdb0eee5",
+          "counts": {
+            "critical": 0,
+            "high": 0,
+            "info": 0,
+            "low": 0,
+            "medium": 0
+          },
+          "cveLookup": "disabled",
+          "expiresAt": "2027-02-19",
+          "findings": [],
+          "graceDays": 14,
+          "graceDaysLeft": null,
+          "grade": "A",
+          "lockHash": "30020b7857a6dc3169a20c41f1c7f6e4b6a63c2f2a6559722b9f2a3d92085075",
+          "lockHashAlg": "skills-lock-v2",
+          "rulesetVersion": "1.0.0",
+          "score": 100,
+          "stages": [
+            {
+              "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed.",
+              "id": "static",
+              "phase": 1,
+              "status": "complete",
+              "title": "Static analysis"
+            },
+            {
+              "detail": "Design hook. A later phase runs the entry with no network and canary credentials.",
+              "id": "sandbox",
+              "phase": 2,
+              "status": "not-run",
+              "title": "Sandbox run"
+            },
+            {
+              "detail": "Design hook. A later phase sends hostile text at the entry against mock tools.",
+              "id": "redteam",
+              "phase": 3,
+              "status": "not-run",
+              "title": "Prompt-injection red team"
+            },
+            {
+              "detail": "Design hook. A later phase requires a reviewer who is not the entry's author.",
+              "id": "manual",
+              "phase": 4,
+              "status": "not-run",
+              "title": "Manual review"
+            }
+          ],
+          "status": "passed",
+          "summary": "Passed. The static audit found no critical or high findings."
+        },
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed \u00b7 audit A",
+          "width": 175
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:52ee009f866c36ea03c53724351eead33cb7ab279ec603d13096bc38fdb0eee5",
+        "currentCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "currentDigest": "sha256:52ee009f866c36ea03c53724351eead33cb7ab279ec603d13096bc38fdb0eee5",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-21",
+        "id": "skill-prd",
+        "issuedAt": "2026-11-21",
+        "limits": [
+          "Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.",
+          "Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.",
+          "Listed means lint scored 100 and the static audit is not on hold.",
+          "A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.",
+          "Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.",
+          "Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.",
+          "A changed digest voids the previous audit. The build re-audits the current files."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "authorLogin": "brandononchain",
+          "entryPath": "/skills/prd",
+          "kind": "skill",
+          "name": "prd",
+          "sourcePath": "skills/product/prd",
+          "title": "Prd"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-prd.svg",
+          "page": "https://agentpedia.sh/cert/skill-prd",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-prd.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
       "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:5a6ca3745a52c2e5fcf8771e261ddbad87b41fa6bbcf26c1b7f7b1e8c05be282\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"67dd1bf4a3c23a77d2c7b2b2b052f0d14fca76673369b78c794ed5257ba2bf2c\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:5a6ca3745a52c2e5fcf8771e261ddbad87b41fa6bbcf26c1b7f7b1e8c05be282\",\"currentCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"currentDigest\":\"sha256:5a6ca3745a52c2e5fcf8771e261ddbad87b41fa6bbcf26c1b7f7b1e8c05be282\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-14\",\"id\":\"skill-pricing-page-copy\",\"issuedAt\":\"2026-11-14\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/pricing-page-copy\",\"kind\":\"skill\",\"name\":\"pricing-page-copy\",\"sourcePath\":\"skills/marketing/pricing-page-copy\",\"title\":\"Pricing page copy\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-pricing-page-copy.svg\",\"page\":\"https://agentpedia.sh/cert/skill-pricing-page-copy\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-pricing-page-copy.json\"}}",
       "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
       "payload": {
@@ -11343,6 +11993,136 @@
           "page": "https://agentpedia.sh/cert/skill-release-notes-editor",
           "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
           "record": "https://agentpedia.sh/cert/skill-release-notes-editor.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
+      "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:2eeb5f486dd18f75aed64b6539d9e2141c1b9dce969629bfe43d258e235bbe8e\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"f7e7f007443f8cdd021043cdb7469325e3ad4fdb7b17db06b2064e3c585a584d\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:2eeb5f486dd18f75aed64b6539d9e2141c1b9dce969629bfe43d258e235bbe8e\",\"currentCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"currentDigest\":\"sha256:2eeb5f486dd18f75aed64b6539d9e2141c1b9dce969629bfe43d258e235bbe8e\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-21\",\"id\":\"skill-roadmap-update\",\"issuedAt\":\"2026-11-21\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/roadmap-update\",\"kind\":\"skill\",\"name\":\"roadmap-update\",\"sourcePath\":\"skills/product/roadmap-update\",\"title\":\"Roadmap update\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-roadmap-update.svg\",\"page\":\"https://agentpedia.sh/cert/skill-roadmap-update\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-roadmap-update.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "audit": {
+          "auditedAt": "2026-11-21",
+          "auditedCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+          "auditor": "agentpedia-audit v1",
+          "contentDigest": "sha256:2eeb5f486dd18f75aed64b6539d9e2141c1b9dce969629bfe43d258e235bbe8e",
+          "counts": {
+            "critical": 0,
+            "high": 0,
+            "info": 0,
+            "low": 0,
+            "medium": 0
+          },
+          "cveLookup": "disabled",
+          "expiresAt": "2027-02-19",
+          "findings": [],
+          "graceDays": 14,
+          "graceDaysLeft": null,
+          "grade": "A",
+          "lockHash": "f7e7f007443f8cdd021043cdb7469325e3ad4fdb7b17db06b2064e3c585a584d",
+          "lockHashAlg": "skills-lock-v2",
+          "rulesetVersion": "1.0.0",
+          "score": 100,
+          "stages": [
+            {
+              "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed.",
+              "id": "static",
+              "phase": 1,
+              "status": "complete",
+              "title": "Static analysis"
+            },
+            {
+              "detail": "Design hook. A later phase runs the entry with no network and canary credentials.",
+              "id": "sandbox",
+              "phase": 2,
+              "status": "not-run",
+              "title": "Sandbox run"
+            },
+            {
+              "detail": "Design hook. A later phase sends hostile text at the entry against mock tools.",
+              "id": "redteam",
+              "phase": 3,
+              "status": "not-run",
+              "title": "Prompt-injection red team"
+            },
+            {
+              "detail": "Design hook. A later phase requires a reviewer who is not the entry's author.",
+              "id": "manual",
+              "phase": 4,
+              "status": "not-run",
+              "title": "Manual review"
+            }
+          ],
+          "status": "passed",
+          "summary": "Passed. The static audit found no critical or high findings."
+        },
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed \u00b7 audit A",
+          "width": 175
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:2eeb5f486dd18f75aed64b6539d9e2141c1b9dce969629bfe43d258e235bbe8e",
+        "currentCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "currentDigest": "sha256:2eeb5f486dd18f75aed64b6539d9e2141c1b9dce969629bfe43d258e235bbe8e",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-21",
+        "id": "skill-roadmap-update",
+        "issuedAt": "2026-11-21",
+        "limits": [
+          "Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.",
+          "Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.",
+          "Listed means lint scored 100 and the static audit is not on hold.",
+          "A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.",
+          "Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.",
+          "Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.",
+          "A changed digest voids the previous audit. The build re-audits the current files."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "authorLogin": "brandononchain",
+          "entryPath": "/skills/roadmap-update",
+          "kind": "skill",
+          "name": "roadmap-update",
+          "sourcePath": "skills/product/roadmap-update",
+          "title": "Roadmap update"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-roadmap-update.svg",
+          "page": "https://agentpedia.sh/cert/skill-roadmap-update",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-roadmap-update.json"
         }
       },
       "signature": null,
@@ -12773,6 +13553,136 @@
           "page": "https://agentpedia.sh/cert/skill-source-freshness-check",
           "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
           "record": "https://agentpedia.sh/cert/skill-source-freshness-check.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
+      "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:bd77f6bb28faac033c7fd6c51cf6aba280e27b67a1c96855d7b878608b9fe432\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"c27033502d3710767f40159e8f65c4381d441666e53ea9c153948fc179bcf261\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:bd77f6bb28faac033c7fd6c51cf6aba280e27b67a1c96855d7b878608b9fe432\",\"currentCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"currentDigest\":\"sha256:bd77f6bb28faac033c7fd6c51cf6aba280e27b67a1c96855d7b878608b9fe432\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-21\",\"id\":\"skill-spec-driven-development\",\"issuedAt\":\"2026-11-21\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/spec-driven-development\",\"kind\":\"skill\",\"name\":\"spec-driven-development\",\"sourcePath\":\"skills/product/spec-driven-development\",\"title\":\"Spec driven development\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-spec-driven-development.svg\",\"page\":\"https://agentpedia.sh/cert/skill-spec-driven-development\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-spec-driven-development.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "audit": {
+          "auditedAt": "2026-11-21",
+          "auditedCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+          "auditor": "agentpedia-audit v1",
+          "contentDigest": "sha256:bd77f6bb28faac033c7fd6c51cf6aba280e27b67a1c96855d7b878608b9fe432",
+          "counts": {
+            "critical": 0,
+            "high": 0,
+            "info": 0,
+            "low": 0,
+            "medium": 0
+          },
+          "cveLookup": "disabled",
+          "expiresAt": "2027-02-19",
+          "findings": [],
+          "graceDays": 14,
+          "graceDaysLeft": null,
+          "grade": "A",
+          "lockHash": "c27033502d3710767f40159e8f65c4381d441666e53ea9c153948fc179bcf261",
+          "lockHashAlg": "skills-lock-v2",
+          "rulesetVersion": "1.0.0",
+          "score": 100,
+          "stages": [
+            {
+              "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed.",
+              "id": "static",
+              "phase": 1,
+              "status": "complete",
+              "title": "Static analysis"
+            },
+            {
+              "detail": "Design hook. A later phase runs the entry with no network and canary credentials.",
+              "id": "sandbox",
+              "phase": 2,
+              "status": "not-run",
+              "title": "Sandbox run"
+            },
+            {
+              "detail": "Design hook. A later phase sends hostile text at the entry against mock tools.",
+              "id": "redteam",
+              "phase": 3,
+              "status": "not-run",
+              "title": "Prompt-injection red team"
+            },
+            {
+              "detail": "Design hook. A later phase requires a reviewer who is not the entry's author.",
+              "id": "manual",
+              "phase": 4,
+              "status": "not-run",
+              "title": "Manual review"
+            }
+          ],
+          "status": "passed",
+          "summary": "Passed. The static audit found no critical or high findings."
+        },
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed \u00b7 audit A",
+          "width": 175
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:bd77f6bb28faac033c7fd6c51cf6aba280e27b67a1c96855d7b878608b9fe432",
+        "currentCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "currentDigest": "sha256:bd77f6bb28faac033c7fd6c51cf6aba280e27b67a1c96855d7b878608b9fe432",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-21",
+        "id": "skill-spec-driven-development",
+        "issuedAt": "2026-11-21",
+        "limits": [
+          "Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.",
+          "Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.",
+          "Listed means lint scored 100 and the static audit is not on hold.",
+          "A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.",
+          "Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.",
+          "Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.",
+          "A changed digest voids the previous audit. The build re-audits the current files."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "authorLogin": "brandononchain",
+          "entryPath": "/skills/spec-driven-development",
+          "kind": "skill",
+          "name": "spec-driven-development",
+          "sourcePath": "skills/product/spec-driven-development",
+          "title": "Spec driven development"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-spec-driven-development.svg",
+          "page": "https://agentpedia.sh/cert/skill-spec-driven-development",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-spec-driven-development.json"
         }
       },
       "signature": null,
@@ -15119,6 +16029,136 @@
       "signed": false
     },
     {
+      "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:1eb0c2fe84191386aaa72002b9c6811581bcacd8fa82a48f3a665a9c3294f52c\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"8b0f88f91e49e829a3f0cf4242841aef236696225e1799ec655a31e7e3c317e8\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:1eb0c2fe84191386aaa72002b9c6811581bcacd8fa82a48f3a665a9c3294f52c\",\"currentCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"currentDigest\":\"sha256:1eb0c2fe84191386aaa72002b9c6811581bcacd8fa82a48f3a665a9c3294f52c\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-21\",\"id\":\"skill-write-spec\",\"issuedAt\":\"2026-11-21\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"0fd5f41e69eaaa96bc263a524f0eb87fef30a035\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/write-spec\",\"kind\":\"skill\",\"name\":\"write-spec\",\"sourcePath\":\"skills/product/write-spec\",\"title\":\"Write spec\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-write-spec.svg\",\"page\":\"https://agentpedia.sh/cert/skill-write-spec\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-write-spec.json\"}}",
+      "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+      "payload": {
+        "audit": {
+          "auditedAt": "2026-11-21",
+          "auditedCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+          "auditor": "agentpedia-audit v1",
+          "contentDigest": "sha256:1eb0c2fe84191386aaa72002b9c6811581bcacd8fa82a48f3a665a9c3294f52c",
+          "counts": {
+            "critical": 0,
+            "high": 0,
+            "info": 0,
+            "low": 0,
+            "medium": 0
+          },
+          "cveLookup": "disabled",
+          "expiresAt": "2027-02-19",
+          "findings": [],
+          "graceDays": 14,
+          "graceDaysLeft": null,
+          "grade": "A",
+          "lockHash": "8b0f88f91e49e829a3f0cf4242841aef236696225e1799ec655a31e7e3c317e8",
+          "lockHashAlg": "skills-lock-v2",
+          "rulesetVersion": "1.0.0",
+          "score": 100,
+          "stages": [
+            {
+              "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed.",
+              "id": "static",
+              "phase": 1,
+              "status": "complete",
+              "title": "Static analysis"
+            },
+            {
+              "detail": "Design hook. A later phase runs the entry with no network and canary credentials.",
+              "id": "sandbox",
+              "phase": 2,
+              "status": "not-run",
+              "title": "Sandbox run"
+            },
+            {
+              "detail": "Design hook. A later phase sends hostile text at the entry against mock tools.",
+              "id": "redteam",
+              "phase": 3,
+              "status": "not-run",
+              "title": "Prompt-injection red team"
+            },
+            {
+              "detail": "Design hook. A later phase requires a reviewer who is not the entry's author.",
+              "id": "manual",
+              "phase": 4,
+              "status": "not-run",
+              "title": "Manual review"
+            }
+          ],
+          "status": "passed",
+          "summary": "Passed. The static audit found no critical or high findings."
+        },
+        "badge": {
+          "height": 20,
+          "label": "agentpedia",
+          "message": "listed \u00b7 audit A",
+          "width": 175
+        },
+        "checks": [],
+        "claimedTier": "listed",
+        "contentDigest": "sha256:1eb0c2fe84191386aaa72002b9c6811581bcacd8fa82a48f3a665a9c3294f52c",
+        "currentCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "currentDigest": "sha256:1eb0c2fe84191386aaa72002b9c6811581bcacd8fa82a48f3a665a9c3294f52c",
+        "displayTier": "listed",
+        "expiresAt": "2027-11-21",
+        "id": "skill-write-spec",
+        "issuedAt": "2026-11-21",
+        "limits": [
+          "Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.",
+          "Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.",
+          "Listed means lint scored 100 and the static audit is not on hold.",
+          "A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.",
+          "Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.",
+          "Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.",
+          "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.",
+          "A changed digest voids the previous audit. The build re-audits the current files."
+        ],
+        "lint": {
+          "errors": 0,
+          "gate": "skill-lint",
+          "info": 0,
+          "score": 100,
+          "summary": "skill-lint score. Listed requires 100.",
+          "warnings": 0
+        },
+        "revalidation": {
+          "expiryRule": "Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.",
+          "listedDays": 365,
+          "reviewDays": 365,
+          "sourceRule": "The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.",
+          "verifiedDays": 90
+        },
+        "review": null,
+        "run": {
+          "countsAsVerification": false,
+          "harnessDigest": null,
+          "manifestDigest": null,
+          "ok": false,
+          "present": false,
+          "ranAt": null
+        },
+        "schema": "agentpedia.certificate.v1",
+        "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+        "status": "active",
+        "statusReason": "Listed. skill-lint scored 100 on the recorded files.",
+        "subject": {
+          "authorLogin": "brandononchain",
+          "entryPath": "/skills/write-spec",
+          "kind": "skill",
+          "name": "write-spec",
+          "sourcePath": "skills/product/write-spec",
+          "title": "Write spec"
+        },
+        "urls": {
+          "badge": "https://agentpedia.sh/badge/skill-write-spec.svg",
+          "page": "https://agentpedia.sh/cert/skill-write-spec",
+          "publicKey": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
+          "record": "https://agentpedia.sh/cert/skill-write-spec.json"
+        }
+      },
+      "signature": null,
+      "signed": false
+    },
+    {
       "canonical": "{\"audit\":{\"auditedAt\":\"2026-11-21\",\"auditedCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"auditor\":\"agentpedia-audit v1\",\"contentDigest\":\"sha256:ab5d782f4327adeb23f3973f6df94a584e702d83a9cc6bf2630cb8c727dc7a99\",\"counts\":{\"critical\":0,\"high\":0,\"info\":0,\"low\":0,\"medium\":0},\"cveLookup\":\"disabled\",\"expiresAt\":\"2027-02-19\",\"findings\":[],\"graceDays\":14,\"graceDaysLeft\":null,\"grade\":\"A\",\"lockHash\":\"394b95e5b6d58732d0823a04c9e0e084652620f11046545961ed8d8f847eb21b\",\"lockHashAlg\":\"skills-lock-v2\",\"rulesetVersion\":\"1.0.0\",\"score\":100,\"stages\":[{\"detail\":\"Rules S, C, and D ran on this tree. No code from the entry was executed.\",\"id\":\"static\",\"phase\":1,\"status\":\"complete\",\"title\":\"Static analysis\"},{\"detail\":\"Design hook. A later phase runs the entry with no network and canary credentials.\",\"id\":\"sandbox\",\"phase\":2,\"status\":\"not-run\",\"title\":\"Sandbox run\"},{\"detail\":\"Design hook. A later phase sends hostile text at the entry against mock tools.\",\"id\":\"redteam\",\"phase\":3,\"status\":\"not-run\",\"title\":\"Prompt-injection red team\"},{\"detail\":\"Design hook. A later phase requires a reviewer who is not the entry's author.\",\"id\":\"manual\",\"phase\":4,\"status\":\"not-run\",\"title\":\"Manual review\"}],\"status\":\"passed\",\"summary\":\"Passed. The static audit found no critical or high findings.\"},\"badge\":{\"height\":20,\"label\":\"agentpedia\",\"message\":\"listed \u00b7 audit A\",\"width\":175},\"checks\":[],\"claimedTier\":\"listed\",\"contentDigest\":\"sha256:ab5d782f4327adeb23f3973f6df94a584e702d83a9cc6bf2630cb8c727dc7a99\",\"currentCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"currentDigest\":\"sha256:ab5d782f4327adeb23f3973f6df94a584e702d83a9cc6bf2630cb8c727dc7a99\",\"displayTier\":\"listed\",\"expiresAt\":\"2027-11-14\",\"id\":\"skill-x-reply-scout\",\"issuedAt\":\"2026-11-14\",\"limits\":[\"Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.\",\"Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.\",\"Listed means lint scored 100 and the static audit is not on hold.\",\"A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.\",\"Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.\",\"Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.\",\"The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.\",\"A changed digest voids the previous audit. The build re-audits the current files.\"],\"lint\":{\"errors\":0,\"gate\":\"skill-lint\",\"info\":0,\"score\":100,\"summary\":\"skill-lint score. Listed requires 100.\",\"warnings\":0},\"revalidation\":{\"expiryRule\":\"Listed stays current for 365 days after issuedAt. A verification run stays current for 90 days after ranAt. A human review stays current for 365 days after its date. Certified requires both the run and the review to be current.\",\"listedDays\":365,\"reviewDays\":365,\"sourceRule\":\"The certificate names one git commit and one sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: category and subshelf in the frontmatter, and the shelf number, sub-shelf order, and call number stored in category.json outside the entry. A different digest sets Verified and Certified to re-check pending. A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold.\",\"verifiedDays\":90},\"review\":null,\"run\":{\"countsAsVerification\":false,\"harnessDigest\":null,\"manifestDigest\":null,\"ok\":false,\"present\":false,\"ranAt\":null},\"schema\":\"agentpedia.certificate.v1\",\"sourceCommit\":\"e481f65766b0e5a4158e9e8e0c7099f3e05dd208\",\"status\":\"active\",\"statusReason\":\"Listed. skill-lint scored 100 on the recorded files.\",\"subject\":{\"authorLogin\":\"brandononchain\",\"entryPath\":\"/skills/x-reply-scout\",\"kind\":\"skill\",\"name\":\"x-reply-scout\",\"sourcePath\":\"skills/marketing/x-reply-scout\",\"title\":\"X reply scout\"},\"urls\":{\"badge\":\"https://agentpedia.sh/badge/skill-x-reply-scout.svg\",\"page\":\"https://agentpedia.sh/cert/skill-x-reply-scout\",\"publicKey\":\"https://agentpedia.sh/.well-known/agentpedia-signing-key.json\",\"record\":\"https://agentpedia.sh/cert/skill-x-reply-scout.json\"}}",
       "keyUrl": "https://agentpedia.sh/.well-known/agentpedia-signing-key.json",
       "payload": {
@@ -15379,7 +16419,7 @@
       "signed": false
     }
   ],
-  "generatedAt": "2026-11-21T06:26:18.387840+00:00",
+  "generatedAt": "2026-11-21T06:30:46.296341+00:00",
   "rules": {
     "listedDays": 365,
     "reviewDays": 365,
@@ -15391,13 +16431,13 @@
     "signed": false
   },
   "stats": {
-    "active": 118,
+    "active": 126,
     "certified": 0,
     "expired": 0,
-    "listed": 116,
+    "listed": 124,
     "onHold": 0,
     "recheckPending": 0,
-    "total": 118,
+    "total": 126,
     "verified": 2,
     "withheld": 0
   }

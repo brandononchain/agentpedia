@@ -25,6 +25,8 @@ export function SiteFooter() {
             <li><Link href="/certification">Certification</Link></li>
             <li><Link href="/brain">Brain</Link></li>
             <li><Link href="/submit">Submit an entry</Link></li>
+            <li><Link href="/wanted">Wanted</Link></li>
+            <li><Link href="/authors">Authors</Link></li>
             <li><Link href="/compare/skills-sh">Agentpedia vs skills.sh</Link></li>
           </ul>
         </div>

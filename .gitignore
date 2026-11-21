@@ -56,3 +56,6 @@ data/brain-index.json
 
 # design review captures
 .impeccable/review/
+
+# sourcer HTTP cache
+tools/sourcing/cache/

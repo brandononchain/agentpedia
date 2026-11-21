@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
-import { ChapterBody, ChapterPager, ChapterProgress } from "@/components/book";
+import { AdaptedFrom, ChapterBody, ChapterPager, ChapterProgress } from "@/components/book";
 import { agentBook, bookChapters, bookCrumbs, chapterBySlug, chapterJsonLd } from "@/lib/book";
 import { catalog, getAgent } from "@/lib/catalog";
 import { metaDescription } from "@/lib/seo";
@@ -53,6 +53,7 @@ export default async function AgentChapterPage({ params }: { params: Promise<Par
       crumbs={bookCrumbs(entry, { label: chapter.title })}
       structuredData={[chapterJsonLd(entry, chapter)]}
     >
+      <AdaptedFrom entry={entry} />
       <ChapterProgress chapter={chapter} total={chapters.length} />
       <ChapterBody entry={entry} chapter={chapter} />
       <ChapterPager entry={entry} chapters={chapters} chapter={chapter} />
