@@ -32,33 +32,76 @@ export function canonical(value) {
   throw new Error(`canonical JSON cannot represent ${typeof value}`);
 }
 
+const ED25519_PKCS8_PREFIX = Buffer.from("302e020100300506032b657004220420", "hex");
+
 export function normalizePem(raw) {
   const text = String(raw).trim().replace(/\\n/g, "\n");
   if (!text.includes("BEGIN PRIVATE KEY") && !text.includes("BEGIN PUBLIC KEY")) {
-    throw new Error("AGENTPEDIA_SIGNING_KEY must be a PKCS#8 or SPKI PEM block");
+    throw new Error("expected a PKCS#8 or SPKI PEM block");
   }
   return text.endsWith("\n") ? text : `${text}\n`;
+}
+
+export function privateKeyFromMaterial(raw) {
+  const text = String(raw).trim().replace(/\\n/g, "\n");
+  if (text.includes("BEGIN")) return createPrivateKey(normalizePem(text));
+  const compact = text.replace(/\s+/g, "");
+  let decoded;
+  try {
+    decoded = Buffer.from(compact, "base64");
+  } catch {
+    throw new Error("AGENTPEDIA_SIGNING_KEY must be a PEM block or base64 Ed25519 private key");
+  }
+  if (decoded.length === 32) {
+    return createPrivateKey({ key: Buffer.concat([ED25519_PKCS8_PREFIX, decoded]), format: "der", type: "pkcs8" });
+  }
+  if (decoded.length === 64) {
+    return privateKeyFromMaterial(decoded.subarray(0, 32).toString("base64"));
+  }
+  try {
+    return createPrivateKey({ key: decoded, format: "der", type: "pkcs8" });
+  } catch {
+    throw new Error("AGENTPEDIA_SIGNING_KEY must be a PEM block or base64 Ed25519 private key");
+  }
+}
+
+export function rawPublicKey(publicKeyPem) {
+  const der = createPublicKey(normalizePem(publicKeyPem)).export({ type: "spki", format: "der" });
+  return Buffer.from(der).subarray(der.length - 32).toString("base64");
 }
 
 export function pemBody(pem) {
   return String(pem).replace(/-----[^-]+-----/g, "").replace(/\s+/g, "");
 }
 
-export function signCanonical(canonicalText, privatePem) {
-  const key = createPrivateKey(normalizePem(privatePem));
+export function signCanonical(canonicalText, privateMaterial) {
+  const key = privateKeyFromMaterial(privateMaterial);
   const signature = sign(null, Buffer.from(canonicalText, "utf8"), key);
   const publicKeyPem = createPublicKey(key).export({ type: "spki", format: "pem" });
   return {
     signature: signature.toString("base64"),
     publicKeyPem: String(publicKeyPem),
+    publicKey: rawPublicKey(String(publicKeyPem)),
   };
 }
 
-export function verifyCanonical(canonicalText, signatureB64, publicKeyPem) {
+const ED25519_SPKI_PREFIX = Buffer.from("302a300506032b6570032100", "hex");
+
+export function publicKeyFromMaterial(raw) {
+  const text = String(raw).trim();
+  if (text.includes("BEGIN")) return createPublicKey(normalizePem(text));
+  const decoded = Buffer.from(text.replace(/\s+/g, ""), "base64");
+  if (decoded.length === 32) {
+    return createPublicKey({ key: Buffer.concat([ED25519_SPKI_PREFIX, decoded]), format: "der", type: "spki" });
+  }
+  return createPublicKey({ key: decoded, format: "der", type: "spki" });
+}
+
+export function verifyCanonical(canonicalText, signatureB64, publicKeyMaterial) {
   return verify(
     null,
     Buffer.from(canonicalText, "utf8"),
-    createPublicKey(normalizePem(publicKeyPem)),
+    publicKeyFromMaterial(publicKeyMaterial),
     Buffer.from(signatureB64, "base64"),
   );
 }
@@ -105,7 +148,7 @@ export function signCatalog(privatePem) {
   wellKnown.configured = true;
   wellKnown.pinned = Boolean(pinned?.publicKeyPem);
   wellKnown.alg = "Ed25519";
-  wellKnown.keys = [{ kid, alg: "Ed25519", publicKeyPem }];
+  wellKnown.keys = [{ kid, alg: "Ed25519", publicKeyPem, publicKey: rawPublicKey(publicKeyPem) }];
   wellKnown.note = "This build signed every certificate with AGENTPEDIA_SIGNING_KEY.";
   writeJson(WELL_KNOWN_PATH, wellKnown);
   return catalog.certificates.length;

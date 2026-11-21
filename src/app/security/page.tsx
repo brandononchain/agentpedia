@@ -108,7 +108,7 @@ export default async function SecurityPage({
       <div className="wiki-prose">
         <p>
           {stats
-            ? `${stats.entries} entries. ${stats.passed} passed, ${stats.warning} warning, ${stats.onHold} on hold. Grades A ${stats.grades.A ?? 0}, B ${stats.grades.B ?? 0}, C ${stats.grades.C ?? 0}, D ${stats.grades.D ?? 0}, F ${stats.grades.F ?? 0}.`
+            ? `${stats.entries} entries. ${stats.passed} passed, ${stats.warning} ${stats.warning === 1 ? "warning" : "warnings"}, ${stats.onHold} on hold. Grades A ${stats.grades.A ?? 0}, B ${stats.grades.B ?? 0}, C ${stats.grades.C ?? 0}, D ${stats.grades.D ?? 0}, F ${stats.grades.F ?? 0}.`
             : "This catalog build has no audit summary yet."}{" "}
           <Link href="/security/methodology">How the audit works</Link>.
         </p>

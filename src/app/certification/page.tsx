@@ -120,8 +120,9 @@ export default function CertificationPage() {
           <p>
             Each certificate JSON carries a canonical payload: object keys sorted, no insignificant whitespace, UTF-8.
             When <code>AGENTPEDIA_SIGNING_KEY</code> is set at build time, <code>tools/cert_sign.mjs</code> signs those
-            bytes with Ed25519 and writes the signature beside the payload. The private key is a PKCS#8 PEM. It is not
-            in this repository. <code>*.pem</code> is gitignored.
+            bytes with Ed25519 and writes the signature beside the payload. The private key is a base64 32-byte seed or
+            a PKCS#8 PEM. It is not in this repository. <code>*.pem</code> is gitignored. The Brain page explains{" "}
+            <Link href="/brain">how to verify a record</Link>.
           </p>
           <p>
             {certificates.signing.signed

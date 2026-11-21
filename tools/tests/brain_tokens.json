@@ -1,0 +1,130 @@
+[
+  {
+    "in": "PR review notes",
+    "out": [
+      "pull",
+      "request",
+      "review",
+      "note"
+    ]
+  },
+  {
+    "in": "pull request review",
+    "out": [
+      "pull",
+      "request",
+      "review"
+    ]
+  },
+  {
+    "in": "k8s cluster",
+    "out": [
+      "kubernetes",
+      "cluster"
+    ]
+  },
+  {
+    "in": "Kubernetes",
+    "out": [
+      "kubernetes"
+    ]
+  },
+  {
+    "in": "changelog from commits",
+    "out": [
+      "changelog",
+      "commit"
+    ]
+  },
+  {
+    "in": "the user asks how to check a CSV",
+    "out": [
+      "user",
+      "asks",
+      "check",
+      "csv"
+    ]
+  },
+  {
+    "in": "ci log failing step",
+    "out": [
+      "continuous",
+      "integration",
+      "log",
+      "fail",
+      "step"
+    ]
+  },
+  {
+    "in": "semver bump",
+    "out": [
+      "semantic",
+      "version",
+      "bump"
+    ]
+  },
+  {
+    "in": "agents.md writer",
+    "out": [
+      "agent",
+      "md",
+      "writer"
+    ]
+  },
+  {
+    "in": "MCP tool audit",
+    "out": [
+      "model",
+      "context",
+      "protocol",
+      "tool",
+      "audit"
+    ]
+  },
+  {
+    "in": "nda checklist",
+    "out": [
+      "non",
+      "disclosure",
+      "agreement",
+      "checklist"
+    ]
+  },
+  {
+    "in": "configs and repos",
+    "out": [
+      "configuration",
+      "repository"
+    ]
+  },
+  {
+    "in": "analysis",
+    "out": [
+      "analysis"
+    ]
+  },
+  {
+    "in": "status",
+    "out": [
+      "status"
+    ]
+  },
+  {
+    "in": "notes",
+    "out": [
+      "note"
+    ]
+  },
+  {
+    "in": "checked",
+    "out": [
+      "check"
+    ]
+  },
+  {
+    "in": "planning",
+    "out": [
+      "plann"
+    ]
+  }
+]

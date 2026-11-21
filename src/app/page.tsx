@@ -47,11 +47,13 @@ export default function HomePage() {
         </Link>
         .
         {catalog.audit
-          ? ` Static audit: ${catalog.audit.stats.passed} passed, ${catalog.audit.stats.warning} warning, ${catalog.audit.stats.onHold} on hold.`
-          : ""}{" "}
-        <Link href="/security">Security</Link>
-        {" · "}
-        <Link href="/submit">Submit an entry</Link>
+          ? ` Static audit: ${catalog.audit.stats.passed} passed, ${catalog.audit.stats.warning} ${catalog.audit.stats.warning === 1 ? "warning" : "warnings"}, ${catalog.audit.stats.onHold} on hold.`
+          : ""}
+        <span className="portal-counts-links">
+          <Link href="/security">Security</Link>
+          {" · "}
+          <Link href="/submit">Submit an entry</Link>
+        </span>
       </p>
 
       <section id="shelves" aria-label="Shelves">

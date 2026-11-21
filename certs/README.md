@@ -13,12 +13,12 @@ The catalog build issues a Listed record for every skill with a skill-lint score
 ## Signing
 
 ```bash
-node tools/gen_signing_key.mjs
+python3 tools/signing_keygen.py
 ```
 
-That writes `agentpedia-signing-key.pem` (mode 600, gitignored) and `certs/public-key.json`. Commit the public JSON only.
+That writes `agentpedia-signing-key.txt` (mode 600, gitignored) and `certs/public-key.json`. The private file is a base64 32-byte seed. The command prints the paths and does not print the key. Commit the public JSON only. `node tools/gen_signing_key.mjs` still writes a PEM if you prefer that form.
 
-Set `AGENTPEDIA_SIGNING_KEY` to the PEM contents:
+Set `AGENTPEDIA_SIGNING_KEY` to the base64 seed or the PEM contents:
 
 - Vercel project, Production and Preview
 - GitHub Actions secret, if a workflow should sign
@@ -28,7 +28,7 @@ Set `AGENTPEDIA_SIGNING_KEY` to the PEM contents:
 Verify:
 
 ```bash
-node tools/verify_cert.mjs https://agentpedia.sh/cert/skill-csv-profile.json
+python3 tools/verify_certificate.py https://agentpedia.sh/cert/skill-csv-profile.json
 ```
 
 Exit 0 matches. Exit 2 means unsigned. Exit 1 means the signature does not match.
