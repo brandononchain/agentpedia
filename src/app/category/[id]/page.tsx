@@ -7,6 +7,7 @@ import { certificateFor } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
 import { metaDescription } from "@/lib/seo";
 import { absoluteUrl, siteMeta } from "@/lib/site";
+import { collectionPageLd } from "@/lib/structured";
 import { alphabet, firstSentence, groupByLetter } from "@/lib/wiki";
 
 type Params = { id: string };
@@ -65,19 +66,15 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
         { label: category.label },
       ]}
       structuredData={[
-        {
-          "@context": "https://schema.org",
-          "@type": "ItemList",
+        collectionPageLd({
           name: category.label,
           description: category.blurb,
-          numberOfItems: skills.length,
-          itemListElement: skills.map((skill, index) => ({
-            "@type": "ListItem",
-            position: index + 1,
+          url: absoluteUrl(`/category/${category.id}`),
+          items: skills.map((skill) => ({
             name: skill.title,
             url: absoluteUrl(`/skills/${skill.name}`),
           })),
-        },
+        }),
       ]}
     >
       <ul className="subshelf-list">

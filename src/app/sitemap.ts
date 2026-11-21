@@ -1,16 +1,17 @@
 import type { MetadataRoute } from "next";
-import { agentBook, bookChapters, skillBook } from "@/lib/book";
 import { certificates } from "@/lib/certificates";
-import { catalog, getAgent, getSkill } from "@/lib/catalog";
+import { catalog } from "@/lib/catalog";
 import { latestDate } from "@/lib/git-dates";
 import { absoluteUrl } from "@/lib/site";
+import { isChapterOrReadPath } from "@/lib/structured";
 
 const STATIC_PAGES: { path: string; files: string[] }[] = [
   { path: "/", files: ["src/app/page.tsx", "data/catalog.json"] },
   { path: "/browse", files: ["src/app/browse/page.tsx", "src/components/browse-explorer.tsx"] },
   { path: "/agents", files: ["src/app/agents/page.tsx"] },
   { path: "/lint", files: ["src/app/lint/page.tsx"] },
-  { path: "/changelog", files: ["src/app/changelog/page.tsx"] },
+  { path: "/changelog", files: ["data/catalog.json", "src/app/changelog/page.tsx"] },
+  { path: "/compare/skills-sh", files: ["src/app/compare/skills-sh/page.tsx", "data/catalog.json"] },
   { path: "/az", files: ["src/app/az/page.tsx"] },
   { path: "/az/numbered", files: ["src/app/az/numbered/page.tsx"] },
   { path: "/glossary", files: ["src/app/glossary/page.tsx"] },
@@ -24,15 +25,25 @@ const STATIC_PAGES: { path: string; files: string[] }[] = [
   { path: "/atom.xml", files: ["src/app/atom.xml/route.ts", "data/catalog.json"] },
   { path: "/llms.txt", files: ["src/app/llms.txt/route.ts", "data/catalog.json"] },
   { path: "/llms-full.txt", files: ["src/app/llms-full.txt/route.ts", "skills", "agents"] },
-  { path: "/catalog.json", files: ["src/app/catalog.json/route.ts", "data/catalog.json"] },
+  { path: "/catalog.json", files: ["data/catalog.json"] },
   { path: "/og.png", files: ["src/app/og.png/route.ts", "data/catalog.json"] },
 ];
 
+function catalogLastModified() {
+  const generated = new Date(catalog.generatedAt);
+  if (!Number.isNaN(generated.getTime())) return generated;
+  return latestDate(["data/catalog.json"], new Date().toISOString());
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const fallback = catalog.generatedAt;
+  const catalogModified = catalogLastModified();
   const staticRoutes = STATIC_PAGES.map((page) => ({
     url: absoluteUrl(page.path),
-    lastModified: latestDate(page.files, fallback),
+    lastModified:
+      page.path === "/changelog" || page.path === "/catalog.json"
+        ? catalogModified
+        : latestDate(page.files, fallback),
   }));
   const categories = catalog.categories
     .filter((category) => category.count + category.agentCount > 0)
@@ -50,28 +61,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
   const skills = catalog.skills.flatMap((skill) => {
     const lastModified = latestDate([skill.sourcePath], `${skill.added}T00:00:00Z`);
-    const entry = skillBook(getSkill(skill.name) ?? skill);
     return [
       { url: absoluteUrl(`/skills/${skill.name}`), lastModified },
       { url: absoluteUrl(`/skills/${skill.name}.md`), lastModified },
-      { url: absoluteUrl(`/skills/${skill.name}/read`), lastModified },
-      ...bookChapters(entry).map((chapter) => ({
-        url: absoluteUrl(`/skills/${skill.name}/ch/${chapter.slug}`),
-        lastModified,
-      })),
     ];
   });
   const agents = catalog.agents.flatMap((agent) => {
     const lastModified = latestDate([agent.sourcePath], `${agent.added}T00:00:00Z`);
-    const entry = agentBook(getAgent(agent.name) ?? agent);
     return [
       { url: absoluteUrl(`/agents/${agent.name}`), lastModified },
       { url: absoluteUrl(`/agents/${agent.name}.md`), lastModified },
-      { url: absoluteUrl(`/agents/${agent.name}/read`), lastModified },
-      ...bookChapters(entry).map((chapter) => ({
-        url: absoluteUrl(`/agents/${agent.name}/ch/${chapter.slug}`),
-        lastModified,
-      })),
     ];
   });
   const certs = certificates.certificates.map((document) => ({
@@ -81,5 +80,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       `${document.payload.issuedAt}T00:00:00Z`,
     ),
   }));
-  return [...staticRoutes, ...categories, ...subshelves, ...skills, ...agents, ...certs];
+  return [...staticRoutes, ...categories, ...subshelves, ...skills, ...agents, ...certs].filter(
+    (entry) => !isChapterOrReadPath(entry.url),
+  );
 }

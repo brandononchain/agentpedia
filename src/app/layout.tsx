@@ -3,8 +3,7 @@ import { Atkinson_Hyperlegible, Geist_Mono, Literata } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { homeDescription, HOME_TITLE } from "@/lib/seo";
-import { catalog } from "@/lib/catalog";
-import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
+import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE, TWITTER_HANDLE } from "@/lib/site";
 import "./globals.css";
 
 const sans = Atkinson_Hyperlegible({
@@ -27,7 +26,7 @@ const mono = Geist_Mono({
   display: "swap",
 });
 
-const description = homeDescription(catalog.stats.categories);
+const description = homeDescription();
 
 const themeScript = `(function(){try{document.documentElement.classList.add("js");var t=localStorage.getItem("encyclopedia-theme");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){document.documentElement.classList.add("js");}})();`;
 
@@ -65,6 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: TWITTER_HANDLE,
+    creator: TWITTER_HANDLE,
     title: {
       default: HOME_TITLE,
       template: `%s · ${SITE_NAME}`,

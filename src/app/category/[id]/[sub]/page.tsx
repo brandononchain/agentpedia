@@ -7,6 +7,7 @@ import { certificateFor } from "@/lib/certificates";
 import { catalog } from "@/lib/catalog";
 import { metaDescription } from "@/lib/seo";
 import { absoluteUrl, siteMeta } from "@/lib/site";
+import { collectionPageLd } from "@/lib/structured";
 import { alphabet, firstSentence, groupByLetter } from "@/lib/wiki";
 
 type Params = { id: string; sub: string };
@@ -92,25 +93,17 @@ export default async function SubshelfPage({ params }: { params: Promise<Params>
         { href: `/category/${category.id}`, label: `${category.number} ${category.label}` },
         { label: subshelf.label },
       ]}
-      structuredData={
-        empty
-          ? []
-          : [
-              {
-                "@context": "https://schema.org",
-                "@type": "ItemList",
-                name: `${callNumber} ${subshelf.label}`,
-                description: subshelf.description,
-                numberOfItems: rows.length,
-                itemListElement: rows.map((row, index) => ({
-                  "@type": "ListItem",
-                  position: index + 1,
-                  name: row.title,
-                  url: absoluteUrl(row.href),
-                })),
-              },
-            ]
-      }
+      structuredData={[
+        collectionPageLd({
+          name: `${callNumber} ${subshelf.label}`,
+          description: subshelf.description,
+          url: absoluteUrl(`/category/${category.id}/${subshelf.slug}`),
+          items: rows.map((row) => ({
+            name: row.title,
+            url: absoluteUrl(row.href),
+          })),
+        }),
+      ]}
     >
       <p>
         <Link href={`/category/${category.id}`}>

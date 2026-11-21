@@ -4,7 +4,8 @@ import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { CopyButton } from "@/components/copy-button";
 import { AGENT_PROMPT } from "@/lib/submit-spec";
-import { REPO_URL, SITE_NAME, siteMeta } from "@/lib/site";
+import { REPO_URL, SITE_NAME, SITE_ORIGIN, siteMeta } from "@/lib/site";
+import { howToLd, SUBMIT_HOWTO } from "@/lib/structured";
 
 export const metadata: Metadata = siteMeta("/submit", {
   title: "Submit an entry",
@@ -22,6 +23,7 @@ export default function SubmitPage() {
         { href: "/", label: "Home" },
         { label: "Submit" },
       ]}
+      structuredData={[howToLd(SITE_ORIGIN)]}
     >
       <Contents
         items={[
@@ -35,13 +37,10 @@ export default function SubmitPage() {
         <section id="person">
           <h2>By hand</h2>
           <ol>
-            <li>
-              Fork <a href={REPO_URL}>{REPO_URL}</a>, or clone it and create a branch.
+            <li id="step-1">
+              <a href={REPO_URL}>Fork the Agentpedia repository</a>, or clone it and create a branch.
             </li>
-            <li>
-              Scaffold the entry. This command writes the folder, runs skill-lint, runs the static audit, and prints
-              the pull-request commands. It does not push.
-            </li>
+            <li id="step-2">{SUBMIT_HOWTO.steps[1].text}</li>
           </ol>
           <pre className="snippet">
             <code>{`python3 tools/new_entry.py submit --kind skill \\
@@ -57,8 +56,8 @@ export default function SubmitPage() {
             <Link href="/skills/agentpedia-submit">agentpedia-submit</Link>.
           </p>
           <ol start={3}>
-            <li>Replace the placeholder example. Run the command again.</li>
-            <li>Commit the entry and open a pull request with the submission template. Do not force-push.</li>
+            <li id="step-3">{SUBMIT_HOWTO.steps[2].text}</li>
+            <li id="step-4">{SUBMIT_HOWTO.steps[3].text}</li>
           </ol>
         </section>
         <section id="agent">

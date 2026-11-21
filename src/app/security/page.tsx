@@ -4,7 +4,8 @@ import { ArticleFrame } from "@/components/article-frame";
 import { ThemeSelect } from "@/components/theme-select";
 import { catalog } from "@/lib/catalog";
 import { auditStatusLabel } from "@/lib/audit";
-import { SITE_NAME, siteMeta } from "@/lib/site";
+import { SITE_NAME, SITE_ORIGIN, absoluteUrl, siteMeta } from "@/lib/site";
+import { datasetLd, itemListLd } from "@/lib/structured";
 
 export const metadata: Metadata = siteMeta("/security", {
   title: "Security",
@@ -85,6 +86,23 @@ export default async function SecurityPage({
       crumbs={[
         { href: "/", label: "Home" },
         { label: "Security" },
+      ]}
+      structuredData={[
+        datasetLd({
+          origin: SITE_ORIGIN,
+          name: `${SITE_NAME} security audit`,
+          description: "Static audit grade, score, and status for every published skill and agent.",
+          pagePath: "/security",
+          contentPath: "/catalog.json",
+        }),
+        itemListLd({
+          name: `${SITE_NAME} security audit`,
+          description: "Every published skill and agent, with the audit grade stored on that entry.",
+          items: rows.map((row) => ({
+            name: row.title,
+            url: absoluteUrl(row.href.split("#")[0]),
+          })),
+        }),
       ]}
     >
       <div className="wiki-prose">

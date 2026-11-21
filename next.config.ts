@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async rewrites() {
     return [
+      { source: "/.well-known/llms.txt", destination: "/llms.txt" },
       { source: "/skills/:name.md", destination: "/raw/skills/:name" },
       { source: "/agents/:name.md", destination: "/raw/agents/:name" },
     ];

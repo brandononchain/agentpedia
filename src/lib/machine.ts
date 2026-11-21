@@ -4,6 +4,7 @@ import { catalog, type Agent, type Skill } from "@/lib/catalog";
 import { certificateFor, tierLabel } from "@/lib/certificates";
 import { absoluteUrl, SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import { homeDescription, metaDescription } from "@/lib/seo";
+import { SITE_NOT } from "@/lib/structured";
 
 function oneLine(text: string) {
   const clean = text.replace(/\s+/g, " ").trim();
@@ -31,11 +32,12 @@ export function readAgentMarkdown(agent: Agent) {
 
 export function llmsTxt() {
   const origin = SITE_ORIGIN;
-  const { stats } = catalog;
   const lines = [
     `# ${SITE_NAME}`,
     "",
-    `> ${homeDescription(stats.categories)}`,
+    `> ${homeDescription()}`,
+    "",
+    SITE_LINE,
     "",
     HOME_NOTE,
     "",
@@ -81,7 +83,7 @@ export function llmsTxt() {
     }),
     "",
     "## Key pages",
-    `- [Home](${origin}/): ${oneLine(homeDescription(stats.categories))}`,
+    `- [Home](${origin}/): ${oneLine(homeDescription())}`,
     `- [Search](${origin}/browse): Search skills by name, shelf, tag, and lint score.`,
     `- [Index](${origin}/az): Every skill and agent, listed A–Z. Numbered view: ${origin}/az/numbered.`,
     `- [Agents](${origin}/agents): Each agent bundles skills for one job.`,
@@ -90,6 +92,7 @@ export function llmsTxt() {
     `- [Glossary](${origin}/glossary): Skill, agent, shelf, score, and drop.`,
     `- [Certification](${origin}/certification): Listed, Verified, and Certified, and the static audit each one includes.`,
     `- [Security](${origin}/security): Audit grades for every entry. Methodology: ${origin}/security/methodology.`,
+    `- [Agentpedia vs skills.sh](${origin}/compare/skills-sh): Agentpedia grades every entry and publishes certificate tiers. skills.sh is an open directory with an install CLI.`,
     "",
     "## Submit",
     "",
@@ -110,11 +113,13 @@ export function llmsTxt() {
 const HOME_NOTE =
   "Raw SKILL.md and AGENT.md files are the same path as the article with a .md suffix. The full text of every entry is /llms-full.txt.";
 
+const SITE_LINE = SITE_NOT;
+
 export function llmsFullTxt() {
   const parts = [
     `# ${SITE_NAME}`,
     "",
-    `> ${homeDescription(catalog.stats.categories)}`,
+    `> ${homeDescription()}`,
     "",
     "The blocks below are the files in the repository, concatenated.",
     "",
