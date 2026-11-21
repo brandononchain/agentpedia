@@ -1,17 +1,62 @@
 # Agentpedia
 
-[![skills](https://img.shields.io/badge/skills-96_linted-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
+<!-- badges:start -->
+[![skills](https://img.shields.io/badge/skills-97-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
 [![agents](https://img.shields.io/badge/agents-21-efe6d2?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia)
-[![lint errors](https://img.shields.io/badge/lint_errors-0-ff5a36?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia/actions)
+[![shelves](https://img.shields.io/badge/shelves-23-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/)
+[![lint](https://img.shields.io/badge/lint-all_100,_0_errors-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/lint)
+[![audit](https://img.shields.io/badge/audit-118_A-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/security)
+[![listed](https://img.shields.io/badge/listed-116-efe6d2?style=flat-square&labelColor=10110e)](https://agentpedia.sh/certification)
+[![verified](https://img.shields.io/badge/verified-2-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/certification)
+[![certified](https://img.shields.io/badge/certified-0-10110e?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/certification)
+[![on hold](https://img.shields.io/badge/on_hold-0-c9c0ae?style=flat-square&labelColor=10110e)](https://agentpedia.sh/security)
+[![latest drop](https://img.shields.io/badge/latest_drop-2026--11--21-10110e?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/changelog)
 [![license](https://img.shields.io/badge/license-Apache--2.0-c9c0ae?style=flat-square&labelColor=10110e)](LICENSE)
+[![site](https://img.shields.io/badge/site-agentpedia.sh-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh)
+<!-- badges:end -->
 
-Agentpedia is the open encyclopedia of agents and skills. The display name is `SITE_NAME` in `src/lib/site.ts`. Entries follow the [Agent Skills](https://agentskills.io/specification) format, now a project of the [Agentic AI Foundation](https://aaif.io/projects/agent-skills) at the Linux Foundation.
+Agentpedia (agentpedia.sh) is the open, audited encyclopedia of AI agent skills (SKILL.md) and agents. It is not the Microsoft Agent wiki (agentpedia.tmafe.com) or AgentPedia.so. The display name is `SITE_NAME` in `src/lib/site.ts`. Entries follow the [Agent Skills](https://agentskills.io/specification) format, now a project of the [Agentic AI Foundation](https://aaif.io/projects/agent-skills) at the Linux Foundation.
+
+[Browse](https://agentpedia.sh/browse) · [Security leaderboard](https://agentpedia.sh/security) · [Submit](https://agentpedia.sh/submit) · [llms.txt](https://agentpedia.sh/llms.txt) · [Certificates](https://agentpedia.sh/certification)
+
+## At a glance
+
+<!-- stats:start -->
+| | |
+| --- | --- |
+| Skills | 97 |
+| Agents | 21 |
+| Shelves | 23 |
+| Lint | 100 on all 97 skills, 0 errors, 0 warnings |
+| Audit | 118 A, 0 B, 0 C, 0 D, 0 F |
+| Listed | 116 |
+| Verified | 2 |
+| Certified | 0 |
+| On hold | 0 |
+| Latest drop | 2026-11-21 |
+<!-- stats:end -->
 
 Most published skills do not meet their own authoring rules. In [From Anatomy to Smells](https://arxiv.org/abs/2607.01456), Hong, Imani, and Ahmed at UC Irvine studied 238 real `SKILL.md` files. 237 of them — over 99 percent — had at least one skill smell, and those smells rarely got fixed later.
 
 The encyclopedia is the other way around. **Every entry is linted to 100 and given a static security audit before it is listed.** The site shows the lint score and the audit grade. The build fails if a skill has an error or a warning. An audit of on hold is not listed. The audit reads the files. It does not execute the entry.
 
-Maintained by [Brandon](https://brandononchain.com) ([github.com/brandononchain](https://github.com/brandononchain)).
+## How entries are vetted
+
+<!-- vetting:start -->
+A skill is listed only when skill-lint scores 100 and the static audit is not on hold. The build fails on a lint error or a warning. The audit grades A through F. A high finding inside its 14-day grace period is a warning and can still be listed. On hold means grade F, a critical finding, or a high finding past that grace period. Listed is that gate. Verified adds a recorded check run. Certified adds a named review. Phase 1 reads the files. It does not execute the entry.
+<!-- vetting:end -->
+
+Maintained by [Brandon](https://brandononchain.com) ([github.com/brandononchain](https://github.com/brandononchain), [x.com/brandononchain](https://x.com/brandononchain)).
+
+## Submit a skill or agent
+
+A skill or an agent starts as a pull request. There is no account and no form. The steps are at [agentpedia.sh/submit](https://agentpedia.sh/submit). The same instructions as plain Markdown are [agentpedia.sh/submit.md](https://agentpedia.sh/submit.md).
+
+```bash
+python3 tools/new_entry.py submit --kind skill --category <shelf> --subshelf <slug> --name <name> --description "<Third person. Use when the user asks for this job.>"
+```
+
+The command writes the folder, runs skill-lint, runs the static audit, and prints the pull-request commands. It does not push. An agent uses `--kind agent` and `--skills` with names that already exist.
 
 ## Run it
 

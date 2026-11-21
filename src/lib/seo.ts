@@ -1,13 +1,25 @@
 import { catalog } from "@/lib/catalog";
-import { REPO_URL, SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
+import { latestDate } from "@/lib/git-dates";
+import { ORGANIZATION_SAME_AS, SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
+import { SITE_IDENTITY, SITE_NOT } from "@/lib/structured";
 
 export const HOME_TITLE = `${SITE_NAME} — ${SITE_TAGLINE}`;
 
-export const HOME_DEFINITION =
-  "Agentpedia is the open encyclopedia of agents and skills. A skill is a SKILL.md file with a lint score and a static security audit. An agent bundles those skills for one job. Shelves group the skills by the work they do.";
+export const HOME_DEFINITION = `${SITE_IDENTITY} ${SITE_NOT} A skill is a SKILL.md file with a lint score and a static security audit. An agent bundles those skills for one job. Shelves group the skills by the work they do.`;
 
-export function homeDescription(shelves = catalog.stats.categories) {
-  return `Agentpedia is the open encyclopedia of agents and skills. Entries are linted to 100, then given a static security audit before listing. Browse all ${shelves} shelves.`;
+export function homeDescription() {
+  return "Agentpedia (agentpedia.sh) is the open, audited encyclopedia of AI agent skills (SKILL.md) and agents. It is not the Microsoft Agent wiki or AgentPedia.so.";
+}
+
+/** published_time from the catalog added date. modified_time is the newer of the git date and the audit date. */
+export function articleTimes(added: string, sourcePath: string, auditedAt?: string) {
+  const publishedTime = /^\d{4}-\d{2}-\d{2}$/.test(added) ? `${added}T00:00:00.000Z` : new Date(added).toISOString();
+  let modified = latestDate([sourcePath], publishedTime);
+  if (auditedAt) {
+    const parsed = new Date(/^\d{4}-\d{2}-\d{2}$/.test(auditedAt) ? `${auditedAt}T00:00:00.000Z` : auditedAt);
+    if (!Number.isNaN(parsed.getTime()) && parsed.getTime() > modified.getTime()) modified = parsed;
+  }
+  return { publishedTime, modifiedTime: modified.toISOString() };
 }
 
 /** Collapse a frontmatter description into a meta description. */
@@ -24,7 +36,11 @@ export type FaqItem = { q: string; a: string };
 export const HOME_FAQ: FaqItem[] = [
   {
     q: "What is Agentpedia?",
-    a: "Agentpedia is the open encyclopedia of agents and skills. A skill is a SKILL.md file with a lint score and a static security audit. An agent bundles those skills for one job.",
+    a: `${SITE_IDENTITY} ${SITE_NOT} A skill is a SKILL.md file with a lint score and a static security audit. An agent bundles those skills for one job.`,
+  },
+  {
+    q: "Is Agentpedia the Microsoft Agent wiki or AgentPedia.so?",
+    a: `No. ${SITE_IDENTITY} ${SITE_NOT}`,
   },
   {
     q: "What does a lint score of 100 mean?",
@@ -83,7 +99,7 @@ export function homeGraph() {
         name: SITE_NAME,
         url: origin,
         logo: `${origin}/icon-512.png`,
-        sameAs: [REPO_URL],
+        sameAs: [...ORGANIZATION_SAME_AS],
       },
       {
         "@type": "WebSite",

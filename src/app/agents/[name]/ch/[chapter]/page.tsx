@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     keywords: [agent.name, chapter.title, agent.subshelfLabel, agent.categoryLabel],
     image: `/agents/${agent.name}/opengraph-image`,
     imageAlt: `${agent.name}, chapter ${chapter.number}: ${chapter.title}. Call number ${agent.callNumber}.`,
+    canonicalPath: `/agents/${agent.name}`,
   });
 }
 

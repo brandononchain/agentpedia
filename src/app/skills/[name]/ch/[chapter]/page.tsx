@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     keywords: [skill.title, chapter.title, skill.subshelfLabel, skill.categoryLabel],
     image: `/skills/${skill.name}/opengraph-image`,
     imageAlt: `${skill.title}, chapter ${chapter.number}: ${chapter.title}. Call number ${skill.callNumber}.`,
+    canonicalPath: `/skills/${skill.name}`,
   });
 }
 

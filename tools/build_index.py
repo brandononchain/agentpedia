@@ -553,7 +553,8 @@ def build(allow_findings: bool) -> dict:
     sys.path.insert(0, str(ROOT / "tools"))
     from certlib import publish_certificates
 
-    publish_certificates(certification_entries(skills, agents))
+    certificates = publish_certificates(certification_entries(skills, agents))
+    write_readme(catalog, certificates["stats"])
     return catalog
 
 
@@ -643,6 +644,145 @@ def certification_entries(skills: list[dict], agents: list[dict]) -> list[dict]:
             }
         )
     return entries
+
+
+def shield(label: str, message: str, color: str, label_color: str, href: str) -> str:
+    """Static shields.io badge. Dashes in the label or message are escaped."""
+
+    def encode(value: str) -> str:
+        return value.replace("-", "--").replace("_", "__").replace(" ", "_")
+
+    url = f"https://img.shields.io/badge/{encode(label)}-{encode(message)}-{color}?style=flat-square&labelColor={label_color}"
+    return f"[![{label}]({url})]({href})"
+
+
+def site_origin() -> str:
+    config_path = ROOT / "config" / "site.json"
+    try:
+        origin = json.loads(config_path.read_text(encoding="utf-8")).get("origin") or ""
+    except (OSError, json.JSONDecodeError):
+        origin = ""
+    origin = str(origin).strip().rstrip("/")
+    return origin or "https://agentpedia.sh"
+
+
+def license_name() -> str:
+    text = (ROOT / "LICENSE").read_text(encoding="utf-8")
+    if "Apache License" in text and "Version 2.0" in text:
+        return "Apache-2.0"
+    raise SystemExit("LICENSE is not Apache-2.0; the README badge was not guessed")
+
+
+def grade_phrase(grades: dict) -> str:
+    order = ("A", "B", "C", "D", "F")
+    return ", ".join(f"{int(grades.get(letter) or 0)} {letter}" for letter in order)
+
+
+def lint_phrase(stats: dict) -> str:
+    skills = int(stats["skills"])
+    clean = int(stats["clean"])
+    errors = int(stats["errors"])
+    warnings = int(stats["warnings"])
+    if clean == skills and errors == 0 and warnings == 0:
+        return f"100 on all {skills} skills, 0 errors, 0 warnings"
+    return f"{clean} of {skills} at 100, {errors} errors, {warnings} warnings"
+
+
+def render_badges(catalog: dict, cert_stats: dict) -> str:
+    stats = catalog["stats"]
+    audit = catalog["audit"]["stats"]
+    origin = site_origin()
+    grades = audit["grades"]
+    nonzero = [(letter, int(grades.get(letter) or 0)) for letter in ("A", "B", "C", "D", "F")]
+    present = [pair for pair in nonzero if pair[1]]
+    if len(present) == 1:
+        audit_message = f"{present[0][1]} {present[0][0]}"
+    else:
+        audit_message = " ".join(f"{count}{letter}" for letter, count in nonzero)
+    latest = catalog["drops"][0]["date"] if catalog.get("drops") else "none"
+    repo = catalog["repoUrl"]
+    paper = "f4efe4"
+    ink = "10110e"
+    accent = "0e4f57"
+    warm = "efe6d2"
+    alert = "ff5a36"
+    muted = "c9c0ae"
+    lint_color = accent if int(stats["errors"]) == 0 and int(stats["warnings"]) == 0 else alert
+    hold = int(audit["onHold"])
+    badges = [
+        shield("skills", str(stats["skills"]), accent, paper, repo),
+        shield("agents", str(stats["agents"]), warm, ink, repo),
+        shield("shelves", str(stats["categories"]), accent, paper, f"{origin}/"),
+        shield(
+            "lint",
+            "all 100, 0 errors" if int(stats["clean"]) == int(stats["skills"]) and int(stats["errors"]) == 0 and int(stats["warnings"]) == 0 else f"{stats['errors']} errors, {stats['warnings']} warnings",
+            lint_color,
+            paper,
+            f"{origin}/lint",
+        ),
+        shield("audit", audit_message, accent, paper, f"{origin}/security"),
+        shield("listed", str(cert_stats["listed"]), warm, ink, f"{origin}/certification"),
+        shield("verified", str(cert_stats["verified"]), accent, paper, f"{origin}/certification"),
+        shield("certified", str(cert_stats["certified"]), ink, paper, f"{origin}/certification"),
+        shield("on hold", str(hold), alert if hold else muted, ink, f"{origin}/security"),
+        shield("latest drop", latest, ink, paper, f"{origin}/changelog"),
+        shield("license", license_name(), muted, ink, "LICENSE"),
+        shield("site", "agentpedia.sh", accent, paper, origin),
+    ]
+    return "\n".join(badges)
+
+
+def render_stats_table(catalog: dict, cert_stats: dict) -> str:
+    stats = catalog["stats"]
+    audit = catalog["audit"]["stats"]
+    latest = catalog["drops"][0]["date"] if catalog.get("drops") else "Not recorded"
+    rows = [
+        ("Skills", str(stats["skills"])),
+        ("Agents", str(stats["agents"])),
+        ("Shelves", str(stats["categories"])),
+        ("Lint", lint_phrase(stats)),
+        ("Audit", grade_phrase(audit["grades"])),
+        ("Listed", str(cert_stats["listed"])),
+        ("Verified", str(cert_stats["verified"])),
+        ("Certified", str(cert_stats["certified"])),
+        ("On hold", str(audit["onHold"])),
+        ("Latest drop", latest),
+    ]
+    lines = ["| | |", "| --- | --- |"]
+    lines.extend(f"| {name} | {value} |" for name, value in rows)
+    return "\n".join(lines)
+
+
+def render_vetting(grace_days: int) -> str:
+    return (
+        "A skill is listed only when skill-lint scores 100 and the static audit is not on hold. "
+        "The build fails on a lint error or a warning. The audit grades A through F. "
+        f"A high finding inside its {grace_days}-day grace period is a warning and can still be listed. "
+        "On hold means grade F, a critical finding, or a high finding past that grace period. "
+        "Listed is that gate. Verified adds a recorded check run. Certified adds a named review. "
+        "Phase 1 reads the files. It does not execute the entry."
+    )
+
+
+def replace_marked(text: str, name: str, body: str) -> str:
+    start = f"<!-- {name}:start -->"
+    end = f"<!-- {name}:end -->"
+    pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
+    block = f"{start}\n{body.rstrip()}\n{end}"
+    if not pattern.search(text):
+        raise SystemExit(f"README is missing {start} / {end}")
+    return pattern.sub(lambda _match: block, text, count=1)
+
+
+def write_readme(catalog: dict, cert_stats: dict) -> None:
+    path = ROOT / "README.md"
+    text = path.read_text(encoding="utf-8")
+    text = replace_marked(text, "badges", render_badges(catalog, cert_stats))
+    text = replace_marked(text, "stats", render_stats_table(catalog, cert_stats))
+    grace_days = int(catalog["audit"]["graceDays"])
+    text = replace_marked(text, "vetting", render_vetting(grace_days))
+    path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
+    print(f"wrote {path.relative_to(ROOT)} badges and stats")
 
 
 def main() -> None:

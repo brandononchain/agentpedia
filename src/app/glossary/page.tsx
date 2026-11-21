@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
 import { catalog } from "@/lib/catalog";
-import { SITE_NAME, siteMeta } from "@/lib/site";
+import { SITE_NAME, SITE_ORIGIN, siteMeta } from "@/lib/site";
+import { definedTermSetLd, SITE_IDENTITY, SITE_NOT } from "@/lib/structured";
 
 function ShelfLink({ id }: { id: string }) {
   const shelf = catalog.categories.find((item) => item.id === id);
@@ -18,6 +19,15 @@ export const metadata: Metadata = siteMeta("/glossary", {
 });
 
 const TERMS = [
+  {
+    id: "agentpedia",
+    term: "Agentpedia",
+    body: (
+      <>
+        {SITE_IDENTITY} {SITE_NOT}
+      </>
+    ),
+  },
   {
     id: "skill",
     term: "Skill",
@@ -105,6 +115,7 @@ export default function GlossaryPage() {
         { href: "/", label: "Home" },
         { label: "Glossary" },
       ]}
+      structuredData={[definedTermSetLd(SITE_ORIGIN)]}
     >
       <Contents items={TERMS.map((term) => ({ id: term.id, text: term.term, depth: 2 as const }))} />
       <dl className="glossary">

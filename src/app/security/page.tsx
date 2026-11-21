@@ -4,7 +4,8 @@ import { ArticleFrame } from "@/components/article-frame";
 import { ThemeSelect } from "@/components/theme-select";
 import { catalog } from "@/lib/catalog";
 import { auditStatusLabel } from "@/lib/audit";
-import { SITE_NAME, siteMeta } from "@/lib/site";
+import { SITE_NAME, SITE_ORIGIN, absoluteUrl, siteMeta } from "@/lib/site";
+import { datasetLd, itemListLd } from "@/lib/structured";
 
 export const metadata: Metadata = siteMeta("/security", {
   title: "Security",
@@ -86,11 +87,28 @@ export default async function SecurityPage({
         { href: "/", label: "Home" },
         { label: "Security" },
       ]}
+      structuredData={[
+        datasetLd({
+          origin: SITE_ORIGIN,
+          name: `${SITE_NAME} security audit`,
+          description: "Static audit grade, score, and status for every published skill and agent.",
+          pagePath: "/security",
+          contentPath: "/catalog.json",
+        }),
+        itemListLd({
+          name: `${SITE_NAME} security audit`,
+          description: "Every published skill and agent, with the audit grade stored on that entry.",
+          items: rows.map((row) => ({
+            name: row.title,
+            url: absoluteUrl(row.href.split("#")[0]),
+          })),
+        }),
+      ]}
     >
       <div className="wiki-prose">
         <p>
           {stats
-            ? `${stats.entries} entries. ${stats.passed} passed, ${stats.warning} warning, ${stats.onHold} on hold. Grades A ${stats.grades.A ?? 0}, B ${stats.grades.B ?? 0}, C ${stats.grades.C ?? 0}, D ${stats.grades.D ?? 0}, F ${stats.grades.F ?? 0}.`
+            ? `${stats.entries} entries. ${stats.passed} passed, ${stats.warning} ${stats.warning === 1 ? "warning" : "warnings"}, ${stats.onHold} on hold. Grades A ${stats.grades.A ?? 0}, B ${stats.grades.B ?? 0}, C ${stats.grades.C ?? 0}, D ${stats.grades.D ?? 0}, F ${stats.grades.F ?? 0}.`
             : "This catalog build has no audit summary yet."}{" "}
           <Link href="/security/methodology">How the audit works</Link>.
         </p>

@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     keywords: [skill.title, skill.subshelfLabel, skill.categoryLabel, "agent skill"],
     image: `/skills/${skill.name}/opengraph-image`,
     imageAlt: `${skill.title}, read as one page. Call number ${skill.callNumber}.`,
+    canonicalPath: `/skills/${skill.name}`,
   });
 }
 
