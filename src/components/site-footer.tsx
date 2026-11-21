@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { catalog } from "@/lib/catalog";
-import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+import { REPO_URL, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -27,12 +27,14 @@ export function SiteFooter() {
             <li><Link href="/submit">Submit an entry</Link></li>
             <li><Link href="/wanted">Wanted</Link></li>
             <li><Link href="/authors">Authors</Link></li>
+            <li><Link href="/compare/skills-sh">Agentpedia vs skills.sh</Link></li>
           </ul>
         </div>
         <div>
           <p>Sources</p>
           <ul>
-            <li><a href={catalog.owner.github}>GitHub</a></li>
+            <li><a href={REPO_URL}>GitHub</a></li>
+            <li><Link href="/llms.txt">llms.txt</Link></li>
             <li><a href={catalog.owner.site}>brandononchain.com</a></li>
             <li><a href={catalog.specUrl}>Agent Skills specification</a></li>
             <li><a href={catalog.aaifUrl}>Agentic AI Foundation</a></li>

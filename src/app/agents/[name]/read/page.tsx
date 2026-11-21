@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     keywords: [agent.name, agent.subshelfLabel, agent.categoryLabel, "AI agent"],
     image: `/agents/${agent.name}/opengraph-image`,
     imageAlt: `${agent.name}, read as one page. Call number ${agent.callNumber}.`,
+    canonicalPath: `/agents/${agent.name}`,
   });
 }
 

@@ -1,5 +1,6 @@
-import type { MetadataRoute } from "next";
 import { SITE_ORIGIN } from "@/lib/site";
+
+export const dynamic = "force-static";
 
 const AGENTS = [
   "*",
@@ -24,10 +25,10 @@ const AGENTS = [
   "cohere-ai",
 ];
 
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: AGENTS.map((userAgent) => ({ userAgent, allow: "/" })),
-    host: SITE_ORIGIN,
-    sitemap: `${SITE_ORIGIN}/sitemap.xml`,
-  };
+export function GET() {
+  const groups = AGENTS.map((userAgent) => `User-agent: ${userAgent}\nAllow: /`).join("\n\n");
+  const body = `${groups}\n\nHost: ${SITE_ORIGIN}\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n# llms.txt: ${SITE_ORIGIN}/llms.txt\n`;
+  return new Response(body, {
+    headers: { "content-type": "text/plain; charset=utf-8" },
+  });
 }

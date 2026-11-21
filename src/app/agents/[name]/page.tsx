@@ -11,8 +11,9 @@ import { auditStatusLabel } from "@/lib/audit";
 import { agentBook, bookChapters, bookCrumbs, bookJsonLd, recordedCommit } from "@/lib/book";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
 import { certificateFor, tierLabel } from "@/lib/certificates";
-import { metaDescription } from "@/lib/seo";
+import { articleTimes, metaDescription } from "@/lib/seo";
 import { absoluteUrl, siteMeta } from "@/lib/site";
+import { bookDocumentTitle } from "@/lib/structured";
 import { formatDropDate, stripTitle } from "@/lib/format";
 import { otherAgents } from "@/lib/wiki";
 
@@ -29,12 +30,16 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const agent = getAgent(name);
   if (!agent) return { title: "Agent" };
   const tier = certificateFor("agent", agent.name);
+  const times = articleTimes(agent.added, agent.sourcePath, agent.audit?.auditedAt);
   return siteMeta(`/agents/${agent.name}`, {
-    title: agent.name,
+    absoluteTitle: bookDocumentTitle(agent.name, "AGENT.md", undefined, agent.audit?.grade),
     description: metaDescription(agent.description),
     keywords: [agent.name, "AI agent", "agent skills"],
     image: `/agents/${agent.name}/opengraph-image`,
-    imageAlt: `${agent.name}, call number ${agent.callNumber} ${agent.subshelfLabel}. ${agent.skills.length} skills. ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
+    imageAlt: `${agent.name}, call number ${agent.callNumber} ${agent.subshelfLabel}. ${agent.skills.length} skills. ${agent.audit ? `Audit ${agent.audit.grade}.` : ""} ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
+    openGraphType: "article",
+    publishedTime: times.publishedTime,
+    modifiedTime: times.modifiedTime,
   });
 }
 

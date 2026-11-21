@@ -12,8 +12,9 @@ import { auditStatusLabel } from "@/lib/audit";
 import { bookChapters, bookCrumbs, bookJsonLd, recordedCommit, skillBook } from "@/lib/book";
 import { catalog, getSkill } from "@/lib/catalog";
 import { certificateFor, tierLabel } from "@/lib/certificates";
-import { metaDescription } from "@/lib/seo";
+import { articleTimes, metaDescription } from "@/lib/seo";
 import { absoluteUrl, siteMeta } from "@/lib/site";
+import { bookDocumentTitle } from "@/lib/structured";
 import { formatBytes, formatDropDate, stripTitle } from "@/lib/format";
 import { agentForSkill, relatedSkills, shelfNeighbors } from "@/lib/wiki";
 
@@ -31,12 +32,16 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!skill) return { title: "Entry" };
   const description = metaDescription(skill.description);
   const tier = certificateFor("skill", skill.name);
+  const times = articleTimes(skill.added, skill.sourcePath, skill.audit?.auditedAt);
   return siteMeta(`/skills/${skill.name}`, {
-    title: skill.title,
+    absoluteTitle: bookDocumentTitle(skill.title, "SKILL.md", skill.lint.score, skill.audit?.grade),
     description,
     keywords: [skill.title, skill.categoryLabel, "agent skill", ...skill.tags].slice(0, 8),
     image: `/skills/${skill.name}/opengraph-image`,
-    imageAlt: `${skill.title}, call number ${skill.callNumber} ${skill.subshelfLabel}. Lint score ${skill.lint.score}. ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
+    imageAlt: `${skill.title}, call number ${skill.callNumber} ${skill.subshelfLabel}. Lint score ${skill.lint.score}. ${skill.audit ? `Audit ${skill.audit.grade}.` : ""} ${tier ? tierLabel(tier.payload.displayTier) : "Unlisted"}.`,
+    openGraphType: "article",
+    publishedTime: times.publishedTime,
+    modifiedTime: times.modifiedTime,
   });
 }
 
