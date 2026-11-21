@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:6d2eed8ad8c544f83e4bffc70c41d0e92a388bff4599b4d5e607eb14f87a1d7b",
+  "id": "skill-breakdown-feature-prd",
+  "issuedAt": "2026-11-21",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+  "subject": {
+    "kind": "skill",
+    "name": "breakdown-feature-prd"
+  },
+  "tier": "listed"
+}

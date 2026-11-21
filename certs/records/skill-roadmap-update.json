@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:2eeb5f486dd18f75aed64b6539d9e2141c1b9dce969629bfe43d258e235bbe8e",
+  "id": "skill-roadmap-update",
+  "issuedAt": "2026-11-21",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+  "subject": {
+    "kind": "skill",
+    "name": "roadmap-update"
+  },
+  "tier": "listed"
+}

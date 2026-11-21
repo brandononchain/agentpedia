@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:52ee009f866c36ea03c53724351eead33cb7ab279ec603d13096bc38fdb0eee5",
+  "id": "skill-prd",
+  "issuedAt": "2026-11-21",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+  "subject": {
+    "kind": "skill",
+    "name": "prd"
+  },
+  "tier": "listed"
+}

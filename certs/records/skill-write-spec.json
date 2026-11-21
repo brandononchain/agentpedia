@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:1eb0c2fe84191386aaa72002b9c6811581bcacd8fa82a48f3a665a9c3294f52c",
+  "id": "skill-write-spec",
+  "issuedAt": "2026-11-21",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0fd5f41e69eaaa96bc263a524f0eb87fef30a035",
+  "subject": {
+    "kind": "skill",
+    "name": "write-spec"
+  },
+  "tier": "listed"
+}
