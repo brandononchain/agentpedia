@@ -23,6 +23,7 @@ export function SiteFooter() {
             <li><Link href="/lint">How we lint</Link></li>
             <li><Link href="/security">Security</Link></li>
             <li><Link href="/certification">Certification</Link></li>
+            <li><Link href="/brain">Brain</Link></li>
             <li><Link href="/submit">Submit an entry</Link></li>
             <li><Link href="/wanted">Wanted</Link></li>
             <li><Link href="/authors">Authors</Link></li>

@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/api/v1/skills/[name]": ["./skills/**/*", "./data/brain-index.json", "./data/certificates.json"],
+    "/api/v1/agents/[name]": ["./agents/**/*", "./data/brain-index.json", "./data/certificates.json"],
+    "/mcp": ["./skills/**/*", "./agents/**/*", "./data/brain-index.json", "./data/certificates.json"],
+  },
   async rewrites() {
     return [
       { source: "/skills/:name.md", destination: "/raw/skills/:name" },

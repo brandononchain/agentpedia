@@ -14,6 +14,7 @@ const LINKS = [
   { href: "/lint", label: "How we lint" },
   { href: "/security", label: "Security" },
   { href: "/certification", label: "Certification" },
+  { href: "/brain", label: "Brain" },
   { href: "/submit", label: "Submit" },
 ];
 

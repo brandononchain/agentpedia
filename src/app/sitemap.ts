@@ -21,6 +21,7 @@ const STATIC_PAGES: { path: string; files: string[] }[] = [
   { path: "/submit", files: ["src/app/submit/page.tsx"] },
   { path: "/wanted", files: ["src/app/wanted/page.tsx", "data/catalog.json"] },
   { path: "/authors", files: ["src/app/authors/page.tsx", "data/catalog.json"] },
+  { path: "/brain", files: ["src/app/brain/page.tsx", "src/lib/brain/plans.ts"] },
   { path: "/submit.md", files: ["src/app/submit.md/route.ts", "src/lib/submit-spec.ts"] },
   { path: "/feed.xml", files: ["src/app/feed.xml/route.ts", "data/catalog.json"] },
   { path: "/atom.xml", files: ["src/app/atom.xml/route.ts", "data/catalog.json"] },

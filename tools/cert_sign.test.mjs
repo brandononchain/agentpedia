@@ -14,5 +14,17 @@ test("an Ed25519 signature verifies and a flipped byte does not", () => {
   const text = canonical({ id: "skill-csv-profile", status: "active" });
   const signed = signCanonical(text, privatePem);
   assert.equal(verifyCanonical(text, signed.signature, publicPem), true);
+  assert.equal(verifyCanonical(text, signed.signature, signed.publicKey), true);
   assert.equal(verifyCanonical(text + " ", signed.signature, publicPem), false);
+});
+
+test("a base64 Ed25519 seed signs the same way as its PEM", () => {
+  const { privateKey } = generateKeyPairSync("ed25519");
+  const der = privateKey.export({ type: "pkcs8", format: "der" });
+  const seed = Buffer.from(der).subarray(der.length - 32).toString("base64");
+  const text = canonical({ id: "skill-csv-profile", status: "active" });
+  const fromPem = signCanonical(text, privateKey.export({ type: "pkcs8", format: "pem" }));
+  const fromSeed = signCanonical(text, seed);
+  assert.equal(fromSeed.signature, fromPem.signature);
+  assert.equal(verifyCanonical(text, fromSeed.signature, fromSeed.publicKey), true);
 });

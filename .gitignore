@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+agentpedia-signing-key.txt
 
 # debug
 npm-debug.log*
@@ -48,6 +49,7 @@ public/raw/
 public/badge/
 public/cert/
 public/.well-known/
+data/brain-index.json
 
 # local uploads
 /uploads/
