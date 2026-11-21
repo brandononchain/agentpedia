@@ -20,7 +20,7 @@ export default function CertificationPage() {
   return (
     <ArticleFrame
       title="Certification"
-      lede={`${SITE_NAME} publishes a certificate for every skill and agent that passes the lint gate. The certificate names a tier, one source commit, and a date. It is a public record of those checks. It is not a security audit.`}
+      lede={`${SITE_NAME} publishes a certificate for every skill and agent that passes the lint gate. The certificate names a tier, one source commit, a date, and the static audit of that same tree. Phase 1 reads the files. It does not execute the entry.`}
       path="/certification"
       crumbs={[
         { href: "/", label: "Home" },
@@ -50,13 +50,15 @@ export default function CertificationPage() {
         <section id="listed">
           <h3>Listed</h3>
           <p>
-            A skill is Listed when skill-lint scores 100. The score starts at 100. An error subtracts 25, a warning
-            subtracts 8, and an info finding subtracts 2, so 100 means zero of each. That is the same gate the directory
-            already uses. The rule list is <Link href="/lint">How we lint</Link>.
+            A skill is Listed when skill-lint scores 100 and the static audit is not on hold. The lint score starts at
+            100. An error subtracts 25, a warning subtracts 8, and an info finding subtracts 2, so 100 means zero of
+            each. The rule list is <Link href="/lint">How we lint</Link>. The audit is on{" "}
+            <Link href="/security">Security</Link>.
           </p>
           <p>
-            An agent is Listed when its manifest is accepted and every bundled skill scores 100. Agents are not passed
-            through skill-lint. <code>AGENT.md</code> is not a <code>SKILL.md</code>.
+            An agent is Listed when its manifest is accepted, every bundled skill scores 100, and the agent audit
+            is not on hold. Agents are not passed through skill-lint. <code>AGENT.md</code> is not a{" "}
+            <code>SKILL.md</code>.
           </p>
           <p>
             Listed does not install the entry and does not run it. It does not review the advice in the article. It
@@ -80,7 +82,8 @@ export default function CertificationPage() {
             does not invent those results.
           </p>
           <p>
-            Verified does not scan the entry for malware. The sandbox is a scrubbed subprocess, not a virtual machine.
+            The static audit is a separate reading of the files. Verified does not replace it. The check sandbox is a
+            scrubbed subprocess, not a virtual machine, and the phase 2 no-network sandbox is not this gate.
             A passing eval shows that the declared command printed what the manifest required. It does not show that
             every other command the skill describes is correct. A run stays current for 90 days. Editing the entry, the
             harness, or the check manifest sets the certificate to re-check pending.
@@ -94,18 +97,20 @@ export default function CertificationPage() {
             publisher does not fill one in.
           </p>
           <p>
-            A review is a reading of the entry and the recorded run. It is not a security audit unless the notes say
-            that, and these notes do not. Certified expires on the earlier of the 90-day run window and 365 days after
-            the review date.
+            A review is a reading of the entry and the recorded run. It is not the phase 1 static audit, which already
+            ran at build time. When an author login is recorded, that person cannot review their own entry. Certified
+            expires on the earlier of the 90-day run window and 365 days after the review date.
           </p>
         </section>
         <section id="status">
           <h2>Status</h2>
           <p>
-            Active means the claim still matches the files and the dates. Re-check pending means the entry digest, the
-            harness, or the declared checks changed after the record was written. Expired means a revalidation date has
-            passed. Withheld means the lint score is no longer 100. Re-check pending takes priority over expiry: a
-            changed tree is pending even when the old date would also have expired.
+            Active means the claim still matches the files and the dates. Re-check pending means a Verified or
+            Certified digest, the harness, or the declared checks changed after the record was written. A Listed record
+            is updated to the current digest when lint is 100 and the audit is not on hold. Expired means a
+            revalidation date has passed. Withheld means the lint score is no longer 100. On hold means the static
+            audit found a critical finding, grade F, or a high finding past grace. On hold replaces the claimed tier
+            on the badge.
           </p>
           <p>{certificates.certificates[0]?.payload.revalidation.sourceRule}</p>
           <p>{certificates.certificates[0]?.payload.revalidation.expiryRule}</p>

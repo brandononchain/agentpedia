@@ -6,7 +6,17 @@ Agentpedia publishes skills that an agent can follow and that a reviewer can che
 
 From the repo root:
 
-Daily entries rotate across every shelf. `python3 tools/new_entry.py shelves` prints them in rotation order, and `python3 tools/new_entry.py next-shelf` prints the shelf for today. A stretch of days equal to the shelf count visits each shelf once, including all 20 current shelves.
+Daily entries rotate across every shelf. `python3 tools/new_entry.py shelves` prints them in rotation order, and `python3 tools/new_entry.py next-shelf` prints the shelf for today. A stretch of days equal to the shelf count visits each shelf once, including all 23 current shelves.
+
+One command scaffolds, lints, audits, and prints the pull-request commands. It does not push:
+
+```bash
+python3 tools/new_entry.py submit --kind skill \
+  --category "$(python3 tools/new_entry.py next-shelf)" \
+  --subshelf notes \
+  --name retry-notes \
+  --description "Writes a retry policy from a handler. Use when the user asks how a call should retry."
+```
 
 ```bash
 python3 tools/new_entry.py skill \

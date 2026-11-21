@@ -77,8 +77,9 @@ const TERMS = [
     term: "Certificate",
     body: (
       <>
-        A public record that a skill or agent passed a named check at one commit. Tiers are Listed, Verified, and
-        Certified. The definitions, and what they do not guarantee, are on <Link href="/certification">Certification</Link>.
+        A public record that a skill or agent passed a named check at one commit, including the static audit of that
+        tree. Tiers are Listed, Verified, and Certified. On hold means the audit blocked listing. The definitions are
+        on <Link href="/certification">Certification</Link>.
       </>
     ),
   },

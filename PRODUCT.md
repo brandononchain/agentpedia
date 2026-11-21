@@ -8,17 +8,17 @@ web
 
 ## Users
 
-People who write or run agent skills and need a reference they can trust: the skill’s job, the agent that bundles it, how to install it, and whether it passed the linter. They arrive with a name, a shelf, or a job to look up.
+People who write or run agent skills and need a reference they can trust: the skill’s job, the agent that bundles it, how to install it, whether it passed the linter, and the static audit grade. They arrive with a name, a shelf, or a job to look up.
 
 Inferred from the repository and Brandon’s redesign request. No separate interview tool was available in this session.
 
 ## Product Purpose
 
-The open encyclopedia of agents and skills. Every entry is linted before it ships, and the page shows the score. Success is finding the right entry, reading it, and copying an install snippet without guessing whether the file is safe to use.
+The open encyclopedia of agents and skills. Every entry is linted to 100 and given a static security audit before it is listed, and the page shows both results. Success is finding the right entry, reading it, and copying an install snippet with the audit grade in view. The audit reads files. It does not execute the entry, and it does not claim the entry is safe against a hostile user.
 
 ## Positioning
 
-The open encyclopedia of agents and skills. Neighboring directories can list files. This one refuses to ship an entry that has a lint error or a warning, and it presents each entry as an article with its agent, shelf, score, and install path.
+The open encyclopedia of agents and skills. Neighboring directories can list files. This one refuses to ship an entry that has a lint error or a warning, holds back an entry the static audit puts on hold, and presents each entry as an article with its agent, shelf, lint score, audit grade, and install path.
 
 ## Operating Context
 
@@ -39,13 +39,13 @@ The display name is Agentpedia, set in `src/lib/site.ts`. The site is the open e
 
 ## Evidence on Hand
 
-The catalog in `data/catalog.json` (96 skills, 21 agents, 23 shelves, dated drops, lint scores, install snippets, the UC Irvine study URL, the Agent Skills spec URL, and the AAIF URL). No customer logos, testimonials, or version numbers exist. Do not invent them.
+The catalog in `data/catalog.json` (skills, agents, shelves, dated drops, lint scores, static audit grades, install snippets, the UC Irvine study URL, the Agent Skills spec URL, and the AAIF URL). Counts come from that file. No customer logos, testimonials, or version numbers exist. Do not invent them.
 
 ## Product Principles
 
 - An entry is an article, not a product card.
 - A missing fact is labeled missing.
-- The lint result is part of the entry, not a marketing badge.
+- The lint result and the static audit are part of the entry, not a marketing badge.
 - Wayfinding is shelves, the alphabet, related entries, and the day something was added.
 - The name is a label. The encyclopedia is the product.
 

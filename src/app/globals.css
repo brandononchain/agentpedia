@@ -261,6 +261,7 @@ main {
 
 .site-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.9rem;
   min-width: 0;
   max-width: 100%;
@@ -1086,6 +1087,53 @@ main {
 .table-scroll:focus-visible {
   outline: 2px solid var(--accent-ink);
   outline-offset: 3px;
+}
+
+.audit-gauge {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.audit-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.audit-evidence {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.audit-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 9rem) minmax(0, 1fr);
+  gap: 0.35rem 0.75rem;
+}
+
+.audit-meta dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.audit-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: end;
+  margin: 1rem 0;
+}
+
+.audit-filters label {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.audit-filters select,
+.audit-filters button {
+  min-height: 44px;
 }
 
 .table-scroll {

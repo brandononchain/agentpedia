@@ -294,6 +294,72 @@ def print_shelves(_args: argparse.Namespace) -> None:
         print(shelf)
 
 
+def _audit_folder(folder: Path, entry_id: str) -> bool:
+    """Print the static audit. Return True when the entry is on hold."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    from audit.engine import audit_directory, public_view
+    from audit.grace import load_ledger
+    from certlib import content_digest, today_iso
+
+    findings, lock, cve = audit_directory(folder)
+    view = public_view(
+        findings,
+        lock=lock,
+        content_digest=content_digest(folder),
+        commit="",
+        ledger=load_ledger(ROOT),
+        entry_id=entry_id,
+        today=today_iso(),
+        cve_lookup=cve,
+    )
+    print(f"audit {view['status']} {view['grade']} {view['score']} {entry_id}")
+    for finding in findings:
+        print(f"  {finding.rule_id} {finding.severity} {finding.path}:{finding.line} {finding.evidence}")
+    print(view["summary"])
+    return view["status"] == "on-hold"
+
+
+def _print_pr_commands(folder: Path, name: str) -> None:
+    relative = folder.relative_to(ROOT).as_posix()
+    print()
+    print("This script does not run the commands below and does not force-push.")
+    print("Create a branch first when the checkout is on the default branch.")
+    print(f"git checkout -b {name}")
+    print(f"git add {relative}")
+    print(f'git commit -m "Add {name}"')
+    print("git push -u origin HEAD")
+    print(f'gh pr create --title "Add {name}" --body "See the submission template."')
+
+
+def submit_entry(args: argparse.Namespace) -> None:
+    kind = args.entry
+    if kind not in {"skill", "agent"}:
+        fail("--kind must be skill or agent")
+    if kind == "skill":
+        if not args.category or not args.subshelf:
+            fail("a skill needs --category and --subshelf")
+        folder = ROOT / "skills" / args.category / args.name
+        entry_id = f"skill-{args.name}"
+        if folder.exists():
+            print(f"{folder.relative_to(ROOT)} already exists. Leaving the files in place.")
+            lint_skill_folder(folder)
+        else:
+            add_skill(args)
+    else:
+        if not args.category or not args.subshelf or not args.skills:
+            fail("an agent needs --category, --subshelf, and --skills")
+        folder = ROOT / "agents" / args.name
+        entry_id = f"agent-{args.name}"
+        if folder.exists():
+            print(f"{folder.relative_to(ROOT)} already exists. Leaving the files in place.")
+        else:
+            add_agent(args)
+    on_hold = _audit_folder(folder, entry_id)
+    _print_pr_commands(folder, args.name)
+    if on_hold:
+        fail("the static audit is on hold")
+
+
 def print_next_shelf(args: argparse.Namespace) -> None:
     from shelf_rotation import next_shelf, shelf_ids
 
@@ -350,6 +416,22 @@ def main() -> None:
         help="Sample prompts separated by ' || '",
     )
     agent_parser.set_defaults(func=add_agent)
+
+    submit_parser = sub.add_parser("submit", help="Scaffold if needed, lint, audit, and print the pull-request commands")
+    submit_parser.add_argument("--kind", required=True, dest="entry", choices=("skill", "agent"))
+    submit_parser.add_argument("--category", default="")
+    submit_parser.add_argument("--name", required=True)
+    submit_parser.add_argument("--description", default="")
+    submit_parser.add_argument("--tags", default="draft")
+    submit_parser.add_argument("--subshelf", default="")
+    submit_parser.add_argument("--label")
+    submit_parser.add_argument("--blurb")
+    submit_parser.add_argument("--subshelf-label")
+    submit_parser.add_argument("--subshelf-description")
+    submit_parser.add_argument("--skills", default="")
+    submit_parser.add_argument("--connectors", default="none")
+    submit_parser.add_argument("--prompts", default="")
+    submit_parser.set_defaults(func=submit_entry)
 
     args = parser.parse_args()
     args.func(args)

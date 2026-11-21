@@ -62,9 +62,11 @@ export default function CertifyPage() {
             <code>..</code> are rejected.
           </p>
           <p>
-            The certify workflow runs those evals and comments with the output. It writes{" "}
-            <code>certs/results/</code> only when a maintainer runs the workflow with “write results”, or adds the{" "}
-            <code>record-checks</code> label. A normal pull request does not commit a new timestamp on every push.
+            The certify workflow runs those evals on the pull request and uploads the report. A separate workflow
+            comments with that report. It does not check out the pull-request code in order to write. Results are
+            written only when a maintainer runs the Certify record workflow with “write results” on the default
+            branch, or locally with <code>python3 tools/verify_checks.py --write</code>. A normal pull request does
+            not commit a new timestamp on every push.
           </p>
           <p>
             The two recorded Verified skills in this repository are <Link href="/cert/skill-csv-profile">csv-profile</Link>{" "}
@@ -76,7 +78,8 @@ export default function CertifyPage() {
           <p>
             After the entry is on the default branch and the catalog build passes, the site publishes{" "}
             <code>/cert/&lt;id&gt;</code>, <code>/badge/&lt;id&gt;.svg</code>, and <code>/cert/&lt;id&gt;.json</code>.
-            The certificate page has the Markdown and HTML to embed. Listed is automatic for a score of 100. Verified
+            The certificate page has the Markdown and HTML to embed. Listed is automatic for a lint score of 100 when
+            the static audit is not on hold. Verified
             waits for a real harness result. Certified waits for a person to add <code>review.reviewer</code>,{" "}
             <code>review.date</code>, and <code>review.notes</code> to the record.
           </p>

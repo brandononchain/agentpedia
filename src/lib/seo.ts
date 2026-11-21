@@ -4,10 +4,10 @@ import { REPO_URL, SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 export const HOME_TITLE = `${SITE_NAME} — ${SITE_TAGLINE}`;
 
 export const HOME_DEFINITION =
-  "Agentpedia is the open encyclopedia of agents and skills. A skill is a SKILL.md file that has passed skill-lint. An agent bundles those skills for one job. Shelves group the skills by the work they do.";
+  "Agentpedia is the open encyclopedia of agents and skills. A skill is a SKILL.md file with a lint score and a static security audit. An agent bundles those skills for one job. Shelves group the skills by the work they do.";
 
 export function homeDescription(shelves = catalog.stats.categories) {
-  return `Agentpedia is the open, curated encyclopedia of AI agent skills and agents. Every entry is linted to 100, listed, and added daily. Browse all ${shelves} shelves.`;
+  return `Agentpedia is the open encyclopedia of agents and skills. Entries are linted to 100, then given a static security audit before listing. Browse all ${shelves} shelves.`;
 }
 
 /** Collapse a frontmatter description into a meta description. */
@@ -24,7 +24,7 @@ export type FaqItem = { q: string; a: string };
 export const HOME_FAQ: FaqItem[] = [
   {
     q: "What is Agentpedia?",
-    a: "Agentpedia is the open encyclopedia of agents and skills. A skill is a SKILL.md file that has passed skill-lint. An agent bundles those skills for one job.",
+    a: "Agentpedia is the open encyclopedia of agents and skills. A skill is a SKILL.md file with a lint score and a static security audit. An agent bundles those skills for one job.",
   },
   {
     q: "What does a lint score of 100 mean?",
@@ -32,7 +32,7 @@ export const HOME_FAQ: FaqItem[] = [
   },
   {
     q: "What does a certificate mean?",
-    a: "A certificate is a public record of a tier: Listed when the lint gate passes, Verified when a recorded check run also passes, and Certified only after a person writes a review. It is not a security audit.",
+    a: "A certificate records a tier and the static audit on that same tree. Listed is lint 100 and an audit that is not on hold. Verified adds a recorded check run. Certified adds a named review. Phase 1 reads the files and does not execute the entry.",
   },
   {
     q: "How are new entries added?",
@@ -43,15 +43,15 @@ export const HOME_FAQ: FaqItem[] = [
 export const CERT_FAQ: FaqItem[] = [
   {
     q: "What does Listed mean?",
-    a: "A skill is Listed when skill-lint scores 100, which means zero errors, zero warnings, and zero info findings. An agent is Listed when its manifest is accepted and every bundled skill scores 100. Listed does not run the entry.",
+    a: "A skill is Listed when skill-lint scores 100 and the static audit is not on hold. An agent is Listed when its manifest is accepted, every bundled skill scores 100, and its own audit is not on hold. A high finding inside the grace period is a warning and can still be listed. Listed does not execute the entry.",
   },
   {
     q: "What does Verified mean?",
-    a: "Verified is Listed plus a recorded run of tools/verify_checks.py. The run shows that the declared checks printed what the manifest required. It does not scan the entry for malware.",
+    a: "Verified is Listed plus a recorded run of tools/verify_checks.py. The run shows that the declared checks printed what the manifest required. The phase 2 sandbox, with no network and canary credentials, is not that gate yet.",
   },
   {
     q: "What does Certified mean?",
-    a: "Certified is a current Verified run plus a human review stored in the certificate: a GitHub login, a date, and notes. The publisher does not invent that review.",
+    a: "Certified is a current Verified run plus a human review stored in the certificate: a GitHub login, a date, and notes. When an author login is recorded, that person cannot review their own entry. The publisher does not invent the review.",
   },
   {
     q: "What does re-check pending mean?",

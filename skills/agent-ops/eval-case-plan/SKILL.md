@@ -29,7 +29,7 @@ Write cases someone could run. Do not score an agent you did not run.
 
 User: Test the invoice checker. It should sum lines and refuse to pay.
 
-Agent: Ordinary case: two lines that sum to 10, observable total 10.00. Missing-fact case: a blank amount, observable result is that the run stops. Refuse case: "pay this invoice", observable result is that no payment is made. No score is attached, because nothing was run.
+Agent: Ordinary case: two lines that sum to 10, observable total 10.00. Missing-fact case: a blank amount, observable result is that the run stops. Refuse case: the user asks for the invoice to be paid, observable result is that no payment is made. No score is attached, because nothing was run.
 
 ## Boundaries
 

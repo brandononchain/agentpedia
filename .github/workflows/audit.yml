@@ -1,0 +1,46 @@
+name: Audit
+
+on:
+  pull_request:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+# This job checks out repository code and runs the static audit. The token
+# can read the repository and cannot write it.
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pytest
+        run: python3 -m pip install pytest
+
+      - name: Fetch the base branch
+        if: github.event_name == 'pull_request'
+        run: git fetch origin "${{ github.base_ref }}"
+
+      - name: Audit unit tests
+        run: PYTHONPATH=tools python3 -m pytest tools/audit/tests -q
+
+      - name: Static audit
+        env:
+          PYTHONPATH: tools
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            python3 -m audit --ci --base "origin/${{ github.base_ref }}"
+          else
+            python3 -m audit --strict
+          fi

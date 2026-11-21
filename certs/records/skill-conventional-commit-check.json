@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:1101dec1037575afe9a7724cf225fc0d16fee963d81b1a0acad34594d520ac29",
+  "contentDigest": "sha256:8246703e78305b4bfbe20db1966015ca7d845803db947cf295bf419216a80830",
   "id": "skill-conventional-commit-check",
   "issuedAt": "2026-11-19",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "03a43b98f01ffe9a652c0f8f44791a278aa37d76",
+  "sourceCommit": "0c6e81cc8d82e56af4c358d5192ec0a42f294bfa",
   "subject": {
     "kind": "skill",
     "name": "conventional-commit-check"

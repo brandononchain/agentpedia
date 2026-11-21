@@ -6,6 +6,8 @@ import { BookToc } from "@/components/book";
 import { CertFact } from "@/components/cert-fact";
 import { CopyButton } from "@/components/copy-button";
 import { MarkdownBody } from "@/components/markdown-body";
+import { SecurityReport } from "@/components/security-report";
+import { auditStatusLabel } from "@/lib/audit";
 import { agentBook, bookChapters, bookCrumbs, bookJsonLd, recordedCommit } from "@/lib/book";
 import { catalog, getAgent, getSkill } from "@/lib/catalog";
 import { certificateFor, tierLabel } from "@/lib/certificates";
@@ -103,6 +105,16 @@ export default async function AgentPage({ params }: { params: Promise<Params> })
             <dd>Not recorded</dd>
             <dt>Commit</dt>
             <dd>{recordedCommit("agent", agent.name)}</dd>
+            <dt>Audit</dt>
+            <dd>
+              {agent.audit ? (
+                <a href="#security-report">
+                  {auditStatusLabel(agent.audit)} · {agent.audit.grade}
+                </a>
+              ) : (
+                "Not recorded"
+              )}
+            </dd>
             <dt>Connectors</dt>
             <dd>{agent.connectors.length === 0 ? "None" : agent.connectors.join("; ")}</dd>
           </dl>
@@ -112,6 +124,11 @@ export default async function AgentPage({ params }: { params: Promise<Params> })
       <BookToc entry={entry} chapters={chapters} />
       <p className="quiet">The sections below are this book on one page.</p>
       <MarkdownBody source={body} selfHref={`/agents/${agent.name}`} />
+
+      <section className="see-also" id="security-report">
+        <h2 className="section-title">Security report</h2>
+        <SecurityReport audit={agent.audit} />
+      </section>
 
       <section className="see-also" id="member-skills">
         <h2 className="section-title">Member skills</h2>

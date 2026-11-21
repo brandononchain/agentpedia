@@ -8,7 +8,7 @@ The digest hashes the entry directory. It covers the instructions and the assets
 
 `results/<id>.json` is a harness result. Commit one only after the harness writes it. Do not hand-edit `ok` or the stdout.
 
-The catalog build issues a Listed record for every skill with a skill-lint score of 100, and for every agent whose bundled skills all score 100. It refuses a Verified or Certified claim that lacks a matching passing result. Certified also requires `review.reviewer`, `review.date`, and `review.notes`.
+The catalog build issues a Listed record for every skill with a skill-lint score of 100, and for every agent whose bundled skills all score 100, including an entry the static audit puts on hold so the badge can say so. Listing still requires the audit status to be anything but on hold. A Listed record is updated to the current digest when that gate still passes. Verified and Certified go re-check pending when the digest changes. The build refuses a Verified or Certified claim that lacks a matching passing result. Certified also requires `review.reviewer`, `review.date`, and `review.notes`, and the reviewer cannot be the recorded author.
 
 ## Signing
 

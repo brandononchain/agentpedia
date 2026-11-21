@@ -4,9 +4,16 @@ on:
   push:
   pull_request:
 
+# This job checks out and runs the workflow's code, including pull-request
+# code. The token can read the repository and cannot write it.
+permissions:
+  contents: read
+
 jobs:
   verify:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,6 +33,9 @@ jobs:
 
       - name: skill-lint unit tests
         run: PYTHONPATH=tools/skill-lint python3 -m pytest tools/skill-lint/tests -q
+
+      - name: Audit unit tests
+        run: PYTHONPATH=tools python3 -m pytest tools/audit/tests -q
 
       - name: Lint every published skill
         run: PYTHONPATH=tools/skill-lint python3 -m skill_lint skills

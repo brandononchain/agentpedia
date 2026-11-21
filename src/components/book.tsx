@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MarkdownBody } from "@/components/markdown-body";
+import { SecurityReport } from "@/components/security-report";
 import { bookBase, type BookEntry, type Chapter } from "@/lib/book";
 
 export function BookToc({ entry, chapters }: { entry: BookEntry; chapters: Chapter[] }) {
@@ -83,6 +84,11 @@ export function ChapterPager({
   );
 }
 
+export function ChapterBody({ entry, chapter }: { entry: BookEntry; chapter: Chapter }) {
+  if (chapter.role === "security") return <SecurityReport audit={entry.audit} />;
+  return <MarkdownBody source={chapter.markdown} selfHref={`${bookBase(entry)}/ch/${chapter.slug}`} />;
+}
+
 export function BookRead({ entry, chapters }: { entry: BookEntry; chapters: Chapter[] }) {
   const base = bookBase(entry);
   return (
@@ -94,7 +100,7 @@ export function BookRead({ entry, chapters }: { entry: BookEntry; chapters: Chap
               {chapter.number}. {chapter.title}
             </Link>
           </h2>
-          <MarkdownBody source={chapter.markdown} selfHref={`${base}/ch/${chapter.slug}`} />
+          <ChapterBody entry={entry} chapter={chapter} />
         </section>
       ))}
     </div>

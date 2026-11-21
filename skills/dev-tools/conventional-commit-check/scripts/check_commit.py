@@ -140,7 +140,7 @@ def self_test() -> None:
         breaking_from="both",
         tokens=["BREAKING CHANGE"],
     )
-    prefix = parse_message("feat(api)!: send an email to the customer when a product is shipped\n")
+    prefix = parse_message("feat(api)!: notify customers when a product is shipped\n")
     expect(prefix, ok=True, type="feat", scope="api", breaking=True, breaking_from="prefix", tokens=[])
     docs = parse_message("docs: correct spelling of CHANGELOG\n")
     expect(docs, ok=True, type="docs", scope="", breaking=False, breaking_from="none", tokens=[])

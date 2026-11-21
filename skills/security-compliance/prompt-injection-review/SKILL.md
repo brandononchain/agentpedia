@@ -33,4 +33,4 @@ Agent: The span is an untrusted tool output and an exfiltration ask. It tells th
 
 ## Boundaries
 
-This is a reading of one text. It is not a security audit, and it does not test whether a given agent would comply.
+This is a reading of one text. It is not the Agentpedia security audit, and it does not test whether a given agent would comply.

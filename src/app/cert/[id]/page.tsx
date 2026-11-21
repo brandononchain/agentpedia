@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
 import { Contents } from "@/components/contents";
+import { SecurityReport } from "@/components/security-report";
 import { CopyButton } from "@/components/copy-button";
 import { badgeAlt, certificateById, certificates, embedHtml, embedMarkdown, tierLabel } from "@/lib/certificates";
 import { metaDescription } from "@/lib/seo";
@@ -106,6 +107,7 @@ export default async function CertificatePage({ params }: { params: Promise<Para
       <Contents
         items={[
           { id: "what-was-checked", text: "What was checked", depth: 2 },
+          { id: "security-report", text: "Security report", depth: 2 },
           { id: "review", text: "Review", depth: 2 },
           { id: "revalidation", text: "Revalidation", depth: 2 },
           { id: "embed", text: "Embed", depth: 2 },
@@ -144,6 +146,11 @@ export default async function CertificatePage({ params }: { params: Promise<Para
                 : " It does not count toward Verified on this certificate."}
             </p>
           ) : null}
+        </section>
+
+        <section id="security-report">
+          <h2>Security report</h2>
+          <SecurityReport audit={payload.audit} />
         </section>
 
         <section id="review">

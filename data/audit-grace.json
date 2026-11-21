@@ -1,0 +1,5 @@
+{
+  "findings": {},
+  "graceDays": 14,
+  "schema": "agentpedia.audit-grace.v1"
+}

@@ -1,10 +1,10 @@
 {
-  "contentDigest": "sha256:fe712563b5b7eeec1c51878c83da9be3d1c2942e9ce5f672b555bc8edde7d2fa",
+  "contentDigest": "sha256:a99cee34577e2fdf6aed8246b64fc26045eaffd75f20d2668efb18a2afd7acb5",
   "id": "skill-mcp-tool-audit",
   "issuedAt": "2026-11-14",
   "review": null,
   "schema": "agentpedia.certificate-record.v1",
-  "sourceCommit": "e481f65766b0e5a4158e9e8e0c7099f3e05dd208",
+  "sourceCommit": "0c6e81cc8d82e56af4c358d5192ec0a42f294bfa",
   "subject": {
     "kind": "skill",
     "name": "mcp-tool-audit"

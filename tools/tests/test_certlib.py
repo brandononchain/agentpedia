@@ -241,6 +241,44 @@ def test_certified_with_review_is_active(pinned_manifest):
     assert body["displayTier"] == "certified"
     assert body["review"]["reviewer"] == "brandononchain"
     assert 'fill="#f4efe4"' in svg
+    assert "authorLogin" not in (entry())
+
+
+def test_missing_audit_keeps_the_listed_badge(pinned_manifest):
+    body, _svg = payload(record())
+    assert body["displayTier"] == "listed"
+    assert body["badge"]["message"] == "listed"
+    assert body["audit"] is None
+
+
+def test_passed_audit_is_on_the_badge(pinned_manifest):
+    sample = entry()
+    sample["audit"] = {"status": "passed", "grade": "A", "summary": "Passed."}
+    body, _svg = payload(record(), sample)
+    assert body["displayTier"] == "listed"
+    assert body["badge"]["message"] == "listed · audit A"
+    assert body["status"] == "active"
+
+
+def test_on_hold_audit_overrides_listed(pinned_manifest):
+    sample = entry()
+    sample["audit"] = {"status": "on-hold", "grade": "F", "summary": "On hold. The audit found a critical finding."}
+    body, svg = payload(record(), sample)
+    assert body["status"] == "on-hold"
+    assert body["displayTier"] == "on-hold"
+    assert body["badge"]["message"] == "on hold"
+    assert 'fill="#8d1d1d"' in svg
+
+
+def test_author_cannot_review_their_own_entry(pinned_manifest):
+    sample = entry()
+    sample["authorLogin"] = "brandononchain"
+    reviewed = record(
+        "certified",
+        review={"reviewer": "brandononchain", "date": "2026-11-10", "notes": "Read the skill and the recorded run."},
+    )
+    with pytest.raises(CertError, match="author cannot review"):
+        payload(reviewed, sample, result=run())
 
 
 def test_manifest_digest_helper_is_used():

@@ -7,6 +7,8 @@ import { CertFact } from "@/components/cert-fact";
 import { InstallPanel } from "@/components/install-panel";
 import { MarkdownBody } from "@/components/markdown-body";
 import { ScoreMark } from "@/components/score-mark";
+import { SecurityReport } from "@/components/security-report";
+import { auditStatusLabel } from "@/lib/audit";
 import { bookChapters, bookCrumbs, bookJsonLd, recordedCommit, skillBook } from "@/lib/book";
 import { catalog, getSkill } from "@/lib/catalog";
 import { certificateFor, tierLabel } from "@/lib/certificates";
@@ -114,6 +116,16 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
             <dd>
               <ScoreMark score={skill.lint.score} badge={skill.lint.badge} />
             </dd>
+            <dt>Audit</dt>
+            <dd>
+              {skill.audit ? (
+                <a href="#security-report">
+                  {auditStatusLabel(skill.audit)} · {skill.audit.grade}
+                </a>
+              ) : (
+                "Not recorded"
+              )}
+            </dd>
             <CertFact kind="skill" name={skill.name} />
             <dt>Version</dt>
             <dd>Not recorded</dd>
@@ -174,6 +186,11 @@ export default async function SkillPage({ params }: { params: Promise<Params> })
             ))}
           </ul>
         )}
+      </section>
+
+      <section className="see-also" id="security-report">
+        <h2 className="section-title">Security report</h2>
+        <SecurityReport audit={skill.audit} />
       </section>
 
       {related.length > 0 ? (

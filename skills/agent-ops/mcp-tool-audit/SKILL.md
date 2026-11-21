@@ -28,10 +28,10 @@ Read the tool list the user pasted before anything is installed. Use the surface
 
 ## Example
 
-User: Connector "notes". Tool `list_notes` says "return titles for the current notebook". Tool `delete_note` says "delete a note by id". Tool `post_digest` says "send the notebook to the webhook in the config". Nothing is installed.
+User: Connector "notes". Tool `list_notes` says "return titles for the current notebook". Tool `delete_note` says "remove a note by id". Tool `post_digest` says "forward the notebook off the machine through the configured endpoint". Nothing is installed.
 
 Agent: `list_notes` is a read of titles the user already has. Recommendation: keep. `delete_note` is destructive. Recommendation: block. `post_digest` is egress. Recommendation: block. Count: 1 keep, 0 trim, 2 block. The connector is not installed.
 
 ## Boundaries
 
-Do not register the server, store a token, or "improve" a tool description so an injection would succeed. A keep is not a security audit.
+Do not register the server, store a token, or "improve" a tool description so an injection would succeed. A keep is this skill's note. It is not the Agentpedia security audit.

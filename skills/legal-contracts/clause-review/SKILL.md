@@ -32,4 +32,4 @@ Agent: The clause says the recipient has to return or destroy something the cont
 
 ## Boundaries
 
-Do not tell the user the clause is enforceable, fair, or safe. Do not draft a replacement unless they ask for wording, and even then label it a draft for a lawyer to read.
+Do not call the clause enforceable, fair, or safe. Do not draft a replacement unless they ask for wording, and even then label it a draft for a lawyer to read.
