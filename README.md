@@ -25,9 +25,10 @@ npm run dev
 The dev server prints a local URL on port **43123**. `npm run dev` rebuilds `data/catalog.json` from `skills/` and `agents/` before Next.js starts.
 
 ```bash
-npm run build         # lint the catalog, write certificates, sign if a key is set, then next build
+npm run build         # lint the catalog, write certificates, sign if a key is set, build the Brain index, then next build
 npm run test:lint     # skill-lint unit tests
 npm run test:certs    # certificate and signing tests
+npm run test:brain    # Brain search, trust, golden set, and the in-memory limiter
 npm run lint:skills
 ```
 
@@ -42,6 +43,8 @@ tools/audit/                               # static security audit, phase 1
 tools/certlib.py                           # issues Listed records and publishes certificate JSON
 tools/verify_checks.py                     # runs install probes and evals for Verified
 tools/cert_sign.mjs                        # Ed25519-signs the canonical payload when a key is set
+tools/build_brain_index.py                 # BM25 index for the Brain API and MCP server
+tools/brain_key.py                         # create, revoke, and list Brain API keys in Upstash
 certs/                                     # records, check manifests, and harness results
 src/                                       # Next.js App Router site
 ```
@@ -105,22 +108,37 @@ PYTHONPATH=tools python3 -m audit
 ```
 
 ```bash
-node tools/gen_signing_key.mjs
-# commit certs/public-key.json only, then set AGENTPEDIA_SIGNING_KEY to the PEM
-node tools/verify_cert.mjs https://agentpedia.sh/cert/skill-csv-profile.json
+python3 tools/signing_keygen.py
+# commit certs/public-key.json only. The private file is base64 and is not printed.
+# AGENTPEDIA_SIGNING_KEY accepts that base64 seed or a PKCS#8 PEM.
+python3 tools/verify_certificate.py https://agentpedia.sh/cert/skill-csv-profile.json
 ```
 
 Until that secret is set, records are unsigned on purpose (`signed: false`, `signature: null`).
 
+## Brain
+
+`/brain` documents the hosted search API and the MCP server at `/mcp`. `npm run build` writes `data/brain-index.json` and git ignores it. Do not hand-edit it.
+
+Anonymous callers get 100 requests a day per IP. A key is `ap_live_` plus 32 letters or digits. `tools/brain_key.py` stores only `sha256(key)` in Upstash. Plans: free 1,000 calls a month, builder 25,000, team 150,000, enterprise custom (`monthlyLimit` on the key, otherwise 1,000,000). Paid plans are not billed yet.
+
 ## Deploy on Vercel
 
-No database. One optional secret.
+No database. Two optional secrets.
 
 1. Import this repository. Framework preset: **Next.js**. Root directory: the repository root.
 2. Install command: `npm ci` (the default).
-3. Build command: `npm run build`. That runs `python3 tools/build_index.py`, `node tools/cert_sign.mjs`, and then `next build`. Vercel's build image includes Python 3 and Node. No extra Python packages are required for signing.
+3. Build command: `npm run build`. That runs `python3 tools/build_index.py`, `node tools/cert_sign.mjs`, `python3 tools/build_brain_index.py`, and then `next build`. Vercel's build image includes Python 3 and Node. No extra Python packages are required for signing.
 4. The public origin is `https://agentpedia.sh`, read from `config/site.json`. Canonical URLs, Open Graph, the sitemap, badge embeds, and certificate records use that origin. Set `NEXT_PUBLIC_SITE_URL` only to override it.
-5. Optional: set `AGENTPEDIA_SIGNING_KEY` to the PKCS#8 PEM from `node tools/gen_signing_key.mjs`, on Production and Preview. Commit `certs/public-key.json` and leave the PEM out of the repo. Without the secret, the site still builds and the certificates say they are unsigned.
+5. Optional: set `AGENTPEDIA_SIGNING_KEY` to the base64 seed from `python3 tools/signing_keygen.py` (a PKCS#8 PEM still works), on Production and Preview, and as a GitHub Actions secret of the same name. The Catalog workflow passes it to the build and stays read-only. Commit `certs/public-key.json` and leave the private key out of the repo. Without the secret, the site still builds and the certificates say they are unsigned.
+6. Optional: provision Upstash Redis from the Vercel Marketplace and set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` on Production and Preview. Without them the Brain runs keyless. Each server process keeps an in-memory limiter so previews and CI still answer.
+
+| Variable | Required | What it does |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | No | Overrides the public origin in `config/site.json`. |
+| `AGENTPEDIA_SIGNING_KEY` | No | Base64 Ed25519 seed, or PKCS#8 PEM. Signs certificates at build time. |
+| `UPSTASH_REDIS_REST_URL` | No | Upstash REST endpoint for Brain keys, rate limits, and monthly usage. |
+| `UPSTASH_REDIS_REST_TOKEN` | No | Token for that Redis database. |
 
 The pages are statically generated from the catalog at build time. Blocked or warned skills fail the build, so a preview deploy cannot publish an entry the linter rejected.
 

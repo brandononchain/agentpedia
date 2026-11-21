@@ -32,8 +32,8 @@ async function readTarget(target) {
 }
 
 function keyFromDocument(document) {
-  const key = document.keys?.[0]?.publicKeyPem || document.publicKeyPem;
-  if (!key) throw new Error("signing key file has no publicKeyPem");
+  const key = document.keys?.[0]?.publicKeyPem || document.keys?.[0]?.publicKey || document.publicKeyPem || document.publicKey;
+  if (!key) throw new Error("signing key file has no public key");
   return key;
 }
 
