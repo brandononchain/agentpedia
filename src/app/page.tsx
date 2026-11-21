@@ -43,8 +43,15 @@ export default function HomePage() {
         <Link href="/certification">
           {certificates.stats.listed} listed
           {certificates.stats.verified ? `, ${certificates.stats.verified} verified` : ""}
+          {certificates.stats.onHold ? `, ${certificates.stats.onHold} on hold` : ""}
         </Link>
         .
+        {catalog.audit
+          ? ` Static audit: ${catalog.audit.stats.passed} passed, ${catalog.audit.stats.warning} warning, ${catalog.audit.stats.onHold} on hold.`
+          : ""}{" "}
+        <Link href="/security">Security</Link>
+        {" · "}
+        <Link href="/submit">Submit an entry</Link>
       </p>
 
       <section id="shelves" aria-label="Shelves">

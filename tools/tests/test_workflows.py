@@ -37,6 +37,16 @@ def test_publish_workflow_does_not_execute_pull_request_code():
     assert "workflow_run" in text
 
 
+def test_audit_workflow_is_read_only():
+    text = _text("audit.yml")
+    assert "pull_request_target" not in text
+    assert "contents: write" not in text
+    assert "contents: read" in text
+    assert "git push" not in text
+    assert "--strict" in text
+    assert "--ci" in text
+
+
 def test_record_workflow_is_not_a_pull_request_job():
     text = _text("certify-record.yml")
     assert "pull_request:" not in text

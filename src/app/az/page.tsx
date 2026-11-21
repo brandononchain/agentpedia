@@ -21,6 +21,7 @@ type Row = {
   callNumber: string;
   certId?: string;
   tier?: string;
+  grade?: string;
 };
 
 export default function IndexPage() {
@@ -35,6 +36,7 @@ export default function IndexPage() {
         kind: "Skill" as const,
         certId: cert?.payload.id,
         tier: cert?.payload.displayTier,
+        grade: skill.audit?.grade,
       };
     }),
     ...catalog.agents.map((agent) => {
@@ -47,6 +49,7 @@ export default function IndexPage() {
         kind: "Agent" as const,
         certId: cert?.payload.id,
         tier: cert?.payload.displayTier,
+        grade: agent.audit?.grade,
       };
     }),
   ];
@@ -96,7 +99,7 @@ export default function IndexPage() {
                 {item.certId && item.tier ? (
                   <>
                     <span className="quiet"> · </span>
-                    <TierMark id={item.certId} tier={item.tier} />
+                    <TierMark id={item.certId} tier={item.tier} grade={item.grade} />
                   </>
                 ) : null}
               </li>

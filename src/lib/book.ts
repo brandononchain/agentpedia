@@ -1,4 +1,4 @@
-import { catalog, type Agent, type Skill } from "@/lib/catalog";
+import { catalog, type Agent, type AuditView, type Skill } from "@/lib/catalog";
 import { certificateFor, tierLabel } from "@/lib/certificates";
 import { formatDropDate } from "@/lib/format";
 import { absoluteUrl } from "@/lib/site";
@@ -11,6 +11,7 @@ export type Chapter = {
   slug: string;
   title: string;
   markdown: string;
+  role: "prose" | "security";
 };
 
 export type BookEntry = {
@@ -28,6 +29,7 @@ export type BookEntry = {
   categoryLabel: string;
   subshelf: string;
   subshelfLabel: string;
+  audit: AuditView | null;
 };
 
 export function skillBook(skill: Skill): BookEntry {
@@ -46,6 +48,7 @@ export function skillBook(skill: Skill): BookEntry {
     categoryLabel: skill.categoryLabel,
     subshelf: skill.subshelf,
     subshelfLabel: skill.subshelfLabel,
+    audit: skill.audit ?? null,
   };
 }
 
@@ -65,6 +68,7 @@ export function agentBook(agent: Agent): BookEntry {
     categoryLabel: agent.categoryLabel,
     subshelf: agent.subshelf,
     subshelfLabel: agent.subshelfLabel,
+    audit: agent.audit ?? null,
   };
 }
 
@@ -124,7 +128,7 @@ function sectionTitle(title: string) {
 export function bookChapters(entry: BookEntry): Chapter[] {
   const { intro, sections } = splitSections(entry.body);
   const used = new Set<number>();
-  const chapters: { title: string; markdown: string }[] = [];
+  const chapters: { title: string; markdown: string; role?: "prose" | "security" }[] = [];
 
   if (intro) chapters.push({ title: "Overview", markdown: intro });
 
@@ -158,6 +162,14 @@ export function bookChapters(entry: BookEntry): Chapter[] {
     chapters.push({ title: "References/assets", markdown: lines.join("\n") });
   }
 
+  chapters.push({
+    title: "Security report",
+    role: "security",
+    markdown: entry.audit
+      ? `Static audit ${entry.audit.grade}, score ${entry.audit.score}, ${entry.audit.status}. ${entry.audit.summary}`
+      : "This entry has no static audit in the catalog.",
+  });
+
   const cert = certificateFor(entry.kind, entry.name);
   if (cert) {
     const commit = cert.payload.sourceCommit.trim();
@@ -183,6 +195,7 @@ export function bookChapters(entry: BookEntry): Chapter[] {
     slug: `${index + 1}-${slugify(chapter.title)}`,
     title: chapter.title,
     markdown: `${chapter.markdown.trim()}\n`,
+    role: chapter.role ?? "prose",
   }));
 }
 

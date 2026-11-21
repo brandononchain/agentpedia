@@ -1,4 +1,5 @@
 import raw from "../../data/certificates.json";
+import type { AuditView } from "@/lib/catalog";
 
 export type DisplayTier =
   | "listed"
@@ -6,7 +7,8 @@ export type DisplayTier =
   | "certified"
   | "recheck-pending"
   | "expired"
-  | "withheld";
+  | "withheld"
+  | "on-hold";
 
 export type CertificatePayload = {
   schema: string;
@@ -20,7 +22,7 @@ export type CertificatePayload = {
   };
   claimedTier: "listed" | "verified" | "certified";
   displayTier: DisplayTier;
-  status: "active" | "recheck-pending" | "expired" | "withheld";
+  status: "active" | "recheck-pending" | "expired" | "withheld" | "on-hold";
   statusReason: string;
   sourceCommit: string;
   currentCommit: string;
@@ -43,6 +45,7 @@ export type CertificatePayload = {
     gate: string;
     summary: string;
   };
+  audit: AuditView | null;
   review: { reviewer: string; date: string; notes: string } | null;
   run: {
     present: boolean;
@@ -88,6 +91,7 @@ export type CertificateCatalog = {
     recheckPending: number;
     expired: number;
     withheld: number;
+    onHold: number;
   };
   certificates: CertificateDocument[];
 };
@@ -114,6 +118,7 @@ export function certificateById(id: string) {
 export function tierLabel(tier: string) {
   if (tier === "recheck-pending") return "re-check pending";
   if (tier === "withheld") return "not listed";
+  if (tier === "on-hold") return "on hold";
   return tier;
 }
 

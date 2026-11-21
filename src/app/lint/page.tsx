@@ -35,8 +35,9 @@ export default function LintPage() {
         <p>
           Agent Skills are folders with a <code>SKILL.md</code> file. The format is an open specification, now a project
           of the Agentic AI Foundation under the Linux Foundation. The body is free Markdown, which is why quality
-          varies so widely. A score of 100 is also the Listed certificate. What that certificate does and does not
-          cover is on <Link href="/certification">Certification</Link>.
+          varies so widely. A score of 100 is required for Listed, together with a static audit that is not on hold.
+          Lint and the audit are different checks. <Link href="/certification">Certification</Link> and{" "}
+          <Link href="/security/methodology">the audit methodology</Link> say what each one covers.
         </p>
         <p>
           In <a href={catalog.studyUrl}>From Anatomy to Smells</a>, Hong, Imani, and Ahmed at UC Irvine studied 238 real

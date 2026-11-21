@@ -9,7 +9,7 @@ Agentpedia is the open encyclopedia of agents and skills. The display name is `S
 
 Most published skills do not meet their own authoring rules. In [From Anatomy to Smells](https://arxiv.org/abs/2607.01456), Hong, Imani, and Ahmed at UC Irvine studied 238 real `SKILL.md` files. 237 of them — over 99 percent — had at least one skill smell, and those smells rarely got fixed later.
 
-The encyclopedia is the other way around. **Every entry is linted and safety-checked before it ships.** The site shows the score. The build fails if a skill has an error or a warning.
+The encyclopedia is the other way around. **Every entry is linted to 100 and given a static security audit before it is listed.** The site shows the lint score and the audit grade. The build fails if a skill has an error or a warning. An audit of on hold is not listed. The audit reads the files. It does not execute the entry.
 
 Maintained by [Brandon](https://brandononchain.com) ([github.com/brandononchain](https://github.com/brandononchain)).
 
@@ -37,7 +37,8 @@ npm run lint:skills
 skills/<category>/<skill-name>/SKILL.md   # plus scripts/, references/, assets/
 agents/<agent-name>/AGENT.md              # purpose, bundled skills, connectors, prompts
 tools/skill-lint/                          # vendored dependency-free linter
-tools/build_index.py                       # lints everything and writes data/catalog.json
+tools/build_index.py                       # lints everything, audits it, and writes data/catalog.json
+tools/audit/                               # static security audit, phase 1
 tools/certlib.py                           # issues Listed records and publishes certificate JSON
 tools/verify_checks.py                     # runs install probes and evals for Verified
 tools/cert_sign.mjs                        # Ed25519-signs the canonical payload when a key is set
@@ -82,18 +83,26 @@ The quality bar, and what the linter refuses, is in [CONTRIBUTING.md](CONTRIBUTI
 
 ## Certification
 
-Every skill with a skill-lint score of 100, and every agent whose bundled skills all score 100, gets a **Listed** certificate bound to the source commit and a sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: `category` and `subshelf` in the frontmatter, and the shelf number, sub-shelf order, and call number in `category.json`. **Verified** adds a real run of `tools/verify_checks.py` (an install probe and at least one eval). **Certified** adds a human review stored in `certs/records/<id>.json`. The build refuses a Verified or Certified claim that does not have that evidence. Nothing in the current tree is Certified.
+Every skill with a skill-lint score of 100 and a static audit that is not on hold, and every agent in the same position, gets a **Listed** certificate bound to the source commit and a sha256 digest of the entry directory. The digest covers the instructions and assets. It skips catalog placement: `category` and `subshelf` in the frontmatter, and the shelf number, sub-shelf order, and call number in `category.json`. **Verified** adds a real run of `tools/verify_checks.py` (an install probe and at least one eval). **Certified** adds a human review stored in `certs/records/<id>.json`. The reviewer cannot be the recorded author. The build refuses a Verified or Certified claim that does not have that evidence. Nothing in the current tree is Certified. Phase 1 of the audit is static. Sandbox, red-team, and manual review are recorded and are not gates yet.
 
 | Route | What it is |
 | --- | --- |
 | `/certification` | What each tier checks, and what it does not guarantee |
-| `/certify` | The pull-request path for an outside submission |
+| `/security` | Audit grades, and `/security/methodology` for the rules |
+| `/submit` | How to add an entry, plus a prompt for a coding agent |
+| `/submit.md` | The same steps as plain Markdown |
+| `/certify` | The pull-request path for a Verified check run |
 | `/cert/<id>` | One certificate, with embed snippets |
 | `/cert/<id>.json` | The same record, plus an Ed25519 signature when a key is set |
 | `/badge/<id>.svg` | The shields-style badge |
 | `/.well-known/agentpedia-signing-key.json` | The public key |
 
-A changed entry digest sets the certificate to re-check pending. Listed expires after 365 days, a verification run after 90 days, and a review after 365 days. Certified needs both the run and the review to be current. Details and the signing setup are in [certs/README.md](certs/README.md).
+A changed entry digest sets Verified and Certified to re-check pending. A Listed record is updated when lint is 100 and the audit is not on hold. Listed expires after 365 days, a verification run after 90 days, a review after 365 days, and a static audit after 90 days. Certified needs both the run and the review to be current. Details and the signing setup are in [certs/README.md](certs/README.md).
+
+```bash
+python3 tools/new_entry.py submit --kind skill --category <shelf> --subshelf <slug> --name <name> --description "<Third person. Use when the user asks for this job.>"
+PYTHONPATH=tools python3 -m audit
+```
 
 ```bash
 node tools/gen_signing_key.mjs

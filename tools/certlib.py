@@ -9,11 +9,13 @@ run or a human review. Those exist only when their files exist.
 Tiers
 -----
 listed
-    skill-lint score is 100, or an agent whose bundled skills all score 100.
+    skill-lint score is 100 (or an agent whose bundled skills all score 100)
+    and the static audit is not on hold. A missing audit keeps the lint-only gate.
 verified
     listed, plus certs/results/<id>.json produced by tools/verify_checks.py.
 certified
     verified, plus a review object on the record (reviewer, date, notes).
+    The reviewer cannot be the entry's author when an author login is recorded.
 
 Clocks
 ------
@@ -69,12 +71,14 @@ LOGIN_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$")
 ID_RE = re.compile(r"^(skill|agent)-[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 LIMITS = [
-    "This certificate is not a security audit.",
-    "It does not claim the entry is safe against a hostile user or a hostile file.",
-    "Listed means the published lint gate scored 100 on this exact tree.",
-    "Verified means that gate plus the recorded install probe and evals exited cleanly in the check sandbox.",
-    "Certified means Verified plus one named review stored in this repository.",
+    "Phase 1 is a static reading of the files. It does not execute the entry, and it is not a penetration test.",
+    "Sandbox, prompt-injection red-team, and manual review are recorded as not run. They are not gates yet.",
+    "Listed means lint scored 100 and the static audit is not on hold.",
+    "A high finding is a warning until its grace period ends. Critical, grade F, or a high finding past grace is on hold.",
+    "Verified means Listed plus the recorded install probe and evals. The phase 2 sandbox is not that gate.",
+    "Certified means Verified plus a named review. The reviewer cannot be the author when an author login is recorded.",
     "The check sandbox is a scrubbed subprocess with a timeout. It is not a virtual machine.",
+    "A changed digest voids the previous audit. The build re-audits the current files.",
 ]
 
 SOURCE_RULE = (
@@ -82,7 +86,8 @@ SOURCE_RULE = (
     "The digest covers the instructions and assets. It skips catalog placement: "
     "category and subshelf in the frontmatter, and the shelf number, sub-shelf order, "
     "and call number stored in category.json outside the entry. "
-    "A different digest sets the status to re-check pending."
+    "A different digest sets Verified and Certified to re-check pending. "
+    "A Listed record is updated to the current digest when lint is 100 and the static audit is not on hold."
 )
 EXPIRY_RULE = (
     "Listed stays current for 365 days after issuedAt. "
@@ -100,6 +105,7 @@ BADGE_COLORS = {
     "recheck-pending": ("#6b4a12", "#f4efe4"),
     "expired": ("#8d1d1d", "#f4efe4"),
     "withheld": ("#534e45", "#f4efe4"),
+    "on-hold": ("#8d1d1d", "#f4efe4"),
 }
 BADGE_MESSAGE = {
     "listed": "listed",
@@ -108,6 +114,7 @@ BADGE_MESSAGE = {
     "recheck-pending": "re-check pending",
     "expired": "expired",
     "withheld": "not listed",
+    "on-hold": "on hold",
 }
 
 SKIP_DIRS = {"__pycache__", ".pytest_cache"}
@@ -328,19 +335,29 @@ def listed_record(entry: dict, digest: str, commit: str, issued_at: str) -> dict
     }
 
 
-def qualifies(entry: dict) -> bool:
+def lint_ok(entry: dict) -> bool:
     lint = entry["lint"]
     return lint["score"] == 100 and lint["errors"] == 0 and lint["warnings"] == 0
 
 
+def audit_on_hold(entry: dict) -> bool:
+    audit = entry.get("audit")
+    return isinstance(audit, dict) and audit.get("status") == "on-hold"
+
+
+def qualifies(entry: dict) -> bool:
+    """Listed requires lint 100 and an audit that is not on hold. No audit keeps the lint-only gate."""
+    return lint_ok(entry) and not audit_on_hold(entry)
+
+
 def ensure_listed_records(entries: list[dict], today: str) -> list[str]:
-    """Write a Listed record for every qualifying entry that does not have one."""
+    """Write a Listed record for every lint-clean entry that does not have one, including on hold."""
     created: list[str] = []
     RECORDS_DIR.mkdir(parents=True, exist_ok=True)
     existing = {path.stem for path in RECORDS_DIR.glob("*.json")}
     for entry in entries:
         identifier = cert_id(entry["kind"], entry["name"])
-        if identifier in existing or not qualifies(entry):
+        if identifier in existing or not lint_ok(entry):
             continue
         directory = ROOT / entry["source_path"]
         record = listed_record(entry, content_digest(directory), git_commit(ROOT, directory), today)
@@ -450,8 +467,8 @@ def _checks_payload(result: dict | None) -> list[dict]:
     return checks
 
 
-def _badge(display: str) -> tuple[str, dict]:
-    message = BADGE_MESSAGE[display]
+def _badge(display: str, message: str | None = None) -> tuple[str, dict]:
+    message = message or BADGE_MESSAGE[display]
     message_bg, message_fg = BADGE_COLORS[display]
     label = "agentpedia"
     label_w = _text_width(label) + 12
@@ -494,6 +511,11 @@ def evaluate_entry(entry: dict, record: dict, today: date, harness: str, result:
         review_problem = _review_error(record.get("review"), today)
         if review_problem:
             raise CertError(f"{identifier}: {review_problem}")
+        author = str(entry.get("authorLogin") or "").strip().lower()
+        review = record.get("review")
+        reviewer = str(review.get("reviewer") or "").strip().lower() if isinstance(review, dict) else ""
+        if author and reviewer and author == reviewer:
+            raise CertError(f"{identifier}: the author cannot review their own entry")
     if result is _AUTO:
         if (RESULTS_DIR / f"{identifier}.json").is_file() or claimed in {"verified", "certified"}:
             result = load_result(identifier)
@@ -503,12 +525,12 @@ def evaluate_entry(entry: dict, record: dict, today: date, harness: str, result:
     status = "active"
     reason = ""
     digest_matches = record["contentDigest"] == entry["digest"]
-    lint_ok = qualifies(entry)
+    lint_clean = lint_ok(entry)
 
     if not digest_matches:
         status = "recheck-pending"
         reason = "The entry files changed after this certificate was issued."
-    elif not lint_ok:
+    elif not lint_clean:
         status = "withheld"
         reason = "The lint score is below 100, so this certificate is not current."
     elif claimed in {"verified", "certified"}:
@@ -527,6 +549,11 @@ def evaluate_entry(entry: dict, record: dict, today: date, harness: str, result:
     if claimed == "listed" and status == "active" and _past(record["issuedAt"], LISTED_DAYS, today):
         status = "expired"
         reason = "The listed certificate is past its 365-day revalidation date."
+
+    audit = entry.get("audit") if isinstance(entry.get("audit"), dict) else None
+    if audit and audit.get("status") == "on-hold":
+        status = "on-hold"
+        reason = str(audit.get("summary") or "The static audit is on hold.")
 
     if status == "active":
         if claimed == "listed":
@@ -552,6 +579,12 @@ def evaluate_entry(entry: dict, record: dict, today: date, harness: str, result:
         expires = run_end if run_end <= review_end else review_end
 
     display = claimed if status == "active" else status
+    grade = str((audit or {}).get("grade") or "")
+    badge_message = None
+    if display == "on-hold":
+        badge_message = "on hold"
+    elif grade in {"A", "B", "C", "D", "F"} and display in {"listed", "verified", "certified"}:
+        badge_message = f"{display} · audit {grade}"
     current_commit = entry["commit"] or record["sourceCommit"]
     review = record.get("review")
     if isinstance(review, dict):
@@ -569,7 +602,7 @@ def evaluate_entry(entry: dict, record: dict, today: date, harness: str, result:
         and result
         and result.get("ok") is True
     )
-    svg, badge = _badge(display)
+    svg, badge = _badge(display, badge_message)
     payload = {
         "schema": PAYLOAD_SCHEMA,
         "id": identifier,
@@ -579,6 +612,7 @@ def evaluate_entry(entry: dict, record: dict, today: date, harness: str, result:
             "title": entry["title"],
             "sourcePath": entry["source_path"],
             "entryPath": entry_path(entry["kind"], entry["name"]),
+            "authorLogin": entry.get("authorLogin") or None,
         },
         "claimedTier": claimed,
         "displayTier": display,
@@ -598,6 +632,7 @@ def evaluate_entry(entry: dict, record: dict, today: date, harness: str, result:
             "reviewDays": REVIEW_DAYS,
         },
         "lint": entry["lint"],
+        "audit": audit,
         "review": review_payload,
         "run": {
             "present": result is not None,
@@ -613,6 +648,29 @@ def evaluate_entry(entry: dict, record: dict, today: date, harness: str, result:
         "urls": _record_urls(identifier),
     }
     return {"payload": payload, "svg": svg}
+
+
+def refresh_listed_digests(prepared: list[dict]) -> list[str]:
+    """Point current Listed records at the tree the build just audited."""
+    records = load_records()
+    updated: list[str] = []
+    for entry in prepared:
+        if not qualifies(entry):
+            continue
+        identifier = cert_id(entry["kind"], entry["name"])
+        record = records.get(identifier)
+        if not record or record.get("tier") != "listed":
+            continue
+        commit = entry.get("commit") or ""
+        if not SHA_RE.fullmatch(commit):
+            continue
+        if record.get("contentDigest") == entry["digest"] and record.get("sourceCommit") == commit:
+            continue
+        record["contentDigest"] = entry["digest"]
+        record["sourceCommit"] = commit
+        save_record(record)
+        updated.append(identifier)
+    return updated
 
 
 def _prepare_entry(entry: dict) -> dict:
@@ -683,9 +741,12 @@ def publish_certificates(entries: list[dict]) -> dict:
     if created:
         print(f"issued {len(created)} listed certificate(s)")
 
-    records = load_records()
     harness = sha256_file(HARNESS_PATH) if HARNESS_PATH.is_file() else ""
     prepared = [_prepare_entry(entry) for entry in entries]
+    refreshed = refresh_listed_digests(prepared)
+    if refreshed:
+        print(f"refreshed {len(refreshed)} listed certificate digest(s)")
+    records = load_records()
     known = {cert_id(entry["kind"], entry["name"]): entry for entry in prepared}
     errors: list[str] = []
     published: list[dict] = []
@@ -716,7 +777,7 @@ def publish_certificates(entries: list[dict]) -> dict:
     missing = [
         cert_id(entry["kind"], entry["name"])
         for entry in prepared
-        if qualifies(entry) and cert_id(entry["kind"], entry["name"]) not in records
+        if lint_ok(entry) and cert_id(entry["kind"], entry["name"]) not in records
     ]
     for identifier in missing:
         errors.append(f"{identifier} passes the lint gate and has no certificate record")
@@ -736,6 +797,7 @@ def publish_certificates(entries: list[dict]) -> dict:
         "recheckPending": sum(1 for item in published if item["payload"]["status"] == "recheck-pending"),
         "expired": sum(1 for item in published if item["payload"]["status"] == "expired"),
         "withheld": sum(1 for item in published if item["payload"]["status"] == "withheld"),
+        "onHold": sum(1 for item in published if item["payload"]["status"] == "on-hold"),
     }
     catalog = {
         "schema": SET_SCHEMA,
@@ -760,7 +822,7 @@ def publish_certificates(entries: list[dict]) -> dict:
     print(
         f"certificates: {stats['listed']} listed, {stats['verified']} verified, "
         f"{stats['certified']} certified, {stats['recheckPending']} re-check pending, "
-        f"{stats['expired']} expired"
+        f"{stats['expired']} expired, {stats['onHold']} on hold"
     )
     print(f"wrote {DATA_PATH.relative_to(ROOT)}")
     return catalog

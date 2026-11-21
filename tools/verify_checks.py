@@ -8,7 +8,7 @@ and the digest still matches; CI and this CLI are the writers.
 
 The sandbox is a subprocess: shell is off, the working directory is the
 entry, the environment is an allowlist, and the process has a timeout.
-It is not a virtual machine and it is not a security audit.
+It is not a virtual machine. The static security audit is tools/audit, which reads files and does not run this harness.
 """
 
 from __future__ import annotations

@@ -24,6 +24,75 @@ export type SkillFile = {
   url: string;
 };
 
+export type AuditSeverity = "critical" | "high" | "medium" | "low" | "info";
+
+export type AuditFinding = {
+  ruleId: string;
+  severity: AuditSeverity;
+  path: string;
+  line: number;
+  evidence: string;
+  message: string;
+  remediation: string;
+  cwe: string;
+  owasp: string[];
+};
+
+export type AuditStage = {
+  id: string;
+  phase: number;
+  title: string;
+  status: string;
+  detail: string;
+};
+
+export type AuditView = {
+  score: number;
+  grade: "A" | "B" | "C" | "D" | "F";
+  status: "passed" | "warning" | "on-hold";
+  summary: string;
+  graceDays: number;
+  graceDaysLeft: number | null;
+  counts: Record<AuditSeverity, number>;
+  findings: AuditFinding[];
+  auditedCommit: string;
+  contentDigest: string;
+  lockHash: string;
+  lockHashAlg: string;
+  rulesetVersion: string;
+  auditor: string;
+  auditedAt: string;
+  expiresAt: string;
+  cveLookup: string;
+  stages: AuditStage[];
+};
+
+export type AuditRule = {
+  id: string;
+  family: string;
+  severity: string;
+  summary: string;
+  remediation: string;
+  cwe: string;
+  owasp: string[];
+};
+
+export type AuditCatalog = {
+  rulesetVersion: string;
+  auditor: string;
+  weights: Record<string, number>;
+  graceDays: number;
+  auditDays: number;
+  rules: AuditRule[];
+  stats: {
+    entries: number;
+    grades: Record<string, number>;
+    passed: number;
+    warning: number;
+    onHold: number;
+  };
+};
+
 export type Skill = {
   name: string;
   title: string;
@@ -48,6 +117,7 @@ export type Skill = {
     badge: BadgeName;
     findings: Finding[];
   };
+  audit?: AuditView;
   files: SkillFile[];
   body: string;
   install: Record<"claude" | "codex" | "cursor" | "grok", InstallTarget>;
@@ -71,6 +141,7 @@ export type Agent = {
   prompts: string[];
   body: string;
   sourcePath: string;
+  audit?: AuditView;
 };
 
 export type Subshelf = {
@@ -121,6 +192,7 @@ export type Catalog = {
   skills: Skill[];
   agents: Agent[];
   drops: { date: string; skills: string[]; agents: string[] }[];
+  audit?: AuditCatalog;
 };
 
 export const catalog = raw as Catalog;

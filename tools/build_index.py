@@ -533,6 +533,7 @@ def build(allow_findings: bool) -> dict:
         "skills": sorted(skills, key=lambda item: (item["added"], item["name"]), reverse=True),
         "agents": sorted(agents, key=lambda item: (item["added"], item["name"]), reverse=True),
         "drops": drops,
+        "audit": attach_audits(skills, agents),
     }
     # Stable skill order for the site is newest first; name asc within a day.
     catalog["skills"] = sorted(skills, key=lambda item: item["name"])
@@ -556,6 +557,44 @@ def build(allow_findings: bool) -> dict:
     return catalog
 
 
+AUTHOR_LOGIN = "brandononchain"
+
+
+def attach_audits(skills: list[dict], agents: list[dict]) -> dict:
+    """Audit every entry, record first-seen dates, and return the catalog summary."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    from audit.engine import audit_directory, catalog_meta, public_view
+    from audit.grace import load_ledger, remember, save_ledger
+    from certlib import content_digest, git_commit, today_iso
+
+    ledger = load_ledger(ROOT)
+    today = today_iso()
+    views: list[dict] = []
+
+    def one(entry_id: str, directory: Path) -> dict:
+        findings, lock, cve = audit_directory(directory)
+        remember(ledger, entry_id, findings, today)
+        view = public_view(
+            findings,
+            lock=lock,
+            content_digest=content_digest(directory),
+            commit=git_commit(ROOT, directory),
+            ledger=ledger,
+            entry_id=entry_id,
+            today=today,
+            cve_lookup=cve,
+        )
+        views.append(view)
+        return view
+
+    for skill in skills:
+        skill["audit"] = one(f"skill-{skill['name']}", ROOT / skill["sourcePath"])
+    for agent in agents:
+        agent["audit"] = one(f"agent-{agent['name']}", ROOT / agent["sourcePath"])
+    save_ledger(ROOT, ledger)
+    return catalog_meta(views)
+
+
 def certification_entries(skills: list[dict], agents: list[dict]) -> list[dict]:
     scores = {item["name"]: item["lint"]["score"] for item in skills}
     entries = []
@@ -566,6 +605,8 @@ def certification_entries(skills: list[dict], agents: list[dict]) -> list[dict]:
                 "name": skill["name"],
                 "title": skill["title"],
                 "source_path": skill["sourcePath"],
+                "authorLogin": AUTHOR_LOGIN,
+                "audit": skill.get("audit"),
                 "lint": {
                     "score": skill["lint"]["score"],
                     "errors": skill["lint"]["errors"],
@@ -585,6 +626,8 @@ def certification_entries(skills: list[dict], agents: list[dict]) -> list[dict]:
                 "name": agent["name"],
                 "title": agent["name"],
                 "source_path": agent["sourcePath"],
+                "authorLogin": AUTHOR_LOGIN,
+                "audit": agent.get("audit"),
                 "lint": {
                     "score": 100 if ok else 0,
                     "errors": 0 if ok else len(missing) or 1,

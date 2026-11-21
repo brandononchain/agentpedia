@@ -66,6 +66,7 @@ export default function AgentsPage() {
                     <TierMark
                       id={certificateFor("agent", agent.name)!.payload.id}
                       tier={certificateFor("agent", agent.name)!.payload.displayTier}
+                      grade={agent.audit?.grade}
                     />
                   </>
                 ) : null}

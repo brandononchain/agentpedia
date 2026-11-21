@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticleFrame } from "@/components/article-frame";
-import { ChapterPager, ChapterProgress } from "@/components/book";
-import { MarkdownBody } from "@/components/markdown-body";
+import { ChapterBody, ChapterPager, ChapterProgress } from "@/components/book";
 import { agentBook, bookChapters, bookCrumbs, chapterBySlug, chapterJsonLd } from "@/lib/book";
 import { catalog, getAgent } from "@/lib/catalog";
 import { metaDescription } from "@/lib/seo";
@@ -54,7 +53,7 @@ export default async function AgentChapterPage({ params }: { params: Promise<Par
       structuredData={[chapterJsonLd(entry, chapter)]}
     >
       <ChapterProgress chapter={chapter} total={chapters.length} />
-      <MarkdownBody source={chapter.markdown} selfHref={`/agents/${agent.name}/ch/${chapter.slug}`} />
+      <ChapterBody entry={entry} chapter={chapter} />
       <ChapterPager entry={entry} chapters={chapters} chapter={chapter} />
     </ArticleFrame>
   );

@@ -66,14 +66,14 @@ export function llmsTxt() {
           const tier = certificateFor("skill", skill.name);
           const mark = tier ? tierLabel(tier.payload.displayTier) : "unlisted";
           block.push(
-            `- [${skill.title}](${absoluteUrl(`/skills/${skill.name}`)}): ${oneLine(skill.description)} Call number ${skill.callNumber}. Lint ${skill.lint.score}. ${mark}. Markdown: ${absoluteUrl(`/skills/${skill.name}.md`)}.`,
+            `- [${skill.title}](${absoluteUrl(`/skills/${skill.name}`)}): ${oneLine(skill.description)} Call number ${skill.callNumber}. Lint ${skill.lint.score}. ${skill.audit ? `Audit ${skill.audit.grade} ${skill.audit.status}. ` : ""}${mark}. Markdown: ${absoluteUrl(`/skills/${skill.name}.md`)}.`,
           );
         }
         for (const agent of agents) {
           const tier = certificateFor("agent", agent.name);
           const mark = tier ? tierLabel(tier.payload.displayTier) : "unlisted";
           block.push(
-            `- [${agent.name}](${absoluteUrl(`/agents/${agent.name}`)}): ${oneLine(agent.description)} Call number ${agent.callNumber}. ${agent.skills.length} skills. ${mark}. Markdown: ${absoluteUrl(`/agents/${agent.name}.md`)}.`,
+            `- [${agent.name}](${absoluteUrl(`/agents/${agent.name}`)}): ${oneLine(agent.description)} Call number ${agent.callNumber}. ${agent.skills.length} skills. ${agent.audit ? `Audit ${agent.audit.grade} ${agent.audit.status}. ` : ""}${mark}. Markdown: ${absoluteUrl(`/agents/${agent.name}.md`)}.`,
           );
         }
       }
@@ -88,7 +88,18 @@ export function llmsTxt() {
     `- [Recent changes](${origin}/changelog): Entries by the day they were added.`,
     `- [How we lint](${origin}/lint): The skill-lint score and the rules behind it.`,
     `- [Glossary](${origin}/glossary): Skill, agent, shelf, score, and drop.`,
-    `- [Certification](${origin}/certification): Listed, Verified, and Certified, and what they do not guarantee.`,
+    `- [Certification](${origin}/certification): Listed, Verified, and Certified, and the static audit each one includes.`,
+    `- [Security](${origin}/security): Audit grades for every entry. Methodology: ${origin}/security/methodology.`,
+    "",
+    "## Submit",
+    "",
+    `Add a skill or an agent with a pull request. Spec: ${origin}/submit.md. Human steps: ${origin}/submit. Installable skill: skills/skill-authoring/agentpedia-submit/SKILL.md.`,
+    "",
+    "```bash",
+    "python3 tools/new_entry.py submit --kind skill --category <shelf> --subshelf <slug> --name <name> --description \"<Third person. Use when the user asks for this job.>\"",
+    "```",
+    "",
+    "The command scaffolds, lints, audits, and prints the pull-request commands. It does not push, and it does not force-push. Listed requires skill-lint 100 and an audit that is not on hold.",
     `- [Catalog JSON](${origin}/catalog.json): Machine-readable catalog of every entry.`,
     `- [RSS](${origin}/feed.xml): Recent changes as a feed.`,
     "",

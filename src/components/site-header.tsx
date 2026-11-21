@@ -12,7 +12,9 @@ const LINKS = [
   { href: "/agents", label: "Agents" },
   { href: "/changelog", label: "Recent changes" },
   { href: "/lint", label: "How we lint" },
+  { href: "/security", label: "Security" },
   { href: "/certification", label: "Certification" },
+  { href: "/submit", label: "Submit" },
 ];
 
 export function SiteHeader() {

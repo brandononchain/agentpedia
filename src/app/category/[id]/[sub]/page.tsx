@@ -62,6 +62,7 @@ export default async function SubshelfPage({ params }: { params: Promise<Params>
       sentence: firstSentence(skill.description),
       certKind: "skill" as const,
       name: skill.name,
+      grade: skill.audit?.grade,
     })),
     ...agents.map((agent) => ({
       key: `agent-${agent.name}`,
@@ -71,6 +72,7 @@ export default async function SubshelfPage({ params }: { params: Promise<Params>
       sentence: firstSentence(agent.description),
       certKind: "agent" as const,
       name: agent.name,
+      grade: agent.audit?.grade,
     })),
   ];
   const groups = groupByLetter(rows, (row) => row.title);
@@ -143,7 +145,7 @@ export default async function SubshelfPage({ params }: { params: Promise<Params>
                       {cert ? (
                         <>
                           <span className="quiet"> · </span>
-                          <TierMark id={cert.payload.id} tier={cert.payload.displayTier} />
+                          <TierMark id={cert.payload.id} tier={cert.payload.displayTier} grade={item.grade} />
                         </>
                       ) : null}
                       <span className="quiet"> — {item.sentence}</span>

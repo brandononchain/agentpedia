@@ -125,6 +125,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
                         <TierMark
                           id={certificateFor("skill", skill.name)!.payload.id}
                           tier={certificateFor("skill", skill.name)!.payload.displayTier}
+                          grade={skill.audit?.grade}
                         />
                       </>
                     ) : null}

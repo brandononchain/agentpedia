@@ -34,6 +34,9 @@ jobs:
       - name: skill-lint unit tests
         run: PYTHONPATH=tools/skill-lint python3 -m pytest tools/skill-lint/tests -q
 
+      - name: Audit unit tests
+        run: PYTHONPATH=tools python3 -m pytest tools/audit/tests -q
+
       - name: Lint every published skill
         run: PYTHONPATH=tools/skill-lint python3 -m skill_lint skills
 
