@@ -1,0 +1,6 @@
+{
+  "kid": "primary",
+  "alg": "Ed25519",
+  "publicKey": "CDpPRdi6u4rFQoDIyo/QCC5SDLc2emGBak4j1nk0pVI=",
+  "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEACDpPRdi6u4rFQoDIyo/QCC5SDLc2emGBak4j1nk0pVI=\n-----END PUBLIC KEY-----\n"
+}
