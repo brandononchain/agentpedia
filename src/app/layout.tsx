@@ -29,7 +29,7 @@ const mono = Geist_Mono({
 
 const description = homeDescription(catalog.stats.categories);
 
-const themeScript = `(function(){try{var t=localStorage.getItem("encyclopedia-theme");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){}})();`;
+const themeScript = `(function(){try{document.documentElement.classList.add("js");var t=localStorage.getItem("encyclopedia-theme");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){document.documentElement.classList.add("js");}})();`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
