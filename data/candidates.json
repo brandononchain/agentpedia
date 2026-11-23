@@ -6,9 +6,9 @@
     "compatible": 3875,
     "readmeOnly": 17,
     "withPath": 3872,
-    "queued": 3884,
-    "imported": 8,
-    "rejected": 0,
+    "queued": 3860,
+    "imported": 16,
+    "rejected": 16,
     "discovered": 6693
   },
   "candidates": [
@@ -117,8 +117,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 183.55,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/synthesize-research"
     },
     {
       "name": "recruiting-pipeline",
@@ -129,8 +129,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 183.46,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/people/recruiting-pipeline"
     },
     {
       "name": "prospect",
@@ -141,8 +141,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 183.39,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: vendor Common Room skill; steps tell the agent to add companies to Common Room"
     },
     {
       "name": "onboarding",
@@ -153,8 +153,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 183.32,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/people/onboarding"
     },
     {
       "name": "api-and-interface-design",
@@ -1269,8 +1269,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.99,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/people/hiring-screener"
     },
     {
       "name": "sql-code-review",
@@ -1437,8 +1437,8 @@
       "licenseState": "compatible",
       "shelf": "education",
       "score": 178.62,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/education/flashcards"
     },
     {
       "name": "pytest-coverage",
@@ -1545,8 +1545,8 @@
       "licenseState": "compatible",
       "shelf": "education",
       "score": 178.43,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "lint 98: info smell.description.not-third-person: description is not written in third person"
     },
     {
       "name": "typescript-mcp-server-generator",
@@ -1605,8 +1605,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 178.35,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: legal-clinic research skill assigned to the product shelf"
     },
     {
       "name": "apple-appstore-reviewer",
@@ -1677,8 +1677,8 @@
       "licenseState": "compatible",
       "shelf": "education",
       "score": 178.22,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/education/socratic-drill"
     },
     {
       "name": "editorconfig",
@@ -1701,8 +1701,8 @@
       "licenseState": "compatible",
       "shelf": "education",
       "score": 178.19,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/education/case-brief"
     },
     {
       "name": "create-github-action-workflow-specification",
@@ -1737,8 +1737,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.17,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "lint 92: warn smell.description.no-when: description does not say when the skill should be used"
     },
     {
       "name": "cold-start-interview",
@@ -1749,8 +1749,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.17,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1761,8 +1761,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.17,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1773,8 +1773,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.17,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1785,8 +1785,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.17,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1797,8 +1797,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.17,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1809,8 +1809,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.17,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1821,8 +1821,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.17,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1833,8 +1833,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.11,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1845,8 +1845,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.11,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1857,8 +1857,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.11,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "cold-start-interview",
@@ -1869,8 +1869,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.11,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: plugin install interview; machine-specific paths are stripped and the copies are the same setup flow"
     },
     {
       "name": "csharp-xunit",
@@ -1917,8 +1917,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 178.09,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: adapted offer-letter review was truncated mid-sentence and does not say it is not legal advice"
     },
     {
       "name": "agent-platform-deploy",
@@ -3801,8 +3801,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 168.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/impediment-prioritization"
     },
     {
       "name": "improve-animations",
