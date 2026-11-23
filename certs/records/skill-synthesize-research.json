@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:730d0c836801d520939fbcac30e76ced000bce7109b083870e1c0cbba8f98f0d",
+  "id": "skill-synthesize-research",
+  "issuedAt": "2026-11-23",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+  "subject": {
+    "kind": "skill",
+    "name": "synthesize-research"
+  },
+  "tier": "listed"
+}

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:265dcb6bb9ffa7dbbd9f3d8b326b7886d6c56c6798998bd6955be5ad2c3a866d",
+  "id": "skill-socratic-drill",
+  "issuedAt": "2026-11-23",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+  "subject": {
+    "kind": "skill",
+    "name": "socratic-drill"
+  },
+  "tier": "listed"
+}

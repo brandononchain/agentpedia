@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:149999015fba9f5313571b784637fcb887cb31b3123ebc7c52b50e21b3db49e7",
+  "id": "skill-hiring-screener",
+  "issuedAt": "2026-11-23",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+  "subject": {
+    "kind": "skill",
+    "name": "hiring-screener"
+  },
+  "tier": "listed"
+}

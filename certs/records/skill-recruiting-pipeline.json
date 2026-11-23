@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:8b574163827c7ccb384e8afb90a99a12027b23b143981c92fa60d6ee21c7d284",
+  "id": "skill-recruiting-pipeline",
+  "issuedAt": "2026-11-23",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+  "subject": {
+    "kind": "skill",
+    "name": "recruiting-pipeline"
+  },
+  "tier": "listed"
+}
