@@ -6,9 +6,9 @@
     "compatible": 3875,
     "readmeOnly": 17,
     "withPath": 3872,
-    "queued": 3884,
-    "imported": 8,
-    "rejected": 0,
+    "queued": 3871,
+    "imported": 17,
+    "rejected": 4,
     "discovered": 6693
   },
   "candidates": [
@@ -3225,8 +3225,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 173.67,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: security-scanning skill assigned to the product shelf"
     },
     {
       "name": "roundup-setup",
@@ -3297,8 +3297,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 172.28,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/create-prd"
     },
     {
       "name": "pre-mortem",
@@ -3309,8 +3309,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 172.16,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/pre-mortem"
     },
     {
       "name": "outcome-roadmap",
@@ -3321,8 +3321,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 172.07,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/outcome-roadmap"
     },
     {
       "name": "strategy-red-team",
@@ -3333,8 +3333,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 171.95,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/strategy-red-team"
     },
     {
       "name": "react",
@@ -3513,8 +3513,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 169.53,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/people/review-resume"
     },
     {
       "name": "interview-script",
@@ -3525,8 +3525,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 169.52,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/people/interview-script"
     },
     {
       "name": "release-notes",
@@ -3537,8 +3537,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 169.52,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/release-notes"
     },
     {
       "name": "build-mcp-server",
@@ -3561,8 +3561,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 169.43,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/people/summarize-interview"
     },
     {
       "name": "build-mcp-app",
@@ -3777,8 +3777,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 168.0,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: stub that only delegates to another skill named grilling"
     },
     {
       "name": "grill-with-docs",
@@ -3825,8 +3825,8 @@
       "licenseState": "compatible",
       "shelf": "education",
       "score": 168.0,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: vendor gws CLI recipe; steps create a Classroom course and invite students"
     },
     {
       "name": "scaffold-exercises",
@@ -3837,8 +3837,8 @@
       "licenseState": "compatible",
       "shelf": "education",
       "score": 168.0,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "rejected: exercise scaffolder runs the ai-hero CLI, creates directories, and the example was truncated"
     },
     {
       "name": "teach",
@@ -3849,8 +3849,8 @@
       "licenseState": "compatible",
       "shelf": "education",
       "score": 168.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/education/teach"
     },
     {
       "name": "to-spec",
