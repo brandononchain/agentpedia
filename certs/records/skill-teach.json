@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:91f1f0cf084299e6254c52790fd388ac0e5c286544d71b8a40c24a2d1d622d83",
+  "id": "skill-teach",
+  "issuedAt": "2026-11-24",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0bdc61bd0b3455c7c4a65c52a68808428cfa3e74",
+  "subject": {
+    "kind": "skill",
+    "name": "teach"
+  },
+  "tier": "listed"
+}

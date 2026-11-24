@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:ae3422d0ad93c15fbbf9135c71b57b3f64d970deb5cc11cf2b54ada7fff12ca7",
+  "id": "skill-interview-script",
+  "issuedAt": "2026-11-24",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0bdc61bd0b3455c7c4a65c52a68808428cfa3e74",
+  "subject": {
+    "kind": "skill",
+    "name": "interview-script"
+  },
+  "tier": "listed"
+}
