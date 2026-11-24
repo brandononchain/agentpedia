@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T06:30:45.608887+00:00",
+  "generatedAt": "2026-11-23T16:04:51.797740+00:00",
   "repoUrl": "https://github.com/brandononchain/agentpedia",
   "owner": {
     "name": "Brandon",
@@ -10,13 +10,13 @@
   "aaifUrl": "https://aaif.io/projects/agent-skills",
   "studyUrl": "https://arxiv.org/abs/2607.01456",
   "stats": {
-    "skills": 105,
+    "skills": 113,
     "agents": 21,
     "categories": 23,
     "errors": 0,
     "warnings": 0,
     "info": 0,
-    "clean": 105
+    "clean": 113
   },
   "scoring": {
     "start": 100,
@@ -1060,7 +1060,7 @@
           "description": "Drills from material the user already has.",
           "number": 2,
           "count": 0,
-          "skills": 0,
+          "skills": 1,
           "agents": 0
         },
         {
@@ -1069,11 +1069,11 @@
           "description": "A check of what was learned. It does not assign a grade the work did not earn.",
           "number": 3,
           "count": 0,
-          "skills": 0,
+          "skills": 2,
           "agents": 0
         }
       ],
-      "count": 1,
+      "count": 4,
       "agentCount": 0
     },
     {
@@ -1097,7 +1097,7 @@
           "description": "A spec from the decision already made.",
           "number": 2,
           "count": 0,
-          "skills": 4,
+          "skills": 5,
           "agents": 0
         },
         {
@@ -1106,11 +1106,11 @@
           "description": "A sequence of work. Dates stay blank unless the user supplied them.",
           "number": 3,
           "count": 0,
-          "skills": 1,
+          "skills": 2,
           "agents": 0
         }
       ],
-      "count": 5,
+      "count": 7,
       "agentCount": 0
     },
     {
@@ -1125,7 +1125,7 @@
           "description": "A role description from the work that actually needs doing.",
           "number": 1,
           "count": 0,
-          "skills": 0,
+          "skills": 1,
           "agents": 0
         },
         {
@@ -1134,7 +1134,7 @@
           "description": "Questions for a conversation. It does not score a person who was not in the room.",
           "number": 2,
           "count": 0,
-          "skills": 2,
+          "skills": 4,
           "agents": 0
         },
         {
@@ -1147,11 +1147,1041 @@
           "agents": 0
         }
       ],
-      "count": 2,
+      "count": 5,
       "agentCount": 0
     }
   ],
   "skills": [
+    {
+      "name": "case-brief",
+      "title": "Case brief",
+      "description": "Brief a case in the user preferred format. In drill-me mode, makes the student state the holding first. Use when the user says \"brief [case]\", \"what's the holding in\", \"case brief\", or pastes a case",
+      "category": "education",
+      "categoryLabel": "Education",
+      "categoryBlurb": "Lesson plans, practice sets, and checks of what a learner can already do.",
+      "shelfNumber": 21,
+      "subshelf": "practice",
+      "subshelfLabel": "Practice",
+      "callNumber": "21.2",
+      "tags": [
+        "case",
+        "brief",
+        "education"
+      ],
+      "added": "2026-11-23",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "author": "Anthropic",
+      "authorUrl": "https://github.com/anthropics",
+      "authorKind": "organization",
+      "curator": "Brandon",
+      "source": "import",
+      "upstream": {
+        "repo": "anthropics/claude-for-legal",
+        "commit": "4a6c651889c97cc9140580363c73e0eb17379c2b",
+        "path": "law-student/skills/case-brief/SKILL.md",
+        "license": "Apache-2.0",
+        "url": "https://github.com/anthropics/claude-for-legal/blob/4a6c651889c97cc9140580363c73e0eb17379c2b/law-student/skills/case-brief/SKILL.md"
+      },
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2040,
+          "url": "/raw/skills/education/case-brief/SKILL.md"
+        }
+      ],
+      "body": "# Case brief\n\nDo this one job: a case brief. Adapted from `anthropics/claude-for-legal` at commit `4a6c651889c9` (Apache-2.0). Copyright Anthropic\n\n## Steps\n\n1. Confirm the inputs the user actually supplied. Ask about a missing fact instead of inventing it.\n2. Apply the workflow below.\n3. Brief in the student's format. If drill-me mode: ask the student to state the holding first.\n4. If you paste the case text: I extract holding/rule/reasoning from what's in front of me. Confident.\n5. If the case has famous-but-contested interpretations: I give the majority read and [VERIFY: check your casebook and professor's framing].\n6. Ask the student what they already got from reading: the facts, the issue, the holding as they understand it.\n7. Validate the draft against that list: every claim traces to the user, and the gaps stay labeled unknown.\n\n## Example\n\nUser: Draft a case brief from the notes in this message. Leave any figure I did not state as unknown.\n\nAgent: A short case brief that uses only those notes, names the gaps, and points at the check that would show it is done.\n\n## Boundaries\n\nDo not publish the result, send it, or delete anything. Show the draft and wait. Do not install packages or phone a vendor. This skill does not invent metrics, people, or files the user did not provide.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/case-brief\ncp -R skills/education/case-brief/. .claude/skills/case-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/case-brief\ncp -R agentpedia/skills/education/case-brief/. .claude/skills/case-brief\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/case-brief\ncp -R skills/education/case-brief/. .codex/skills/case-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/case-brief\ncp -R agentpedia/skills/education/case-brief/. .codex/skills/case-brief\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/case-brief\ncp -R skills/education/case-brief/. .cursor/skills/case-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/case-brief\ncp -R agentpedia/skills/education/case-brief/. .cursor/skills/case-brief\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/case-brief\ncp -R skills/education/case-brief/. bot/skills/case-brief\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/case-brief\ncp -R agentpedia/skills/education/case-brief/. bot/skills/case-brief\n"
+        }
+      },
+      "rawUrl": "/raw/skills/education/case-brief/SKILL.md",
+      "zipUrl": "/raw/zips/case-brief.zip",
+      "sourcePath": "skills/education/case-brief",
+      "audit": {
+        "score": 100,
+        "grade": "A",
+        "status": "passed",
+        "summary": "Passed. The static audit found no critical or high findings.",
+        "graceDays": 14,
+        "graceDaysLeft": null,
+        "counts": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "findings": [],
+        "auditedCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+        "contentDigest": "sha256:8bb6e553b1526d3b9f4c2a7e97d4fccfae44eec8d8b166f38b1136951d694293",
+        "lockHash": "1003bcea4133caafadf7bfb375158e85d37de47ef45f246df4b64221d09925c2",
+        "lockHashAlg": "skills-lock-v2",
+        "rulesetVersion": "1.0.0",
+        "auditor": "agentpedia-audit v1",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
+        "cveLookup": "disabled",
+        "stages": [
+          {
+            "id": "static",
+            "phase": 1,
+            "title": "Static analysis",
+            "status": "complete",
+            "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed."
+          },
+          {
+            "id": "sandbox",
+            "phase": 2,
+            "title": "Sandbox run",
+            "status": "not-run",
+            "detail": "Design hook. A later phase runs the entry with no network and canary credentials."
+          },
+          {
+            "id": "redteam",
+            "phase": 3,
+            "title": "Prompt-injection red team",
+            "status": "not-run",
+            "detail": "Design hook. A later phase sends hostile text at the entry against mock tools."
+          },
+          {
+            "id": "manual",
+            "phase": 4,
+            "title": "Manual review",
+            "status": "not-run",
+            "detail": "Design hook. A later phase requires a reviewer who is not the entry's author."
+          }
+        ]
+      }
+    },
+    {
+      "name": "flashcards",
+      "title": "Flashcards",
+      "description": "Generate or drill flashcards for black-letter memorization \u2014 Leitner-style buckets, per-subject markdown storage, drill mode with self-assessment. Use when the user says \"drill flashcards\", \"make flashcards from\", \"quiz me on cards\", or wants to memorize rules",
+      "category": "education",
+      "categoryLabel": "Education",
+      "categoryBlurb": "Lesson plans, practice sets, and checks of what a learner can already do.",
+      "shelfNumber": 21,
+      "subshelf": "assessment",
+      "subshelfLabel": "Assessment",
+      "callNumber": "21.3",
+      "tags": [
+        "flashcards",
+        "education"
+      ],
+      "added": "2026-11-23",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "author": "Anthropic",
+      "authorUrl": "https://github.com/anthropics",
+      "authorKind": "organization",
+      "curator": "Brandon",
+      "source": "import",
+      "upstream": {
+        "repo": "anthropics/claude-for-legal",
+        "commit": "4a6c651889c97cc9140580363c73e0eb17379c2b",
+        "path": "law-student/skills/flashcards/SKILL.md",
+        "license": "Apache-2.0",
+        "url": "https://github.com/anthropics/claude-for-legal/blob/4a6c651889c97cc9140580363c73e0eb17379c2b/law-student/skills/flashcards/SKILL.md"
+      },
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2031,
+          "url": "/raw/skills/education/flashcards/SKILL.md"
+        }
+      ],
+      "body": "# Flashcards\n\nDo this one job: a flashcards. Adapted from `anthropics/claude-for-legal` at commit `4a6c651889c9` (Apache-2.0). Copyright Anthropic\n\n## Steps\n\n1. Confirm the inputs the user actually supplied. Ask about a missing fact instead of inventing it.\n2. Apply the framework below.\n3. --drill (default): prioritize due cards + new; show Q, wait for answer, show A, take self-assessment, update buckets + next review.\n4. --review: browse deck by bucket.\n5. --stats: progress snapshot; flag stuck cards for verbal drill.\n6. --session <n: focused N-card session, prioritized by prior misses + due cards; appends results to study-plan.yaml \u2192 session_history.\n7. Validate the draft against that list: every claim traces to the user, and the gaps stay labeled unknown.\n\n## Example\n\nUser: Draft a flashcards from the notes in this message. Leave any figure I did not state as unknown.\n\nAgent: A short flashcards that uses only those notes, names the gaps, and points at the check that would show it is done.\n\n## Boundaries\n\nDo not publish the result, send it, or delete anything. Show the draft and wait. Do not install packages or phone a vendor. This skill does not invent metrics, people, or files the user did not provide.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/flashcards\ncp -R skills/education/flashcards/. .claude/skills/flashcards\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/flashcards\ncp -R agentpedia/skills/education/flashcards/. .claude/skills/flashcards\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/flashcards\ncp -R skills/education/flashcards/. .codex/skills/flashcards\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/flashcards\ncp -R agentpedia/skills/education/flashcards/. .codex/skills/flashcards\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/flashcards\ncp -R skills/education/flashcards/. .cursor/skills/flashcards\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/flashcards\ncp -R agentpedia/skills/education/flashcards/. .cursor/skills/flashcards\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/flashcards\ncp -R skills/education/flashcards/. bot/skills/flashcards\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/flashcards\ncp -R agentpedia/skills/education/flashcards/. bot/skills/flashcards\n"
+        }
+      },
+      "rawUrl": "/raw/skills/education/flashcards/SKILL.md",
+      "zipUrl": "/raw/zips/flashcards.zip",
+      "sourcePath": "skills/education/flashcards",
+      "audit": {
+        "score": 100,
+        "grade": "A",
+        "status": "passed",
+        "summary": "Passed. The static audit found no critical or high findings.",
+        "graceDays": 14,
+        "graceDaysLeft": null,
+        "counts": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "findings": [],
+        "auditedCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+        "contentDigest": "sha256:d4f4d3caae4a64a94b7770c3c8bf9272b93817fcd7b5e18fd56675d829335269",
+        "lockHash": "bfc0491793b7eb2101a7da4c83a2822f16464d6cc40796c460ee5dd2cfa08546",
+        "lockHashAlg": "skills-lock-v2",
+        "rulesetVersion": "1.0.0",
+        "auditor": "agentpedia-audit v1",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
+        "cveLookup": "disabled",
+        "stages": [
+          {
+            "id": "static",
+            "phase": 1,
+            "title": "Static analysis",
+            "status": "complete",
+            "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed."
+          },
+          {
+            "id": "sandbox",
+            "phase": 2,
+            "title": "Sandbox run",
+            "status": "not-run",
+            "detail": "Design hook. A later phase runs the entry with no network and canary credentials."
+          },
+          {
+            "id": "redteam",
+            "phase": 3,
+            "title": "Prompt-injection red team",
+            "status": "not-run",
+            "detail": "Design hook. A later phase sends hostile text at the entry against mock tools."
+          },
+          {
+            "id": "manual",
+            "phase": 4,
+            "title": "Manual review",
+            "status": "not-run",
+            "detail": "Design hook. A later phase requires a reviewer who is not the entry's author."
+          }
+        ]
+      }
+    },
+    {
+      "name": "hiring-screener",
+      "title": "Hiring screener",
+      "description": "Takes a pile of applications and turns it into a ranked shortlist, scored only against the job's stated rubric, with drafted replies to every candidate, scheduled interviews, and an onboarding checklist for whoever gets hired. Picks up where job-post-builder leaves off and carries the funnel through to first day. Use when the user asks for a hiring screener.",
+      "category": "people",
+      "categoryLabel": "People & Hiring",
+      "categoryBlurb": "Role notes, interview plans, and feedback from a conversation the user had.",
+      "shelfNumber": 23,
+      "subshelf": "interviews",
+      "subshelfLabel": "Interviews",
+      "callNumber": "23.2",
+      "tags": [
+        "hiring",
+        "screener",
+        "people"
+      ],
+      "added": "2026-11-23",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "author": "Anthropic",
+      "authorUrl": "https://github.com/anthropics",
+      "authorKind": "organization",
+      "curator": "Brandon",
+      "source": "import",
+      "upstream": {
+        "repo": "anthropics/knowledge-work-plugins",
+        "commit": "2baf6d1eded3cd7aeff0b5c5918601a5799189b4",
+        "path": "small-business/skills/hiring-screener/SKILL.md",
+        "license": "Apache-2.0",
+        "url": "https://github.com/anthropics/knowledge-work-plugins/blob/2baf6d1eded3cd7aeff0b5c5918601a5799189b4/small-business/skills/hiring-screener/SKILL.md"
+      },
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2071,
+          "url": "/raw/skills/people/hiring-screener/SKILL.md"
+        }
+      ],
+      "body": "# Hiring screener\n\nDo this one job: a hiring screener. Adapted from `anthropics/knowledge-work-plugins` at commit `2baf6d1eded3` (Apache-2.0). Copyright Anthropic\n\n## Steps\n\n1. Confirm the inputs the user actually supplied. Ask about a missing fact instead of inventing it.\n2. The rubric from job-post-builder, if that ran\n3. The job post itself, from Drive, M365, Gmail, or uploaded\n4. Built with the owner now, from the post \u2014 takes five minutes\n5. Gmail \u2014 the hiring inbox, with attachments\n6. Uploaded files \u2014 resumes, applications, cover letters. The common path\n7. Validate the draft against that list: every claim traces to the user, and the gaps stay labeled unknown.\n\n## Example\n\nUser: Draft a hiring screener from the notes in this message. Leave any figure I did not state as unknown.\n\nAgent: A short hiring screener that uses only those notes, names the gaps, and points at the check that would show it is done.\n\n## Boundaries\n\nDo not publish the result, send it, or delete anything. Show the draft and wait. Do not install packages or phone a vendor. This skill does not invent metrics, people, or files the user did not provide.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/hiring-screener\ncp -R skills/people/hiring-screener/. .claude/skills/hiring-screener\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/hiring-screener\ncp -R agentpedia/skills/people/hiring-screener/. .claude/skills/hiring-screener\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/hiring-screener\ncp -R skills/people/hiring-screener/. .codex/skills/hiring-screener\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/hiring-screener\ncp -R agentpedia/skills/people/hiring-screener/. .codex/skills/hiring-screener\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/hiring-screener\ncp -R skills/people/hiring-screener/. .cursor/skills/hiring-screener\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/hiring-screener\ncp -R agentpedia/skills/people/hiring-screener/. .cursor/skills/hiring-screener\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/hiring-screener\ncp -R skills/people/hiring-screener/. bot/skills/hiring-screener\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/hiring-screener\ncp -R agentpedia/skills/people/hiring-screener/. bot/skills/hiring-screener\n"
+        }
+      },
+      "rawUrl": "/raw/skills/people/hiring-screener/SKILL.md",
+      "zipUrl": "/raw/zips/hiring-screener.zip",
+      "sourcePath": "skills/people/hiring-screener",
+      "audit": {
+        "score": 100,
+        "grade": "A",
+        "status": "passed",
+        "summary": "Passed. The static audit found no critical or high findings.",
+        "graceDays": 14,
+        "graceDaysLeft": null,
+        "counts": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "findings": [],
+        "auditedCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+        "contentDigest": "sha256:149999015fba9f5313571b784637fcb887cb31b3123ebc7c52b50e21b3db49e7",
+        "lockHash": "6145e2f5bfc392d447469534183bd98b40f2c49cd28195c342e8f2d7b0636020",
+        "lockHashAlg": "skills-lock-v2",
+        "rulesetVersion": "1.0.0",
+        "auditor": "agentpedia-audit v1",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
+        "cveLookup": "disabled",
+        "stages": [
+          {
+            "id": "static",
+            "phase": 1,
+            "title": "Static analysis",
+            "status": "complete",
+            "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed."
+          },
+          {
+            "id": "sandbox",
+            "phase": 2,
+            "title": "Sandbox run",
+            "status": "not-run",
+            "detail": "Design hook. A later phase runs the entry with no network and canary credentials."
+          },
+          {
+            "id": "redteam",
+            "phase": 3,
+            "title": "Prompt-injection red team",
+            "status": "not-run",
+            "detail": "Design hook. A later phase sends hostile text at the entry against mock tools."
+          },
+          {
+            "id": "manual",
+            "phase": 4,
+            "title": "Manual review",
+            "status": "not-run",
+            "detail": "Design hook. A later phase requires a reviewer who is not the entry's author."
+          }
+        ]
+      }
+    },
+    {
+      "name": "impediment-prioritization",
+      "title": "Impediment prioritization",
+      "description": "Ranks any list of impediments and their countermeasures using a value-stream scoring model (ROI, Cost to Implement, Ease of Deployment, Risk Factor) and a fixed prioritization formula. Use when someone asks to prioritize, rank, sequence, or triage impediments, countermeasures, remediation items, risks, findings.",
+      "category": "product",
+      "categoryLabel": "Product",
+      "categoryBlurb": "Discovery notes, specs, and roadmaps for a product the user is shaping.",
+      "shelfNumber": 22,
+      "subshelf": "specs",
+      "subshelfLabel": "Specs",
+      "callNumber": "22.2",
+      "tags": [
+        "impediment",
+        "prioritization",
+        "product"
+      ],
+      "added": "2026-11-23",
+      "featured": false,
+      "license": "MIT",
+      "compatibility": "",
+      "author": "ajenns",
+      "authorUrl": "https://github.com/github",
+      "authorKind": "organization",
+      "curator": "Brandon",
+      "source": "import",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "commit": "f10fdb8b2660ce85c98f220b2f1ca24653768a5c",
+        "path": "skills/impediment-prioritization/SKILL.md",
+        "license": "MIT",
+        "url": "https://github.com/github/awesome-copilot/blob/f10fdb8b2660ce85c98f220b2f1ca24653768a5c/skills/impediment-prioritization/SKILL.md"
+      },
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2213,
+          "url": "/raw/skills/product/impediment-prioritization/SKILL.md"
+        }
+      ],
+      "body": "# Impediment prioritization\n\nDo this one job: an impediment prioritization. Adapted from `github/awesome-copilot` at commit `f10fdb8b2660` (MIT). Copyright GitHub, Inc.\n\n## Steps\n\n1. Confirm the inputs the user actually supplied. Ask about a missing fact instead of inventing it.\n2. Ingest the impediment list. Confirm 1:1 impediment-to-countermeasure mapping; collapse duplicates.\n3. Confirm the countermeasure for each impediment. Prefer documented best practice for the domain. Cite a public / authoritative link when one is available.\n4. Score all four criteria using the rubric. Write a one-line rationale per criterion.\n5. Compute Priority using the formula. Round to one decimal place.\n6. Sort rows by Priority descending. Assign Rank starting at 1.\n7. Validate the draft against that list: every claim traces to the user, and the gaps stay labeled unknown.\n\n## Example\n\nUser: Draft an impediment prioritization from the notes in this message. Leave any figure I did not state as unknown.\n\nAgent: A short impediment prioritization that uses only those notes, names the gaps, and points at the check that would show it is done.\n\n## Boundaries\n\nDo not publish the result, send it, or delete anything. Show the draft and wait. Do not install packages or phone a vendor. This skill does not invent metrics, people, or files the user did not provide.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/impediment-prioritization\ncp -R skills/product/impediment-prioritization/. .claude/skills/impediment-prioritization\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/impediment-prioritization\ncp -R agentpedia/skills/product/impediment-prioritization/. .claude/skills/impediment-prioritization\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/impediment-prioritization\ncp -R skills/product/impediment-prioritization/. .codex/skills/impediment-prioritization\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/impediment-prioritization\ncp -R agentpedia/skills/product/impediment-prioritization/. .codex/skills/impediment-prioritization\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/impediment-prioritization\ncp -R skills/product/impediment-prioritization/. .cursor/skills/impediment-prioritization\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/impediment-prioritization\ncp -R agentpedia/skills/product/impediment-prioritization/. .cursor/skills/impediment-prioritization\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/impediment-prioritization\ncp -R skills/product/impediment-prioritization/. bot/skills/impediment-prioritization\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/impediment-prioritization\ncp -R agentpedia/skills/product/impediment-prioritization/. bot/skills/impediment-prioritization\n"
+        }
+      },
+      "rawUrl": "/raw/skills/product/impediment-prioritization/SKILL.md",
+      "zipUrl": "/raw/zips/impediment-prioritization.zip",
+      "sourcePath": "skills/product/impediment-prioritization",
+      "audit": {
+        "score": 100,
+        "grade": "A",
+        "status": "passed",
+        "summary": "Passed. The static audit found no critical or high findings.",
+        "graceDays": 14,
+        "graceDaysLeft": null,
+        "counts": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "findings": [],
+        "auditedCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+        "contentDigest": "sha256:af2d997a9cc7834037852c57b840a7770fe3d6b9cc6e45d3a6d9369ccace8b50",
+        "lockHash": "c2fbae458113c2e2e951e8fab95aa70f387713e5f99c8f96ce5d0a3dbbd2b617",
+        "lockHashAlg": "skills-lock-v2",
+        "rulesetVersion": "1.0.0",
+        "auditor": "agentpedia-audit v1",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
+        "cveLookup": "disabled",
+        "stages": [
+          {
+            "id": "static",
+            "phase": 1,
+            "title": "Static analysis",
+            "status": "complete",
+            "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed."
+          },
+          {
+            "id": "sandbox",
+            "phase": 2,
+            "title": "Sandbox run",
+            "status": "not-run",
+            "detail": "Design hook. A later phase runs the entry with no network and canary credentials."
+          },
+          {
+            "id": "redteam",
+            "phase": 3,
+            "title": "Prompt-injection red team",
+            "status": "not-run",
+            "detail": "Design hook. A later phase sends hostile text at the entry against mock tools."
+          },
+          {
+            "id": "manual",
+            "phase": 4,
+            "title": "Manual review",
+            "status": "not-run",
+            "detail": "Design hook. A later phase requires a reviewer who is not the entry's author."
+          }
+        ]
+      }
+    },
+    {
+      "name": "onboarding",
+      "title": "Onboarding",
+      "description": "Generate an onboarding checklist and first-week plan for a new hire. Use when someone has a start date coming up, building the pre-start task list (accounts, equipment, buddy), scheduling Day 1 and Week 1, or setting 30/60/90-day goals for a new team member",
+      "category": "people",
+      "categoryLabel": "People & Hiring",
+      "categoryBlurb": "Role notes, interview plans, and feedback from a conversation the user had.",
+      "shelfNumber": 23,
+      "subshelf": "roles",
+      "subshelfLabel": "Roles",
+      "callNumber": "23.1",
+      "tags": [
+        "onboarding",
+        "people"
+      ],
+      "added": "2026-11-23",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "author": "Anthropic",
+      "authorUrl": "https://github.com/anthropics",
+      "authorKind": "organization",
+      "curator": "Brandon",
+      "source": "import",
+      "upstream": {
+        "repo": "anthropics/knowledge-work-plugins",
+        "commit": "2baf6d1eded3cd7aeff0b5c5918601a5799189b4",
+        "path": "human-resources/skills/onboarding/SKILL.md",
+        "license": "Apache-2.0",
+        "url": "https://github.com/anthropics/knowledge-work-plugins/blob/2baf6d1eded3cd7aeff0b5c5918601a5799189b4/human-resources/skills/onboarding/SKILL.md"
+      },
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 1858,
+          "url": "/raw/skills/people/onboarding/SKILL.md"
+        }
+      ],
+      "body": "# Onboarding\n\nDo this one job: an onboarding. Adapted from `anthropics/knowledge-work-plugins` at commit `2baf6d1eded3` (Apache-2.0). Copyright Anthropic\n\n## Steps\n\n1. Confirm the inputs the user actually supplied. Ask about a missing fact instead of inventing it.\n2. New hire name: Who's starting?\n3. Team: Which team are they joining?\n4. Start date: When do they start?\n5. Manager: Who's their manager?\n6. Customize for the role \u2014 An engineer's onboarding looks different from a designer's.\n7. Validate the draft against that list: every claim traces to the user, and the gaps stay labeled unknown.\n\n## Example\n\nUser: Draft an onboarding from the notes in this message. Leave any figure I did not state as unknown.\n\nAgent: A short onboarding that uses only those notes, names the gaps, and points at the check that would show it is done.\n\n## Boundaries\n\nDo not publish the result, send it, or delete anything. Show the draft and wait. Do not install packages or phone a vendor. This skill does not invent metrics, people, or files the user did not provide.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/onboarding\ncp -R skills/people/onboarding/. .claude/skills/onboarding\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/onboarding\ncp -R agentpedia/skills/people/onboarding/. .claude/skills/onboarding\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/onboarding\ncp -R skills/people/onboarding/. .codex/skills/onboarding\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/onboarding\ncp -R agentpedia/skills/people/onboarding/. .codex/skills/onboarding\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/onboarding\ncp -R skills/people/onboarding/. .cursor/skills/onboarding\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/onboarding\ncp -R agentpedia/skills/people/onboarding/. .cursor/skills/onboarding\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/onboarding\ncp -R skills/people/onboarding/. bot/skills/onboarding\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/onboarding\ncp -R agentpedia/skills/people/onboarding/. bot/skills/onboarding\n"
+        }
+      },
+      "rawUrl": "/raw/skills/people/onboarding/SKILL.md",
+      "zipUrl": "/raw/zips/onboarding.zip",
+      "sourcePath": "skills/people/onboarding",
+      "audit": {
+        "score": 100,
+        "grade": "A",
+        "status": "passed",
+        "summary": "Passed. The static audit found no critical or high findings.",
+        "graceDays": 14,
+        "graceDaysLeft": null,
+        "counts": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "findings": [],
+        "auditedCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+        "contentDigest": "sha256:d6444a2d12a4626d92ff87acb6499c263e98504d2d01fda647ecffbb96b3e022",
+        "lockHash": "339734e458d676c57c29d777f0e590ae259d27ebcfccde70c1257a128461daf2",
+        "lockHashAlg": "skills-lock-v2",
+        "rulesetVersion": "1.0.0",
+        "auditor": "agentpedia-audit v1",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
+        "cveLookup": "disabled",
+        "stages": [
+          {
+            "id": "static",
+            "phase": 1,
+            "title": "Static analysis",
+            "status": "complete",
+            "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed."
+          },
+          {
+            "id": "sandbox",
+            "phase": 2,
+            "title": "Sandbox run",
+            "status": "not-run",
+            "detail": "Design hook. A later phase runs the entry with no network and canary credentials."
+          },
+          {
+            "id": "redteam",
+            "phase": 3,
+            "title": "Prompt-injection red team",
+            "status": "not-run",
+            "detail": "Design hook. A later phase sends hostile text at the entry against mock tools."
+          },
+          {
+            "id": "manual",
+            "phase": 4,
+            "title": "Manual review",
+            "status": "not-run",
+            "detail": "Design hook. A later phase requires a reviewer who is not the entry's author."
+          }
+        ]
+      }
+    },
+    {
+      "name": "recruiting-pipeline",
+      "title": "Recruiting pipeline",
+      "description": "Track and manage recruiting pipeline stages. Trigger with \"recruiting update\", \"candidate pipeline\", \"how many candidates\", \"hiring status\", or when the user discusses sourcing, screening, interviewing, or extending offers.",
+      "category": "people",
+      "categoryLabel": "People & Hiring",
+      "categoryBlurb": "Role notes, interview plans, and feedback from a conversation the user had.",
+      "shelfNumber": 23,
+      "subshelf": "interviews",
+      "subshelfLabel": "Interviews",
+      "callNumber": "23.2",
+      "tags": [
+        "recruiting",
+        "pipeline",
+        "people"
+      ],
+      "added": "2026-11-23",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "author": "Anthropic",
+      "authorUrl": "https://github.com/anthropics",
+      "authorKind": "organization",
+      "curator": "Brandon",
+      "source": "import",
+      "upstream": {
+        "repo": "anthropics/knowledge-work-plugins",
+        "commit": "2baf6d1eded3cd7aeff0b5c5918601a5799189b4",
+        "path": "human-resources/skills/recruiting-pipeline/SKILL.md",
+        "license": "Apache-2.0",
+        "url": "https://github.com/anthropics/knowledge-work-plugins/blob/2baf6d1eded3cd7aeff0b5c5918601a5799189b4/human-resources/skills/recruiting-pipeline/SKILL.md"
+      },
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 1904,
+          "url": "/raw/skills/people/recruiting-pipeline/SKILL.md"
+        }
+      ],
+      "body": "# Recruiting pipeline\n\nDo this one job: a recruiting pipeline. Adapted from `anthropics/knowledge-work-plugins` at commit `2baf6d1eded3` (Apache-2.0). Copyright Anthropic\n\n## Steps\n\n1. Confirm the inputs the user actually supplied. Ask about a missing fact instead of inventing it.\n2. Pipeline velocity: Days per stage\n3. Conversion rates: Stage-to-stage drop-off\n4. Source effectiveness: Which channels produce hires\n5. Offer acceptance rate: Offers extended vs. accepted\n6. Time to fill: Days from req open to offer accepted\n7. Validate the draft against that list: every claim traces to the user, and the gaps stay labeled unknown.\n\n## Example\n\nUser: Draft a recruiting pipeline from the notes in this message. Leave any figure I did not state as unknown.\n\nAgent: A short recruiting pipeline that uses only those notes, names the gaps, and points at the check that would show it is done.\n\n## Boundaries\n\nDo not publish the result, send it, or delete anything. Show the draft and wait. Do not install packages or phone a vendor. This skill does not invent metrics, people, or files the user did not provide.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/recruiting-pipeline\ncp -R skills/people/recruiting-pipeline/. .claude/skills/recruiting-pipeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/recruiting-pipeline\ncp -R agentpedia/skills/people/recruiting-pipeline/. .claude/skills/recruiting-pipeline\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/recruiting-pipeline\ncp -R skills/people/recruiting-pipeline/. .codex/skills/recruiting-pipeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/recruiting-pipeline\ncp -R agentpedia/skills/people/recruiting-pipeline/. .codex/skills/recruiting-pipeline\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/recruiting-pipeline\ncp -R skills/people/recruiting-pipeline/. .cursor/skills/recruiting-pipeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/recruiting-pipeline\ncp -R agentpedia/skills/people/recruiting-pipeline/. .cursor/skills/recruiting-pipeline\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/recruiting-pipeline\ncp -R skills/people/recruiting-pipeline/. bot/skills/recruiting-pipeline\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/recruiting-pipeline\ncp -R agentpedia/skills/people/recruiting-pipeline/. bot/skills/recruiting-pipeline\n"
+        }
+      },
+      "rawUrl": "/raw/skills/people/recruiting-pipeline/SKILL.md",
+      "zipUrl": "/raw/zips/recruiting-pipeline.zip",
+      "sourcePath": "skills/people/recruiting-pipeline",
+      "audit": {
+        "score": 100,
+        "grade": "A",
+        "status": "passed",
+        "summary": "Passed. The static audit found no critical or high findings.",
+        "graceDays": 14,
+        "graceDaysLeft": null,
+        "counts": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "findings": [],
+        "auditedCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+        "contentDigest": "sha256:8b574163827c7ccb384e8afb90a99a12027b23b143981c92fa60d6ee21c7d284",
+        "lockHash": "ba7868795364805faf2c7d874c74cc826e7544937ff214106e1a0c898631e76b",
+        "lockHashAlg": "skills-lock-v2",
+        "rulesetVersion": "1.0.0",
+        "auditor": "agentpedia-audit v1",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
+        "cveLookup": "disabled",
+        "stages": [
+          {
+            "id": "static",
+            "phase": 1,
+            "title": "Static analysis",
+            "status": "complete",
+            "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed."
+          },
+          {
+            "id": "sandbox",
+            "phase": 2,
+            "title": "Sandbox run",
+            "status": "not-run",
+            "detail": "Design hook. A later phase runs the entry with no network and canary credentials."
+          },
+          {
+            "id": "redteam",
+            "phase": 3,
+            "title": "Prompt-injection red team",
+            "status": "not-run",
+            "detail": "Design hook. A later phase sends hostile text at the entry against mock tools."
+          },
+          {
+            "id": "manual",
+            "phase": 4,
+            "title": "Manual review",
+            "status": "not-run",
+            "detail": "Design hook. A later phase requires a reviewer who is not the entry's author."
+          }
+        ]
+      }
+    },
+    {
+      "name": "socratic-drill",
+      "title": "Socratic drill",
+      "description": "Socratic drilling \u2014 it asks, the user answer, it pushes back. Does NOT give the user the answer until the user earned it. Use when the user says \"drill me on\", \"quiz me\", \"socratic\", \"test me on [subject]\", or wants to study actively",
+      "category": "education",
+      "categoryLabel": "Education",
+      "categoryBlurb": "Lesson plans, practice sets, and checks of what a learner can already do.",
+      "shelfNumber": 21,
+      "subshelf": "assessment",
+      "subshelfLabel": "Assessment",
+      "callNumber": "21.3",
+      "tags": [
+        "socratic",
+        "drill",
+        "education"
+      ],
+      "added": "2026-11-23",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "author": "Anthropic",
+      "authorUrl": "https://github.com/anthropics",
+      "authorKind": "organization",
+      "curator": "Brandon",
+      "source": "import",
+      "upstream": {
+        "repo": "anthropics/claude-for-legal",
+        "commit": "4a6c651889c97cc9140580363c73e0eb17379c2b",
+        "path": "law-student/skills/socratic-drill/SKILL.md",
+        "license": "Apache-2.0",
+        "url": "https://github.com/anthropics/claude-for-legal/blob/4a6c651889c97cc9140580363c73e0eb17379c2b/law-student/skills/socratic-drill/SKILL.md"
+      },
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2004,
+          "url": "/raw/skills/education/socratic-drill/SKILL.md"
+        }
+      ],
+      "body": "# Socratic drill\n\nDo this one job: a socratic drill. Adapted from `anthropics/claude-for-legal` at commit `4a6c651889c9` (Apache-2.0). Copyright Anthropic\n\n## Steps\n\n1. Confirm the inputs the user actually supplied. Ask about a missing fact instead of inventing it.\n2. Apply the workflow below.\n3. Ask a question on the topic. Wait for answer.\n4. Push back. Ask follow-ups. Don't give the answer.\n5. Only after the student gets there (or genuinely stuck): confirm or correct.\n6. The stated rule and the uploaded rule disagree on a specific point \u2014 not a phrasing difference, not a level-of-detail difference, but a substantive contradiction.\n7. Validate the draft against that list: every claim traces to the user, and the gaps stay labeled unknown.\n\n## Example\n\nUser: Draft a socratic drill from the notes in this message. Leave any figure I did not state as unknown.\n\nAgent: A short socratic drill that uses only those notes, names the gaps, and points at the check that would show it is done.\n\n## Boundaries\n\nDo not publish the result, send it, or delete anything. Show the draft and wait. Do not install packages or phone a vendor. This skill does not invent metrics, people, or files the user did not provide.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/socratic-drill\ncp -R skills/education/socratic-drill/. .claude/skills/socratic-drill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/socratic-drill\ncp -R agentpedia/skills/education/socratic-drill/. .claude/skills/socratic-drill\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/socratic-drill\ncp -R skills/education/socratic-drill/. .codex/skills/socratic-drill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/socratic-drill\ncp -R agentpedia/skills/education/socratic-drill/. .codex/skills/socratic-drill\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/socratic-drill\ncp -R skills/education/socratic-drill/. .cursor/skills/socratic-drill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/socratic-drill\ncp -R agentpedia/skills/education/socratic-drill/. .cursor/skills/socratic-drill\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/socratic-drill\ncp -R skills/education/socratic-drill/. bot/skills/socratic-drill\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/socratic-drill\ncp -R agentpedia/skills/education/socratic-drill/. bot/skills/socratic-drill\n"
+        }
+      },
+      "rawUrl": "/raw/skills/education/socratic-drill/SKILL.md",
+      "zipUrl": "/raw/zips/socratic-drill.zip",
+      "sourcePath": "skills/education/socratic-drill",
+      "audit": {
+        "score": 100,
+        "grade": "A",
+        "status": "passed",
+        "summary": "Passed. The static audit found no critical or high findings.",
+        "graceDays": 14,
+        "graceDaysLeft": null,
+        "counts": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "findings": [],
+        "auditedCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+        "contentDigest": "sha256:265dcb6bb9ffa7dbbd9f3d8b326b7886d6c56c6798998bd6955be5ad2c3a866d",
+        "lockHash": "130cf5718822180ac2a745d45828d653ad5ff8d7194f96eb242f1775d65bc6fe",
+        "lockHashAlg": "skills-lock-v2",
+        "rulesetVersion": "1.0.0",
+        "auditor": "agentpedia-audit v1",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
+        "cveLookup": "disabled",
+        "stages": [
+          {
+            "id": "static",
+            "phase": 1,
+            "title": "Static analysis",
+            "status": "complete",
+            "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed."
+          },
+          {
+            "id": "sandbox",
+            "phase": 2,
+            "title": "Sandbox run",
+            "status": "not-run",
+            "detail": "Design hook. A later phase runs the entry with no network and canary credentials."
+          },
+          {
+            "id": "redteam",
+            "phase": 3,
+            "title": "Prompt-injection red team",
+            "status": "not-run",
+            "detail": "Design hook. A later phase sends hostile text at the entry against mock tools."
+          },
+          {
+            "id": "manual",
+            "phase": 4,
+            "title": "Manual review",
+            "status": "not-run",
+            "detail": "Design hook. A later phase requires a reviewer who is not the entry's author."
+          }
+        ]
+      }
+    },
+    {
+      "name": "synthesize-research",
+      "title": "Synthesize research",
+      "description": "Synthesize user research from interviews, surveys, and feedback into structured insights. Use when the user have a pile of interview notes, survey responses, or support tickets to make sense of, need to extract themes and rank findings by frequency and impact, or want to turn raw feedback into roadmap recommendations",
+      "category": "product",
+      "categoryLabel": "Product",
+      "categoryBlurb": "Discovery notes, specs, and roadmaps for a product the user is shaping.",
+      "shelfNumber": 22,
+      "subshelf": "roadmaps",
+      "subshelfLabel": "Roadmaps",
+      "callNumber": "22.3",
+      "tags": [
+        "synthesize",
+        "research",
+        "product"
+      ],
+      "added": "2026-11-23",
+      "featured": false,
+      "license": "Apache-2.0",
+      "compatibility": "",
+      "author": "Anthropic",
+      "authorUrl": "https://github.com/anthropics",
+      "authorKind": "organization",
+      "curator": "Brandon",
+      "source": "import",
+      "upstream": {
+        "repo": "anthropics/knowledge-work-plugins",
+        "commit": "2baf6d1eded3cd7aeff0b5c5918601a5799189b4",
+        "path": "product-management/skills/synthesize-research/SKILL.md",
+        "license": "Apache-2.0",
+        "url": "https://github.com/anthropics/knowledge-work-plugins/blob/2baf6d1eded3cd7aeff0b5c5918601a5799189b4/product-management/skills/synthesize-research/SKILL.md"
+      },
+      "lint": {
+        "score": 100,
+        "errors": 0,
+        "warnings": 0,
+        "info": 0,
+        "badge": "clean",
+        "findings": []
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 2063,
+          "url": "/raw/skills/product/synthesize-research/SKILL.md"
+        }
+      ],
+      "body": "# Synthesize research\n\nDo this one job: a synthesize research. Adapted from `anthropics/knowledge-work-plugins` at commit `2baf6d1eded3` (Apache-2.0). Copyright Anthropic\n\n## Steps\n\n1. Confirm the inputs the user actually supplied. Ask about a missing fact instead of inventing it.\n2. Key observations: What did users say, do, or experience?\n3. Quotes: Verbatim quotes that illustrate important points\n4. Behaviors: What users actually did (vs what they said they do)\n5. Pain points: Frustrations, workarounds, and unmet needs\n6. Positive signals: What works well, moments of delight\n7. Validate the draft against that list: every claim traces to the user, and the gaps stay labeled unknown.\n\n## Example\n\nUser: Draft a synthesize research from the notes in this message. Leave any figure I did not state as unknown.\n\nAgent: A short synthesize research that uses only those notes, names the gaps, and points at the check that would show it is done.\n\n## Boundaries\n\nDo not publish the result, send it, or delete anything. Show the draft and wait. Do not install packages or phone a vendor. This skill does not invent metrics, people, or files the user did not provide.\n",
+      "install": {
+        "claude": {
+          "label": "Claude Code",
+          "hint": "Project skills live in .claude/skills. For every project on the machine, use $HOME/.claude/skills instead.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .claude/skills/synthesize-research\ncp -R skills/product/synthesize-research/. .claude/skills/synthesize-research\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .claude/skills/synthesize-research\ncp -R agentpedia/skills/product/synthesize-research/. .claude/skills/synthesize-research\n"
+        },
+        "codex": {
+          "label": "Codex",
+          "hint": "Codex reads .codex/skills in the project, or $HOME/.codex/skills for a personal install.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .codex/skills/synthesize-research\ncp -R skills/product/synthesize-research/. .codex/skills/synthesize-research\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .codex/skills/synthesize-research\ncp -R agentpedia/skills/product/synthesize-research/. .codex/skills/synthesize-research\n"
+        },
+        "cursor": {
+          "label": "Cursor",
+          "hint": "Put the folder in .cursor/skills so Cursor can load the SKILL.md on demand.",
+          "snippet": "# From a checkout of this repo\nmkdir -p .cursor/skills/synthesize-research\ncp -R skills/product/synthesize-research/. .cursor/skills/synthesize-research\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p .cursor/skills/synthesize-research\ncp -R agentpedia/skills/product/synthesize-research/. .cursor/skills/synthesize-research\n"
+        },
+        "grok": {
+          "label": "Grok Bot",
+          "hint": "Agent SDK bots load skills from bot/skills. Copy the folder there and keep the name.",
+          "snippet": "# From a checkout of this repo\nmkdir -p bot/skills/synthesize-research\ncp -R skills/product/synthesize-research/. bot/skills/synthesize-research\n\n# Or clone, then copy\ngit clone --depth 1 https://github.com/brandononchain/agentpedia.git\nmkdir -p bot/skills/synthesize-research\ncp -R agentpedia/skills/product/synthesize-research/. bot/skills/synthesize-research\n"
+        }
+      },
+      "rawUrl": "/raw/skills/product/synthesize-research/SKILL.md",
+      "zipUrl": "/raw/zips/synthesize-research.zip",
+      "sourcePath": "skills/product/synthesize-research",
+      "audit": {
+        "score": 100,
+        "grade": "A",
+        "status": "passed",
+        "summary": "Passed. The static audit found no critical or high findings.",
+        "graceDays": 14,
+        "graceDaysLeft": null,
+        "counts": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "findings": [],
+        "auditedCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+        "contentDigest": "sha256:730d0c836801d520939fbcac30e76ced000bce7109b083870e1c0cbba8f98f0d",
+        "lockHash": "7d4c8d71cb91fc95f8cc35ea29e605e551d757fabe452c0618e3aa45a82b6a64",
+        "lockHashAlg": "skills-lock-v2",
+        "rulesetVersion": "1.0.0",
+        "auditor": "agentpedia-audit v1",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
+        "cveLookup": "disabled",
+        "stages": [
+          {
+            "id": "static",
+            "phase": 1,
+            "title": "Static analysis",
+            "status": "complete",
+            "detail": "Rules S, C, and D ran on this tree. No code from the entry was executed."
+          },
+          {
+            "id": "sandbox",
+            "phase": 2,
+            "title": "Sandbox run",
+            "status": "not-run",
+            "detail": "Design hook. A later phase runs the entry with no network and canary credentials."
+          },
+          {
+            "id": "redteam",
+            "phase": 3,
+            "title": "Prompt-injection red team",
+            "status": "not-run",
+            "detail": "Design hook. A later phase sends hostile text at the entry against mock tools."
+          },
+          {
+            "id": "manual",
+            "phase": 4,
+            "title": "Manual review",
+            "status": "not-run",
+            "detail": "Design hook. A later phase requires a reviewer who is not the entry's author."
+          }
+        ]
+      }
+    },
     {
       "name": "agentpedia-submit",
       "title": "Agentpedia submit",
@@ -1239,8 +2269,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -1369,8 +2399,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -1499,8 +2529,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -1628,8 +2658,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -1757,8 +2787,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -1885,8 +2915,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -2014,8 +3044,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -2144,8 +3174,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -2273,8 +3303,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -2410,8 +3440,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -2547,8 +3577,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -2684,8 +3714,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -2826,8 +3856,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -2963,8 +3993,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -3100,8 +4130,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -3233,8 +4263,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -3366,8 +4396,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -3499,8 +4529,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -3631,8 +4661,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -3763,8 +4793,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -3895,8 +4925,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -4032,8 +5062,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -4169,8 +5199,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -4306,8 +5336,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -4443,8 +5473,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -4580,8 +5610,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -4717,8 +5747,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -4854,8 +5884,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -4991,8 +6021,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -5128,8 +6158,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -5255,8 +6285,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -5387,8 +6417,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -5514,8 +6544,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -5641,8 +6671,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -5763,8 +6793,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -5885,8 +6915,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -6007,8 +7037,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -6129,8 +7159,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -6251,8 +7281,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -6373,8 +7403,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -6495,8 +7525,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -6617,8 +7647,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -6744,8 +7774,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -6866,8 +7896,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -6988,8 +8018,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -7110,8 +8140,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -7232,8 +8262,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -7354,8 +8384,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -7476,8 +8506,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -7608,8 +8638,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -7730,8 +8760,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -7857,8 +8887,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -7984,8 +9014,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -8106,8 +9136,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -8233,8 +9263,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -8360,8 +9390,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -8482,8 +9512,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -8604,8 +9634,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -8731,8 +9761,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -8863,8 +9893,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -8995,8 +10025,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -9118,8 +10148,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -9245,8 +10275,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -9377,8 +10407,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -9499,8 +10529,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -9621,8 +10651,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -9743,8 +10773,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -9865,8 +10895,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -9987,8 +11017,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -10109,8 +11139,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -10231,8 +11261,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -10353,8 +11383,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -10475,8 +11505,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -10597,8 +11627,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -10719,8 +11749,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -10841,8 +11871,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -10963,8 +11993,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -11085,8 +12115,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -11207,8 +12237,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -11329,8 +12359,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -11451,8 +12481,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -11573,8 +12603,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -11695,8 +12725,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -11817,8 +12847,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -11938,8 +12968,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -12065,8 +13095,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -12187,8 +13217,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -12314,8 +13344,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -12436,8 +13466,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -12568,8 +13598,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -12689,8 +13719,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -12811,8 +13841,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -12933,8 +13963,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -13055,8 +14085,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -13177,8 +14207,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -13299,8 +14329,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -13421,8 +14451,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -13543,8 +14573,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -13665,8 +14695,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -13786,8 +14816,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -13908,8 +14938,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14029,8 +15059,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14150,8 +15180,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14272,8 +15302,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14394,8 +15424,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14481,8 +15511,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14570,8 +15600,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14655,8 +15685,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14748,8 +15778,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14833,8 +15863,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -14918,8 +15948,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15006,8 +16036,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15091,8 +16121,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15176,8 +16206,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15261,8 +16291,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15348,8 +16378,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15433,8 +16463,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15518,8 +16548,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15603,8 +16633,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15688,8 +16718,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15782,8 +16812,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15872,8 +16902,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -15958,8 +16988,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -16045,8 +17075,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -16130,8 +17160,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -16219,8 +17249,8 @@
         "lockHashAlg": "skills-lock-v2",
         "rulesetVersion": "1.0.0",
         "auditor": "agentpedia-audit v1",
-        "auditedAt": "2026-11-21",
-        "expiresAt": "2027-02-19",
+        "auditedAt": "2026-11-23",
+        "expiresAt": "2027-02-21",
         "cveLookup": "disabled",
         "stages": [
           {
@@ -16256,6 +17286,20 @@
     }
   ],
   "drops": [
+    {
+      "date": "2026-11-23",
+      "skills": [
+        "case-brief",
+        "flashcards",
+        "socratic-drill",
+        "hiring-screener",
+        "onboarding",
+        "recruiting-pipeline",
+        "impediment-prioritization",
+        "synthesize-research"
+      ],
+      "agents": []
+    },
     {
       "date": "2026-11-21",
       "skills": [
@@ -16772,15 +17816,15 @@
       }
     ],
     "stats": {
-      "entries": 126,
+      "entries": 134,
       "grades": {
-        "A": 126,
+        "A": 134,
         "B": 0,
         "C": 0,
         "D": 0,
         "F": 0
       },
-      "passed": 126,
+      "passed": 134,
       "warning": 0,
       "onHold": 0
     }

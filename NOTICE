@@ -21,3 +21,19 @@ Upstream skills adapted into this catalog:
   Source: https://github.com/anthropics/knowledge-work-plugins/blob/0e0fcacddcc892eb92a1b7873ff9d68159c47571/product-management/skills/write-spec/SKILL.md
 - roadmap-update, Copyright Anthropic, Apache-2.0
   Source: https://github.com/anthropics/knowledge-work-plugins/blob/0e0fcacddcc892eb92a1b7873ff9d68159c47571/product-management/skills/roadmap-update/SKILL.md
+- synthesize-research, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/knowledge-work-plugins/blob/2baf6d1eded3cd7aeff0b5c5918601a5799189b4/product-management/skills/synthesize-research/SKILL.md
+- recruiting-pipeline, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/knowledge-work-plugins/blob/2baf6d1eded3cd7aeff0b5c5918601a5799189b4/human-resources/skills/recruiting-pipeline/SKILL.md
+- onboarding, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/knowledge-work-plugins/blob/2baf6d1eded3cd7aeff0b5c5918601a5799189b4/human-resources/skills/onboarding/SKILL.md
+- hiring-screener, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/knowledge-work-plugins/blob/2baf6d1eded3cd7aeff0b5c5918601a5799189b4/small-business/skills/hiring-screener/SKILL.md
+- flashcards, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/claude-for-legal/blob/4a6c651889c97cc9140580363c73e0eb17379c2b/law-student/skills/flashcards/SKILL.md
+- socratic-drill, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/claude-for-legal/blob/4a6c651889c97cc9140580363c73e0eb17379c2b/law-student/skills/socratic-drill/SKILL.md
+- case-brief, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/claude-for-legal/blob/4a6c651889c97cc9140580363c73e0eb17379c2b/law-student/skills/case-brief/SKILL.md
+- impediment-prioritization, Copyright GitHub, Inc., MIT
+  Source: https://github.com/github/awesome-copilot/blob/f10fdb8b2660ce85c98f220b2f1ca24653768a5c/skills/impediment-prioritization/SKILL.md

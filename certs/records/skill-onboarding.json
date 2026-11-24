@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:d6444a2d12a4626d92ff87acb6499c263e98504d2d01fda647ecffbb96b3e022",
+  "id": "skill-onboarding",
+  "issuedAt": "2026-11-23",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "d34643500f1a2daaaff4d7a756b398e00f16ce4e",
+  "subject": {
+    "kind": "skill",
+    "name": "onboarding"
+  },
+  "tier": "listed"
+}
