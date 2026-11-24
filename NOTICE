@@ -21,3 +21,21 @@ Upstream skills adapted into this catalog:
   Source: https://github.com/anthropics/knowledge-work-plugins/blob/0e0fcacddcc892eb92a1b7873ff9d68159c47571/product-management/skills/write-spec/SKILL.md
 - roadmap-update, Copyright Anthropic, Apache-2.0
   Source: https://github.com/anthropics/knowledge-work-plugins/blob/0e0fcacddcc892eb92a1b7873ff9d68159c47571/product-management/skills/roadmap-update/SKILL.md
+- create-prd, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-execution/skills/create-prd/SKILL.md
+- pre-mortem, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-execution/skills/pre-mortem/SKILL.md
+- outcome-roadmap, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-execution/skills/outcome-roadmap/SKILL.md
+- strategy-red-team, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-execution/skills/strategy-red-team/SKILL.md
+- review-resume, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-toolkit/skills/review-resume/SKILL.md
+- interview-script, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-product-discovery/skills/interview-script/SKILL.md
+- release-notes, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-execution/skills/release-notes/SKILL.md
+- summarize-interview, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-product-discovery/skills/summarize-interview/SKILL.md
+- teach, Copyright (c) 2026 Matt Pocock, MIT
+  Source: https://github.com/mattpocock/skills/blob/d65391149dbb5fe76478e76fa8d5122b2aa5a70e/skills/productivity/teach/SKILL.md

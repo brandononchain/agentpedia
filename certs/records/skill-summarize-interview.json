@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:367e94691f72acd644e6bcd10bdba2ac048da0a215ca6b2ddcb8a4717d5e88a3",
+  "id": "skill-summarize-interview",
+  "issuedAt": "2026-11-24",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0bdc61bd0b3455c7c4a65c52a68808428cfa3e74",
+  "subject": {
+    "kind": "skill",
+    "name": "summarize-interview"
+  },
+  "tier": "listed"
+}

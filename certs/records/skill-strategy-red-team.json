@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:a45d7146297a336fb3f7b15077cbdd0f5a2b4bab80248e522a16b13825daa6f9",
+  "id": "skill-strategy-red-team",
+  "issuedAt": "2026-11-24",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0bdc61bd0b3455c7c4a65c52a68808428cfa3e74",
+  "subject": {
+    "kind": "skill",
+    "name": "strategy-red-team"
+  },
+  "tier": "listed"
+}

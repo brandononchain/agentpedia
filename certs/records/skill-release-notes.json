@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:143c7d6ebf10e5ad26f79f51dab2f8618ed7d94fcc931e5d010370ae0605c09c",
+  "id": "skill-release-notes",
+  "issuedAt": "2026-11-24",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "0bdc61bd0b3455c7c4a65c52a68808428cfa3e74",
+  "subject": {
+    "kind": "skill",
+    "name": "release-notes"
+  },
+  "tier": "listed"
+}
