@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:f81f67bf39651ba79fbf215c52dbb97c6998005b18c2e369016ef6e71ccf0aee",
+  "id": "skill-analyze-feature-requests",
+  "issuedAt": "2026-11-25",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "8fd5676efe58b847ae5ab554f567842cb8341915",
+  "subject": {
+    "kind": "skill",
+    "name": "analyze-feature-requests"
+  },
+  "tier": "listed"
+}

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:fde1852b4deface9b9e0fb100c437678687bc2caf13b26119c6d821913211b5e",
+  "id": "skill-scaffold-exercises",
+  "issuedAt": "2026-11-25",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "8fd5676efe58b847ae5ab554f567842cb8341915",
+  "subject": {
+    "kind": "skill",
+    "name": "scaffold-exercises"
+  },
+  "tier": "listed"
+}
