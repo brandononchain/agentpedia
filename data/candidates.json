@@ -6,8 +6,8 @@
     "compatible": 3875,
     "readmeOnly": 17,
     "withPath": 3872,
-    "queued": 3860,
-    "imported": 16,
+    "queued": 3852,
+    "imported": 24,
     "rejected": 16,
     "discovered": 6693
   },
@@ -477,8 +477,8 @@
       "licenseState": "compatible",
       "shelf": "security-compliance",
       "score": 182.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/security-compliance/security-and-hardening"
     },
     {
       "name": "shipping-and-launch",
@@ -3837,8 +3837,8 @@
       "licenseState": "compatible",
       "shelf": "education",
       "score": 168.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/education/scaffold-exercises"
     },
     {
       "name": "teach",
@@ -4005,8 +4005,8 @@
       "licenseState": "compatible",
       "shelf": "sales-gtm",
       "score": 167.51,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/sales-gtm/call-prep"
     },
     {
       "name": "write-query",
@@ -18777,8 +18777,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 146.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/ab-test-analysis"
     },
     {
       "name": "adaptyv",
@@ -18837,8 +18837,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 146.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/analyze-feature-requests"
     },
     {
       "name": "anndata",
@@ -23337,8 +23337,8 @@
       "licenseState": "compatible",
       "shelf": "trading",
       "score": 142.29,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/trading/pre-trade-discipline-gate"
     },
     {
       "name": "crypto-regime-analyzer",
@@ -30261,8 +30261,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 135.02,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/people/devrel-hiring"
     },
     {
       "name": "laravel-specialist",
@@ -41481,8 +41481,8 @@
       "licenseState": "compatible",
       "shelf": "marketing",
       "score": 122.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/marketing/x-twitter-growth"
     },
     {
       "name": "youtube-full",

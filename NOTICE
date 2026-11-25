@@ -37,3 +37,19 @@ Upstream skills adapted into this catalog:
   Source: https://github.com/anthropics/claude-for-legal/blob/4a6c651889c97cc9140580363c73e0eb17379c2b/law-student/skills/case-brief/SKILL.md
 - impediment-prioritization, Copyright GitHub, Inc., MIT
   Source: https://github.com/github/awesome-copilot/blob/f10fdb8b2660ce85c98f220b2f1ca24653768a5c/skills/impediment-prioritization/SKILL.md
+- scaffold-exercises, Copyright (c) 2026 Matt Pocock, MIT
+  Source: https://github.com/mattpocock/skills/blob/6f7f7831a625f040a8e06a0e7954826b87ce775a/skills/misc/scaffold-exercises/SKILL.md
+- ab-test-analysis, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-data-analytics/skills/ab-test-analysis/SKILL.md
+- analyze-feature-requests, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-product-discovery/skills/analyze-feature-requests/SKILL.md
+- security-and-hardening, Copyright (c) 2025 Addy Osmani, MIT
+  Source: https://github.com/addyosmani/agent-skills/blob/e997ac5b9a74eab332d5e9793bb38a38c8cfdd74/skills/security-and-hardening/SKILL.md
+- call-prep, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/knowledge-work-plugins/blob/5e504ae11498f2b8daa30d86b7dab97b2ecd8092/sales/skills/call-prep/SKILL.md
+- pre-trade-discipline-gate, Copyright (c) 2026 TraderMonty, MIT
+  Source: https://github.com/tradermonty/claude-trading-skills/blob/4080042a7863f5eeb48aabeaf60bd547efb99949/skills/pre-trade-discipline-gate/SKILL.md
+- devrel-hiring, Copyright (c) 2026 Samuel Berthe, MIT
+  Source: https://github.com/samber/developer-relations-skills/blob/bc8ac6d8fbcceda4334222ec997ff3113d0f48aa/skills/devrel-hiring/SKILL.md
+- x-twitter-growth, Copyright (c) 2025 Alireza Rezvani, MIT
+  Source: https://github.com/alirezarezvani/claude-skills/blob/91a20bafbdba2d03be133b7bf55571ceeeade638/marketing-skill/skills/x-twitter-growth/SKILL.md
