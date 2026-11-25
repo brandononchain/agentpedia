@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:ceccbf97b95d21c82e4d559969abede730029809a59c6a1619cdbd51cfd96c07",
+  "id": "skill-devrel-hiring",
+  "issuedAt": "2026-11-25",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "8fd5676efe58b847ae5ab554f567842cb8341915",
+  "subject": {
+    "kind": "skill",
+    "name": "devrel-hiring"
+  },
+  "tier": "listed"
+}

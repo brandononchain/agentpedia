@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:4d4498305bc7520a9541d8050ef70b6e8b6516d89b66f758e07b486c443d6847",
+  "id": "skill-pre-trade-discipline-gate",
+  "issuedAt": "2026-11-25",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "8fd5676efe58b847ae5ab554f567842cb8341915",
+  "subject": {
+    "kind": "skill",
+    "name": "pre-trade-discipline-gate"
+  },
+  "tier": "listed"
+}

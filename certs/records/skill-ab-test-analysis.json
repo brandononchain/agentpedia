@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:0eb32d557ac199d62aa73b16844dc9f6551e7f70b681b8059ccad9d7595a1695",
+  "id": "skill-ab-test-analysis",
+  "issuedAt": "2026-11-25",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "8fd5676efe58b847ae5ab554f567842cb8341915",
+  "subject": {
+    "kind": "skill",
+    "name": "ab-test-analysis"
+  },
+  "tier": "listed"
+}

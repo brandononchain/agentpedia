@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:05c1b93c70d9581efd7d1a736e05e86732d4cb96e9a08e26e871f3f885485a72",
+  "id": "skill-security-and-hardening",
+  "issuedAt": "2026-11-25",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "8fd5676efe58b847ae5ab554f567842cb8341915",
+  "subject": {
+    "kind": "skill",
+    "name": "security-and-hardening"
+  },
+  "tier": "listed"
+}
