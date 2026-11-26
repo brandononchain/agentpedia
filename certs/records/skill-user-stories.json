@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:373761346509a5d3b51b3f6ffc0bcb09bbff8db5690841767c4e467ee4ce3c18",
+  "id": "skill-user-stories",
+  "issuedAt": "2026-11-26",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "f5b2d1da2995265c8016c12f731216d1db91b614",
+  "subject": {
+    "kind": "skill",
+    "name": "user-stories"
+  },
+  "tier": "listed"
+}

@@ -37,3 +37,19 @@ Upstream skills adapted into this catalog:
   Source: https://github.com/anthropics/claude-for-legal/blob/4a6c651889c97cc9140580363c73e0eb17379c2b/law-student/skills/case-brief/SKILL.md
 - impediment-prioritization, Copyright GitHub, Inc., MIT
   Source: https://github.com/github/awesome-copilot/blob/f10fdb8b2660ce85c98f220b2f1ca24653768a5c/skills/impediment-prioritization/SKILL.md
+- k12-lesson-plan-creation, Copyright Anthropic, Apache-2.0
+  Source: https://github.com/anthropics/k12-teacher-skills/blob/31fd6dbb0c07cb50bb3ce7f62a4135a393bd0e8c/plugin/skills/k12-lesson-plan-creation/SKILL.md
+- prioritize-features, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-product-discovery/skills/prioritize-features/SKILL.md
+- sprint-plan, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-execution/skills/sprint-plan/SKILL.md
+- user-stories, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-execution/skills/user-stories/SKILL.md
+- gtm-0-to-1-launch, Copyright GitHub, Inc., MIT
+  Source: https://github.com/github/awesome-copilot/blob/93fc8b9ee3ef56b9b5e7261e6ce92d314cb2c1cf/skills/gtm-0-to-1-launch/SKILL.md
+- python-mcp-server-generator, Copyright GitHub, Inc., MIT
+  Source: https://github.com/github/awesome-copilot/blob/93fc8b9ee3ef56b9b5e7261e6ce92d314cb2c1cf/skills/python-mcp-server-generator/SKILL.md
+- edge-strategy-reviewer, Copyright (c) 2026 TraderMonty, MIT
+  Source: https://github.com/tradermonty/claude-trading-skills/blob/1fd5da2949a56170369a0aa639da0488f2b21750/skills/edge-strategy-reviewer/SKILL.md
+- developer-platform-hiring, Copyright (c) 2026 Samuel Berthe, MIT
+  Source: https://github.com/samber/developer-platform-skills/blob/c042e5dc688e541c5078206dba695157d63961fa/skills/developer-platform-hiring/SKILL.md

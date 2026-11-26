@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:c6fb337a04fe714f368ed43f2883c6a52d9c93f780d71c102c6ab31e10ee2b5c",
+  "id": "skill-prioritize-features",
+  "issuedAt": "2026-11-26",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "f5b2d1da2995265c8016c12f731216d1db91b614",
+  "subject": {
+    "kind": "skill",
+    "name": "prioritize-features"
+  },
+  "tier": "listed"
+}
