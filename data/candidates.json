@@ -6,8 +6,8 @@
     "compatible": 3875,
     "readmeOnly": 17,
     "withPath": 3872,
-    "queued": 3860,
-    "imported": 16,
+    "queued": 3852,
+    "imported": 24,
     "rejected": 16,
     "discovered": 6693
   },
@@ -1893,8 +1893,8 @@
       "licenseState": "compatible",
       "shelf": "agent-ops",
       "score": 178.11,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/agent-ops/python-mcp-server-generator"
     },
     {
       "name": "ai-prompt-engineering-safety-review",
@@ -12537,8 +12537,8 @@
       "licenseState": "compatible",
       "shelf": "sales-gtm",
       "score": 152.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/sales-gtm/gtm-0-to-1-launch"
     },
     {
       "name": "gtm-ai-gtm",
@@ -20445,8 +20445,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 146.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/prioritize-features"
     },
     {
       "name": "privacy-policy",
@@ -21009,8 +21009,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 146.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/sprint-plan"
     },
     {
       "name": "stable-baselines3",
@@ -21285,8 +21285,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 146.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/user-stories"
     },
     {
       "name": "usfiscaldata",
@@ -22603,10 +22603,10 @@
       "path": "plugin/skills/k12-lesson-plan-creation/SKILL.md",
       "license": "Apache-2.0",
       "licenseState": "compatible",
-      "shelf": "agent-ops",
+      "shelf": "education",
       "score": 143.43,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/education/k12-lesson-plan-creation"
     },
     {
       "name": "self-improving-agent",
@@ -22785,8 +22785,8 @@
       "licenseState": "compatible",
       "shelf": "trading",
       "score": 142.67,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/trading/edge-strategy-reviewer"
     },
     {
       "name": "edge-strategy-designer",
@@ -32205,8 +32205,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 132.1,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/people/developer-platform-hiring"
     },
     {
       "name": "okx-guide",
