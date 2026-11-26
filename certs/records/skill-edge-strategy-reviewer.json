@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:e02d966520062d8d8108e51044173c916eec55dffae91f4e9df2cdf9b16951ed",
+  "id": "skill-edge-strategy-reviewer",
+  "issuedAt": "2026-11-26",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "f5b2d1da2995265c8016c12f731216d1db91b614",
+  "subject": {
+    "kind": "skill",
+    "name": "edge-strategy-reviewer"
+  },
+  "tier": "listed"
+}

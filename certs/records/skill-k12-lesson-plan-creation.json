@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:e26c7b81cc4a48e7ddd304d1d67dffb22223da90b01300fff7b36a43acbcf43c",
+  "id": "skill-k12-lesson-plan-creation",
+  "issuedAt": "2026-11-26",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "f5b2d1da2995265c8016c12f731216d1db91b614",
+  "subject": {
+    "kind": "skill",
+    "name": "k12-lesson-plan-creation"
+  },
+  "tier": "listed"
+}

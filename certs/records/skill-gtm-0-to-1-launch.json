@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:f7f4ee1a25e622c909c8dc9803bcd5fb414c88d883e32dc65e7f7267c67e45d5",
+  "id": "skill-gtm-0-to-1-launch",
+  "issuedAt": "2026-11-26",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "f5b2d1da2995265c8016c12f731216d1db91b614",
+  "subject": {
+    "kind": "skill",
+    "name": "gtm-0-to-1-launch"
+  },
+  "tier": "listed"
+}

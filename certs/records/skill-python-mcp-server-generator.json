@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:f34538dc3f634a39f05ab72ed1510950286b81b3878ec02f2f3fcc03c85af6c0",
+  "id": "skill-python-mcp-server-generator",
+  "issuedAt": "2026-11-26",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "f5b2d1da2995265c8016c12f731216d1db91b614",
+  "subject": {
+    "kind": "skill",
+    "name": "python-mcp-server-generator"
+  },
+  "tier": "listed"
+}

@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:c1850ffb42c69d068cd82eb06e195a0910f6453e5b3c4f3af202558df318395e",
+  "id": "skill-developer-platform-hiring",
+  "issuedAt": "2026-11-26",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "f5b2d1da2995265c8016c12f731216d1db91b614",
+  "subject": {
+    "kind": "skill",
+    "name": "developer-platform-hiring"
+  },
+  "tier": "listed"
+}
