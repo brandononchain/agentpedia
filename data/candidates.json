@@ -6,9 +6,9 @@
     "compatible": 3875,
     "readmeOnly": 17,
     "withPath": 3872,
-    "queued": 3860,
-    "imported": 16,
-    "rejected": 16,
+    "queued": 3852,
+    "imported": 22,
+    "rejected": 18,
     "discovered": 6693
   },
   "candidates": [
@@ -12597,8 +12597,8 @@
       "licenseState": "compatible",
       "shelf": "sales-gtm",
       "score": 152.0,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "same MIT text as positioning-strategy, imported from beingsmit/technical-product-gtm"
     },
     {
       "name": "gtm-product-led-growth",
@@ -12609,8 +12609,8 @@
       "licenseState": "compatible",
       "shelf": "sales-gtm",
       "score": 152.0,
-      "status": "queued",
-      "reason": ""
+      "status": "rejected",
+      "reason": "same MIT text as product-led-growth, imported from beingsmit/technical-product-gtm"
     },
     {
       "name": "gtm-technical-product-pricing",
@@ -19197,8 +19197,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 146.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/customer-journey-map"
     },
     {
       "name": "dask",
@@ -20145,8 +20145,8 @@
       "licenseState": "compatible",
       "shelf": "product",
       "score": 146.0,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/product/opportunity-solution-tree"
     },
     {
       "name": "optimize-for-gpu",
@@ -22893,8 +22893,8 @@
       "licenseState": "compatible",
       "shelf": "trading",
       "score": 142.62,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/trading/data-quality-checker"
     },
     {
       "name": "strategy-pivot-designer",
@@ -23229,8 +23229,8 @@
       "licenseState": "compatible",
       "shelf": "agent-ops",
       "score": 142.39,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/education/k12-lesson-prep"
     },
     {
       "name": "ibd-distribution-day-monitor",
@@ -23301,8 +23301,8 @@
       "licenseState": "compatible",
       "shelf": "agent-ops",
       "score": 142.33,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/education/k12-check-for-understanding"
     },
     {
       "name": "k12-lesson-differentiation",
@@ -28917,8 +28917,8 @@
       "licenseState": "compatible",
       "shelf": "people",
       "score": 136.43,
-      "status": "queued",
-      "reason": ""
+      "status": "imported",
+      "reason": "imported to skills/people/resume-tailor"
     },
     {
       "name": "landing-optimizer",

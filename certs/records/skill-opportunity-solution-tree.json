@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:864814b39676cfcc40d8b33487b02f2ef57e869bad3218f2ebe0ade33660e046",
+  "id": "skill-opportunity-solution-tree",
+  "issuedAt": "2026-11-27",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "67706cc5bbef9b9676689f39e64fc6eb23133954",
+  "subject": {
+    "kind": "skill",
+    "name": "opportunity-solution-tree"
+  },
+  "tier": "listed"
+}

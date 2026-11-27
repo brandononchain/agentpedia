@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:1350317c77def7ec604d4670363548cbedaf7ae404612e484ebb9b66ffe113b6",
+  "id": "skill-positioning-strategy",
+  "issuedAt": "2026-11-27",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "67706cc5bbef9b9676689f39e64fc6eb23133954",
+  "subject": {
+    "kind": "skill",
+    "name": "positioning-strategy"
+  },
+  "tier": "listed"
+}

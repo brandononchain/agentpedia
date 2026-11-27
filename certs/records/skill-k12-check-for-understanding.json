@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:58fd490d0a9b338984284e33190bdf0783ed827b68512f07aef3d0c1b16b4453",
+  "id": "skill-k12-check-for-understanding",
+  "issuedAt": "2026-11-27",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "67706cc5bbef9b9676689f39e64fc6eb23133954",
+  "subject": {
+    "kind": "skill",
+    "name": "k12-check-for-understanding"
+  },
+  "tier": "listed"
+}
