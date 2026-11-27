@@ -37,3 +37,19 @@ Upstream skills adapted into this catalog:
   Source: https://github.com/anthropics/claude-for-legal/blob/4a6c651889c97cc9140580363c73e0eb17379c2b/law-student/skills/case-brief/SKILL.md
 - impediment-prioritization, Copyright GitHub, Inc., MIT
   Source: https://github.com/github/awesome-copilot/blob/f10fdb8b2660ce85c98f220b2f1ca24653768a5c/skills/impediment-prioritization/SKILL.md
+- k12-lesson-prep, Copyright 2026 Anthropic, PBC. Copyright 2026 Learning Commons., Apache-2.0
+  Source: https://github.com/anthropics/k12-teacher-skills/blob/31fd6dbb0c07cb50bb3ce7f62a4135a393bd0e8c/plugin/skills/k12-lesson-prep/SKILL.md
+- k12-check-for-understanding, Copyright 2026 Anthropic, PBC. Copyright 2026 Learning Commons., Apache-2.0
+  Source: https://github.com/anthropics/k12-teacher-skills/blob/31fd6dbb0c07cb50bb3ce7f62a4135a393bd0e8c/plugin/skills/k12-check-for-understanding/SKILL.md
+- customer-journey-map, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-market-research/skills/customer-journey-map/SKILL.md
+- opportunity-solution-tree, Copyright (c) 2026 Pawel Huryn, MIT
+  Source: https://github.com/phuryn/pm-skills/blob/9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef/pm-product-discovery/skills/opportunity-solution-tree/SKILL.md
+- resume-tailor, Copyright (c) 2026 Claude Office Skills Contributors, MIT
+  Source: https://github.com/claude-office-skills/skills/blob/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/resume-tailor/SKILL.md
+- positioning-strategy, Copyright (c) 2026 Smit Patel, MIT
+  Source: https://github.com/beingsmit/technical-product-gtm/blob/ef1aa7dd8564b4d824021cf152468ece278e1513/skills/positioning-strategy/SKILL.md
+- product-led-growth, Copyright (c) 2026 Smit Patel, MIT
+  Source: https://github.com/beingsmit/technical-product-gtm/blob/ef1aa7dd8564b4d824021cf152468ece278e1513/skills/product-led-growth/SKILL.md
+- data-quality-checker, Copyright (c) 2026 TraderMonty, MIT
+  Source: https://github.com/tradermonty/claude-trading-skills/blob/7c3c959a23b1d409929d50c7ba7b6dc4d40abdf8/skills/data-quality-checker/SKILL.md
