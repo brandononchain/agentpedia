@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:ffccd3fd6c287a5ce6c062f98940f535f9c303e21cb3228aca073d597b384d0b",
+  "id": "skill-data-quality-checker",
+  "issuedAt": "2026-11-27",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "67706cc5bbef9b9676689f39e64fc6eb23133954",
+  "subject": {
+    "kind": "skill",
+    "name": "data-quality-checker"
+  },
+  "tier": "listed"
+}

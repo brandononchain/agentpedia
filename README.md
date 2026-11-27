@@ -1,16 +1,16 @@
 # Agentpedia
 
 <!-- badges:start -->
-[![skills](https://img.shields.io/badge/skills-113-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
+[![skills](https://img.shields.io/badge/skills-121-0e4f57?style=flat-square&labelColor=f4efe4)](https://github.com/brandononchain/agentpedia)
 [![agents](https://img.shields.io/badge/agents-21-efe6d2?style=flat-square&labelColor=10110e)](https://github.com/brandononchain/agentpedia)
 [![shelves](https://img.shields.io/badge/shelves-23-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/)
 [![lint](https://img.shields.io/badge/lint-all_100,_0_errors-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/lint)
-[![audit](https://img.shields.io/badge/audit-134_A-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/security)
-[![listed](https://img.shields.io/badge/listed-132-efe6d2?style=flat-square&labelColor=10110e)](https://agentpedia.sh/certification)
+[![audit](https://img.shields.io/badge/audit-142_A-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/security)
+[![listed](https://img.shields.io/badge/listed-140-efe6d2?style=flat-square&labelColor=10110e)](https://agentpedia.sh/certification)
 [![verified](https://img.shields.io/badge/verified-2-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/certification)
 [![certified](https://img.shields.io/badge/certified-0-10110e?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/certification)
 [![on hold](https://img.shields.io/badge/on_hold-0-c9c0ae?style=flat-square&labelColor=10110e)](https://agentpedia.sh/security)
-[![latest drop](https://img.shields.io/badge/latest_drop-2026--11--23-10110e?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/changelog)
+[![latest drop](https://img.shields.io/badge/latest_drop-2026--11--27-10110e?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh/changelog)
 [![license](https://img.shields.io/badge/license-Apache--2.0-c9c0ae?style=flat-square&labelColor=10110e)](LICENSE)
 [![site](https://img.shields.io/badge/site-agentpedia.sh-0e4f57?style=flat-square&labelColor=f4efe4)](https://agentpedia.sh)
 <!-- badges:end -->
@@ -24,16 +24,16 @@ Agentpedia (agentpedia.sh) is the open, audited encyclopedia of AI agent skills 
 <!-- stats:start -->
 | | |
 | --- | --- |
-| Skills | 113 |
+| Skills | 121 |
 | Agents | 21 |
 | Shelves | 23 |
-| Lint | 100 on all 113 skills, 0 errors, 0 warnings |
-| Audit | 134 A, 0 B, 0 C, 0 D, 0 F |
-| Listed | 132 |
+| Lint | 100 on all 121 skills, 0 errors, 0 warnings |
+| Audit | 142 A, 0 B, 0 C, 0 D, 0 F |
+| Listed | 140 |
 | Verified | 2 |
 | Certified | 0 |
 | On hold | 0 |
-| Latest drop | 2026-11-23 |
+| Latest drop | 2026-11-27 |
 <!-- stats:end -->
 
 Most published skills do not meet their own authoring rules. In [From Anatomy to Smells](https://arxiv.org/abs/2607.01456), Hong, Imani, and Ahmed at UC Irvine studied 238 real `SKILL.md` files. 237 of them — over 99 percent — had at least one skill smell, and those smells rarely got fixed later.

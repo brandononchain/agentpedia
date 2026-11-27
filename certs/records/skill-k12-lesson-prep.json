@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:f1133ce564697f3f389985f7956177fa8bbf9dca9c73f10182d7cf9a24efcafd",
+  "id": "skill-k12-lesson-prep",
+  "issuedAt": "2026-11-27",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "67706cc5bbef9b9676689f39e64fc6eb23133954",
+  "subject": {
+    "kind": "skill",
+    "name": "k12-lesson-prep"
+  },
+  "tier": "listed"
+}

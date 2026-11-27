@@ -1,0 +1,13 @@
+{
+  "contentDigest": "sha256:1a5f6e86fe5a432c29695849015a7c63b0cf6e2bfeabc8f9d7e006c57b9853a8",
+  "id": "skill-product-led-growth",
+  "issuedAt": "2026-11-27",
+  "review": null,
+  "schema": "agentpedia.certificate-record.v1",
+  "sourceCommit": "67706cc5bbef9b9676689f39e64fc6eb23133954",
+  "subject": {
+    "kind": "skill",
+    "name": "product-led-growth"
+  },
+  "tier": "listed"
+}
